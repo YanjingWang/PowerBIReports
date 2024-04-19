@@ -1,0 +1,34 @@
+table 'cat Dim_Races'
+	lineageTag: 6ca1aecc-4d39-46e2-9b68-06603681f0b1
+
+	column Name
+		dataType: string
+		lineageTag: 74ed0338-927a-4dea-a8af-3caae8b269a8
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5180cfa9-a6b6-4cb2-b4ac-5ec21079b13d
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'cat Dim_Races-c776d357-ed34-497c-934c-3e1ea323c841' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_DataWarehouse", [Query="SELECT [ID],[Name] = CAST(Id as nvarchar(2)) + '. ' + [Name]#(lf)FROM [cat].[Dim_Races]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":["Id"],"queryRelationships":[{"keyColumnCount":1,"keyColumn":0,"otherKeyColumnIdentity":"Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Fact_RiskFactors.{RaceId,2}","KeyColumnCount":1}],"columnIdentities":["Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Dim_Races.{Id,0}","Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Dim_Races.{Name,1}"],"ColumnCount":2,"KeyColumnNames":["Id"],"ColumnIdentities":["Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Dim_Races.{Id,0}","Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Dim_Races.{Name,1}"],"RelationshipInfo":[{"keyColumnCount":1,"keyColumn":0,"otherKeyColumnIdentity":"Server.Database\\/2/SQL/adviserdashboardqa.database.windows.net;NDE_CAT/cat/cat.Fact_RiskFactors.{RaceId,2}","KeyColumnCount":1}]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

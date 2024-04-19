@@ -1,0 +1,19 @@
+table DimDatabasename
+	lineageTag: 0ec743a0-67cf-4034-bf9c-a69709e351be
+
+	column DatabaseName
+		dataType: string
+		lineageTag: 4082b589-2e96-4a1d-85d0-3be9ade94900
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: reportdata[DatabaseName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDatabasename-273a4a9a-97f6-4e2a-987d-012271ba1d09 = calculated
+		mode: import
+		source = ```
+				ALL(reportdata[DatabaseName]) 
+				```
+

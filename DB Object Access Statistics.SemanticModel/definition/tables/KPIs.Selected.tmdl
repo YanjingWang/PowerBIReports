@@ -1,0 +1,24 @@
+table 'KPIs.Selected'
+	lineageTag: e2293812-bfaa-46cd-8b00-fa61806f08ca
+
+	measure 'Pls.KPIs.Selected' =
+			SWITCH(TRUE(),
+			SELECTEDVALUE('Auto.Axis'[Category])="read",[10.NumofReadCounts],
+			SELECTEDVALUE('Auto.Axis'[Category])="write",[20.NumofWriteCounts],
+			[10.NumofReadCounts])
+		formatString: 0
+		lineageTag: bedbfe14-caa7-4fdb-9ca0-92582b82eb3c
+
+	column 'KPIs.Selected'
+		dataType: string
+		lineageTag: d8208c7f-dea9-4495-8b73-1611eb33fab1
+		summarizeBy: none
+		isDataTypeInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'KPIs.Selected-9bb2d4ab-fdbf-4e0f-9e29-9ed710cd5262' = calculated
+		mode: import
+		source = {"Read","Write"}
+

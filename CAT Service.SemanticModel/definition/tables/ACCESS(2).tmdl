@@ -1,0 +1,414 @@
+table ACCESS(2)
+	lineageTag: ec67ccb1-4d76-40f5-8bb1-7f97809d5908
+
+	measure 'No. of School' = Format(COUNT('ACCESS(2)'[SchoolId]),"#,###")
+		lineageTag: 307216b9-7e5d-4a50-b02b-c8f985648c6a
+
+	measure 'Total Membershipm' = If(sum('ACCESS(2)'[EnrollmentCount])<10,"*",format(sum('ACCESS(2)'[EnrollmentCount]),"#,###"))
+		lineageTag: 76feebdb-d1f9-4f04-a634-2e6222f47de1
+
+	measure 'Number of Programsm' = format(count('ACCESS(2)'[SchoolId]),"#,###")
+		lineageTag: 4dbd7c06-f18d-4e86-99d7-fff37e574865
+
+	measure 'NO. OF SCHOOL2' = COUNT('ACCESS(2)'[SchoolId])
+		formatString: 0
+		lineageTag: 2eec50d0-d0c0-440c-ba51-0e2aa0c9d440
+
+	measure CARD2 = IF(HASONEVALUE('ACCESS(2)'[DisplayName]),MAX('ACCESS(2)'[DisplayName]),"Nebraska")
+		lineageTag: 91e8a771-fd9d-4748-a5a1-43b4eae7e8a1
+
+	column 'Program Type'
+		dataType: string
+		lineageTag: 74ab04f1-5904-4170-b9fd-4e943efe5884
+		summarizeBy: none
+		sourceColumn: Program Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubType
+		dataType: string
+		lineageTag: 3aa9a2a5-5591-49a5-ade3-cc4c2f8acbbb
+		summarizeBy: none
+		sourceColumn: SubType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID1
+		dataType: int64
+		formatString: 0
+		lineageTag: f0113d3d-127e-4b78-a525-814e8dd4cc51
+		summarizeBy: sum
+		sourceColumn: ID1
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrollmentCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 4acadd7a-f576-42ca-b666-96544b6c631b
+		summarizeBy: sum
+		sourceColumn: EnrollmentCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 8656f965-7c5d-4ebd-ad8f-642c768c3e8d
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 88598a4f-66d8-4403-af3f-e1142319c64d
+		summarizeBy: none
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name1
+		dataType: string
+		lineageTag: 1fa179e3-f40c-4f70-b6e5-762169542c60
+		summarizeBy: none
+		sourceColumn: Name1
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5d154ffe-9abe-4b9f-a7e6-c775de267aa1
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0063ea95-92a6-43e7-a33f-3a5ea92b569c
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a09b9692-97e8-4ca0-9b54-22de65051201
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a7b2e64f-c341-4e77-94ba-1c8d0d273fa5
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: 3e6b7d8a-27bf-4b5a-b1b2-e51108d27f72
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID3
+		dataType: int64
+		formatString: 0
+		lineageTag: 00f4adc4-5e4f-42df-9eda-ed179411fb80
+		summarizeBy: sum
+		sourceColumn: ID3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: ec4e58ff-9d76-44ba-b003-79d9d5e1cc5e
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column SettingShortDescription
+		dataType: string
+		lineageTag: 549cd8b1-f158-4b2b-afc8-5f963e4665ef
+		summarizeBy: none
+		sourceColumn: SettingShortDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SettingName
+		dataType: string
+		lineageTag: 5ed7356d-a57c-449d-99a2-5537b1031b34
+		summarizeBy: none
+		sourceColumn: SettingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 48706b34-6071-4de2-9b26-298497409582
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolId
+		dataType: int64
+		formatString: 0
+		lineageTag: 61aa057b-43d5-460b-8d4e-7269d0c0ec59
+		summarizeBy: count
+		sourceColumn: SchoolId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID4
+		dataType: int64
+		formatString: 0
+		lineageTag: 163661e9-7def-4253-a18a-df26bc4c86a3
+		summarizeBy: sum
+		sourceColumn: ID4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: c9f3cc48-20bd-45f2-8bfb-209bf350c6d7
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column HighSchool
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c8460047-cc82-459c-b9e4-7b4631921940
+		summarizeBy: none
+		sourceColumn: HighSchool
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleSchool
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c092f7ab-bdf4-4bba-b143-23a7ed93f895
+		summarizeBy: none
+		sourceColumn: MiddleSchool
+
+		annotation SummarizationSetBy = Automatic
+
+	column ElementarySchool
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5996c704-5705-4155-82e3-abe4f245544e
+		summarizeBy: none
+		sourceColumn: ElementarySchool
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddress1
+		dataType: string
+		lineageTag: 8bf3b824-f1de-411e-8d73-b7a4b272b41f
+		summarizeBy: none
+		sourceColumn: PhysicalAddress1
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddress2
+		dataType: string
+		lineageTag: 7df573f7-a104-4484-a396-881e731ccddd
+		summarizeBy: none
+		sourceColumn: PhysicalAddress2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddress3
+		dataType: string
+		lineageTag: 80e9fd92-676a-45f5-be08-02f199066678
+		summarizeBy: none
+		sourceColumn: PhysicalAddress3
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddressCity
+		dataType: string
+		lineageTag: 56905af7-fcd9-46ca-a9eb-ce8888b5590d
+		summarizeBy: none
+		sourceColumn: PhysicalAddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddressState
+		dataType: string
+		lineageTag: d39a5d75-3a1a-415b-bde0-354038c46652
+		summarizeBy: none
+		sourceColumn: PhysicalAddressState
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddressZip
+		dataType: string
+		lineageTag: 2e62e6c1-16b7-426f-b134-5c43ebf39f3f
+		summarizeBy: none
+		sourceColumn: PhysicalAddressZip
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalAddress
+		dataType: string
+		lineageTag: 6a5f86bd-65ed-45fe-ba53-9347a5e7775d
+		summarizeBy: none
+		sourceColumn: PhysicalAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddress1
+		dataType: string
+		lineageTag: 44a49bb2-f676-4aef-ada3-f69e5df0d19e
+		summarizeBy: none
+		sourceColumn: MailingAddress1
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddress2
+		dataType: string
+		lineageTag: 43b928b0-1096-4e9f-b851-77a40157f39b
+		summarizeBy: none
+		sourceColumn: MailingAddress2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddress3
+		dataType: string
+		lineageTag: ae0ea0a0-33d8-4ddf-bfbd-f5f782bcae04
+		summarizeBy: none
+		sourceColumn: MailingAddress3
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressCity
+		dataType: string
+		lineageTag: 34bbf4d1-71f3-49fd-925c-673086181e69
+		summarizeBy: none
+		sourceColumn: MailingAddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressState
+		dataType: string
+		lineageTag: 86574e8a-64ca-4718-b7e7-50852746d32e
+		summarizeBy: none
+		sourceColumn: MailingAddressState
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressZip
+		dataType: string
+		lineageTag: 33512cbe-61e6-4ee4-9e48-e0e655899383
+		summarizeBy: none
+		sourceColumn: MailingAddressZip
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddress
+		dataType: string
+		lineageTag: 76645213-c6ce-4dd8-8e74-557e84e92160
+		summarizeBy: none
+		sourceColumn: MailingAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 3acab3e2-329b-459d-977c-59036ebe8c1a
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fax
+		dataType: string
+		lineageTag: 98eff2d8-4d6e-43fc-94e9-e0199ab667c8
+		summarizeBy: none
+		sourceColumn: Fax
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title1Designation
+		dataType: string
+		lineageTag: 64f95b78-0f1a-4415-9b0e-5c887b948c1e
+		summarizeBy: none
+		sourceColumn: Title1Designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateOrganizationId
+		dataType: string
+		lineageTag: b7b4c461-f060-41ef-89a5-bae1f1faab32
+		summarizeBy: none
+		sourceColumn: StateOrganizationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: ab3120e0-2f3c-41c2-9d5a-985ca1a7ca68
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: 60f37d87-be5e-4f4d-bf21-fa37b9d8e70c
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: e9fede53-19db-490b-9ea3-fa05d07a8329
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllGeoId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dd3e13e-5b43-4705-85d1-b727f1508fa4
+		summarizeBy: count
+		sourceColumn: AllGeoId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ACCESS(2)-92b141fc-b023-401f-affc-4db0efa8b8db = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_DataWarehouse", [Query="SELECT #(lf)#(tab)[Program Type] = CASE #(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%sixpence%' THEN 'Early Childhood Birth to Age Three Endowment Programs (Sixpence)'#(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%nonsped%' THEN 'Non-special Education Home Visitation Programs'#(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%early childhood education program%' THEN 'Public School or ESU Early Childhood Education Program'#(lf)#(tab)#(tab)WHEN P.SettingShortDescription = '' AND a.SchoolId IS NOT NULL THEN 'Does not Belong to Any Type'#(lf)#(tab)#(tab)ELSE '--'#(lf)#(tab)#(tab)END#(lf)#(tab), SubType = CASE #(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%sixpence%' AND p.SettingShortDescription LIKE '%center-based%' #(lf)#(tab)#(tab)#(tab)THEN 'Sixpence Center-based Program'#(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%sixpence%' AND p.SettingShortDescription LIKE '%cpp grant%'#(lf)#(tab)#(tab)#(tab)THEN 'Sixpence Child Care Partnership'#(lf)#(tab)#(tab)WHEN p.SettingShortDescription LIKE '%sixpence%' AND p.SettingShortDescription LIKE '%home-based%'#(lf)#(tab)#(tab)#(tab)THEN 'Sixpence Home Visitation Program'#(lf)#(tab)#(tab)WHEN p.SettingName LIKE '%early childhood education program%' AND p.SettingShortDescription LIKE '%NDE Grant Funded%'#(lf)#(tab)#(tab)#(tab)THEN 'NDE Grant Funded Early Childhood Education Program'#(lf)#(tab)#(tab)WHEN p.SettingName LIKE '%early childhood education program%' AND p.SettingShortDescription LIKE '%NDE Approved%'#(lf)#(tab)#(tab)#(tab)THEN 'NDE non-Grant Funded Early Childhood Education Program '#(lf)                WHEN p.SettingShortDescription LIKE '%nonsped%' THEN 'Non-special Education Home Visitation Program'#(lf)#(tab)#(tab)ELSE #(lf)#(tab)#(tab)#(tab)''#(lf)#(tab)#(tab)END#(lf)#(tab), ID1 = a.Id#(lf)#(tab), a.SchoolId AS [SchoolId]#(lf)#(tab), ISNULL(a.EnrollmentCount,0) AS [EnrollmentCount]#(lf)#(tab), a.Age#(lf)#(tab), a.GeographyId#(lf)#(tab), [AllGeoId] = g.Id#(lf)#(tab), Name1 = g.[Name]#(lf)#(tab), g.IsCounty#(lf)#(tab), g.IsLegislative#(lf)#(tab), g.IsSchoolDistrict#(lf)#(tab), g.IsCongressional#(lf)#(tab), g.DisplayName#(lf)#(tab), ID3 = p.Id#(lf)#(tab), Name2 = p.[Name]#(lf)#(tab), p.SettingShortDescription#(lf)#(tab), p.SettingName#(lf)#(tab), p.[Type]#(lf)#(tab), ID4 = s.Id#(lf)--SELECT#(lf)#(tab)--,a.*#(lf)#(tab)--,p.*#(lf)#(tab)--,g.*#(lf)#(tab), s.*#(lf)FROM [cat].[Fact_PublicSchoolProgramAccess] a#(lf)FULL JOIN [cat].[Dim_PublicSchoolPrograms] p ON#(lf)#(tab)a.ProgramId = p.Id#(lf)FULL JOIN [cat].[Dim_Geography] g ON#(lf)#(tab)a.GeographyId = g.Id#(lf)FULL JOIN [cat].[Dim_Schools] s ON#(lf)#(tab)a.SchoolId = s.Id#(lf)WHERE [IsCounty] = 1 #(lf)--WHERE [Program Type] = 'No Programs in This County'#(lf)ORDER BY [Program Type], SubType--, ID1"]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Program Type] <> "Does not Belong to Any Type"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_QueryRelationships = {"columnCount":43,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/ACCESS(2)/Source.{Program Type,0}","Section1/ACCESS(2)/Source.{SubType,1}","Section1/ACCESS(2)/Source.{ID1,2}","Section1/ACCESS(2)/Source.{ProgramId,3}","Section1/ACCESS(2)/Source.{EnrollmentCount,4}","Section1/ACCESS(2)/Source.{Age,5}","Section1/ACCESS(2)/Source.{GeographyId,6}","Section1/ACCESS(2)/Source.{SchoolId,7}","Section1/ACCESS(2)/Source.{ID2,8}","Section1/ACCESS(2)/Source.{Name1,9}","Section1/ACCESS(2)/Source.{IsCounty,10}","Section1/ACCESS(2)/Source.{IsLegislative,11}","Section1/ACCESS(2)/Source.{IsSchoolDistrict,12}","Section1/ACCESS(2)/Source.{IsCongressional,13}","Section1/ACCESS(2)/Source.{DisplayName,14}","Section1/ACCESS(2)/Source.{ID3,15}","Section1/ACCESS(2)/Source.{Name2,16}","Section1/ACCESS(2)/Source.{SettingShortDescription,17}","Section1/ACCESS(2)/Source.{SettingName,18}","Section1/ACCESS(2)/Source.{Type,19}","Section1/ACCESS(2)/Source.{ID4,20}","Section1/ACCESS(2)/Source.{Name,21}","Section1/ACCESS(2)/Source.{HighSchool,22}","Section1/ACCESS(2)/Source.{MiddleSchool,23}","Section1/ACCESS(2)/Source.{ElementarySchool,24}","Section1/ACCESS(2)/Source.{PhysicalAddress1,25}","Section1/ACCESS(2)/Source.{PhysicalAddress2,26}","Section1/ACCESS(2)/Source.{PhysicalAddress3,27}","Section1/ACCESS(2)/Source.{PhysicalAddressCity,28}","Section1/ACCESS(2)/Source.{PhysicalAddressState,29}","Section1/ACCESS(2)/Source.{PhysicalAddressZip,30}","Section1/ACCESS(2)/Source.{PhysicalAddress,31}","Section1/ACCESS(2)/Source.{MailingAddress1,32}","Section1/ACCESS(2)/Source.{MailingAddress2,33}","Section1/ACCESS(2)/Source.{MailingAddress3,34}","Section1/ACCESS(2)/Source.{MailingAddressCity,35}","Section1/ACCESS(2)/Source.{MailingAddressState,36}","Section1/ACCESS(2)/Source.{MailingAddressZip,37}","Section1/ACCESS(2)/Source.{MailingAddress,38}","Section1/ACCESS(2)/Source.{Phone,39}","Section1/ACCESS(2)/Source.{Fax,40}","Section1/ACCESS(2)/Source.{Title1Designation,41}","Section1/ACCESS(2)/Source.{StateOrganizationId,42}"],"ColumnCount":43,"KeyColumnNames":[],"ColumnIdentities":["Section1/ACCESS(2)/Source.{Program Type,0}","Section1/ACCESS(2)/Source.{SubType,1}","Section1/ACCESS(2)/Source.{ID1,2}","Section1/ACCESS(2)/Source.{ProgramId,3}","Section1/ACCESS(2)/Source.{EnrollmentCount,4}","Section1/ACCESS(2)/Source.{Age,5}","Section1/ACCESS(2)/Source.{GeographyId,6}","Section1/ACCESS(2)/Source.{SchoolId,7}","Section1/ACCESS(2)/Source.{ID2,8}","Section1/ACCESS(2)/Source.{Name1,9}","Section1/ACCESS(2)/Source.{IsCounty,10}","Section1/ACCESS(2)/Source.{IsLegislative,11}","Section1/ACCESS(2)/Source.{IsSchoolDistrict,12}","Section1/ACCESS(2)/Source.{IsCongressional,13}","Section1/ACCESS(2)/Source.{DisplayName,14}","Section1/ACCESS(2)/Source.{ID3,15}","Section1/ACCESS(2)/Source.{Name2,16}","Section1/ACCESS(2)/Source.{SettingShortDescription,17}","Section1/ACCESS(2)/Source.{SettingName,18}","Section1/ACCESS(2)/Source.{Type,19}","Section1/ACCESS(2)/Source.{ID4,20}","Section1/ACCESS(2)/Source.{Name,21}","Section1/ACCESS(2)/Source.{HighSchool,22}","Section1/ACCESS(2)/Source.{MiddleSchool,23}","Section1/ACCESS(2)/Source.{ElementarySchool,24}","Section1/ACCESS(2)/Source.{PhysicalAddress1,25}","Section1/ACCESS(2)/Source.{PhysicalAddress2,26}","Section1/ACCESS(2)/Source.{PhysicalAddress3,27}","Section1/ACCESS(2)/Source.{PhysicalAddressCity,28}","Section1/ACCESS(2)/Source.{PhysicalAddressState,29}","Section1/ACCESS(2)/Source.{PhysicalAddressZip,30}","Section1/ACCESS(2)/Source.{PhysicalAddress,31}","Section1/ACCESS(2)/Source.{MailingAddress1,32}","Section1/ACCESS(2)/Source.{MailingAddress2,33}","Section1/ACCESS(2)/Source.{MailingAddress3,34}","Section1/ACCESS(2)/Source.{MailingAddressCity,35}","Section1/ACCESS(2)/Source.{MailingAddressState,36}","Section1/ACCESS(2)/Source.{MailingAddressZip,37}","Section1/ACCESS(2)/Source.{MailingAddress,38}","Section1/ACCESS(2)/Source.{Phone,39}","Section1/ACCESS(2)/Source.{Fax,40}","Section1/ACCESS(2)/Source.{Title1Designation,41}","Section1/ACCESS(2)/Source.{StateOrganizationId,42}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

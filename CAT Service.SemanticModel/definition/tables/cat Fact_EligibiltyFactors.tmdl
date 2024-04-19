@@ -1,0 +1,394 @@
+table 'cat Fact_EligibiltyFactors'
+	lineageTag: 476df7f9-8d8d-413b-98a2-283bb13ba4bb
+
+	measure Under50 = format(sum('cat Fact_EligibiltyFactors'[Incomeunder50PercentEstimate]),"#,###")
+		lineageTag: c7c9dcda-18d2-4f80-9011-5ffc0a762240
+
+	measure '.50 to .74' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween50And74PercentEstimate]),"#,###")
+		lineageTag: 9097ad9b-cb06-40e4-9868-fd0c133d1109
+
+	measure '.75 to .99' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween75And99PercentEstimate]),"#,###")
+		lineageTag: d49c0a0d-8930-4922-9959-e5a012934a50
+
+	measure '1.00 to 1.24' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween100And124PercentEstimate]),"#,###")
+		lineageTag: d53525f5-8b69-423f-a99f-c10c61e83421
+
+	measure '1.25 to 1.49' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween125And149PercentEstimate]),"#,###")
+		lineageTag: 64412f84-28ab-429d-8d60-f54f6e3536a7
+
+	measure '1.50 to 1.74' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween150And174PercentEstimate]),"#,###")
+		lineageTag: d6291c60-2f02-4f63-a9d3-4bf97ad0231a
+
+	measure '1.75 to 1.84' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween175And184PercentEstimate]),"#,###")
+		lineageTag: 80faa85b-9201-4d15-9234-618d3e9e2ab7
+
+	measure '1.85 to 1.99' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween185And199PercentEstimate]),"#,###")
+		lineageTag: 5121063a-42e2-4696-ae2f-7527aa13505c
+
+	measure Under50m = format(sum('cat Fact_EligibiltyFactors'[IncomeUnder50PercentMarginOfError]),"#,###")
+		lineageTag: 33c6e050-cdf8-4b9a-b15d-6f08f5ee2ff0
+
+	measure '0.50 to 0.74m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween50And74PercentMarginOfError]),"#,###")
+		lineageTag: ae1625cd-d4e5-4379-8f7a-c972773bc80d
+
+	measure '0.75 to 0.99m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween75And99PercentMarginOfError]),"#,###")
+		lineageTag: 004c4df0-20af-468d-8c7a-327680e26b84
+
+	measure '1.00 to 1.24m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween100And124PercentMarginOfError]),"#,###")
+		lineageTag: 6ad50225-8e67-4142-a7f5-56ffb22c7ad6
+
+	measure '1.25 to 1.49m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween125And149PercentMarginOfError]),"#,###")
+		lineageTag: b5ac6de1-b6fb-4ec5-8708-112a12eb2360
+
+	measure '1.50 to 1.74m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween150And174PercentMarginOfError]),"#,###")
+		lineageTag: 6a520351-52f7-4253-8b51-fc11c2e0e431
+
+	measure '1.75 to 1.84m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween175And184PercentMarginOfError]),"#,###")
+		lineageTag: 39920381-f3c5-410a-8dac-addae53137a3
+
+	measure '1.85 to 1.99m' = format(sum('cat Fact_EligibiltyFactors'[IncomeBetween185And199PercentMarginOfError]),"#,###")
+		lineageTag: 8392ec39-2bf2-44c6-b419-ffccd9d78477
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: ffa3243c-79c5-4523-96fc-8d487c3e1036
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: eb9fc837-a221-43a5-be19-5a490268c4c6
+		summarizeBy: none
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroupId
+		dataType: int64
+		formatString: 0
+		lineageTag: 814dfdb3-9933-4d2a-a759-04736e2724b5
+		summarizeBy: count
+		sourceColumn: AgeGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncomeUnder50PercentEstimate
+		dataType: int64
+		lineageTag: 11068b5e-0a26-469a-b30d-554eba4742cf
+		summarizeBy: sum
+		sourceColumn: IncomeUnder50PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeUnder50PercentMarginOfError
+		dataType: int64
+		lineageTag: dc33ff33-77bc-4110-b065-388de78ad22d
+		summarizeBy: sum
+		sourceColumn: IncomeUnder50PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween50And74PercentEstimate
+		dataType: int64
+		lineageTag: 47eebeca-85e1-4ee7-b450-86aede1f2ce8
+		summarizeBy: sum
+		sourceColumn: IncomeBetween50And74PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween50And74PercentMarginOfError
+		dataType: int64
+		lineageTag: 0ac97a40-bc14-4229-bf04-0f7fa988d8a7
+		summarizeBy: sum
+		sourceColumn: IncomeBetween50And74PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween75And99PercentEstimate
+		dataType: int64
+		lineageTag: 0406121d-50dd-4926-86f3-a2efa3b10c45
+		summarizeBy: sum
+		sourceColumn: IncomeBetween75And99PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween75And99PercentMarginOfError
+		dataType: int64
+		lineageTag: 56585eba-aba2-48c1-bb98-afb0bc49273a
+		summarizeBy: sum
+		sourceColumn: IncomeBetween75And99PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween100And124PercentEstimate
+		dataType: int64
+		lineageTag: 5e8fe64a-d48d-4332-839f-9ee8b1231eb1
+		summarizeBy: sum
+		sourceColumn: IncomeBetween100And124PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween100And124PercentMarginOfError
+		dataType: int64
+		lineageTag: 207f2e64-fd1e-44ac-900a-fa8cecc6a81f
+		summarizeBy: sum
+		sourceColumn: IncomeBetween100And124PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween125And149PercentEstimate
+		dataType: int64
+		lineageTag: 32deab1b-1715-4ad5-9e17-da20a36ac22f
+		summarizeBy: sum
+		sourceColumn: IncomeBetween125And149PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween125And149PercentMarginOfError
+		dataType: int64
+		lineageTag: edc36c97-5638-410b-b59e-f132c00039fb
+		summarizeBy: sum
+		sourceColumn: IncomeBetween125And149PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween150And174PercentEstimate
+		dataType: int64
+		lineageTag: eefe7988-1aca-41f5-9ae3-811739fc3e04
+		summarizeBy: sum
+		sourceColumn: IncomeBetween150And174PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween150And174PercentMarginOfError
+		dataType: int64
+		lineageTag: 60469efe-3342-4a44-8b0b-e751e8ac24aa
+		summarizeBy: sum
+		sourceColumn: IncomeBetween150And174PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween175And184PercentEstimate
+		dataType: int64
+		lineageTag: 0ef11f70-63e4-4a7a-adda-314529808362
+		summarizeBy: sum
+		sourceColumn: IncomeBetween175And184PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween175And184PercentMarginOfError
+		dataType: int64
+		lineageTag: 3bea794d-0478-4da4-88bc-8dd57b6a690e
+		summarizeBy: sum
+		sourceColumn: IncomeBetween175And184PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween185And199PercentEstimate
+		dataType: int64
+		lineageTag: bf1c73b2-b142-45cb-9e29-4f964662fa9a
+		summarizeBy: sum
+		sourceColumn: IncomeBetween185And199PercentEstimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IncomeBetween185And199PercentMarginOfError
+		dataType: int64
+		lineageTag: e8634690-1076-40f5-8da4-b163a1f0ece4
+		summarizeBy: sum
+		sourceColumn: IncomeBetween185And199PercentMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PopulationCount
+		dataType: int64
+		lineageTag: 20cd6ccd-c2e2-4914-9aa4-0366229409bb
+		summarizeBy: sum
+		sourceColumn: PopulationCount
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PopulationMarginOfError
+		dataType: int64
+		lineageTag: aa5203cb-e003-4421-a422-f6828669adc1
+		summarizeBy: sum
+		sourceColumn: PopulationMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id2
+		dataType: int64
+		formatString: 0
+		lineageTag: 1443c043-69d9-4720-9c97-1ace0136eb96
+		summarizeBy: sum
+		sourceColumn: Id2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 8563ad6b-11fe-4066-9bee-f5dcbbec12da
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: string
+		lineageTag: 55f3e0a4-2d28-40b2-813d-d5203e8f8128
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id3
+		dataType: int64
+		formatString: 0
+		lineageTag: 382d8f36-168c-4b44-9ab3-5fc0a8fb6b5d
+		summarizeBy: sum
+		sourceColumn: Id3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: a12c0446-a17d-4732-a6ac-41dc52878ce5
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: 57c48e3a-136d-4593-8ebc-4da9d0369696
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7b1e009d-b547-41ca-8766-1785ea4f463d
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 66dc58f7-836f-446f-9a6c-71d9c8e962c4
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9a7eb24e-f650-47ad-8ed7-afc5521704aa
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ebf9eeec-9c25-4db8-b89a-fa85d53ea805
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'cat Fact_EligibiltyFactors-84e67c62-8662-49a6-8786-ca3b9f61327b' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="  SELECT *,d.[Name] AS [Age] FROM [cat].[Fact_EligibilityFactors] e#(lf)  inner join [cat].[Dim_AgeGroups] d#(lf)  on d.[id] = e.[AgeGroupId]#(lf)  JOIN [cat].[Dim_Geography] g ON#(lf)#(tab)e.GeographyId = g.Id#(lf)--WHERE #(lf)#(tab)--g.IsCongressional = 0#(lf)#(tab)--AND g.IsCounty = 0#(lf)#(tab)--AND g.IsLegislative = 0#(lf)#(tab)--AND g.IsSchoolDistrict = 0"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":24,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/cat Fact_EligibiltyFactors/Source.{Id,0}","Section1/cat Fact_EligibiltyFactors/Source.{GeographyId,1}","Section1/cat Fact_EligibiltyFactors/Source.{AgeGroupId,2}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeUnder50PercentEstimate,3}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeUnder50PercentMarginOfError,4}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween50And74PercentEstimate,5}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween50And74PercentMarginOfError,6}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween75And99PercentEstimate,7}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween75And99PercentMarginOfError,8}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween100And124PercentEstimate,9}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween100And124PercentMarginOfError,10}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween125And149PercentEstimate,11}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween125And149PercentMarginOfError,12}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween150And174PercentEstimate,13}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween150And174PercentMarginOfError,14}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween175And184PercentEstimate,15}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween175And184PercentMarginOfError,16}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween185And199PercentEstimate,17}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween185And199PercentMarginOfError,18}","Section1/cat Fact_EligibiltyFactors/Source.{PopulationCount,19}","Section1/cat Fact_EligibiltyFactors/Source.{PopulationMarginOfError,20}","Section1/cat Fact_EligibiltyFactors/Source.{Id2,21}","Section1/cat Fact_EligibiltyFactors/Source.{Name,22}","Section1/cat Fact_EligibiltyFactors/Source.{Age,23}"],"ColumnCount":24,"KeyColumnNames":[],"ColumnIdentities":["Section1/cat Fact_EligibiltyFactors/Source.{Id,0}","Section1/cat Fact_EligibiltyFactors/Source.{GeographyId,1}","Section1/cat Fact_EligibiltyFactors/Source.{AgeGroupId,2}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeUnder50PercentEstimate,3}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeUnder50PercentMarginOfError,4}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween50And74PercentEstimate,5}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween50And74PercentMarginOfError,6}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween75And99PercentEstimate,7}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween75And99PercentMarginOfError,8}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween100And124PercentEstimate,9}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween100And124PercentMarginOfError,10}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween125And149PercentEstimate,11}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween125And149PercentMarginOfError,12}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween150And174PercentEstimate,13}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween150And174PercentMarginOfError,14}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween175And184PercentEstimate,15}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween175And184PercentMarginOfError,16}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween185And199PercentEstimate,17}","Section1/cat Fact_EligibiltyFactors/Source.{IncomeBetween185And199PercentMarginOfError,18}","Section1/cat Fact_EligibiltyFactors/Source.{PopulationCount,19}","Section1/cat Fact_EligibiltyFactors/Source.{PopulationMarginOfError,20}","Section1/cat Fact_EligibiltyFactors/Source.{Id2,21}","Section1/cat Fact_EligibiltyFactors/Source.{Name,22}","Section1/cat Fact_EligibiltyFactors/Source.{Age,23}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

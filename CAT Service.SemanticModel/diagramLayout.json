@@ -1,0 +1,358 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 16413.215565315873,
+            "y": 446
+          },
+          "nodeIndex": "ACCESS(1)",
+          "size": {
+            "height": 137,
+            "width": 212
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16428.499815895208,
+            "y": 270
+          },
+          "nodeIndex": "ACCESS(2)",
+          "size": {
+            "height": 136,
+            "width": 203
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10569.554893259181,
+            "y": 432
+          },
+          "nodeIndex": "Congressional",
+          "size": {
+            "height": 213,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17448.058849864829,
+            "y": 1000
+          },
+          "nodeIndex": "County",
+          "size": {
+            "height": 213,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16081.118397061333,
+            "y": 586
+          },
+          "nodeIndex": "ELIGIBILITY",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16945.499815895208,
+            "y": 363
+          },
+          "nodeIndex": "ELIGIBILITY(STATE1)",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17448.058849864829,
+            "y": 804
+          },
+          "nodeIndex": "ELIGIBILITY1",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17219.499815895208,
+            "y": 500
+          },
+          "nodeIndex": "ELIGIBILITY1(state)",
+          "size": {
+            "height": 143,
+            "width": 230
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16879.802471197567,
+            "y": 808
+          },
+          "nodeIndex": "ELIGIBILITY3",
+          "size": {
+            "height": 146,
+            "width": 238
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17781.499815895208,
+            "y": 337
+          },
+          "nodeIndex": "ELIGIBILITY3(state)",
+          "size": {
+            "height": 154,
+            "width": 218
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16940.058849864829,
+            "y": 977
+          },
+          "nodeIndex": "ELIGIBILITY3_1",
+          "size": {
+            "height": 144,
+            "width": 221
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17507.499815895208,
+            "y": 443
+          },
+          "nodeIndex": "ELIGIBILITY3_1(State)",
+          "size": {
+            "height": 142,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16051.897248797039,
+            "y": 234
+          },
+          "nodeIndex": "Geographic Area",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16269.520307784529,
+            "y": 57
+          },
+          "nodeIndex": "Geographic Area(School District)",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10534.571747723738,
+            "y": 13
+          },
+          "nodeIndex": "Legislative",
+          "size": {
+            "height": 213,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17032.2339700389,
+            "y": 2
+          },
+          "nodeIndex": "SERVICE1",
+          "size": {
+            "height": 174,
+            "width": 237
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13344.063320491459,
+            "y": 494
+          },
+          "nodeIndex": "SchoolDistrict",
+          "size": {
+            "height": 213,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17309.2339700389,
+            "y": 0
+          },
+          "nodeIndex": "Service Map",
+          "size": {
+            "height": 171,
+            "width": 208
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16671.499815895208,
+            "y": 362
+          },
+          "nodeIndex": "[Dim_Geography]",
+          "size": {
+            "height": 232,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14213.259037963617,
+            "y": 445.72929335962908
+          },
+          "nodeIndex": "cat Dim_AgeGroups",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15678.70228550673,
+            "y": 404.61693667213513
+          },
+          "nodeIndex": "cat Dim_Races",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16609.769486986512,
+            "y": 770
+          },
+          "nodeIndex": "cat Dim_Risks",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17157.802471197567,
+            "y": 802.78293953737534
+          },
+          "nodeIndex": "cat Fact_EligibiltyFactors",
+          "size": {
+            "height": 141,
+            "width": 243
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17219.499815895208,
+            "y": 318
+          },
+          "nodeIndex": "cat Fact_EligibiltyFactors(state)",
+          "size": {
+            "height": 142,
+            "width": 248
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16335.769486986512,
+            "y": 668
+          },
+          "nodeIndex": "cat Fact_RiskFactors",
+          "size": {
+            "height": 251,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18039.499815895208,
+            "y": 318.5
+          },
+          "nodeIndex": "ethnicity(State)",
+          "size": {
+            "height": 179,
+            "width": 233
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17201.058849864829,
+            "y": 983.78293953737534
+          },
+          "nodeIndex": "ethnicity1",
+          "size": {
+            "height": 147,
+            "width": 207
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16775.063408128102,
+            "y": 180
+          },
+          "nodeIndex": "geo",
+          "size": {
+            "height": 143,
+            "width": 226
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

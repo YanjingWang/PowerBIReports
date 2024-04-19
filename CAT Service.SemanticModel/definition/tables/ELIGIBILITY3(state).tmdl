@@ -1,0 +1,193 @@
+table ELIGIBILITY3(state)
+	lineageTag: ce1b8df2-ffa0-451e-8e9c-8a2f068c377b
+
+	measure PctCounty = divide(sum('ELIGIBILITY3(state)'[Estimate]),sum('ELIGIBILITY3(state)'[TotalCount]))
+		lineageTag: a575e9f9-cff7-458b-96d0-5c790621fc9f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 62662f6f-fca5-4b01-b16a-2fe712df61a6
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f14eae6-650c-4374-88b3-3b359c414f76
+		summarizeBy: count
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e2ffa80-aad2-457d-b338-e9136e66f80d
+		summarizeBy: count
+		sourceColumn: RaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskId
+		dataType: int64
+		formatString: 0
+		lineageTag: 96f6dd3a-6d55-45a3-9231-0ecec431e6c2
+		summarizeBy: none
+		sourceColumn: RiskId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimate
+		dataType: int64
+		lineageTag: de6f5b8f-2259-41fa-bb6f-e22b17bf8a53
+		summarizeBy: sum
+		sourceColumn: Estimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MarginOfError
+		dataType: int64
+		lineageTag: a3ad8471-0491-4e69-ab0f-932cb86088fd
+		summarizeBy: sum
+		sourceColumn: MarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCount
+		dataType: int64
+		lineageTag: f756448f-0cba-4661-a613-6146bbb859ed
+		summarizeBy: sum
+		sourceColumn: TotalCount
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalMarginOfError
+		dataType: int64
+		lineageTag: 38c3cf7f-4e80-43be-b4e0-762291e41e7c
+		summarizeBy: sum
+		sourceColumn: TotalMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id2
+		dataType: int64
+		formatString: 0
+		lineageTag: 08b303fa-5428-4d21-8c0c-2c519126aabb
+		summarizeBy: sum
+		sourceColumn: Id2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: a1ce6dcb-8649-4868-9098-19938c641c09
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id3
+		dataType: int64
+		formatString: 0
+		lineageTag: 6124d605-587e-41f4-8b60-6f5d43d33402
+		summarizeBy: sum
+		sourceColumn: Id3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: ec4ce017-a9d3-4ca3-b861-f0fee0aaf101
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8e02516c-fa78-4572-8c5f-b851a6c200dd
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0115e92a-725a-4149-995a-64efb775b831
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9b8a240e-b4ef-4026-9d4c-850e99c4d801
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f5d0f7ce-047b-40a5-a9c3-dfdb89a66d3c
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: c7ddf66b-bd87-4f8b-9978-45a76d6949f1
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceName
+		dataType: string
+		lineageTag: 29c8c6b9-d171-49b4-adc7-739383e584b2
+		summarizeBy: none
+		sourceColumn: RaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ELIGIBILITY3(state)-c077b618-c541-4447-81a1-9119612ded83 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT#(lf)*,#(lf)CAST(r.[Id] as nvarchar(2)) + '. ' + r.[Name] AS [RaceName]#(lf)FROM cat.Fact_RiskFactors rf#(lf)JOIN cat.Dim_Races r ON#(lf)    rf.RaceId = r.Id#(lf)JOIN cat.Dim_Geography g ON#(lf)    rf.GeographyId = g.Id#(lf)WHERE IsCounty = 0#(lf)and IsCongressional = 0#(lf)and IsLegislative = 0#(lf)and IsSchoolDistrict = 0#(lf)--AND R.ID BETWEEN 1 AND 7#(lf)ORDER BY R.ID"]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_QueryRelationships = {"columnCount":17,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{GeographyId,1}","Section1/Query1/Source.{RaceId,2}","Section1/Query1/Source.{RiskId,3}","Section1/Query1/Source.{Estimate,4}","Section1/Query1/Source.{MarginOfError,5}","Section1/Query1/Source.{TotalCount,6}","Section1/Query1/Source.{TotalMarginOfError,7}","Section1/Query1/Source.{Id2,8}","Section1/Query1/Source.{Name,9}","Section1/Query1/Source.{Id3,10}","Section1/Query1/Source.{Name2,11}","Section1/Query1/Source.{IsCounty,12}","Section1/Query1/Source.{IsLegislative,13}","Section1/Query1/Source.{IsSchoolDistrict,14}","Section1/Query1/Source.{IsCongressional,15}","Section1/Query1/Source.{DisplayName,16}"],"ColumnCount":17,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{GeographyId,1}","Section1/Query1/Source.{RaceId,2}","Section1/Query1/Source.{RiskId,3}","Section1/Query1/Source.{Estimate,4}","Section1/Query1/Source.{MarginOfError,5}","Section1/Query1/Source.{TotalCount,6}","Section1/Query1/Source.{TotalMarginOfError,7}","Section1/Query1/Source.{Id2,8}","Section1/Query1/Source.{Name,9}","Section1/Query1/Source.{Id3,10}","Section1/Query1/Source.{Name2,11}","Section1/Query1/Source.{IsCounty,12}","Section1/Query1/Source.{IsLegislative,13}","Section1/Query1/Source.{IsSchoolDistrict,14}","Section1/Query1/Source.{IsCongressional,15}","Section1/Query1/Source.{DisplayName,16}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

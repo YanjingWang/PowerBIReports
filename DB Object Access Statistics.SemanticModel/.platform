@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DB Object Access Statistics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9f41ef5f-a225-4f7c-b9c6-3d327c9fd785"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DB Object Access Statistics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e3c2f36b-8fc3-4cf4-b5ee-96888b800ea7"
+  }
+}

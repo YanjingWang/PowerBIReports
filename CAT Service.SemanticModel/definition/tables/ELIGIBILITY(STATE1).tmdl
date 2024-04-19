@@ -1,0 +1,45 @@
+table ELIGIBILITY(STATE1)
+	lineageTag: 0886473d-0180-48fc-bcbe-accbcf2b71d6
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: dbc5ed8a-26db-4024-8134-8550ee3063e1
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: string
+		lineageTag: 6ef1ba65-e770-480f-9a66-f247770409ca
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# of Kids'
+		dataType: int64
+		lineageTag: ddba3a1e-54d2-40ed-ae07-d679e98a6d30
+		summarizeBy: sum
+		sourceColumn: # of Kids
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ELIGIBILITY(STATE1)-0ef5b417-799a-4868-8b5e-4775a0fe7fa4 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="  CREATE TABLE #Population (ID INT IDENTITY(1,1),[Age] NVARCHAR(20),[# of Kids] DECIMAL)#(lf)  INSERT INTO #Population ([Age],[# of Kids])#(lf)  SELECT  'Under 6 yrs.' AS [Age],SUM(PopulationCount) AS [# of Kids] FROM [cat].[Fact_EligibilityFactors]#(lf)  WHERE [AgeGroupId] = 1#(lf)  UNION ALL#(lf)  SELECT '6-11 yrs.' as [Age],SUM(PopulationCount) AS [# of Kids]  FROM [cat].[Fact_EligibilityFactors]#(lf)  WHERE [AgeGroupId] = 2#(lf)#(lf)SELECT * FROM #Population#(lf)DROP TABLE #Population"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"# of Kids", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/ELIGIBILITY(STATE1)/Source.{ID,0}","Section1/ELIGIBILITY(STATE1)/Source.{Age,1}","Section1/ELIGIBILITY(STATE1)/Changed Type.{# of Kids,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/ELIGIBILITY(STATE1)/Source.{ID,0}","Section1/ELIGIBILITY(STATE1)/Source.{Age,1}","Section1/ELIGIBILITY(STATE1)/Changed Type.{# of Kids,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

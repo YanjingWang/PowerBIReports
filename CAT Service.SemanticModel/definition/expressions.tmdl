@@ -1,0 +1,12 @@
+expression 'Errors in SERVICE1' =
+		let
+		Source = SERVICE1
+		in
+		    Source
+	lineageTag: 9420e9af-e9db-480b-8ade-13b80f04b171
+	queryGroup: 'Query Errors - 5/18/2020 11:24:55 PM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

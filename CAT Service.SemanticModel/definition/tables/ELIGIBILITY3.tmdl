@@ -1,0 +1,209 @@
+table ELIGIBILITY3
+	lineageTag: a9b65097-4cd2-4bb8-9048-99d7de74676b
+
+	measure Pct1 = DIVIDE(SUM(ELIGIBILITY3[Estimate]),SUM(ELIGIBILITY3[TotalCount]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ca5db6da-156c-4f1b-bb7c-77e6283244ce
+
+	measure Pct2 = DIVIDE(sum(ELIGIBILITY3[MarginOfError]),sum(ELIGIBILITY3[TotalMarginOfError]))
+		lineageTag: d1d572be-a87c-4220-8ab6-33b67bbe5b71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure RaceTotalCount = SUM(ELIGIBILITY3[TotalCount])
+		lineageTag: f592c792-f229-42a3-abb5-4df6a1241cbb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 013208fd-8ae4-48ef-94fd-2c3652ea57e3
+		summarizeBy: none
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskId
+		dataType: int64
+		formatString: 0
+		lineageTag: b14feb9e-b623-402b-8756-c4cc13f505bd
+		summarizeBy: none
+		sourceColumn: RiskId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: e48da79b-431c-42dc-b52b-9b9de396fdb9
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimate
+		dataType: int64
+		lineageTag: 5f0fd5c7-5c0c-4cd7-a61d-9666e1462b33
+		summarizeBy: sum
+		sourceColumn: Estimate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCount
+		dataType: int64
+		lineageTag: cadc8aed-c371-41b1-aa52-a5a1628bd551
+		summarizeBy: sum
+		sourceColumn: TotalCount
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aeefc20-f8c7-43dc-a8aa-36892cf96990
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c4ce84c-9504-4279-8a59-c8eff9fbd1b1
+		summarizeBy: count
+		sourceColumn: RaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MarginOfError
+		dataType: int64
+		lineageTag: 23782691-dcb4-4761-87c2-964d0f7c996c
+		summarizeBy: sum
+		sourceColumn: MarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalMarginOfError
+		dataType: int64
+		lineageTag: e13ba435-7fa8-4353-9862-1464d5a315a5
+		summarizeBy: sum
+		sourceColumn: TotalMarginOfError
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id3
+		dataType: int64
+		formatString: 0
+		lineageTag: c21bbbdd-4862-4a84-ae5a-aba67caf71cf
+		summarizeBy: sum
+		sourceColumn: Id3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: 96638662-646c-4539-966a-1e489eee6f19
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5a59908b-101d-4e55-b232-ed0a529612c5
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3f8f0063-6be8-446f-bd48-5a930edd46c8
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2e7bae79-6ad1-4cb6-83df-52d028413de6
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 47ced14d-5b9a-4847-81d0-01953e417ed9
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: 8ae4847c-0bea-41bf-bbe5-4e7a8fd5b544
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Geographic Area' = "Nebraska"
+		dataType: string
+		lineageTag: f1015795-6f0a-4fb6-98e9-e4948919e8c8
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id2
+		dataType: int64
+		formatString: 0
+		lineageTag: 93efb78c-e2a7-4868-9f4f-855cfa905c9d
+		summarizeBy: sum
+		sourceColumn: Id2
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceName
+		dataType: string
+		lineageTag: 3d7ee1ae-1fc6-4c7f-9bfb-7bbf55f89ba9
+		summarizeBy: none
+		sourceColumn: RaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ELIGIBILITY3-16b1b95c-6c05-4123-ad6c-68a161fa4928 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT#(lf)*,#(lf)CAST(r.[Id] as nvarchar(2)) + '. ' + r.[Name] AS [RaceName]#(lf)FROM cat.Fact_RiskFactors rf#(lf)JOIN cat.Dim_Races r ON#(lf)    rf.RaceId = r.Id#(lf)JOIN cat.Dim_Geography g ON#(lf)    rf.GeographyId = g.Id#(lf)--WHERE R.ID BETWEEN 1 AND 7#(lf)ORDER BY R.ID"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":16,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/ELIGIBILITY3/Source.{Id,0}","Section1/ELIGIBILITY3/Source.{GeographyId,1}","Section1/ELIGIBILITY3/Replaced Value6.{RaceId,2}","Section1/ELIGIBILITY3/Source.{RiskId,3}","Section1/ELIGIBILITY3/Changed Type1.{Estimate,4}","Section1/ELIGIBILITY3/Changed Type1.{MarginOfError,5}","Section1/ELIGIBILITY3/Changed Type1.{TotalCount,6}","Section1/ELIGIBILITY3/Changed Type1.{TotalMarginOfError,7}","Section1/ELIGIBILITY3/Source.{Name,9}","Section1/ELIGIBILITY3/Source.{Id3,10}","Section1/ELIGIBILITY3/Source.{Name2,11}","Section1/ELIGIBILITY3/Source.{IsCounty,12}","Section1/ELIGIBILITY3/Source.{IsLegislative,13}","Section1/ELIGIBILITY3/Source.{IsSchoolDistrict,14}","Section1/ELIGIBILITY3/Source.{IsCongressional,15}","Section1/ELIGIBILITY3/Source.{DisplayName,16}"],"ColumnCount":16,"KeyColumnNames":[],"ColumnIdentities":["Section1/ELIGIBILITY3/Source.{Id,0}","Section1/ELIGIBILITY3/Source.{GeographyId,1}","Section1/ELIGIBILITY3/Replaced Value6.{RaceId,2}","Section1/ELIGIBILITY3/Source.{RiskId,3}","Section1/ELIGIBILITY3/Changed Type1.{Estimate,4}","Section1/ELIGIBILITY3/Changed Type1.{MarginOfError,5}","Section1/ELIGIBILITY3/Changed Type1.{TotalCount,6}","Section1/ELIGIBILITY3/Changed Type1.{TotalMarginOfError,7}","Section1/ELIGIBILITY3/Source.{Name,9}","Section1/ELIGIBILITY3/Source.{Id3,10}","Section1/ELIGIBILITY3/Source.{Name2,11}","Section1/ELIGIBILITY3/Source.{IsCounty,12}","Section1/ELIGIBILITY3/Source.{IsLegislative,13}","Section1/ELIGIBILITY3/Source.{IsSchoolDistrict,14}","Section1/ELIGIBILITY3/Source.{IsCongressional,15}","Section1/ELIGIBILITY3/Source.{DisplayName,16}"],"RelationshipInfo":[]}
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

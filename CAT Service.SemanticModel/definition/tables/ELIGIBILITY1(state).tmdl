@@ -1,0 +1,58 @@
+table ELIGIBILITY1(state)
+	lineageTag: 112a96cb-e864-4e93-a5e2-07c49b045b24
+
+	measure '# of Kidsm1' = format(sum( 'ELIGIBILITY1(state)'[# Of Kids]),"#,###")
+		lineageTag: bd3bf053-6161-4eae-be6a-bea2f077fbb5
+
+	measure MOEm1 = format(sum('ELIGIBILITY1(state)'[MarginOfError]),"#,###")
+		lineageTag: c14af63b-da61-4ced-bff8-b104fb6cc6c6
+
+	column Age
+		dataType: string
+		lineageTag: 3a6c30f6-872f-42d4-b906-4994f3c2276d
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: fda6942a-cdb7-4098-aedc-35d4d05bf274
+		summarizeBy: count
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Of Kids'
+		dataType: int64
+		formatString: 0
+		lineageTag: 495d836d-1b94-40be-8429-4c0400707d23
+		summarizeBy: sum
+		sourceColumn: # Of Kids
+
+		annotation SummarizationSetBy = Automatic
+
+	column MarginOfError
+		dataType: int64
+		formatString: 0
+		lineageTag: 37633763-aa00-4fbe-b546-c2a8d4cb1143
+		summarizeBy: sum
+		sourceColumn: MarginOfError
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ELIGIBILITY1(state)-60af39e9-e9ed-4d06-acb7-bf1a8b440951 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT#(lf)#(tab)Age = a.[Name]#(lf)#(tab), [# Of Kids] = CAST(ef.PopulationCount as int)#(lf)#(tab),[MarginOfError] = CAST(ef.[PopulationMarginOfError] as int)#(lf)#(tab), ef.GeographyId#(lf)FROM [cat].[Fact_EligibilityFactors] ef#(lf)JOIN [cat].[Dim_AgeGroups] a ON#(lf)#(tab)ef.AgeGroupId = a.Id#(lf)JOIN [cat].[Dim_Geography] g ON#(lf)#(tab)ef.GeographyId = g.Id#(lf)WHERE #(lf)#(tab)g.IsCounty = 0 and g.IsSCHOOLDISTRICT = 0 and G.ISCONGRESSIONAL = 0 and G.[IsLegislative] = 0#(lf)#(lf)"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{ID,0}","Section1/Query1/Source.{Age,1}","Section1/Query1/Source.{# of Kids,2}","Section1/Query1/Source.{GeographyId,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{ID,0}","Section1/Query1/Source.{Age,1}","Section1/Query1/Source.{# of Kids,2}","Section1/Query1/Source.{GeographyId,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,78 @@
+table Congressional
+	lineageTag: 9cb40047-19e4-4c06-adec-9aa0de772b95
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 63d172fa-fa8b-4ca4-9687-babe011a75fc
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 597f76d2-2d5e-4856-a0da-023b452d53c7
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 55c9d290-d988-4b27-97c8-070f0f58bb9e
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1d5af236-9df8-4992-927d-465dcbd03384
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 39457af5-c78c-4c4e-9d02-ad52aab9a8fb
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 12783b55-6d1f-4f01-ae96-b2964a6e9231
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: 19d36218-68c1-4277-baff-1e8066fec1c0
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Congressional-93f6c03b-cf82-425f-b34a-5123f7ffeffd = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_DataWarehouse", [Query="  SELECT * FROM CAT.Dim_Geography G#(lf)  WHERE [IsCongressional] = 1"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":6,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}"],"ColumnCount":6,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

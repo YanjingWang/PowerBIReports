@@ -1,0 +1,34 @@
+table 'Dim.Master.ObjectName'
+	lineageTag: 57e3dfda-3a7c-4f5c-b83f-bdc84bbff1ba
+
+	measure '10.NumofReadCounts' = DISTINCTCOUNT('reportdata'[LastReadTime])
+		formatString: 0
+		lineageTag: 8dabed4f-3887-493c-9e8d-48f988fbef43
+
+	measure TOPNActiveObject =
+			IF(
+			SELECTEDVALUE('Dim.Master.ObjectName'[ObjectName]) in TOPN('TOPN'[TOPN Value],ALLSELECTED('Dim.Master.ObjectName'[ObjectName]),'KPIs.Selected'[Pls.KPIs.Selected]),
+			'KPIs.Selected'[Pls.KPIs.Selected])
+		formatString: 0
+		lineageTag: fd286477-c8f0-4b67-9704-46c7a6e8c453
+
+	measure '20.NumofWriteCounts' = ```
+			DISTINCTCOUNT('reportdata'[LastWriteTime]) 
+			```
+		formatString: 0
+		lineageTag: 302e83b1-7815-4761-82fd-86670f723a84
+
+	column ObjectName
+		dataType: string
+		lineageTag: 8e039361-68d8-45ae-a09f-5a49c82936ce
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: reportdata[ObjectName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim.Master.ObjectName-9ebc7996-0e46-4211-90c4-1255bbb1cc47' = calculated
+		mode: import
+		source = ALL(reportdata[ObjectName])
+

@@ -1,0 +1,42 @@
+relationship 97d14b46-2444-4b0a-b00f-8fbf0bd0df30
+	joinOnDateBehavior: datePartOnly
+	fromColumn: reportdata.CreateDate
+	toColumn: LocalDateTable_cbd25aab-33f1-49f6-b6be-a8ebf94e8a9a.Date
+
+relationship 80425672-37e8-4af2-a5d0-b5869bc67e82
+	joinOnDateBehavior: datePartOnly
+	fromColumn: reportdata.ModifiedDate
+	toColumn: LocalDateTable_92db4081-4d25-4b3f-8d7b-f5505bda380e.Date
+
+relationship b03a7a66-ab2b-4d06-95c9-0a8e127b539c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: reportdata.LastWriteTime
+	toColumn: LocalDateTable_31627a71-20c1-4ead-b225-e9e8b701504e.Date
+
+relationship f33761a1-577f-40c1-ba4a-2268ad07b387
+	fromColumn: reportdata.ObjectName
+	toColumn: 'Dim.Master.ObjectName'.ObjectName
+
+relationship 77f70292-af40-4fda-8a08-c9306c0619a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Auto.Axis'.Date
+	toColumn: LocalDateTable_978ec920-527a-4046-a9fe-9df1c3c72acb.Date
+
+relationship 26c4371e-d8b1-4102-8e1b-ab70489ba6c2
+	fromColumn: reportdata.DatabaseName
+	toColumn: DimDatabasename.DatabaseName
+
+relationship e2c40095-14ab-4737-a3c7-042fd7fcc4ea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: reportdata.RunDate
+	toColumn: LocalDateTable_d9b4de05-ba45-4071-b729-462cf444e5dd.Date
+
+relationship 89170cf7-de73-4bb0-8f91-8f74a03f942e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: YCalendar.Date
+	toColumn: LocalDateTable_b7b24278-0377-4066-9be6-4ede7545fcb2.Date
+
+relationship 74f32b6a-ef9c-4530-90c9-87053bc4df7e
+	fromColumn: reportdata.LastReadTime
+	toColumn: YCalendar.Date
+

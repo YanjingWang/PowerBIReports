@@ -1,0 +1,197 @@
+table SERVICE1
+	lineageTag: 77db2148-6b8b-463e-9dc4-303960158440
+
+	measure FRLm = IF(SUM('SERVICE1'[FRL])<10,"*",FORMAT(SUM(SERVICE1[FRL]),"#,###"))
+		lineageTag: 65a06891-5f01-499f-9fc5-befeca9815fb
+
+	measure Homelessm = IF(SUM('SERVICE1'[Homeless])<10,"*",FORMAT(SUM(SERVICE1[Homeless]),"#,###"))
+		lineageTag: c940edf6-6846-42dc-b2ed-a3c5678d235b
+
+	measure Fosterm = IF(SUM('SERVICE1'[Foster])<10,"*",FORMAT(SUM(SERVICE1[Foster]),"#,###"))
+		lineageTag: 9781824c-a6cd-471b-93ed-6502752aa0e3
+
+	measure SPEDm = IF(SUM('SERVICE1'[SPED])<10,"*",FORMAT(SUM(SERVICE1[SPED]),"#,###"))
+		lineageTag: d71ac27d-9440-4c59-8133-377d88f15abd
+
+	measure Disabilitym = IF(SUM(SERVICE1[Disability])<10,"*",FORMAT(SUM(SERVICE1[Disability]),"#,###"))
+		lineageTag: 07e5abd2-a529-4871-8549-8107c11b8e65
+
+	measure ELParticipantm = IF(SUM('SERVICE1'[ELParticipant])<10,"*",FORMAT(SUM(SERVICE1[ELParticipant]),"#,###"))
+		lineageTag: 9ef3e40c-d7dc-44f4-a69e-08dcb4f5557e
+
+	measure card3 = IF(HASONEVALUE(SERVICE1[DisplayName]),max(SERVICE1[DisplayName]),"Nebraska")
+		lineageTag: 88eb47d4-3974-4c25-b062-e752a853948c
+
+	measure Measure
+		lineageTag: 82251c0c-884b-4b1b-905c-052448931efc
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column 'Program Type'
+		dataType: string
+		lineageTag: 18c7327c-68a4-46c7-906b-0b92b87487b5
+		summarizeBy: none
+		sourceColumn: Program Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubType
+		dataType: string
+		lineageTag: 7dde37e1-e556-4361-b0c1-019b92b47414
+		summarizeBy: none
+		sourceColumn: SubType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FRL
+		dataType: int64
+		formatString: 0
+		lineageTag: b206e2c6-5c44-4c7f-ad2a-3ed7f03912f2
+		summarizeBy: sum
+		sourceColumn: FRL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Homeless
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c0748b1-5910-4955-822a-27a6b598fb21
+		summarizeBy: sum
+		sourceColumn: Homeless
+
+		annotation SummarizationSetBy = Automatic
+
+	column Foster
+		dataType: int64
+		formatString: 0
+		lineageTag: 51ee6cc7-af3a-4fc0-a1e1-6593f4070f68
+		summarizeBy: sum
+		sourceColumn: Foster
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELParticipant
+		dataType: int64
+		formatString: 0
+		lineageTag: fab031fe-599c-4b54-8f0c-e7e5a5873357
+		summarizeBy: sum
+		sourceColumn: ELParticipant
+
+		annotation SummarizationSetBy = Automatic
+
+	column LiveWithParents
+		dataType: int64
+		formatString: 0
+		lineageTag: 7479ae4d-5b2c-429b-b5e5-f04e1d47cfe3
+		summarizeBy: sum
+		sourceColumn: LiveWithParents
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrollmentCount
+		dataType: int64
+		formatString: 0
+		lineageTag: b09d4e00-7169-4aa0-946c-20a5fe15b506
+		summarizeBy: sum
+		sourceColumn: EnrollmentCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 09a28d35-edcb-4e53-9a52-c2aaa5ec5be5
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SettingName
+		dataType: string
+		lineageTag: 01df811d-040d-4931-a0fe-a8ee00cd44de
+		summarizeBy: none
+		sourceColumn: SettingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SettingShortDescription
+		dataType: string
+		lineageTag: 1a0f8d89-2567-4957-b6c4-308e392afe66
+		summarizeBy: none
+		sourceColumn: SettingShortDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: c520e2ff-5719-464a-8489-56e18784df07
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllGeoID
+		dataType: int64
+		formatString: 0
+		lineageTag: fe2e227b-0735-438c-ba30-6413bb790f15
+		summarizeBy: count
+		sourceColumn: AllGeoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeoName
+		dataType: string
+		lineageTag: d91846d3-1085-46bc-90f7-00ae873151a1
+		summarizeBy: none
+		sourceColumn: GeoName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: 81fc831a-12a1-43f7-af26-3d2020e55ea7
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPED
+		dataType: int64
+		formatString: 0
+		lineageTag: df5d52bf-f22c-4fc7-a82a-d706a49d4611
+		summarizeBy: sum
+		sourceColumn: SPED
+
+		annotation SummarizationSetBy = Automatic
+
+	column Disability
+		dataType: int64
+		formatString: 0
+		lineageTag: 74f236d0-f5b2-4f08-92bd-fd0f646b8d0a
+		summarizeBy: sum
+		sourceColumn: Disability
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: string
+		lineageTag: eb54857f-f91e-4c39-8223-5d53c224b077
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SERVICE1-04a3a6d6-7369-4f05-9d05-99a49616c8c8 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT #(lf)    [Program Type] = #(lf)        CASE WHEN SettingShortDescription LIKE '%sixpence%' THEN 'Early Childhood Birth to Age Three Endowment Programs (Sixpence)' #(lf)#(tab)#(tab)     WHEN SettingShortDescription LIKE '%nonsped%' THEN 'Non-special Education Home Visitation Programs'#(lf)#(tab)#(tab)#(tab) WHEN SettingShortDescription LIKE '%NDE%' THEN 'Public School or ESU Early Childhood Education Program'#(lf)#(tab)#(tab)#(tab) WHEN SettingShortDescription = '' AND p.[Type] IS NOT NULL THEN 'Don not Belong to Any Type'#(lf)        --ELSE 'Public School or ESU Early Childhood Education Program' END#(lf)#(tab)#(tab)ELSE '--' END#(lf)    , SubType = #(lf)        CASE WHEN SettingShortDescription LIKE '%sixpence%' AND SettingShortDescription LIKE '%center-based%' THEN 'Sixpence Center-based Program'#(lf)            WHEN SettingShortDescription LIKE '%sixpence%' AND SettingShortDescription LIKE '%cpp%' THEN 'Sixpence Child Care Partnership'#(lf)            WHEN SettingShortDescription LIKE '%sixpence%' AND SettingShortDescription LIKE '%home-based%' THEN 'Sixpence Home Visitation Program'#(lf)            WHEN SettingShortDescription LIKE '%nonsped%' THEN 'Non-special Education Home Visitation Program'#(lf)            WHEN SettingName LIKE '%not state grant funded%' THEN 'NDE non-Grant Funded Early Childhood Education Program'#(lf)            WHEN SettingName LIKE '%state grant funded%' THEN 'NDE Grant Funded Early Childhood Education Program'#(lf)            ELSE '' END#(lf)    ,[Age]  = CASE WHEN [Age] IS NOT NULL THEN CAST([Age] as nvarchar(20)) #(tab)#(tab)#(tab)#(lf)    ELSE '--' END#(lf)--,[AGE]#(lf),ISNULL(s.[FRL],0) AS [FRL]#(lf),ISNULL(s.[Homeless],0) AS [Homeless]#(lf),ISNULL(s.[Foster],0) AS [Foster]#(lf),ISNULL(s.[SPED],0) AS [SPED]#(lf),ISNULL(S.[Disability],0) AS [Disability]#(lf),ISNULL(s.[ELParticipant],0) AS [ELParticipant]#(lf),s.[LiveWithParents]#(lf),ISNULL(s.[EnrollmentCount],0) AS [EnrollmentCount]#(lf),p.[Name]#(lf),p.[SettingName]#(lf),p.[SettingShortDescription]#(lf),p.[Type]#(lf),g.[ID] AS [AllGeoID]#(lf),g.[Name] AS [GeoName]#(lf),g.[DisplayName]#(lf)#(lf)FROM cat.Fact_Services s #(lf)JOIN cat.Dim_PublicSchoolPrograms p ON#(lf)    s.ProgramId = p.Id#(lf)RIGHT JOIN [cat].[Dim_Geography] g ON#(lf)G.[ID] = S.[GeographyId]#(lf)WHERE [IsCounty] = 1 #(lf)--GROUP BY [Program Type]#(lf)--AND#(lf)--[AGE] IN (""0"",""1"",""2"",""3"",""4"",""5"",""--"")"]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Age] <> "10" and [Age] <> "11" and [Age] <> "12" and [Age] <> "6"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_QueryRelationships = {"columnCount":10,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/SERVICE1/Source.{Id,0}","Section1/SERVICE1/Source.{Program Type,1}","Section1/SERVICE1/Source.{SubType,2}","Section1/SERVICE1/Source.{GeographyId,3}","Section1/SERVICE1/Source.{FRL,4}","Section1/SERVICE1/Source.{Homeless,5}","Section1/SERVICE1/Source.{Foster,6}","Section1/SERVICE1/Source.{SPED,7}","Section1/SERVICE1/Source.{Disability,8}","Section1/SERVICE1/Source.{ELParticipant,9}"],"ColumnCount":10,"KeyColumnNames":[],"ColumnIdentities":["Section1/SERVICE1/Source.{Id,0}","Section1/SERVICE1/Source.{Program Type,1}","Section1/SERVICE1/Source.{SubType,2}","Section1/SERVICE1/Source.{GeographyId,3}","Section1/SERVICE1/Source.{FRL,4}","Section1/SERVICE1/Source.{Homeless,5}","Section1/SERVICE1/Source.{Foster,6}","Section1/SERVICE1/Source.{SPED,7}","Section1/SERVICE1/Source.{Disability,8}","Section1/SERVICE1/Source.{ELParticipant,9}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

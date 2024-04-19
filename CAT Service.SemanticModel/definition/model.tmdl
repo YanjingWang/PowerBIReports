@@ -1,0 +1,52 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 5/18/2020 11:24:55 PM.
+queryGroup 'Query Errors - 5/18/2020 11:24:55 PM'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["County","Legislative","SchoolDistrict","Congressional","ELIGIBILITY","cat Dim_AgeGroups","cat Dim_Races","cat Dim_Risks","cat Fact_EligibiltyFactors","cat Fact_RiskFactors","Geographic Area","Geographic Area(School District)","ACCESS(1)","ACCESS(2)","SERVICE1","[Dim_Geography]","ELIGIBILITY1","ELIGIBILITY3","ELIGIBILITY(STATE1)","ELIGIBILITY1(state)","cat Fact_EligibiltyFactors(state)","ELIGIBILITY3_1","ELIGIBILITY3(state)","ELIGIBILITY3_1(State)","ethnicity1","ethnicity(State)","geo","Service Map","Errors in SERVICE1"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_22587ffe-debd-4208-913e-13f6d1d215bf
+ref table County
+ref table Legislative
+ref table SchoolDistrict
+ref table Congressional
+ref table ELIGIBILITY
+ref table 'cat Dim_AgeGroups'
+ref table 'cat Dim_Races'
+ref table 'cat Dim_Risks'
+ref table 'cat Fact_EligibiltyFactors'
+ref table 'cat Fact_RiskFactors'
+ref table 'Geographic Area'
+ref table 'Geographic Area(School District)'
+ref table ACCESS(1)
+ref table LocalDateTable_6bcf6856-000b-4f1f-9da5-bd72e3b5753a
+ref table ACCESS(2)
+ref table SERVICE1
+ref table [Dim_Geography]
+ref table ELIGIBILITY1
+ref table ELIGIBILITY3
+ref table ELIGIBILITY(STATE1)
+ref table ELIGIBILITY1(state)
+ref table 'cat Fact_EligibiltyFactors(state)'
+ref table ELIGIBILITY3_1
+ref table ELIGIBILITY3(state)
+ref table ELIGIBILITY3_1(State)
+ref table ethnicity1
+ref table ethnicity(State)
+ref table geo
+ref table 'Service Map'
+

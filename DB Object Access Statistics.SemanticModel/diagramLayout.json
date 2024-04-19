@@ -1,0 +1,106 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 365.57969716696425,
+            "y": 0
+          },
+          "nodeIndex": "reportdata",
+          "size": {
+            "height": 505,
+            "width": 276
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 49
+          },
+          "nodeIndex": "Dim.Master.ObjectName",
+          "size": {
+            "height": 194,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 681.57969716696425,
+            "y": 24
+          },
+          "nodeIndex": "YCalendar",
+          "size": {
+            "height": 318,
+            "width": 215
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 964.65223583791612,
+            "y": 0
+          },
+          "nodeIndex": "TOPN",
+          "size": {
+            "height": 213,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1270.7325673730131,
+            "y": 0
+          },
+          "nodeIndex": "KPIs.Selected",
+          "size": {
+            "height": 194,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1560.4993656318672,
+            "y": 0
+          },
+          "nodeIndex": "Auto.Axis",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 91.579697166964252,
+            "y": 337
+          },
+          "nodeIndex": "DimDatabasename",
+          "size": {
+            "height": 194,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,93 @@
+table 'cat Fact_RiskFactors'
+	lineageTag: db23936c-61ba-4934-8732-2bc591a67498
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: ac68ede9-cee4-447f-b83d-8b4dbb423523
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 765b69e3-fb6a-4006-ac83-96257019ce70
+		summarizeBy: count
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6086801e-a138-41f3-a841-515de0fe0b6f
+		summarizeBy: count
+		sourceColumn: RaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskId
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c8b8831-1eef-4e60-9029-b09515fc8155
+		summarizeBy: count
+		sourceColumn: RiskId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimate
+		dataType: double
+		lineageTag: 212b1ed8-8f6a-4019-8754-9037a686a13e
+		summarizeBy: sum
+		sourceColumn: Estimate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MarginOfError
+		dataType: double
+		lineageTag: bae56c5b-5390-48fd-b4cd-76060f01fe02
+		summarizeBy: sum
+		sourceColumn: MarginOfError
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCount
+		dataType: double
+		lineageTag: c30fb12f-0f11-4452-aaf8-f30be0d341ec
+		summarizeBy: sum
+		sourceColumn: TotalCount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalMarginOfError
+		dataType: double
+		lineageTag: 12f87aea-cb48-461d-8e92-f4263d7bed65
+		summarizeBy: sum
+		sourceColumn: TotalMarginOfError
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'cat Fact_RiskFactors-b37dac2c-4657-409c-9433-63398db35bd1' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT * FROM CAT.[FACT_RISKFACTORS]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":8,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/cat Fact_RiskFactors/Source.{Id,0}","Section1/cat Fact_RiskFactors/Source.{GeographyId,1}","Section1/cat Fact_RiskFactors/Source.{RaceId,2}","Section1/cat Fact_RiskFactors/Source.{RiskId,3}","Section1/cat Fact_RiskFactors/Source.{Estimate,4}","Section1/cat Fact_RiskFactors/Source.{MarginOfError,5}","Section1/cat Fact_RiskFactors/Source.{TotalCount,6}","Section1/cat Fact_RiskFactors/Source.{TotalMarginOfError,7}"],"ColumnCount":8,"KeyColumnNames":[],"ColumnIdentities":["Section1/cat Fact_RiskFactors/Source.{Id,0}","Section1/cat Fact_RiskFactors/Source.{GeographyId,1}","Section1/cat Fact_RiskFactors/Source.{RaceId,2}","Section1/cat Fact_RiskFactors/Source.{RiskId,3}","Section1/cat Fact_RiskFactors/Source.{Estimate,4}","Section1/cat Fact_RiskFactors/Source.{MarginOfError,5}","Section1/cat Fact_RiskFactors/Source.{TotalCount,6}","Section1/cat Fact_RiskFactors/Source.{TotalMarginOfError,7}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,176 @@
+table ELIGIBILITY3_1(State)
+	lineageTag: ab5534bc-b317-4f02-a232-9a291507a617
+
+	measure Pct31County = DIVIDE(SUM('ELIGIBILITY3_1(State)'[Estimate]),SUM('ELIGIBILITY3_1(State)'[TotalCount]))
+		lineageTag: 651834fe-da69-4ced-b58b-9d768345265e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: ca5e18cf-a554-4b1f-9fc3-9900a2926ab2
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4778640a-899f-42fc-af8c-e2c15c10f36c
+		summarizeBy: count
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceId
+		dataType: int64
+		formatString: 0
+		lineageTag: be042159-fc0d-4939-939d-92259e7486b3
+		summarizeBy: count
+		sourceColumn: RaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskId
+		dataType: int64
+		formatString: 0
+		lineageTag: c841ca82-c6b4-4b17-8737-2765084b6865
+		summarizeBy: count
+		sourceColumn: RiskId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimate
+		dataType: double
+		lineageTag: c082c00d-ff87-4060-850d-3a748600beb6
+		summarizeBy: sum
+		sourceColumn: Estimate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MarginOfError
+		dataType: double
+		lineageTag: c25a5bf7-e6d5-4522-9ab1-3bd728c42397
+		summarizeBy: sum
+		sourceColumn: MarginOfError
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCount
+		dataType: double
+		lineageTag: 67f528a7-b768-4fa0-a52b-f97db9826cc1
+		summarizeBy: sum
+		sourceColumn: TotalCount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalMarginOfError
+		dataType: double
+		lineageTag: 9a61babc-b079-454c-aa73-d7029282cc43
+		summarizeBy: sum
+		sourceColumn: TotalMarginOfError
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Id2
+		dataType: int64
+		formatString: 0
+		lineageTag: ff5af1a3-7896-421a-9f61-268d17db3c44
+		summarizeBy: sum
+		sourceColumn: Id2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 4c7c1daa-5fe6-4f7e-ade6-4acf3d6e07ac
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id3
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bae89a4-ed49-433a-b1f4-dd0e7d16cf3e
+		summarizeBy: sum
+		sourceColumn: Id3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name2
+		dataType: string
+		lineageTag: 98f69e20-e391-4662-a7d2-75ef60a07b1e
+		summarizeBy: none
+		sourceColumn: Name2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 79dfb51a-5cbc-4cdd-b8b2-7509a3949c53
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 23c85af7-3e3b-4757-8ae1-fa9995326cec
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 48f27474-20db-4288-93f4-26b0341377ea
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 791f631d-b52a-4fa1-b3ad-c933bb190860
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: ca03a90a-8152-4fa6-8d91-d995ca785b8a
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ELIGIBILITY3_1(State)-71114a9f-4d7c-42db-aec5-c486accda2da = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT#(lf)*#(lf)FROM cat.Fact_RiskFactors rf#(lf)JOIN cat.Dim_Races r ON#(lf)    rf.RaceId = r.Id#(lf)JOIN cat.Dim_Geography g ON#(lf)    rf.GeographyId = g.Id#(lf)WHERE R.ID BETWEEN 8 AND 9#(lf) and IsCounty = 0#(lf) and  IsSchoolDistrict = 0#(lf) and IsCongressional = 0#(lf) and IsLegislative = 0#(lf)"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":17,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{GeographyId,1}","Section1/Query1/Source.{RaceId,2}","Section1/Query1/Source.{RiskId,3}","Section1/Query1/Source.{Estimate,4}","Section1/Query1/Source.{MarginOfError,5}","Section1/Query1/Source.{TotalCount,6}","Section1/Query1/Source.{TotalMarginOfError,7}","Section1/Query1/Source.{Id2,8}","Section1/Query1/Source.{Name,9}","Section1/Query1/Source.{Id3,10}","Section1/Query1/Source.{Name2,11}","Section1/Query1/Source.{IsCounty,12}","Section1/Query1/Source.{IsLegislative,13}","Section1/Query1/Source.{IsSchoolDistrict,14}","Section1/Query1/Source.{IsCongressional,15}","Section1/Query1/Source.{DisplayName,16}"],"ColumnCount":17,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{GeographyId,1}","Section1/Query1/Source.{RaceId,2}","Section1/Query1/Source.{RiskId,3}","Section1/Query1/Source.{Estimate,4}","Section1/Query1/Source.{MarginOfError,5}","Section1/Query1/Source.{TotalCount,6}","Section1/Query1/Source.{TotalMarginOfError,7}","Section1/Query1/Source.{Id2,8}","Section1/Query1/Source.{Name,9}","Section1/Query1/Source.{Id3,10}","Section1/Query1/Source.{Name2,11}","Section1/Query1/Source.{IsCounty,12}","Section1/Query1/Source.{IsLegislative,13}","Section1/Query1/Source.{IsSchoolDistrict,14}","Section1/Query1/Source.{IsCongressional,15}","Section1/Query1/Source.{DisplayName,16}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

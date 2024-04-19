@@ -1,0 +1,150 @@
+table reportdata
+	lineageTag: 72e87a2b-7cbf-46b7-a984-1f3efb3ed9e0
+
+	column ServerName
+		dataType: string
+		lineageTag: 2dcdf0bb-8475-445e-b158-52ad00d1cc12
+		summarizeBy: none
+		sourceColumn: ServerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatabaseName
+		dataType: string
+		lineageTag: b19991fa-4e2d-4a14-b140-26c78cd5387c
+		summarizeBy: none
+		sourceColumn: DatabaseName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchemaName
+		dataType: string
+		lineageTag: 2473c265-f6f1-40b2-ab00-4d83f7327945
+		summarizeBy: none
+		sourceColumn: SchemaName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectName
+		dataType: string
+		lineageTag: 4694b0f4-df13-456a-8eac-a93a6ae06bbf
+		summarizeBy: none
+		sourceColumn: ObjectName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectType
+		dataType: string
+		lineageTag: f0553860-e821-4883-b21e-fe2ac389722b
+		summarizeBy: none
+		sourceColumn: ObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalRowCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f3de961-c348-4ddb-be79-92e0dfcae468
+		summarizeBy: sum
+		sourceColumn: TotalRowCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalColumnCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 82e3d712-9b48-4c45-b883-ff970a48ffbf
+		summarizeBy: sum
+		sourceColumn: TotalColumnCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8a2a2f01-2926-42a3-987d-1aee9ab8ba5b
+		summarizeBy: none
+		sourceColumn: CreateDate
+
+		variation Variation
+			isDefault
+			relationship: 97d14b46-2444-4b0a-b00f-8fbf0bd0df30
+			defaultHierarchy: LocalDateTable_cbd25aab-33f1-49f6-b6be-a8ebf94e8a9a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4b3d2269-76fd-40c0-baba-4896baf2c0d2
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 80425672-37e8-4af2-a5d0-b5869bc67e82
+			defaultHierarchy: LocalDateTable_92db4081-4d25-4b3f-8d7b-f5505bda380e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastReadTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aa5122ea-4f06-47e8-b6a6-92917765646e
+		summarizeBy: none
+		sourceColumn: LastReadTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastWriteTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bf753ce3-f307-4b50-8918-d75ebec4d4e0
+		summarizeBy: none
+		sourceColumn: LastWriteTime
+
+		variation Variation
+			isDefault
+			relationship: b03a7a66-ab2b-4d06-95c9-0a8e127b539c
+			defaultHierarchy: LocalDateTable_31627a71-20c1-4ead-b225-e9e8b701504e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UsedSpaceinMB
+		dataType: int64
+		formatString: 0
+		lineageTag: dd5899b3-c5f8-42b4-85f3-fff046292945
+		summarizeBy: sum
+		sourceColumn: UsedSpaceinMB
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44828b84-e4d2-44fd-bc73-34157b846afc
+		summarizeBy: none
+		sourceColumn: RunDate
+
+		variation 变体
+			isDefault
+			relationship: e2c40095-14ab-4737-a3c7-042fd7fcc4ea
+			defaultHierarchy: LocalDateTable_d9b4de05-ba45-4071-b729-462cf444e5dd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition reportdata-f78fb106-515e-412e-9895-abd47da0be92 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL01", "Data_Flow"),
+				    dbo_Object_Usage_Details = Source{[Schema="dbo",Item="Object_Usage_Details"]}[Data]
+				in
+				    dbo_Object_Usage_Details
+
+	annotation PBI_QueryRelationships = {"columnCount":13,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ServerName,0}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{DatabaseName,1}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{SchemaName,2}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ObjectName,3}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ObjectType,4}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{TotalRowCount,5}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{TotalColumnCount,6}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{CreateDate,7}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ModifiedDate,8}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{LastReadTime,9}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{LastWriteTime,10}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{UsedSpaceinMB,11}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{RunDate,12}"],"ColumnCount":13,"KeyColumnNames":[],"ColumnIdentities":["Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ServerName,0}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{DatabaseName,1}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{SchemaName,2}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ObjectName,3}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ObjectType,4}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{TotalRowCount,5}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{TotalColumnCount,6}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{CreateDate,7}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{ModifiedDate,8}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{LastReadTime,9}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{LastWriteTime,10}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{UsedSpaceinMB,11}","Server.Database\\/2/SQL/ndesql01;Data_Flow/dbo/Object_Usage_Details.{RunDate,12}"],"RelationshipInfo":[]}
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

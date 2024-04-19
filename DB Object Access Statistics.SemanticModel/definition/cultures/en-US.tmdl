@@ -1,0 +1,137 @@
+culture en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "reportdata.lastwritetime": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "reportdata",
+			          "ConceptualProperty": "LastWriteTime"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Date": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_master_objectname.objectname": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim.Master.ObjectName",
+			          "ConceptualProperty": "ObjectName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Table Name": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_master_objectname.topnactiveobject": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim.Master.ObjectName",
+			          "ConceptualProperty": "TOPNActiveObject"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TOPNActiveTable": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_master_objectname.column10_numofreadcounts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim.Master.ObjectName",
+			          "ConceptualProperty": "10.NumofReadCounts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "No. Of ReadCounts": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_master_objectname.column20_numofwritecounts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim.Master.ObjectName",
+			          "ConceptualProperty": "20.NumofWriteCounts"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "No. Of WriteCounts": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpis_selected.pls_kpis_selected": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPIs.Selected",
+			          "ConceptualProperty": "Pls.KPIs.Selected"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPIs.Selected": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

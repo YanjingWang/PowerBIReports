@@ -1,0 +1,299 @@
+table ACCESS(1)
+	lineageTag: 487aae29-6912-468c-b205-9c31f05cfc33
+
+	measure Year = "2019"
+		lineageTag: 3709e429-4cb4-406f-b1dc-3ab45767a122
+
+	measure Countm = format(sum('ACCESS(1)'[Count]),"#,###")
+		lineageTag: d2bf5183-952c-4f62-984e-96ea9462f6b8
+
+	measure Capacitym = format(sum('ACCESS(1)'[Capacity]),"#,###")
+		lineageTag: 7d4ab960-5d57-4b77-87c7-98f856296dea
+
+	measure CARD = IF(HASONEVALUE('ACCESS(1)'[DisplayName]),MAX('ACCESS(1)'[DisplayName]),"Nebraska")
+		lineageTag: e59a7257-56f4-4891-8746-4374765c7e60
+
+	column 'Program Type'
+		dataType: string
+		lineageTag: 8713b18b-bc35-4b02-8296-d2e32c797737
+		summarizeBy: none
+		sourceColumn: Program Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubType
+		dataType: string
+		lineageTag: 3081da2f-66f6-4aef-af10-94cee0feccde
+		summarizeBy: none
+		sourceColumn: SubType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Step Up To Quality'
+		dataType: string
+		lineageTag: 06834d88-58ef-4030-8d88-36cb600c7db6
+		summarizeBy: none
+		sourceColumn: Step Up To Quality
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id1
+		dataType: int64
+		formatString: 0
+		lineageTag: d1df4b32-1ff8-4a08-8c5c-249410e131d6
+		summarizeBy: sum
+		sourceColumn: Id1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: ef95b9e0-a4ca-40bf-a3ac-bc6478950c48
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacilityName
+		dataType: string
+		lineageTag: fc3d2b5c-c2b1-4f60-bd8f-0d46d054ceaf
+		summarizeBy: none
+		sourceColumn: FacilityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OwnerName
+		dataType: string
+		lineageTag: 3a0db8aa-1643-46f3-b897-33047ce5142d
+		summarizeBy: none
+		sourceColumn: OwnerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 23920fae-c977-42ac-8173-bbf67b401ba7
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LicenseNumber
+		dataType: string
+		lineageTag: f15db718-a066-422f-a368-b276409fccae
+		summarizeBy: none
+		sourceColumn: LicenseNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LicenseType
+		dataType: string
+		lineageTag: a383c843-c3bd-44d4-b9ae-75396f0a9d8d
+		summarizeBy: none
+		sourceColumn: LicenseType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EffectiveDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 54ea57a3-1e57-453a-8d4b-d51ae6952d78
+		summarizeBy: none
+		sourceColumn: EffectiveDate
+
+		variation Variation
+			isDefault
+			relationship: 58232c7d-cd45-451d-9ff0-f93427be12bb
+			defaultHierarchy: LocalDateTable_6bcf6856-000b-4f1f-9da5-bd72e3b5753a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address1
+		dataType: string
+		lineageTag: 75afc6fa-30c2-49aa-9dd9-98a27feb6a6f
+		summarizeBy: none
+		sourceColumn: Address1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address2
+		dataType: string
+		lineageTag: 57e42ebb-dc7e-4fbd-84eb-a24ac6b61a50
+		summarizeBy: none
+		sourceColumn: Address2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address3
+		dataType: string
+		lineageTag: 8e0b064a-400f-4327-b91a-58e479fe9e60
+		summarizeBy: none
+		sourceColumn: Address3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capacity
+		dataType: int64
+		formatString: 0
+		lineageTag: b41bf0a1-1e60-40cb-b9e7-d6bafb79527b
+		summarizeBy: sum
+		sourceColumn: Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column StepUpToQuality
+		dataType: int64
+		formatString: 0
+		lineageTag: 69870483-4493-405f-9ac6-f50a87cc9ede
+		summarizeBy: sum
+		sourceColumn: StepUpToQuality
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9447bc5b-63b2-4080-8096-0e3458ca925f
+		summarizeBy: none
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id2
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cdf6bc7-6972-45f6-aa72-092333cbafb5
+		summarizeBy: sum
+		sourceColumn: Id2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 7ac28a83-92ec-44e2-ae3a-bf5853448fd8
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 82240ddb-b66a-47e1-8a8d-50199d794295
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b52ec7ac-3c69-41e2-8076-5dba80eefdc1
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4eadc394-fdb2-4c52-bf29-c5d6bacb20b4
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 606a628f-37d9-4c1a-ac6b-dd42b8af0fc5
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: aca0cb83-d529-4c6d-9863-9282cace1e59
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id3
+		dataType: int64
+		formatString: 0
+		lineageTag: f2ed9f75-16fe-480a-ba84-5a8a3226c8f2
+		summarizeBy: sum
+		sourceColumn: Id3
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacilityId
+		dataType: int64
+		formatString: 0
+		lineageTag: a7adec0f-d878-44dc-8796-ccac2edc8720
+		summarizeBy: count
+		sourceColumn: FacilityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 18bfa5e5-8fcb-4e54-b1c1-964573e1637b
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: aeeef259-1ad3-4c4a-9d67-b84b549e8451
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column Years = "2019"
+		dataType: string
+		lineageTag: 60310709-8695-4338-8b3f-ca131907f865
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: ad7c735c-5d6e-45e5-bbf8-72766de2019f
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 3bbc51ad-3207-4a2b-bc71-080ce5d746e0
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ACCESS(1)-6191fce5-6f9e-41d8-958e-6198d036855f = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_DataWarehouse", [Query="-- ACCESS 1#(lf)SELECT#(lf)    [Program Type] = CASE WHEN [LicenseType] LIKE '%Child Care Center%' THEN 'Child Care Centers'#(lf)                    WHEN [LicenseType] LIKE '%Family Child Care Home%' THEN 'Family Child Care Homes'#(lf)                    WHEN [LicenseType] LIKE '%Preschool%' THEN 'Preschools'#(lf)                    WHEN [LicenseType] LIKE 'School-Age-Only Child Care Center%' OR LicenseType LIKE 'Provisional School-Age-Only Center%' THEN 'School Age Only Child Care Centers'#(lf)ELSE '--'                     #(lf)END#(lf)    , SubType = [LicenseType]#(lf)    , [Step Up To Quality] = CASE WHEN [StepUpToQuality] = 0 THEN 'Not Participating'#(lf)                                  WHEN [StepUpToQuality] IS NOT NULL THEN 'Step ' + CAST(StepUpToQuality as nvarchar(2))#(lf)ELSE '--'#(lf)                        END#(lf)--SELECT#(lf)     ,Id1 = f.Id#(lf)    , f.ZipCode#(lf)    , f.FacilityName#(lf)    , f.OwnerName#(lf)    , f.PhoneNumber#(lf)    , f.LicenseNumber#(lf)    , f.LicenseType#(lf)    , f.EffectiveDate#(lf)    , f.Address1#(lf)    , f.Address2#(lf)    , f.Address3#(lf)    , ISNULL(f.Capacity,0) AS [Capacity]#(lf)    , f.StepUpToQuality#(lf)    , f.GeographyId#(lf)    , f.[Address]#(lf)    , f.[Latitude]#(lf)    , f.[Longitude]#(lf)    , Id2 = g.Id#(lf)    , g.[Name]#(lf)    , g.IsCounty #(lf)    , g.IsLegislative#(lf)    , g.IsSchoolDistrict#(lf)    , g.IsCongressional#(lf)    , g.DisplayName#(lf)    , Id3 = a.Id#(lf)    , a.FacilityId#(lf)    , ISNULL(a.[Count],0) AS [Count]#(lf)FROM cat.Dim_Geography g#(lf)LEFT JOIN cat.Dim_LicensedChildCareFacilities f ON#(lf)    f.GeographyId = g.Id#(lf)LEFT JOIN cat.Fact_LicensedChildCareAccess a ON#(lf)    f.Id = a.FacilityId#(lf)WHERE [ISCOUNTY] = 1#(lf)--ORDER BY [GEOGRAPHYID]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":28,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/ACCESS(1)/Source.{Program Type,0}","Section1/ACCESS(1)/Source.{SubType,1}","Section1/ACCESS(1)/Source.{Step Up To Quality,2}","Section1/ACCESS(1)/Source.{Id1,3}","Section1/ACCESS(1)/Source.{ZipCode,4}","Section1/ACCESS(1)/Source.{FacilityName,5}","Section1/ACCESS(1)/Source.{OwnerName,6}","Section1/ACCESS(1)/Source.{PhoneNumber,7}","Section1/ACCESS(1)/Source.{LicenseNumber,8}","Section1/ACCESS(1)/Source.{LicenseType,9}","Section1/ACCESS(1)/Source.{EffectiveDate,10}","Section1/ACCESS(1)/Source.{Address1,11}","Section1/ACCESS(1)/Source.{Address2,12}","Section1/ACCESS(1)/Source.{Address3,13}","Section1/ACCESS(1)/Source.{Capacity,14}","Section1/ACCESS(1)/Source.{StepUpToQuality,15}","Section1/ACCESS(1)/Source.{GeographyId,16}","Section1/ACCESS(1)/Source.{Address,17}","Section1/ACCESS(1)/Source.{Id2,18}","Section1/ACCESS(1)/Source.{Name,19}","Section1/ACCESS(1)/Source.{IsCounty,20}","Section1/ACCESS(1)/Source.{IsLegislative,21}","Section1/ACCESS(1)/Source.{IsSchoolDistrict,22}","Section1/ACCESS(1)/Source.{IsCongressional,23}","Section1/ACCESS(1)/Source.{DisplayName,24}","Section1/ACCESS(1)/Source.{Id3,25}","Section1/ACCESS(1)/Source.{FacilityId,26}","Section1/ACCESS(1)/Source.{Count,27}"],"ColumnCount":28,"KeyColumnNames":[],"ColumnIdentities":["Section1/ACCESS(1)/Source.{Program Type,0}","Section1/ACCESS(1)/Source.{SubType,1}","Section1/ACCESS(1)/Source.{Step Up To Quality,2}","Section1/ACCESS(1)/Source.{Id1,3}","Section1/ACCESS(1)/Source.{ZipCode,4}","Section1/ACCESS(1)/Source.{FacilityName,5}","Section1/ACCESS(1)/Source.{OwnerName,6}","Section1/ACCESS(1)/Source.{PhoneNumber,7}","Section1/ACCESS(1)/Source.{LicenseNumber,8}","Section1/ACCESS(1)/Source.{LicenseType,9}","Section1/ACCESS(1)/Source.{EffectiveDate,10}","Section1/ACCESS(1)/Source.{Address1,11}","Section1/ACCESS(1)/Source.{Address2,12}","Section1/ACCESS(1)/Source.{Address3,13}","Section1/ACCESS(1)/Source.{Capacity,14}","Section1/ACCESS(1)/Source.{StepUpToQuality,15}","Section1/ACCESS(1)/Source.{GeographyId,16}","Section1/ACCESS(1)/Source.{Address,17}","Section1/ACCESS(1)/Source.{Id2,18}","Section1/ACCESS(1)/Source.{Name,19}","Section1/ACCESS(1)/Source.{IsCounty,20}","Section1/ACCESS(1)/Source.{IsLegislative,21}","Section1/ACCESS(1)/Source.{IsSchoolDistrict,22}","Section1/ACCESS(1)/Source.{IsCongressional,23}","Section1/ACCESS(1)/Source.{DisplayName,24}","Section1/ACCESS(1)/Source.{Id3,25}","Section1/ACCESS(1)/Source.{FacilityId,26}","Section1/ACCESS(1)/Source.{Count,27}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

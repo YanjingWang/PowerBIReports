@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: zh-CN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["reportdata"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table reportdata
+ref table DateTableTemplate_1452af75-f520-487d-b96b-6e7f61b8f8e2
+ref table LocalDateTable_cbd25aab-33f1-49f6-b6be-a8ebf94e8a9a
+ref table LocalDateTable_92db4081-4d25-4b3f-8d7b-f5505bda380e
+ref table LocalDateTable_31627a71-20c1-4ead-b225-e9e8b701504e
+ref table 'Dim.Master.ObjectName'
+ref table YCalendar
+ref table TOPN
+ref table 'KPIs.Selected'
+ref table 'Auto.Axis'
+ref table LocalDateTable_978ec920-527a-4046-a9fe-9df1c3c72acb
+ref table DimDatabasename
+ref table LocalDateTable_d9b4de05-ba45-4071-b729-462cf444e5dd
+ref table LocalDateTable_b7b24278-0377-4066-9be6-4ede7545fcb2
+

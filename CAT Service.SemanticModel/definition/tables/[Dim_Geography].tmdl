@@ -1,0 +1,89 @@
+table [Dim_Geography]
+	lineageTag: 6df95b73-c282-4659-8e02-563cb16d5b2f
+
+	measure State = "Nebraska"
+		lineageTag: 4b5247c2-aaf0-428e-b592-b7a80e6ce94c
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5b9e5b4e-b5dd-430a-9adc-0a92112821ec
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6a25e57c-d2c5-4c75-b98a-5166e7e24862
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 45d029a7-3a89-4db6-b694-02cbb40ad023
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2addf225-32c4-478e-938b-d89571d999c9
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayName
+		dataType: string
+		lineageTag: f00c882a-6f9f-41ec-96e5-74c0c382c4f4
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 759110f5-1968-44bf-8f0c-ba5d9d328fe6
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: bc6e301d-055f-4973-ac5e-8b098ecbbaa7
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Geographic Area'
+		dataType: string
+		lineageTag: bef38bbd-c5ee-40c1-8935-a0172cb7741a
+		summarizeBy: none
+		sourceColumn: Geographic Area
+
+		annotation SummarizationSetBy = Automatic
+
+	partition [Dim_Geography]-1e27c665-7921-4583-a3ee-da706a85de11 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_DataWarehouse", [Query="SELECT#(lf)[Geographic Area] = CASE #(lf)WHEN g.[IsSchoolDistrict] = 1 THEN 'School District'#(lf)#(tab)#(tab)WHEN g.[IsCounty] = 1 THEN 'County'#(lf)#(tab)#(tab)WHEN g.[IsLegislative] = 1 THEN 'Legislative District' #(lf)#(tab)#(tab)WHEN g.[IsCongressional] = 1 THEN 'Congressional District'#(lf)#(tab)#(tab)ELSE 'Nebraska'#(lf)#(tab)#(tab)END,#(lf)*#(lf)FROM CAT.Dim_Geography G"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":7,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}","Section1/Query1/Source.{DisplayName,6}"],"ColumnCount":7,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}","Section1/Query1/Source.{DisplayName,6}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

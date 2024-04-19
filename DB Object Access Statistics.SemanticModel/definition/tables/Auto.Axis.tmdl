@@ -1,0 +1,65 @@
+table 'Auto.Axis'
+	lineageTag: 42d5cf8f-ed5e-48d1-84d8-73a04a0d2db0
+
+	measure 'KPI.Auto.ByRead&Write' = ```
+			
+			// 1. x = 用户选择的按钮内容：类别，子类别
+			// 2. y = 
+			//    如果 x = 类别，y = 产品[类别]
+			//    如果 x = 子类别，y = 产品[子类别]
+			// 3. 再计算CALCULATE( [..] , y )
+			
+			VAR x = SELECTEDVALUE( 'Auto.Axis'[Category] )
+			RETURN 
+			    IF( x = "Read" , 
+			        CALCULATE( [10.NumofReadCounts] , TREATAS( VALUES( 'Auto.Axis'[Date] ) , 'reportdata'[LastReadTime]) ),
+			        CALCULATE( [20.NumofWriteCounts], TREATAS( VALUES( 'Auto.Axis'[Date] ) , 'reportdata'[LastWriteTime] ) )
+			    )
+			
+			
+			//CALCULATE( [KPI.Auto] , TREATAS( 
+			```
+		formatString: 0
+		lineageTag: 66750325-1d9c-4ab2-97c6-502d45f439e9
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 50e3f04a-2618-406c-9f05-de9861df466d
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 77f70292-af40-4fda-8a08-c9306c0619a4
+			defaultHierarchy: LocalDateTable_978ec920-527a-4046-a9fe-9df1c3c72acb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: ccc85116-e89c-4557-826d-2f9467f60717
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Auto.Axis-85b00eef-87ca-4ff9-be33-28e8ad2ef71c' = calculated
+		mode: import
+		source = ```
+				
+				
+				VAR X1 = SELECTCOLUMNS(VALUES(reportdata[LastReadTime]),"Date",'reportdata'[LastReadTime])
+				VAR X2 = ADDCOLUMNS(X1,"Category","Read")
+				
+				VAR Y1 = SELECTCOLUMNS(VALUES('reportdata'[LastWriteTime]),"Date",'reportdata'[LastWriteTime])
+				VAR Y2 = ADDCOLUMNS(Y1,"ca","Write")
+				RETURN UNION(X2,Y2)
+				
+				
+				```
+

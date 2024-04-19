@@ -1,0 +1,167 @@
+{
+  "config": "{\"version\":\"5.42\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY19SU12\",\"version\":\"5.6\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSection",
+      "config": "{}",
+      "name": "Pod"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY19SU12",
+            "path": "BaseThemes/CY19SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "LOGO137014435825279834.png",
+            "path": "LOGO137014435825279834.png",
+            "type": 100
+          },
+          {
+            "name": "LOGO26036096299648901.png",
+            "path": "LOGO26036096299648901.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"relationships\":[{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"0d48551357eb0f6a4129\",\"type\":3},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"eeeb36ddcdfc77488e66\",\"type\":1},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"d523b0db1852748eccbe\",\"type\":3},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"c1be93c2800fa670112d\",\"type\":3},{\"source\":\"eeeb36ddcdfc77488e66\",\"target\":\"7e4cf3629a4edd567504\",\"type\":1},{\"source\":\"7e4cf3629a4edd567504\",\"target\":\"eeeb36ddcdfc77488e66\",\"type\":2},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"7e4cf3629a4edd567504\",\"type\":1},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"d75cdbcacbcf6164749b\",\"type\":1},{\"source\":\"e11eeeef0954609b8e08\",\"target\":\"3c1cd4150362e51ba92f\",\"type\":1}]}",
+      "displayName": "DB Object Access Statistics",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0d48551357eb0f6a4129\",\"layouts\":[{\"id\":0,\"position\":{\"x\":253.41414141414143,\"y\":146.53198653198652,\"z\":7000,\"width\":672.3232323232323,\"height\":256}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Auto.Axis.KPI.Auto.ByRead&Write\"}],\"Category\":[{\"queryRef\":\"Auto.Axis.Date.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"Auto.Axis.Date.Variation.Date Hierarchy.Quarter\",\"active\":true},{\"queryRef\":\"Auto.Axis.Date.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"Auto.Axis.Date.Variation.Date Hierarchy.Day\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Auto.Axis\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"KPI.Auto.ByRead&Write\"},\"Name\":\"Auto.Axis.KPI.Auto.ByRead&Write\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Name\":\"Variation\",\"Property\":\"Date\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"Auto.Axis.Date.Variation.Date Hierarchy.Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Name\":\"Variation\",\"Property\":\"Date\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Quarter\"},\"Name\":\"Auto.Axis.Date.Variation.Date Hierarchy.Quarter\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Name\":\"Variation\",\"Property\":\"Date\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"Auto.Axis.Date.Variation.Date Hierarchy.Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Name\":\"Variation\",\"Property\":\"Date\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"Auto.Axis.Date.Variation.Date Hierarchy.Day\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'KPI Auto By Read&Write by Year, Quarter, Month and Day'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"YCalendar\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"YCalendar\"}},\"Property\":\"Date\"}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"YCalendar\"}},\"Property\":\"Date\"}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 256.00,
+          "width": 672.32,
+          "x": 253.41,
+          "y": 146.53,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"15ffb0c34bc0c71a1226\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":285.3063973063973,\"z\":1000,\"width\":207.73063973063972,\"height\":63.784511784511785}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"reportdata.ServerName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"reportdata\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"ServerName\"},\"Name\":\"reportdata.ServerName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.78,
+          "width": 207.73,
+          "x": 0.00,
+          "y": 285.31,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"319301806795ac2ab881\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1.7239057239057238,\"y\":0,\"z\":11000,\"width\":171.52861952861952,\"height\":111.1919191919192}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"LOGO26036096299648901.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.19,
+          "width": 171.53,
+          "x": 1.72,
+          "y": 0.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"3b92bd239ed7cc6b3e89\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1086.922558922559,\"y\":0,\"z\":10000,\"width\":193.07744107744108,\"height\":111.1919191919192}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"LOGO137014435825279834.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.19,
+          "width": 193.08,
+          "x": 1086.92,
+          "y": 0.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"3c1cd4150362e51ba92f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":746.4511784511784,\"y\":19.824915824915823,\"z\":6000,\"width\":179.2861952861953,\"height\":99.98653198653199}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim.Master.ObjectName.20.NumofWriteCounts\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Dim.Master.ObjectName\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"20.NumofWriteCounts\"},\"Name\":\"Dim.Master.ObjectName.20.NumofWriteCounts\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"10.NumofReadCounts\"}}}]},\"columnProperties\":{\"Dim.Master.ObjectName.20.NumofWriteCounts\":{\"displayName\":\"No. Of WriteCounts\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'24'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 99.99,
+          "width": 179.29,
+          "x": 746.45,
+          "y": 19.82,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"7e4cf3629a4edd567504\",\"layouts\":[{\"id\":0,\"position\":{\"x\":253.41414141414143,\"y\":431.83838383838383,\"z\":9000,\"width\":672.3232323232323,\"height\":287.8922558922559}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"DimDatabasename.DatabaseName\",\"active\":true}],\"Values\":[{\"queryRef\":\"KPIs.Selected.Pls.KPIs.Selected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatabasename\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"KPIs.Selected\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DatabaseName\"},\"Name\":\"DimDatabasename.DatabaseName\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Pls.KPIs.Selected\"},\"Name\":\"KPIs.Selected.Pls.KPIs.Selected\"}]},\"columnProperties\":{\"KPIs.Selected.Pls.KPIs.Selected\":{\"displayName\":\"KPIs.Selected\"}},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'KPIs Selected by DatabaseName'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 287.89,
+          "width": 672.32,
+          "x": 253.41,
+          "y": 431.84,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"c1be93c2800fa670112d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":387.016835016835,\"z\":4000,\"width\":207.73063973063972,\"height\":64.64646464646465}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"reportdata.SchemaName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"reportdata\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"SchemaName\"},\"Name\":\"reportdata.SchemaName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.65,
+          "width": 207.73,
+          "x": 0.00,
+          "y": 387.02,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"d523b0db1852748eccbe\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":498.2087542087542,\"z\":8000,\"width\":207.73063973063972,\"height\":64.64646464646465}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Auto.Axis.Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Auto.Axis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Category\"},\"Name\":\"Auto.Axis.Category\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.65,
+          "width": 207.73,
+          "x": 0.00,
+          "y": 498.21,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"d75cdbcacbcf6164749b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":253.41414141414143,\"y\":19.824915824915823,\"z\":5000,\"width\":177.56228956228955,\"height\":99.98653198653199}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim.Master.ObjectName.10.NumofReadCounts\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Dim.Master.ObjectName\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"10.NumofReadCounts\"},\"Name\":\"Dim.Master.ObjectName.10.NumofReadCounts\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"10.NumofReadCounts\"}}}]},\"columnProperties\":{\"Dim.Master.ObjectName.10.NumofReadCounts\":{\"displayName\":\"No. Of ReadCounts\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'24'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Consolas'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 99.99,
+          "width": 177.56,
+          "x": 253.41,
+          "y": 19.82,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"e11eeeef0954609b8e08\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":146.53198653198652,\"z\":0,\"width\":207.73063973063972,\"height\":112.05387205387206}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"reportdata.LastWriteTime\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"reportdata\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"LastWriteTime\"},\"Name\":\"reportdata.LastWriteTime\"}]},\"columnProperties\":{\"reportdata.LastWriteTime\":{\"displayName\":\"Date\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{}}],\"header\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Consolas'\"}}}}}],\"date\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Consolas'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.05,
+          "width": 207.73,
+          "x": 0.00,
+          "y": 146.53,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"eeeb36ddcdfc77488e66\",\"layouts\":[{\"id\":0,\"position\":{\"x\":943.8383838383838,\"y\":128,\"z\":2000,\"width\":319.7845117845118,\"height\":592}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Dim.Master.ObjectName.TOPNActiveObject\"}],\"Category\":[{\"queryRef\":\"Dim.Master.ObjectName.ObjectName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Dim.Master.ObjectName\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"TOPNActiveObject\"},\"Name\":\"Dim.Master.ObjectName.TOPNActiveObject\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"ObjectName\"},\"Name\":\"Dim.Master.ObjectName.ObjectName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"TOPNActiveObject\"}}}]},\"columnProperties\":{\"Dim.Master.ObjectName.ObjectName\":{\"displayName\":\"Table Name\"},\"Dim.Master.ObjectName.TOPNActiveObject\":{\"displayName\":\"TOPNActiveTable\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'TOPN Active Table by TableName'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 592.00,
+          "width": 319.78,
+          "x": 943.84,
+          "y": 128.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"ffeed7b7f80757b2592c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":607.6767676767677,\"z\":3000,\"width\":207.73063973063972,\"height\":112.05387205387206}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"TOPN.TOPN\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"TOPN\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"TOPN\"},\"Name\":\"TOPN.TOPN\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"numericStart\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"TOPN\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"TOPN\"}},\"Right\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.05,
+          "width": 207.73,
+          "x": 0.00,
+          "y": 607.68,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+table ELIGIBILITY
+	lineageTag: f837550f-c9d2-4ac3-aac3-c3aadf502374
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 62186077-7c3f-469f-b168-e64fdbbfb3ce
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 87b40831-21c6-4eb6-ad7d-e1c40947ad1a
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCounty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 17b7a466-a299-4fe1-a256-b6f4f4fc3bb1
+		summarizeBy: none
+		sourceColumn: IsCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLegislative
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4b3c0d4-741e-4ea3-a8c6-53472da22f9b
+		summarizeBy: none
+		sourceColumn: IsLegislative
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSchoolDistrict
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5228247c-267a-4114-a2db-ff75c2cfa382
+		summarizeBy: none
+		sourceColumn: IsSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCongressional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0ec7e3c7-1023-4e38-b7ea-263860eb96d6
+		summarizeBy: none
+		sourceColumn: IsCongressional
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 7042248d-4b99-41f6-9e50-cfa764fda860
+		summarizeBy: count
+		sourceColumn: GeographyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a1caba7-163c-4e58-b888-21afc4bc39c1
+		summarizeBy: count
+		sourceColumn: RiskId
+
+		annotation SummarizationSetBy = Automatic
+
+	column White
+		dataType: double
+		lineageTag: 8b16502b-36d2-495c-976d-266eb0a09243
+		summarizeBy: sum
+		sourceColumn: White
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AfricanAmerican
+		dataType: double
+		lineageTag: 797de25f-8258-4a93-82fc-820a1e91b1c8
+		summarizeBy: sum
+		sourceColumn: AfricanAmerican
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AmericanIndian
+		dataType: double
+		lineageTag: 7fae6044-ebc6-4d66-98d3-ebfef8d0ffbb
+		summarizeBy: sum
+		sourceColumn: AmericanIndian
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Asian
+		dataType: double
+		lineageTag: f101d55c-757a-445f-8aad-a4873beab821
+		summarizeBy: sum
+		sourceColumn: Asian
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Pacific
+		dataType: double
+		lineageTag: 6a20c429-1212-47f4-9549-ea6072af9d7c
+		summarizeBy: sum
+		sourceColumn: Pacific
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Other
+		dataType: double
+		lineageTag: 94aa7e27-8628-4e9b-a50e-50c65433f8d8
+		summarizeBy: sum
+		sourceColumn: Other
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TwoOrMore
+		dataType: double
+		lineageTag: d5d607d6-9822-4464-83ef-136e1be40727
+		summarizeBy: sum
+		sourceColumn: TwoOrMore
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WhiteNotHispanic
+		dataType: double
+		lineageTag: b048c5b1-dc40-47ab-8999-b3d9d1f1bf64
+		summarizeBy: sum
+		sourceColumn: WhiteNotHispanic
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Hispanic
+		dataType: double
+		lineageTag: 98d789a8-9fa9-4d54-9bff-331653ebec55
+		summarizeBy: sum
+		sourceColumn: Hispanic
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DisplayName
+		dataType: string
+		lineageTag: 57e0f2eb-b172-49d5-8363-d50c5410b395
+		summarizeBy: none
+		sourceColumn: DisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ELIGIBILITY-58118e13-9baf-4e0d-81eb-d2bebee7d7d4 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="; WITH x AS (#(lf)SELECT #(lf)    GeographyId#(lf)    ,[RiskId]#(lf)    , [1] AS White#(lf)    ,[2] AS AfricanAmerican#(lf)    ,[3] AS AmericanIndian#(lf)    ,[4] AS Asian#(lf)    ,[5] AS Pacific#(lf)    ,[6] AS Other#(lf)    ,[7] AS TwoOrMore#(lf)    ,[8] AS WhiteNotHispanic#(lf)    ,[9] AS Hispanic#(lf)FROM #(lf)(#(lf)SELECT *#(lf)FROM cat.Fact_RiskFactors#(lf)--WHERE RiskId = 1#(lf)) p#(lf)PIVOT#(lf)(#(lf)    SUM(Estimate) #(lf)    FOR RaceId IN #(lf)    ([1],[2],[3],[4],[5],[6],[7],[8],[9])#(lf)) AS pvt#(lf))#(lf)SELECT g.*, x.* FROM x JOIN cat.Dim_Geography g ON x.GeographyId = g.Id"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":17,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}","Section1/Query1/Source.{GeographyId,6}","Section1/Query1/Source.{RiskId,7}","Section1/Query1/Source.{White,8}","Section1/Query1/Source.{AfricanAmerican,9}","Section1/Query1/Source.{AmericanIndian,10}","Section1/Query1/Source.{Asian,11}","Section1/Query1/Source.{Pacific,12}","Section1/Query1/Source.{Other,13}","Section1/Query1/Source.{TwoOrMore,14}","Section1/Query1/Source.{WhiteNotHispanic,15}","Section1/Query1/Source.{Hispanic,16}"],"ColumnCount":17,"KeyColumnNames":[],"ColumnIdentities":["Section1/Query1/Source.{Id,0}","Section1/Query1/Source.{Name,1}","Section1/Query1/Source.{IsCounty,2}","Section1/Query1/Source.{IsLegislative,3}","Section1/Query1/Source.{IsSchoolDistrict,4}","Section1/Query1/Source.{IsCongressional,5}","Section1/Query1/Source.{GeographyId,6}","Section1/Query1/Source.{RiskId,7}","Section1/Query1/Source.{White,8}","Section1/Query1/Source.{AfricanAmerican,9}","Section1/Query1/Source.{AmericanIndian,10}","Section1/Query1/Source.{Asian,11}","Section1/Query1/Source.{Pacific,12}","Section1/Query1/Source.{Other,13}","Section1/Query1/Source.{TwoOrMore,14}","Section1/Query1/Source.{WhiteNotHispanic,15}","Section1/Query1/Source.{Hispanic,16}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

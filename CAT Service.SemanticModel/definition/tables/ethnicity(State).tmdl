@@ -1,0 +1,133 @@
+table ethnicity(State)
+	lineageTag: 916fcbbb-8957-464c-bcf4-3c5a0ffa86be
+
+	measure PctCounty1 = divide(sum('ethnicity(State)'[ESTIMATE]),sum('ethnicity(State)'[TOTALCOUNT]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 778975d4-b556-40e6-b421-851c62933576
+
+	measure PctCounty2 = "--"
+		lineageTag: 7acd27ea-bc4e-4f6b-b190-64966ad6c043
+
+	measure Popm1 = format(sum('ethnicity(State)'[TOTALCOUNT]), "#,###")
+		lineageTag: e2a45353-ce79-40a0-ab0d-5677c7d1e155
+
+	measure Pope1 = format(sum('ethnicity(State)'[TOTALMARGINOFERROR]),"#,###")
+		lineageTag: 69fd4423-71d7-4e51-a5dc-3e81c07eb141
+
+	measure Estm1 = format(sum('ethnicity(State)'[ESTIMATE]),"#,###")
+		lineageTag: 5fb9c532-dcf7-49b6-a734-5751d7b78643
+
+	measure Este1 = format(sum('ethnicity(State)'[MARGINOFERROR]),"#,###")
+		lineageTag: 6b486f0c-b445-433a-a1f8-1bd157117393
+
+	column 'Race Type'
+		dataType: string
+		lineageTag: 4a355b9a-b156-404d-a1d5-7fc73f00f91d
+		summarizeBy: none
+		sourceColumn: Race Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column GEOGRAPHYID
+		dataType: int64
+		formatString: 0
+		lineageTag: 201a5598-c139-47fe-a82f-706a1d0db2de
+		summarizeBy: count
+		sourceColumn: GEOGRAPHYID
+
+		annotation SummarizationSetBy = Automatic
+
+	column riskid
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a84db09-d043-46ff-9c03-dc9144a89f68
+		summarizeBy: none
+		sourceColumn: riskid
+
+		annotation SummarizationSetBy = Automatic
+
+	column RaceID
+		dataType: int64
+		formatString: 0
+		lineageTag: b5087a1e-92a4-4b34-b4b8-a004bc1ada2a
+		summarizeBy: count
+		sourceColumn: RaceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: cdbedd73-7424-42ad-9068-69e79c3faa93
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTIMATE
+		dataType: int64
+		lineageTag: b52dfbe5-d456-493e-9ec4-b0ffb45269e9
+		summarizeBy: sum
+		sourceColumn: ESTIMATE
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MARGINOFERROR
+		dataType: int64
+		lineageTag: 847aa0fb-ef19-49c8-a4ae-6943cf30c9eb
+		summarizeBy: sum
+		sourceColumn: MARGINOFERROR
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTALCOUNT
+		dataType: int64
+		lineageTag: 3bb0f07c-3db0-4732-86e1-0be7807b3a50
+		summarizeBy: sum
+		sourceColumn: TOTALCOUNT
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTALMARGINOFERROR
+		dataType: int64
+		lineageTag: 2c57914b-ef4b-4494-b416-cb6870de1563
+		summarizeBy: sum
+		sourceColumn: TOTALMARGINOFERROR
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RaceName
+		dataType: string
+		lineageTag: 0fd21349-eb8f-4e27-93bd-3081a30dab52
+		summarizeBy: none
+		sourceColumn: RaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ethnicity(State)-716478e4-111a-446f-bf29-17c62be9812c = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("NDESQL22", "NDE_Datawarehouse", [Query="SELECT#(lf)[Race Type] = CASE #(lf)WHEN r.[name] ='White' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='Black or African American' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='American Indian or Alaska Native' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='Asian' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='Native Hawaiian or Other Pacific Islander' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='Some Other Race' THEN 'Race'#(lf)#(tab)#(tab)WHEN r.[name] ='Two or More Races' THEN 'Race'#(lf)#(tab)#(tab)ELSE 'Ethnicity'#(lf)#(tab)#(tab)END,#(lf)RF.GEOGRAPHYID,#(lf)rf.riskid,#(lf)r.[ID] AS [RaceID],#(lf)r.[name],#(lf)CAST(r.[Id] as nvarchar(2)) + '. ' + r.[Name] AS [RaceName],#(lf)RF.ESTIMATE ,#(lf)RF.MARGINOFERROR,#(lf)RF.TOTALCOUNT,#(lf)RF.TOTALMARGINOFERROR#(lf)FROM cat.Fact_RiskFactors rf#(lf)JOIN cat.Dim_Races r ON#(lf)    rf.RaceId = r.Id#(lf)JOIN cat.Dim_Geography g ON#(lf)    rf.GeographyId = g.Id#(lf)WHERE #(lf)IsCounty = 0#(lf)and IsCongressional = 0#(lf)and IsLegislative = 0#(lf)and IsSchoolDistrict = 0#(lf)order BY R.ID"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

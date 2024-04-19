@@ -1,0 +1,175 @@
+relationship 58232c7d-cd45-451d-9ff0-f93427be12bb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ACCESS(1).EffectiveDate
+	toColumn: LocalDateTable_6bcf6856-000b-4f1f-9da5-bd72e3b5753a.Date
+
+relationship e373fd5f-672d-46e3-9afb-8f179eb7dda1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: [Dim_Geography].Id
+	toColumn: 'Geographic Area(School District)'.ID
+
+relationship b092b59b-ff1a-4410-a423-d1400df4cd1d
+	fromColumn: ELIGIBILITY.Name
+	toColumn: [Dim_Geography].Name
+
+relationship ad99efac-6a20-4e56-aefb-bdc6c888b362
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'cat Dim_Risks'.id
+	toColumn: 'cat Dim_AgeGroups'.Id
+
+relationship 23ce5097-5b8c-471f-bf7a-a85a0c402fc2
+	fromColumn: ethnicity1.riskid
+	toColumn: 'cat Dim_Risks'.id
+
+relationship 3002fac6-f0c1-49f6-8008-91fd98fb74bb
+	fromColumn: ethnicity1.GEOGRAPHYID
+	toColumn: County.Id
+
+relationship 3f3ae75a-4649-40ca-b869-3d48c47e35eb
+	fromColumn: ELIGIBILITY3.RiskId
+	toColumn: 'cat Dim_Risks'.id
+
+relationship f645ea0b-6fc6-430c-a670-bdfa85bc4cf6
+	fromColumn: ethnicity1.GEOGRAPHYID
+	toColumn: [Dim_Geography].Id
+
+relationship b5dc88ef-3bbd-4ab2-8cf4-9386d5a9f393
+	fromColumn: ELIGIBILITY3.GeographyId
+	toColumn: [Dim_Geography].Id
+
+relationship 61d8952a-acbe-4bab-8a17-bd3adb2d405e
+	fromColumn: ELIGIBILITY3_1.GeographyId
+	toColumn: [Dim_Geography].Id
+
+relationship aae9b2f5-8c6d-4b6a-b03d-3c0da9e5b2fc
+	fromColumn: 'cat Fact_EligibiltyFactors'.GeographyId
+	toColumn: [Dim_Geography].Id
+
+relationship cbc6e14b-df7f-4eaa-8a0b-e06a3aaf87e2
+	fromColumn: ELIGIBILITY1.GeographyId
+	toColumn: [Dim_Geography].Id
+
+relationship 08ab1e5c-834a-49cc-b471-e1420c08ba4f
+	fromColumn: ELIGIBILITY3(state).RiskId
+	toColumn: 'cat Dim_Risks'.id
+
+relationship 38678f5b-484a-4b2a-b52c-96ef928902b2
+	fromColumn: ethnicity(State).riskid
+	toColumn: 'cat Dim_Risks'.id
+
+relationship 9f18f72d-3975-44b3-9318-839c74de78ab
+	fromColumn: ACCESS(2).GeographyId
+	toColumn: geo.Id
+
+relationship 0e276dc9-54fb-4b64-93c5-832fc02b1dab
+	fromColumn: ACCESS(1).GeographyId
+	toColumn: geo.Id
+
+relationship c708ca85-b7ff-4f78-af72-8ee69a164600
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'cat Dim_Races'.ID
+	toColumn: ELIGIBILITY3.Id
+
+relationship b7eb4c78-e7e9-4f91-9d1a-ff7e401a1be1
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'cat Dim_Races'.ID
+	toColumn: 'cat Fact_EligibiltyFactors'.Id
+
+relationship 7098e92e-945b-41a2-9f55-1f2e44724f64
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'cat Dim_Races'.ID
+	toColumn: [Dim_Geography].Id
+
+relationship 9daaba86-a02b-4ae5-a973-e190421c2a74
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'cat Dim_Races'.ID
+	toColumn: 'cat Dim_Risks'.id
+
+relationship 458467e6-f885-4d65-b507-e3bad01d8da3
+	isActive: false
+	fromColumn: ELIGIBILITY3.Id2
+	toColumn: 'cat Fact_EligibiltyFactors(state)'.Id2
+
+relationship e81d1758-3f20-46b9-970e-ffa1dd199ecc
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: County.DisplayName
+	toColumn: [Dim_Geography].DisplayName
+
+relationship c9a88904-d004-4d47-93b4-2ab9afc46de7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Legislative.DisplayName
+	toColumn: [Dim_Geography].DisplayName
+
+relationship 98a2f393-3715-4c37-8376-6119a5c8c4e2
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: SchoolDistrict.DisplayName
+	toColumn: [Dim_Geography].DisplayName
+
+relationship 5931b3f6-e8e0-4773-a420-8f7c12a89b81
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Congressional.DisplayName
+	toColumn: [Dim_Geography].DisplayName
+
+relationship 8c7a5d15-6368-4fb1-96dd-831b509e0266
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: County.DisplayName
+	toColumn: geo.DisplayName
+
+relationship 8d93da69-0d46-462e-bc6f-2f3484521397
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Legislative.DisplayName
+	toColumn: geo.DisplayName
+
+relationship ca80bc18-faa2-43ed-a345-defd45ca3da1
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: SchoolDistrict.DisplayName
+	toColumn: geo.DisplayName
+
+relationship 91ce12a0-dc09-4627-a42c-a5136f70e12a
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Congressional.DisplayName
+	toColumn: geo.DisplayName
+
+relationship a8d20e01-b63a-45ed-b941-71188acbd775
+	fromColumn: ELIGIBILITY.DisplayName
+	toColumn: geo.DisplayName
+
+relationship c3bd0139-c4d3-42cb-b7c8-09b255d0ccbb
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: SchoolDistrict.DisplayName
+	toColumn: 'Geographic Area(School District)'.DisplayNAME
+
+relationship 8e233a24-f5c0-4c58-af3f-1b1d54a307a2
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: County.DisplayName
+	toColumn: 'Geographic Area'.DisplayNAME
+
+relationship 71ee2680-f5f0-4b1a-a48b-05fd960443f7
+	isActive: false
+	fromColumn: ELIGIBILITY.DisplayName
+	toColumn: 'Geographic Area'.DisplayNAME
+

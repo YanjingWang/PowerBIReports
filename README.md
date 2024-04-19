@@ -4,4 +4,4 @@ I created Nebrasak map with counties from GIS website: https://gisgeography.com/
 
 ## **Website for NDE CAT PowerBI reports**
 
-https://ecdata.education.ne.gov/
+https://ecdata.education.ne.gov/ or https://ecids.nebraska.gov/Data-Explorer/

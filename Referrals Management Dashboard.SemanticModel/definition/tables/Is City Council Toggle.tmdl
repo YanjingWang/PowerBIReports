@@ -1,0 +1,24 @@
+table 'Is City Council Toggle'
+	lineageTag: 4b9df0b9-5267-42cc-a077-a877dbf3ee4d
+
+	column IsCityCouncil
+		dataType: string
+		lineageTag: 280c23bd-97da-4f3e-86d1-591371daa9a6
+		summarizeBy: none
+		sourceColumn: IsCityCouncil
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Is City Council Toggle-d366becb-e013-4dbc-ba69-548efb78db6f' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WikwtVorViVbyy1eKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [IsCityCouncil = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"IsCityCouncil", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Is City Council Toggle/Changed Type.{IsCityCouncil,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Is City Council Toggle/Changed Type.{IsCityCouncil,0}"],"RelationshipInfo":[]}
+

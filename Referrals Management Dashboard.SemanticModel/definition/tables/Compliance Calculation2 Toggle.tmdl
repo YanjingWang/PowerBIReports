@@ -1,0 +1,32 @@
+table 'Compliance Calculation2 Toggle'
+	lineageTag: 2b332920-dd62-4ead-9d74-5eff4a9cfe1c
+
+	column 'Compliance Calculation2'
+		dataType: string
+		lineageTag: 92c821d2-aeb6-47b0-9373-656e62cdff07
+		summarizeBy: none
+		sourceColumn: Compliance Calculation2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Defined
+		dataType: string
+		lineageTag: 412b6dde-f357-4bf1-94ed-7043a13c2962
+		summarizeBy: none
+		sourceColumn: Defined
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Compliance Calculation2 Toggle-cb81807e-d23e-44c1-b428-55549551a0e5' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("fY67DsIwDEV/xerMUDEw0KkqDCyAYIQOUWPUIJNUdgL07wktiCIeW5x77XN2u2RhKwoaBQp3agg9aiiUxHllqU1Gyfza51NgPCCzIgHXoI09Y6Fh4xhaVCwZnAJ5E28Mmg32aVKOvqKU1bA6I+uAPTYSn7Xpv4NZJwFVp+r6C78gC2u8uS/n+hjk/nOI0htU4qx07xmSat/QxXYG+5Cm4wkUtWIfsS+Ji/E1VHEZrQdfGwGpaufoYbZcbwflzzwnAjVU4YGK7lTK8gY=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Compliance Calculation2" = _t, Defined = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Compliance Calculation2", type text}, {"Defined", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Compliance Calculation2 Toggle/Changed Type.{Compliance Calculation2,0}","Section1/Compliance Calculation2 Toggle/Changed Type.{Defined,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Compliance Calculation2 Toggle/Changed Type.{Compliance Calculation2,0}","Section1/Compliance Calculation2 Toggle/Changed Type.{Defined,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

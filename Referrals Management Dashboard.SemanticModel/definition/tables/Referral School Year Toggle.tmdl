@@ -1,0 +1,24 @@
+table 'Referral School Year Toggle'
+	lineageTag: d26f3b18-6283-4eb0-903a-af740070db28
+
+	column 'Referral School Year'
+		dataType: string
+		lineageTag: 933eb5c1-b995-47b3-aa6f-1ec487e5e514
+		summarizeBy: none
+		sourceColumn: Referral School Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Referral School Year Toggle-7879c94e-b8a8-459b-b670-ba480625ef82' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Nc67DQAhDATRXojvJHv514Lovw28iE1GetmslWCe/0hJ+7sqVJUq1aRGdalTQxrUlGYI9gSjXHIKEqgs8QV6AV8QL/sA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Referral School Year" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Referral School Year", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Referral School Year Toggle/Changed Type.{Referral School Year,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Referral School Year Toggle/Changed Type.{Referral School Year,0}"],"RelationshipInfo":[]}
+

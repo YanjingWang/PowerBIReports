@@ -1,0 +1,24 @@
+table 'Ethnicity Toggle'
+	lineageTag: 296649e2-d4b7-47f9-875b-045b4e088148
+
+	column Ethnicity
+		dataType: string
+		lineageTag: d78987a0-f2f9-4a90-8e85-6a35e2365bb5
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ethnicity Toggle-a29c227c-f67e-4f0b-b685-b060a5a17dc0' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCs/ILElVitWJVvLILC5IzMtMBnOcchKTs8Esx+LMxDwwy78kI7VIKTYWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Ethnicity = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Ethnicity", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Ethnicity Toggle/Changed Type.{Ethnicity,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Ethnicity Toggle/Changed Type.{Ethnicity,0}"],"RelationshipInfo":[]}
+

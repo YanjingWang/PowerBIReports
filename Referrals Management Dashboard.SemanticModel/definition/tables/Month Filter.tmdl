@@ -1,0 +1,33 @@
+table 'Month Filter'
+	lineageTag: d32fc00e-8d2d-4d50-a601-c976ebf5daa5
+
+	column Month
+		dataType: string
+		lineageTag: a7c81343-59d5-41f2-90ed-671812c5b857
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: 5aa0458c-172a-4617-8561-dafe2e20b544
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Month Filter-f3c51ff5-1bc5-428e-ab02-c8ec3e452f49' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8irNqVTSUTI0UorViVZyLE0vLS4B8Y3B/ODUgpLU3KTUIpCQCVjIP7kkHypgChbwyy+DKzEDi7ikJsNFzMEiXol5pYlFYIsswAJuqUlFMBFLsIhvYlFyBpBrZAhxSUFRZg6IawSVBSk1grjKqzQvFaQRqDIWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Month = _t, Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Month", type text}, {"Column1", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Month Filter/Changed Type.{Month,0}","Section1/Month Filter/Changed Type.{Column1,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Month Filter/Changed Type.{Month,0}","Section1/Month Filter/Changed Type.{Column1,1}"],"RelationshipInfo":[]}
+

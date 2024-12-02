@@ -1,0 +1,24 @@
+table 'Temporary Housing Toggle'
+	lineageTag: 9b0432a6-b999-4f25-b957-ba3e90add922
+
+	column 'Temporary Housing'
+		dataType: string
+		lineageTag: 3ea399db-ee4e-44e9-8ef2-d318db78477a
+		summarizeBy: none
+		sourceColumn: Temporary Housing
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Temporary Housing Toggle-8e6fcbf6-a2bc-44c3-9ccb-2e36f96b8d30' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WilSK1YlW8lOKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Temporary Housing" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Temporary Housing", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Temporary Housing Toggle/Changed Type.{Temporary Housing,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Temporary Housing Toggle/Changed Type.{Temporary Housing,0}"],"RelationshipInfo":[]}
+

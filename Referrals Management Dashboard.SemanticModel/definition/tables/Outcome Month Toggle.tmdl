@@ -1,0 +1,34 @@
+table 'Outcome Month Toggle'
+	lineageTag: ae565560-590a-4a9b-a464-f00eb44daa24
+
+	column 'Outcome Month'
+		dataType: string
+		lineageTag: c3e8cea1-2aec-40f2-81a3-a30065d1fb9b
+		summarizeBy: none
+		sourceColumn: Outcome Month
+		sortByColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d34357-56d8-4578-9ce1-c7c856242e9f
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Outcome Month Toggle-ba41a783-d5e8-41cb-8675-45082482fad4' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8irNqVTSUTJUitWJVnIsTS8tLgFyjcDc4NSCktTcpNQioIgxWMQ/uSQfwjcB8/3yy2AKTMECLqnJMAEzsIBXYl5pYhHICnMw3y01qQgqYAEW8E0sSs4A8iwhLigoyswBuccAKgl2HMR1XqV5qSAe0HGxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Outcome Month" = _t, Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome Month", type text}, {"Column1", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Outcome Month Toggle/Changed Type.{Outcome Month,0}","Section1/Outcome Month Toggle/Changed Type.{Column1,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Outcome Month Toggle/Changed Type.{Outcome Month,0}","Section1/Outcome Month Toggle/Changed Type.{Column1,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

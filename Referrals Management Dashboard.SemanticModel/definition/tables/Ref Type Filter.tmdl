@@ -1,0 +1,24 @@
+table 'Ref Type Filter'
+	lineageTag: 4153eba5-8cea-459d-8474-58601698fea9
+
+	column 'Ref Type'
+		dataType: string
+		lineageTag: 947ac7dd-24b9-4f64-994e-1aa06767c57a
+		summarizeBy: none
+		sourceColumn: Ref Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ref Type Filter-48fc4513-f5e1-408a-86d9-343fba05fbb6' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8szLLMlMzFGK1YlWCkpNLUvMKU0syczPU4qNBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Ref Type" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Ref Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Ref Type Filter/Changed Type.{Ref Type,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Ref Type Filter/Changed Type.{Ref Type,0}"],"RelationshipInfo":[]}
+

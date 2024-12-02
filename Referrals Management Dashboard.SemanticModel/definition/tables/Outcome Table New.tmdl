@@ -1,0 +1,27 @@
+table 'Outcome Table New'
+	lineageTag: dc9aaf12-ef20-444a-af24-e308e5dcd622
+
+	column Outcome
+		dataType: string
+		lineageTag: cf6bbfef-153e-47e3-b458-40e9a90c2ced
+		summarizeBy: none
+		sourceColumn: Outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Outcome Table New-c4ba17a1-e8b1-4fdb-85ac-c2b78dfe1714' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nQNUIrVAdHBEIZLanJOYnExmO2cWAzk5RenQpTkpeZkpmcm5UC4LpnFyRmJRelAXiwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Outcome = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Outcome1", each if [Outcome] = "Case Closed" then "Caseclose" else null),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Conditional Column",{"Outcome1"}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Removed Columns", "Outcome1", each if [Outcome] = "Case Closed" then "Caseclose" else [Outcome]),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Added Conditional Column1",{"Outcome"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"Outcome1", "Outcome"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

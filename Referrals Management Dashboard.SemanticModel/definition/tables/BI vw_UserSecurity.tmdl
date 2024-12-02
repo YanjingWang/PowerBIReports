@@ -1,0 +1,92 @@
+table 'BI vw_UserSecurity'
+	lineageTag: 94c46d72-1b5a-400a-987b-bb3e8a087b15
+
+	column BIRole
+		dataType: string
+		lineageTag: 0f4dfb5d-d227-4306-826d-9474402c1083
+		summarizeBy: none
+		sourceColumn: BIRole
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationKey
+		dataType: string
+		lineageTag: e0a5249c-327b-4efa-b6ff-24aec72aea7e
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		lineageTag: 07b76490-0787-4645-94ad-44d44d59a871
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserEmail
+		dataType: string
+		lineageTag: 1450a143-93c8-4696-a5c4-92d3c556ed56
+		summarizeBy: none
+		sourceColumn: UserEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceDatasetName
+		dataType: string
+		lineageTag: 9c9ad089-4b76-4284-9ef4-f5818744d817
+		summarizeBy: none
+		sourceColumn: SourceDatasetName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrefOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 72aed56b-0bce-4883-bb1c-9c8672e472bd
+		summarizeBy: sum
+		sourceColumn: PrefOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserRecordRank
+		dataType: int64
+		formatString: 0
+		lineageTag: 06552d6b-9e4b-42c5-b6f1-99cf78dbd181
+		summarizeBy: sum
+		sourceColumn: UserRecordRank
+
+		annotation SummarizationSetBy = Automatic
+
+	column SameEmailCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 9201ba9e-8c8c-4b63-a104-00c3275b183f
+		summarizeBy: sum
+		sourceColumn: SameEmailCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDupEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: b21b704f-1119-43bc-b71b-37d8a5c312ba
+		summarizeBy: sum
+		sourceColumn: IsDupEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_UserSecurity-45ca5c66-2a77-4eb7-b121-9f0c1f08cf0d' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_UserSecurity = Source{[Schema="BI",Item="vw_UserSecurity"]}[Data]
+				in
+				    BI_vw_UserSecurity
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{BIRole,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{LocationKey,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{UserName,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{UserEmail,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{BIRole,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{LocationKey,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{UserName,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/BI/BI.vw_UserSecurity.{UserEmail,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,33 @@
+table 'Grade Toggle'
+	lineageTag: 72d92f84-0488-4722-b4e7-8a7aac1c1d14
+
+	column Grade
+		dataType: string
+		lineageTag: 76062f09-2218-420a-861d-158e92ed49ad
+		summarizeBy: none
+		sourceColumn: Grade
+		sortByColumn: 'Grade Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Sort'
+		dataType: string
+		lineageTag: 4bfe1963-7e5d-40a6-9eaf-eb3131dac4de
+		summarizeBy: none
+		sourceColumn: Grade Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Grade Toggle-6b17a55b-dfc7-47f4-a05a-185a09f4f17d' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Jc25FYAgFEXBXn5MAO7WYAkcAve9/9SLL5tsYjQ/mLPRkoMBTmIBZ7GEi1jBVazhJjZwF1t4iB08xR5eP4OHt5i3R8zbayl9", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Grade = _t, #"Grade Sort" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Grade", type text}, {"Grade Sort", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Grade Toggle/Changed Type.{Grade,0}","Section1/Grade Toggle/Changed Type.{Grade Sort,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Grade Toggle/Changed Type.{Grade,0}","Section1/Grade Toggle/Changed Type.{Grade Sort,1}"],"RelationshipInfo":[]}
+

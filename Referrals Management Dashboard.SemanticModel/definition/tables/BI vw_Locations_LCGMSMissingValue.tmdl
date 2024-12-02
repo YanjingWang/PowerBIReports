@@ -1,0 +1,478 @@
+table 'BI vw_Locations_LCGMSMissingValue'
+	lineageTag: f55abed9-cdd0-4b54-ab7b-31b60ab9bfee
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 3ee44773-8345-4e9c-bf0d-4ae3ff69ea45
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEDistrict
+		dataType: int64
+		formatString: 0
+		lineageTag: d9f3d6b8-1377-40a2-875d-941ffba61ae2
+		summarizeBy: sum
+		sourceColumn: CSEDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographicalDistrict
+		dataType: int64
+		formatString: 0
+		lineageTag: 07f40325-911c-44ba-909d-8018089808c8
+		summarizeBy: sum
+		sourceColumn: GeographicalDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: f1564712-d5eb-48e3-aee6-d4eab0393a94
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSESchoolDBN
+		dataType: string
+		lineageTag: acb0f6c2-1e79-4f25-8ad9-2377c896be00
+		summarizeBy: none
+		sourceColumn: CSESchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolType
+		dataType: int64
+		formatString: 0
+		lineageTag: 681f4a59-a32c-4653-a2f5-ab98a6e1e856
+		summarizeBy: sum
+		sourceColumn: SchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoroughCode
+		dataType: int64
+		formatString: 0
+		lineageTag: f7c11f0b-4952-48c2-a575-f06eac4c5cb7
+		summarizeBy: count
+		sourceColumn: BoroughCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: int64
+		formatString: 0
+		lineageTag: 61240d47-2a95-41e6-91f8-c33eaf6d6da3
+		summarizeBy: sum
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: int64
+		formatString: 0
+		lineageTag: c404dd88-d2d6-4642-a94c-2f1b39fe8ec9
+		summarizeBy: sum
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FieldSupportCenterReportingName
+		dataType: int64
+		formatString: 0
+		lineageTag: c792a4df-55fb-48c5-9d41-ab0fbb15fd13
+		summarizeBy: sum
+		sourceColumn: FieldSupportCenterReportingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FieldSupportCenterName
+		dataType: int64
+		formatString: 0
+		lineageTag: 78f1225e-86e4-417a-a1d7-863967a99de5
+		summarizeBy: sum
+		sourceColumn: FieldSupportCenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AffinityGroup
+		dataType: int64
+		formatString: 0
+		lineageTag: c4d273d3-92db-40c8-93a5-9c562d486337
+		summarizeBy: sum
+		sourceColumn: AffinityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountabilityStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eb2aa13-49fa-45db-9882-7a63efcb7e88
+		summarizeBy: sum
+		sourceColumn: AccountabilityStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDescription
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f5224fc-0724-484d-b100-9036ad236ded
+		summarizeBy: sum
+		sourceColumn: StatusDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClosedDate
+		dataType: int64
+		formatString: 0
+		lineageTag: 148dde53-238f-453b-b2f5-b1db2c67b76d
+		summarizeBy: sum
+		sourceColumn: ClosedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkLocationCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 821dce49-6c43-436d-80d4-41561049f553
+		summarizeBy: count
+		sourceColumn: HSNetworkLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpotlightSchoolCategory
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f2eb44c-62ac-43c6-9f6a-4eed7807d250
+		summarizeBy: sum
+		sourceColumn: SpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column BehaviorSpotlightSchoolCategory
+		dataType: int64
+		formatString: 0
+		lineageTag: 80612fb7-dde4-4002-ad0a-cafe747084c3
+		summarizeBy: sum
+		sourceColumn: BehaviorSpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransitionSpotlightSchoolCategory
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d74cfad-4f6b-4d6a-8116-4bc535dba9b3
+		summarizeBy: sum
+		sourceColumn: TransitionSpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationName
+		dataType: int64
+		formatString: 0
+		lineageTag: 31e1606c-d9c9-4798-9eec-a2c0782c92ce
+		summarizeBy: sum
+		sourceColumn: Tier2SupportLocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationCode
+		dataType: int64
+		formatString: 0
+		lineageTag: d377a564-4d0b-45dc-86e5-15298a650e72
+		summarizeBy: count
+		sourceColumn: Tier2SupportLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationTypeDescription
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dd835c8-36c9-40c2-a430-3ea749e2f0f4
+		summarizeBy: sum
+		sourceColumn: LocationTypeDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationCategoryDescription
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f0e6d1b-774d-4973-89a1-b962bfcacf15
+		summarizeBy: sum
+		sourceColumn: LocationCategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolLocationProperties
+		dataType: int64
+		formatString: 0
+		lineageTag: 514b4fef-f7dc-4424-b4a3-d92cc6729dbd
+		summarizeBy: sum
+		sourceColumn: SchoolLocationProperties
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISSchoolKindDescription
+		dataType: int64
+		formatString: 0
+		lineageTag: e6346d0f-772c-43e1-8a46-47a4ba8eb9ae
+		summarizeBy: sum
+		sourceColumn: SESISSchoolKindDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalName
+		dataType: int64
+		formatString: 0
+		lineageTag: c264b3bc-fdf1-4dda-989f-349cec088373
+		summarizeBy: sum
+		sourceColumn: PrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: f21f6e33-8a5d-4e3e-91a2-c1c7b0fb91e7
+		summarizeBy: sum
+		sourceColumn: PrincipalEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommunitySchoolSupName
+		dataType: int64
+		formatString: 0
+		lineageTag: f3e4bf6b-b182-4c22-94b3-4df27057f692
+		summarizeBy: sum
+		sourceColumn: CommunitySchoolSupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkSuperintendentName
+		dataType: int64
+		formatString: 0
+		lineageTag: 003dd726-713a-4332-bb85-9cf9b90be78e
+		summarizeBy: sum
+		sourceColumn: HSNetworkSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentName
+		dataType: int64
+		formatString: 0
+		lineageTag: 124b5ad5-d825-4868-9ccf-b96a24ee393f
+		summarizeBy: sum
+		sourceColumn: SuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentLocationCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 8892c152-43d9-4614-9ec4-78f349928180
+		summarizeBy: count
+		sourceColumn: SuperintendentLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentDistrict
+		dataType: int64
+		formatString: 0
+		lineageTag: 98a2c467-8bf6-495c-9217-c77bb094c498
+		summarizeBy: sum
+		sourceColumn: SuperintendentDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutiveSuperintendentName
+		dataType: int64
+		formatString: 0
+		lineageTag: 05e206f5-1e10-43b3-aa2c-04d7713e1878
+		summarizeBy: sum
+		sourceColumn: ExecutiveSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutiveSuperintendentEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: b574c349-dcc2-43d7-b791-668679c5328d
+		summarizeBy: sum
+		sourceColumn: ExecutiveSuperintendentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorPsychName
+		dataType: int64
+		formatString: 0
+		lineageTag: 976bf4a6-e966-4db3-bb19-88d1a7dc451c
+		summarizeBy: sum
+		sourceColumn: SupervisorPsychName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OTSupervisor
+		dataType: int64
+		formatString: 0
+		lineageTag: dcfae6a6-3a52-4648-8067-b17569861646
+		summarizeBy: sum
+		sourceColumn: OTSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column OTSupervisorEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a439e11-d7a2-4732-9925-954f3a9ee1ec
+		summarizeBy: sum
+		sourceColumn: OTSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PTSupervisor
+		dataType: int64
+		formatString: 0
+		lineageTag: c99b52e9-eeb8-49d7-8bba-5b6d42429a94
+		summarizeBy: sum
+		sourceColumn: PTSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column PTSupervisorEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d19f5c5-822d-421b-b193-86ed13d0bc9a
+		summarizeBy: sum
+		sourceColumn: PTSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpeechSupervisor
+		dataType: int64
+		formatString: 0
+		lineageTag: 80b936e9-70ec-444d-bfff-d1f69cac2d79
+		summarizeBy: sum
+		sourceColumn: SpeechSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpeechSupervisorEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: 824ca2ae-72d5-4afa-a6d3-59d003c75c87
+		summarizeBy: sum
+		sourceColumn: SpeechSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 7cab9fc5-35f1-4222-84ad-53f232726a7f
+		summarizeBy: sum
+		sourceColumn: CSEFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: d9664072-09fe-491d-9f25-684152da7ab5
+		summarizeBy: sum
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeleteFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: e5d08038-c644-4234-a5bb-6c6513dbe30a
+		summarizeBy: sum
+		sourceColumn: DeleteFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPTeacherFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f5d2131-9a3f-45cf-819d-518b51fbf13b
+		summarizeBy: sum
+		sourceColumn: IEPTeacherFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column XCoordinate
+		dataType: int64
+		lineageTag: 88635dea-b999-4c34-853e-a1043caaf563
+		summarizeBy: sum
+		sourceColumn: XCoordinate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YCoordinate
+		dataType: int64
+		lineageTag: fb59c5ea-c047-45b5-95d1-0c7ad5820a40
+		summarizeBy: sum
+		sourceColumn: YCoordinate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: int64
+		lineageTag: 7f8f352e-67a3-4759-a492-50b063d7159f
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Latitude
+		dataType: int64
+		lineageTag: 337a55ea-3ad4-4a7f-91bf-c7bafb209a86
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProcessedDate
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bcee13f-a28b-406f-b9b5-9bcc696a3f8e
+		summarizeBy: sum
+		sourceColumn: ProcessedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDateTime
+		dataType: int64
+		formatString: 0
+		lineageTag: b4b87779-05f6-4094-98d0-946b6166832f
+		summarizeBy: sum
+		sourceColumn: ProcessedDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_Locations_LCGMSMissingValue-70a575ab-eb3a-4b9e-a9e2-04b36599b149' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT distinct #(lf)#(tab)   NULL as [AdminDistrict] #(lf)      ,NULL as [CSEDistrict]#(lf)      ,NULL as [GeographicalDistrict]#(lf)      ,Case when s.ComplianceSchoolDBN is null then 'LCGMS Missing Schools' #(lf)#(tab)  else s.ComplianceSchoolDBN #(lf)#(tab)  end as SchoolDBN#(lf)      ,'LCGMS Missing Schools' as  CSESchoolDBN #(lf)      ,NULL as [SchoolType]#(lf)      ,NULL as [BoroughCode]#(lf)      ,NULL as [City]#(lf)      ,NULL as [LocationName]#(lf)      ,NULL as [FieldSupportCenterReportingName]#(lf)      ,NULL as [FieldSupportCenterName]#(lf)      ,NULL as [AffinityGroup]#(lf)      ,NULL as [AccountabilityStatus]#(lf)      ,NULL as [StatusDescription]#(lf)      ,NULL as [ClosedDate]#(lf)      ,NULL as [HSNetworkLocationCode]#(lf)      ,NULL as [SpotlightSchoolCategory]#(lf)      ,NULL as [BehaviorSpotlightSchoolCategory]#(lf)      ,NULL as [TransitionSpotlightSchoolCategory]#(lf)      ,NULL as [Tier2SupportLocationName]#(lf)      ,NULL as [Tier2SupportLocationCode]#(lf)      ,NULL as [LocationTypeDescription]#(lf)      ,NULL as [LocationCategoryDescription]#(lf)      ,NULL as [SchoolLocationProperties]#(lf)      ,NULL as [SESISSchoolKindDescription]#(lf)      ,NULL as [PrincipalName]#(lf)      ,NULL as [PrincipalEmail]#(lf)      ,NULL as [CommunitySchoolSupName]#(lf)      ,NULL as [HSNetworkSuperintendentName]#(lf)      ,NULL as [SuperintendentName]#(lf)      ,NULL as [SuperintendentLocationCode]#(lf)      ,NULL as [SuperintendentDistrict]#(lf)      ,NULL as [ExecutiveSuperintendentName]#(lf)      ,NULL as [ExecutiveSuperintendentEmail]#(lf)      ,NULL as [SupervisorPsychName]#(lf)      ,NULL as [OTSupervisor]#(lf)      ,NULL as [OTSupervisorEmail]#(lf)      ,NULL as [PTSupervisor]#(lf)      ,NULL as [PTSupervisorEmail]#(lf)      ,NULL as [SpeechSupervisor]#(lf)      ,NULL as [SpeechSupervisorEmail]#(lf)      ,NULL as [CSEFlag]#(lf)      ,NULL as [ActiveFlag]#(lf)      ,NULL as [DeleteFlag]#(lf)      ,NULL as [IEPTeacherFlag]#(lf)      ,NULL as [XCoordinate]#(lf)      ,NULL as [YCoordinate]#(lf)      ,NULL as [Longitude]#(lf)      ,NULL as [Latitude]#(lf)      ,NULL as [ProcessedDate]#(lf)      ,NULL as [ProcessedDateTime]#(lf)#(tab)  ,COUNT(*) as CNT#(lf)--select distinct ComplianceSchoolDBN#(lf)  FROM [SEO_REPORTING].[BI].[vw_ReferralsManagement_SupsOfPsych] s#(lf)  LEFT JOIN [SEO_REPORTING].[BI].[vw_Locations] l on s.ComplianceSchoolDBN = l.SchoolDBN#(lf)where l.SchoolDBN is null#(lf)Group by s.ComplianceSchoolDBN"]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"CNT"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"AdminDistrict", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type",null,"LCGMS",Replacer.ReplaceValue,{"AdminDistrict"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,5 @@
+role Test
+	modelPermission: read
+
+	annotation PBI_Id = fcc943afb5ed4b2bab9c1de2dabce2c8
+

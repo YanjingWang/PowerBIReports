@@ -1,0 +1,24 @@
+table 'RecommendedProgram Toggle'
+	lineageTag: fdd3b3b6-0f88-4c1e-be49-b0508e7b8587
+
+	column RecommendedProgram
+		dataType: string
+		lineageTag: 31a4d4e4-a65a-457c-8ecb-10dd53a3ee01
+		summarizeBy: none
+		sourceColumn: RecommendedProgram
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'RecommendedProgram Toggle-786c011b-edd1-4044-82d0-b1dfb5b97f0d' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("VY2xCsMwDER/RXhuvyJ06JKUuJvxIGyRGmzJKE6hf9/GlEDWu3vvnDN3brQoNoowyPVJGF6JF+MvzsyUe25J3ynQChPnT29spZAwwy1uAVsShg6Sgt1qFW0H0+ejwEPl91JgpiClEMeOnWRDxvXYn/ip7eq/wnj/BQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [RecommendedProgram = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"RecommendedProgram", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/RecommendedProgram Toggle/Changed Type.{RecommendedProgram,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/RecommendedProgram Toggle/Changed Type.{RecommendedProgram,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

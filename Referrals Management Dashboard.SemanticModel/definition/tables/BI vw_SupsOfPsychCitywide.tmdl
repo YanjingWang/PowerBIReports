@@ -1,0 +1,400 @@
+table 'BI vw_SupsOfPsychCitywide'
+	lineageTag: 59b46652-9d42-434b-9058-90fbd2fcb017
+
+	measure 'Total Citywide Awaiting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsychCitywide'[Case Status] ),
+			    FILTER (
+			        'BI vw_SupsOfPsychCitywide',
+			        'BI vw_SupsOfPsychCitywide'[Case Status] = "Awaiting Consent"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 7f077cfa-9482-4187-a661-b5d841c21db1
+
+	measure 'Total Over 60 Citywide' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsychCitywide'[ComplianceDays] ),
+			    FILTER (
+			        'BI vw_SupsOfPsychCitywide',
+			        'BI vw_SupsOfPsychCitywide'[ComplianceDays] = "> 60 Days (overdue)"
+			    )
+			)
+		formatString: #,0
+		lineageTag: c80e410a-1315-4dc4-947b-0fb922de5df9
+
+	measure 'Total # Cases Citywide' =
+			
+			COUNT ( 'BI vw_SupsOfPsychCitywide'[Case Status] )
+		formatString: 0
+		lineageTag: f02e3b8d-28f5-479b-8112-53ca313ca820
+
+	measure '% timely citywide' =
+			
+			[Total timely citywide] / [Total Compliance Citywide]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 508d8283-9153-4764-88dc-738c00a615dd
+
+	measure 'Total timely citywide' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsychCitywide'[Timeliness] ),
+			    FILTER (
+			        'BI vw_SupsOfPsychCitywide',
+			        'BI vw_SupsOfPsychCitywide'[Timeliness] = "less than 60 days"
+			    )
+			)
+		formatString: 0
+		lineageTag: 3bd776e2-bdc9-40aa-9ed7-70b7c187a7db
+
+	measure MedianDaysCW =
+			
+			MEDIAN ( 'BI vw_SupsOfPsychCitywide'[IEPMeetingCompliance] )
+		formatString: 0
+		lineageTag: 2d7cfde6-013b-45fa-8e7e-607f89a0d87b
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column studentid
+		dataType: int64
+		formatString: 0
+		lineageTag: cbcf3071-afd0-4101-abd5-a7915023d140
+		summarizeBy: sum
+		sourceColumn: studentid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Status'
+		dataType: string
+		lineageTag: e17efac7-87d8-4135-8ee4-6586cba3656e
+		summarizeBy: none
+		sourceColumn: Case Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: c1a355ba-6c70-4779-a598-8d5d1aeb93cc
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportOutcome
+		dataType: string
+		lineageTag: fc5eed63-7272-4e21-9e5f-637074984aa0
+		summarizeBy: none
+		sourceColumn: ReportOutcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificationDesc
+		dataType: string
+		lineageTag: 911d4bc1-772f-4a80-8d6c-617f05caf311
+		summarizeBy: none
+		sourceColumn: ClassificationDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 97eadde8-0b4a-4c45-981b-fa7eb52720b4
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 7ad1dae2-b5e0-4f1c-ad4a-fb3bac9d320a
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicDesc
+		dataType: string
+		lineageTag: d9cd248c-ed3a-492c-9c25-18c308682698
+		summarizeBy: none
+		sourceColumn: EthnicDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column TempResFlag
+		dataType: string
+		lineageTag: 2cd84ca6-6ed9-48ef-9385-9d9191b158ce
+		summarizeBy: none
+		sourceColumn: TempResFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolYear
+		dataType: string
+		lineageTag: 0f5c385b-1963-4d4d-abfd-9dc5c2c2694f
+		summarizeBy: none
+		sourceColumn: ReferralSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguage
+		dataType: string
+		lineageTag: f0f7902c-cc6c-48e2-af7e-53ae103e43c5
+		summarizeBy: none
+		sourceColumn: HomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLatestReferral
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c813c638-3cf4-4c4f-a88d-948028ce0c9d
+		summarizeBy: none
+		sourceColumn: IsLatestReferral
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCityCouncil
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b83effd1-c7a1-466d-a1ee-c944d07b9084
+		summarizeBy: none
+		sourceColumn: IsCityCouncil
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPComplianceMetric
+		dataType: string
+		lineageTag: e1528269-eb89-45e2-bdc6-06901ea0bf59
+		summarizeBy: none
+		sourceColumn: IEPComplianceMetric
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendPlacementDesc
+		dataType: string
+		lineageTag: d3ec9c78-2f94-4ed5-a91e-6c1f59dfe5a8
+		summarizeBy: none
+		sourceColumn: RecommendPlacementDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedPlacement
+		dataType: string
+		lineageTag: 3f011e56-5cba-49eb-a3e2-fe676c2a725f
+		summarizeBy: none
+		sourceColumn: RecommendedPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalizedPlacement
+		dataType: string
+		lineageTag: 5db85c50-10d8-4f83-8db2-447a7cfadb59
+		summarizeBy: none
+		sourceColumn: FinalizedPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedProgram
+		dataType: string
+		lineageTag: 5dd0cd2c-edfc-4670-9ed5-3d64d8a01c1c
+		summarizeBy: none
+		sourceColumn: RecommendedProgram
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDate
+		dataType: string
+		lineageTag: ab68fc98-2798-44e5-8869-b221a7c044ba
+		summarizeBy: none
+		sourceColumn: OutcomeDate
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outcome Month Name'
+		dataType: string
+		lineageTag: 501e77e1-bcde-430c-843e-5e00aaffd2f5
+		summarizeBy: none
+		sourceColumn: Outcome Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8042fbc7-b3f1-45c3-a3b0-0bfb8e490958
+		summarizeBy: none
+		sourceColumn: ReferralDate
+
+		variation Variation
+			isDefault
+			relationship: 15659791-68b2-4fc3-a6d5-8aceccd58890
+			defaultHierarchy: LocalDateTable_720e76a4-7ea9-44ea-b9de-d2a519ae9efc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Referral Month Name'
+		dataType: string
+		lineageTag: 1ab6b840-72b8-49cd-88d5-e9c50b3f2e56
+		summarizeBy: none
+		sourceColumn: Referral Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Open Overdue'
+		dataType: int64
+		formatString: 0
+		lineageTag: e6bb328c-d874-4a14-abd9-81b5e557cc8c
+		summarizeBy: sum
+		sourceColumn: Total Open Overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessofPlacement
+		dataType: string
+		lineageTag: e444b75f-0456-4c4b-9c77-9829246394ad
+		summarizeBy: none
+		sourceColumn: TimelinessofPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomePlacementSchoolDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 8efd1eec-a01f-4913-b727-9690a5e2e144
+		summarizeBy: sum
+		sourceColumn: OutcomePlacementSchoolDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPConferenceStatus
+		dataType: string
+		lineageTag: 5acb53cf-c086-40aa-96e8-6fcea61e5db6
+		summarizeBy: none
+		sourceColumn: IEPConferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Timeliness
+		dataType: string
+		lineageTag: d7b7deda-b623-432c-ad70-26dcba2e3992
+		summarizeBy: none
+		sourceColumn: Timeliness
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgramTypeMRE
+		dataType: string
+		lineageTag: c8de3988-f322-49d8-adf3-be71249a3f31
+		summarizeBy: none
+		sourceColumn: ProgramTypeMRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlacementStatus
+		dataType: string
+		lineageTag: ba416ebc-c4cf-4ace-a514-8845f642ca46
+		summarizeBy: none
+		sourceColumn: PlacementStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceStatus
+		dataType: string
+		lineageTag: 86aa1c4c-88f6-4b92-a98d-ae63f9cde8ae
+		summarizeBy: none
+		sourceColumn: ComplianceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPMeetingCompliance
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c8eb323-444f-42a8-b7b7-fa9864f5d142
+		summarizeBy: sum
+		sourceColumn: IEPMeetingCompliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorRecommendPlacementDesc
+		dataType: string
+		lineageTag: b0849b94-d793-4639-bb95-3ea9abbca88f
+		summarizeBy: none
+		sourceColumn: PriorRecommendPlacementDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlacementRecommendChange
+		dataType: string
+		lineageTag: 5d66994f-8202-4f89-8661-e594417a15e7
+		summarizeBy: none
+		sourceColumn: PlacementRecommendChange
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorNoticeSelectionDesc
+		dataType: string
+		lineageTag: 40c9b278-2a3f-4540-9fd3-3f5d8c892b38
+		summarizeBy: none
+		sourceColumn: PriorNoticeSelectionDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSchoolDBN
+		dataType: string
+		lineageTag: 3162e03d-54b1-4423-9956-92eac2641ba3
+		summarizeBy: none
+		sourceColumn: ComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentDate
+		dataType: string
+		lineageTag: dc46742f-a144-40ec-bf9a-c37eb01cb06a
+		summarizeBy: none
+		sourceColumn: ConsentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSettings
+		dataType: string
+		lineageTag: 7c2b3468-5219-4644-b230-95b6e28e415d
+		summarizeBy: none
+		sourceColumn: ComplianceSettings
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceDays
+		dataType: string
+		lineageTag: 7566e513-fdfc-4e04-b69c-926702b848c0
+		summarizeBy: none
+		sourceColumn: ComplianceDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolYear
+		dataType: string
+		lineageTag: 8fd6b189-3dd5-4817-8d48-d03b5f6d3ca5
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_SupsOfPsychCitywide-f8e4e5c8-56b4-4241-9e5d-46b088f2e90b' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_ReferralsManagement_SupsOfPsychCitywide = Source{[Schema="BI",Item="vw_ReferralsManagement_SupsOfPsychCitywide"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(BI_vw_ReferralsManagement_SupsOfPsychCitywide,{{"ConsentDate", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type",null,"LCGMS Missing Schools",Replacer.ReplaceValue,{"ComplianceSchoolDBN"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+

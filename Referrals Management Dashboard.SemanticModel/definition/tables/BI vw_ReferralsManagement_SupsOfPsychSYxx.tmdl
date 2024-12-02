@@ -1,0 +1,276 @@
+table 'BI vw_ReferralsManagement_SupsOfPsychSYxx'
+	lineageTag: 71ae26f3-ecd8-4d07-aaba-ac219b6bd529
+
+	column Studentid
+		dataType: int64
+		formatString: 0
+		lineageTag: eeb9b603-3f26-4bcf-9691-fc13cf96c454
+		summarizeBy: sum
+		sourceColumn: Studentid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportOutcome
+		dataType: string
+		lineageTag: 3b792c57-9ecf-435f-9377-e687f0f116c6
+		summarizeBy: none
+		sourceColumn: ReportOutcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportOutcomecc
+		dataType: string
+		lineageTag: 7b042128-b720-4112-b88f-ddd2ccf9cafc
+		summarizeBy: none
+		sourceColumn: ReportOutcomecc
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISInactiveDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: adcde612-6380-42de-b565-c654ffa30684
+		summarizeBy: none
+		sourceColumn: SESISInactiveDate
+
+		variation Variation
+			isDefault
+			relationship: 2ca95ad2-dbf2-44b7-86e2-d168a068e7f0
+			defaultHierarchy: LocalDateTable_f4220a6f-42e1-4122-9968-48e3182f8712.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: 66bcd376-8bf3-4904-b7fd-73b59f489901
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSchoolDBN
+		dataType: string
+		lineageTag: df4f1ec8-6442-471c-94e5-7cfe9a6cb55d
+		summarizeBy: none
+		sourceColumn: ComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Status'
+		dataType: string
+		lineageTag: c0c2c178-311d-4e8c-9320-f7f7d53489f7
+		summarizeBy: none
+		sourceColumn: Case Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Month Name'
+		dataType: string
+		lineageTag: dd4ab000-a3ba-4fe8-838d-970c1a6b5ae2
+		summarizeBy: none
+		sourceColumn: Referral Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outcome Month Name'
+		dataType: string
+		lineageTag: 43ddfed0-26c3-4bdd-8bda-74b0f48de0c6
+		summarizeBy: none
+		sourceColumn: Outcome Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Year'
+		dataType: string
+		lineageTag: 33984cd8-7d56-4737-bdbb-307e86695a57
+		summarizeBy: none
+		sourceColumn: Referral Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outcome Year'
+		dataType: string
+		lineageTag: c9e058e5-8668-48d5-baef-12c444ce313d
+		summarizeBy: none
+		sourceColumn: Outcome Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolYear
+		dataType: string
+		lineageTag: d1dab5f0-6598-4fc3-bc1e-dc4af843c70a
+		summarizeBy: none
+		sourceColumn: ReferralSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolYear
+		dataType: string
+		lineageTag: 215b5853-1798-4cc1-9e60-64dcc3f3d330
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'rv1 case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 803eefc3-0204-43c1-a7e9-62d2750a2e57
+		summarizeBy: sum
+		sourceColumn: rv1 case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'rv1 new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05ad6305-d21a-4cba-9e2e-843ed83de784
+		summarizeBy: sum
+		sourceColumn: rv1 new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: c40fd33c-6007-4f31-9c19-f9eeb1c5e7e6
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column TempResFlag
+		dataType: string
+		lineageTag: a68b9b77-5061-44e4-8379-7ae3cb369b99
+		summarizeBy: none
+		sourceColumn: TempResFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 50f1a8ec-6d94-4dab-9573-e88733425d02
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicDesc
+		dataType: string
+		lineageTag: 126bc09a-5666-47cf-8b29-611ad41f427b
+		summarizeBy: none
+		sourceColumn: EthnicDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguage
+		dataType: string
+		lineageTag: 13dbb151-7298-4e7f-80a5-8c10c4569368
+		summarizeBy: none
+		sourceColumn: HomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2023-2024] case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5abbdaaf-c424-4d3b-aa82-71624a459763
+		summarizeBy: sum
+		sourceColumn: [2023-2024] case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2023-2024]  new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 44d94000-5429-4756-9904-f730a53d43c8
+		summarizeBy: sum
+		sourceColumn: [2023-2024]  new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2022-2023] case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 36915179-bba3-44d2-b5e2-693c14aebf2f
+		summarizeBy: sum
+		sourceColumn: [2022-2023] case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2022-2023]  new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e49cb54-5e94-4101-b33d-78cf2d7d2d48
+		summarizeBy: sum
+		sourceColumn: [2022-2023]  new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2021-2022] case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62db2269-f239-4dc1-8a46-4a82d9733809
+		summarizeBy: sum
+		sourceColumn: [2021-2022] case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2021-2022] new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 419c5492-fbd0-471a-a4ee-b74b46eb51d0
+		summarizeBy: sum
+		sourceColumn: [2021-2022] new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2020-2021] case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: b2f2aa08-7b13-4344-849a-bcf7a61522dd
+		summarizeBy: sum
+		sourceColumn: [2020-2021] case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2020-2021] new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e990602-339b-4ace-9da6-ee363b45e98e
+		summarizeBy: sum
+		sourceColumn: [2020-2021] new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2019-2020] case completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: f973cf3b-6532-4f33-a743-8e8bc890bfa8
+		summarizeBy: sum
+		sourceColumn: [2019-2020] case completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[2019-2020] new referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 279847b9-7208-4462-93c0-102bc75d3576
+		summarizeBy: sum
+		sourceColumn: [2019-2020] new referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_ReferralsManagement_SupsOfPsychSYxx-3aaa9c82-3e8f-49d3-9012-9606d3f43ed1' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_ReferralsManagement_SupsOfPsychSYxx = Source{[Schema="BI",Item="vw_ReferralsManagement_SupsOfPsychSYxx"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(BI_vw_ReferralsManagement_SupsOfPsychSYxx,{{"rv2 case completed", "[2023-2024] case completed"}, {"rv2 new referrals", "[2023-2024]  new referrals"}, {"rv3 case completed", "[2022-2023] case completed"}, {"rv3 new referrals", "[2022-2023]  new referrals"}, {"rv4 case completed", "[2021-2022] case completed"}, {"rv4 new referrals", "[2021-2022] new referrals"}, {"rv5 case completed", "[2020-2021] case completed"}, {"rv5 new referrals", "[2020-2021] new referrals"}, {"rv6 case completed", "[2019-2020] case completed"}, {"rv6 new referrals", "[2019-2020] new referrals"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,73 @@
+table 'Classification Toggle'
+	lineageTag: 19bc256f-6add-4dc0-ae2a-ad2fe0771a26
+
+	measure 'Compliance Page Banner' =
+			
+			CONCATENATE (
+			    "Timeliness | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 4c9ccfbe-3dda-4eff-91cf-9c343bf07bf4
+
+	measure 'Total Citywide Open' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsychCitywide'[Case Status] ),
+			    FILTER (
+			        'BI vw_SupsOfPsychCitywide',
+			        'BI vw_SupsOfPsychCitywide'[Case Status] = "Open"
+			    )
+			)
+		formatString: #,0
+		lineageTag: d7c8b212-7b0d-43f7-a8ae-26faf5513d5a
+
+	measure 'Reason for Delay Page Banner' =
+			
+			CONCATENATE (
+			    "Reasons for Delay | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: dc1bb03c-aca9-4936-b8f5-afb632f8253b
+
+	measure 'YOY Compliance Page Banner' =
+			
+			CONCATENATE (
+			    "YoY Timeliness | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 782c544b-b1c3-4d4e-ab3f-75999ef30427
+
+	column Classification
+		dataType: string
+		lineageTag: 8ea82b39-78a2-420a-82a2-7e0ccdefc7c7
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Classification Toggle-03c81103-e9aa-4ded-8452-ad1b93ef8b89' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("XY/RasMwDEV/xeR5/YiVDhroaGFjL6EPqqPFKrIcZJnRv6+bQDv8qHN9dOVh6N6LUY7d+W3odgi/my2TjII5P9Fz+IjJKAmw21G2ohcQj0uyR1CSyfVxBtKIYgvuxZAZvZXVgQsx2W3JDlWRh9Pwz8JGM+OLE671R7WQZhzJtz1HC6iuHsEW2uykuMk+pMSu3jxW7P6oPoO2+GtG9MEldQeQqcCE7apvhRLBav9WgcT1ci26yj+UH3/8L5zv", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Classification = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Classification", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Emotional Disturbance","Emotional Disability",Replacer.ReplaceText,{"Classification"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Classification Toggle/Changed Type.{Classification,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Classification Toggle/Changed Type.{Classification,0}"],"RelationshipInfo":[]}
+

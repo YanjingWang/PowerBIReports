@@ -1,0 +1,7 @@
+role 'Pamella Terry'
+	modelPermission: read
+
+	tablePermission 'BI vw_Locations' = [SupervisorPsychName] = "Pamella Terry"
+
+	annotation PBI_Id = e3a7e1d19fd84fda947276fa61734b94
+

@@ -1,0 +1,40 @@
+table 'ComplianceDays Toggle'
+	lineageTag: 74ba166a-eb03-46e0-8b91-0baacf7bae5c
+
+	column ComplianceDays
+		dataType: string
+		lineageTag: 05d1a1b7-a222-4dc5-9acd-3ca60183e8c4
+		summarizeBy: none
+		sourceColumn: ComplianceDays
+		sortByColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		dataType: double
+		formatString: 0
+		lineageTag: 8ef69e49-e4b0-462e-b224-6e1c2e78dda2
+		summarizeBy: none
+		sourceColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = User
+
+	partition 'ComplianceDays Toggle-a8342cad-3cba-40ca-b40b-04de7b5fa929' = m
+		mode: import
+		source = ```
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcixPzCzJzEtXcM7PK07NK1HSUTJUitWJVnIpTVXIzFMwMtQ1M1BwSawsBsoYIcsYGuoawWWMkWViSg0MjJNtFQzh0iZgabB4qgLUPAWN/LLUopTSVE2gAlOl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ComplianceDays = _t, Sort = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ComplianceDays", type text}, {"Sort", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type",2,4.1,Replacer.ReplaceValue,{"Sort"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",4,2,Replacer.ReplaceValue,{"Sort"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1",4.1,4,Replacer.ReplaceValue,{"Sort"})    
+				in
+				    #"Replaced Value2"
+				```
+
+	annotation PBI_ResultType = Table
+

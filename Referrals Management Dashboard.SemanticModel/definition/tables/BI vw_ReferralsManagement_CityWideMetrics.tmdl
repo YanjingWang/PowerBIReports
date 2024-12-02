@@ -1,0 +1,224 @@
+table 'BI vw_ReferralsManagement_CityWideMetrics'
+	lineageTag: 5232dfcf-f160-46be-8c2c-742f5879d7c4
+
+	measure 'Total Complete Same Time Compliance CityWideMetrics' =
+			
+			SUM ( 'BI vw_ReferralsManagement_CityWideMetrics'[ComplianceDenominator] )
+		formatString: 0
+		lineageTag: 3274aef2-1ba7-4430-b516-7ec64a97c6d9
+
+	measure 'Total Timely Same Time Compliance CityWideMetrics' =
+			
+			SUM ( 'BI vw_ReferralsManagement_CityWideMetrics'[ComplianceNumerator] )
+		formatString: 0
+		lineageTag: 9bc5f33c-478c-4465-9667-206c294842eb
+
+	measure '% Timely Same Time YTD CityWideMetrics' =
+			
+			CALCULATE (
+			    [Total Timely Same Time Compliance CityWideMetrics] / [Total Complete Same Time Compliance CityWideMetrics]
+			)
+		lineageTag: 7e24d77d-96f7-4a79-9f70-3cd3f0786216
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Timely Same Time EOY CityWideMetrics' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear],
+			    BLANK (),
+			    CALCULATE (
+			        [Total Timely Same Time Compliance CityWideMetrics] / [Total Complete Same Time Compliance CityWideMetrics]
+			    )
+			)
+		lineageTag: 7d701731-d3fe-493b-8923-29435c27c66e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Timely same time Error CityWideMetrics' =
+			
+			IFERROR ( [% Timely Same Time YTD CityWideMetrics], BLANK () )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4ba1d8cd-102b-4489-9e07-6284b0e1a187
+
+	column FinalComplianceSchoolDBN
+		dataType: string
+		lineageTag: ba8647d0-ba30-44ab-8d12-05684bc555a7
+		summarizeBy: none
+		sourceColumn: FinalComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: b14fe43a-120f-42e4-bbe0-46075cd83cd3
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicDesc
+		dataType: string
+		lineageTag: 2cefa6a0-e57e-4d38-ab27-64e4aef56e37
+		summarizeBy: none
+		sourceColumn: EthnicDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 356ba4e4-5539-40d0-9c0d-402fbd1b8910
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: c6130d3a-9c42-41c9-ad83-65d9e64e26ef
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Thru'
+		dataType: string
+		lineageTag: 253a2a9d-729a-446e-8723-e54e5271a72b
+		summarizeBy: none
+		sourceColumn: Data Thru
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceNumerator
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b6e321c-9764-4b8d-a286-50ddf13f9c48
+		summarizeBy: sum
+		sourceColumn: ComplianceNumerator
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceDenominator
+		dataType: int64
+		formatString: 0
+		lineageTag: f537dc80-2528-4b6a-b8fb-24f48c388296
+		summarizeBy: sum
+		sourceColumn: ComplianceDenominator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Open'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d920c6c-1aa8-4338-9704-362d357952ec
+		summarizeBy: sum
+		sourceColumn: Total Open
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 31319439-04ad-4180-ae65-4987e7023452
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Compliance Calculation2'
+		dataType: string
+		lineageTag: 6a492ed1-063f-434b-a61b-29da072678f1
+		summarizeBy: none
+		sourceColumn: Compliance Calculation2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_Status2
+		dataType: string
+		lineageTag: 140a86e7-f860-4be3-8fa8-574b14587773
+		summarizeBy: none
+		sourceColumn: ELL_Status2
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYearSort
+		dataType: string
+		lineageTag: 234aada2-40ba-4e6e-9a4d-3dc8bf90ad17
+		summarizeBy: none
+		sourceColumn: SchoolYearSort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_ReferralsManagement_CityWideMetrics-dfcb1a77-0f82-409a-a5d6-73bb38dfd27a' = m
+		mode: import
+		source = ```
+				let
+				  Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"), 
+				  vw_ReferralsManagement_CityWideMetrics = Source
+				    {[Schema = "BI", Item = "vw_ReferralsManagement_CityWideMetrics"]}
+				    [Data], 
+				  #"Sorted Rows" = Table.Sort(
+				    vw_ReferralsManagement_CityWideMetrics, 
+				    {{"FinalComplianceSchoolDBN", Order.Descending}}
+				  ), 
+				  #"Duplicated Column" = Table.DuplicateColumn(#"Sorted Rows", "ELLStatus", "ELLStatus - Copy"), 
+				  #"Renamed Columns" = Table.RenameColumns(
+				    #"Duplicated Column", 
+				    {{"ELLStatus - Copy", "ELL_Status2"}}
+				  ), 
+				  #"Replaced Value" = Table.ReplaceValue(
+				    #"Renamed Columns", 
+				    "Not MLL/ELL", 
+				    "Not ELL", 
+				    Replacer.ReplaceText, 
+				    {"ELL_Status2"}
+				  ), 
+				  #"Replaced Value1" = Table.ReplaceValue(
+				    #"Replaced Value", 
+				    "MLL/ELL", 
+				    "ELL", 
+				    Replacer.ReplaceText, 
+				    {"ELL_Status2"}
+				  ), 
+				  #"Added Conditional Column" = Table.AddColumn(
+				    #"Replaced Value1", 
+				    "SchoolYearSortCustom", 
+				    each 
+				      if [SchoolYear] = "2015-2016" then
+				        8
+				      else if [SchoolYear] = "2016-2017" then
+				        7
+				      else if [SchoolYear] = "2017-2018" then
+				        6
+				      else if [SchoolYear] = "2018-2019" then
+				        5
+				      else if [SchoolYear] = "2019-2020" then
+				        4
+				      else if [SchoolYear] = "2020-2021" then
+				        3
+				      else if [SchoolYear] = "2021-2022" then
+				        2
+					  else if [SchoolYear] = "2022-2023" then
+				        1	  
+				      else
+				        null
+				  ), 
+				  #"Renamed Columns1" = Table.RenameColumns(
+				    #"Added Conditional Column", 
+				    {{"SchoolYearSortCustom", "SchoolYearSort"}}
+				  ), 
+				  #"Replaced Value2" = Table.ReplaceValue(
+				    #"Renamed Columns1", 
+				    "Not ELL", 
+				    "NOT ELL", 
+				    Replacer.ReplaceText, 
+				    {"ELL_Status2"}
+				  ),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2",null,"LCGMS Missing Schools",Replacer.ReplaceValue,{"FinalComplianceSchoolDBN"})
+				in
+				  #"Replaced Value3"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

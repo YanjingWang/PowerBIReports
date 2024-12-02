@@ -1,0 +1,24 @@
+table 'Learning Preference Toggle'
+	lineageTag: 8749c67f-f3f6-4d52-acb0-848c25494356
+
+	column LearningPreference
+		dataType: string
+		lineageTag: 4b667a35-d7cf-4e9e-9bc7-fa52edb2feec
+		summarizeBy: none
+		sourceColumn: LearningPreference
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Learning Preference Toggle-4839972a-8690-44d3-a903-b70ee6992acc' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcspJzUtJTVGK1YlWCkrNzS9JBTP98hWCUosL8vOKoXxHpdhYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [LearningPreference = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"LearningPreference", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Learning Preference Toggle/Changed Type.{LearningPreference,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Learning Preference Toggle/Changed Type.{LearningPreference,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

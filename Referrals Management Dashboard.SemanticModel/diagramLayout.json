@@ -1,0 +1,478 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1649,
+        "y": 1451
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 913.8
+          },
+          "nodeIndex": "Access Selector",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2104.1,
+            "y": 395.8
+          },
+          "nodeIndex": "BI vw_Locations",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2866.2,
+            "y": 1301.1
+          },
+          "nodeIndex": "BI vw_ReferralsManagement_CityWideMetrics",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 2414.2,
+            "y": 1427.9
+          },
+          "nodeIndex": "BI vw_ReferralsRateCitywide",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 3084.4,
+            "y": 629.7
+          },
+          "nodeIndex": "BI vw_SameTimeReferrals",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 2059.9,
+            "y": 1630.7
+          },
+          "nodeIndex": "BI vw_SupsOfPsych",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 38
+        },
+        {
+          "location": {
+            "x": 1157.4,
+            "y": 884.2
+          },
+          "nodeIndex": "BI vw_SupsOfPsychCitywide",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 3637.8,
+            "y": 915.8
+          },
+          "nodeIndex": "BI vw_UserSecurity",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 4023.6,
+            "y": 963.8
+          },
+          "nodeIndex": "Classification Toggle",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2932.7,
+            "y": 985.6
+          },
+          "nodeIndex": "Compliance Calculation2 Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 4409.4,
+            "y": 963.8
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2364.1,
+            "y": 1200.2
+          },
+          "nodeIndex": "ELL Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2326.8,
+            "y": 1308.7
+          },
+          "nodeIndex": "ELL Toggle 2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1941,
+            "y": 1374.9
+          },
+          "nodeIndex": "Ethnicity Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 2370.1,
+            "y": 545.5
+          },
+          "nodeIndex": "Grade Grouped Toggle",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 2200,
+            "y": 1028.9
+          },
+          "nodeIndex": "Grade Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1462.7,
+            "y": 981.2
+          },
+          "nodeIndex": "Home Language Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 385.8,
+            "y": 1145.1
+          },
+          "nodeIndex": "IEPConferenceStatus Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 4795.2,
+            "y": 1011.8
+          },
+          "nodeIndex": "Instructional Cohort Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 5181,
+            "y": 1011.8
+          },
+          "nodeIndex": "Is City Council Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 1378.5,
+            "y": 1591.6
+          },
+          "nodeIndex": "Learning Preference Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 1332.6,
+            "y": 245.8
+          },
+          "nodeIndex": "Month Filter",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 1499.2,
+            "y": 742.8
+          },
+          "nodeIndex": "New Referal Month Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 1480.8,
+            "y": 1110
+          },
+          "nodeIndex": "Outcome Month Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 771.6,
+            "y": 1088.4
+          },
+          "nodeIndex": "Outcome Table New",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 24
+        },
+        {
+          "location": {
+            "x": 2007.4,
+            "y": 120.6
+          },
+          "nodeIndex": "Outcome Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 1943.7,
+            "y": 2082.4
+          },
+          "nodeIndex": "RecommendedPlacement Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 1597.6,
+            "y": 1743.5
+          },
+          "nodeIndex": "RecommendedProgram Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 5566.7,
+            "y": 1011.8
+          },
+          "nodeIndex": "Red Flag",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 2059.1,
+            "y": 1234
+          },
+          "nodeIndex": "Ref Type Filter",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 3252,
+            "y": 1120.4
+          },
+          "nodeIndex": "Referral Rate Selector",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 2198.9,
+            "y": 847.6
+          },
+          "nodeIndex": "Referral School Year Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 31
+        },
+        {
+          "location": {
+            "x": 2698.6,
+            "y": 849.3
+          },
+          "nodeIndex": "SPF_AccessData",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 32
+        },
+        {
+          "location": {
+            "x": 1178.4,
+            "y": 487
+          },
+          "nodeIndex": "Temporary Housing Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 33
+        },
+        {
+          "location": {
+            "x": 6727,
+            "y": 0
+          },
+          "nodeIndex": "ComplianceDays Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 34
+        },
+        {
+          "location": {
+            "x": 7159.7,
+            "y": 0
+          },
+          "nodeIndex": "Invoked Function",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 35
+        },
+        {
+          "location": {
+            "x": 7592.4,
+            "y": 0
+          },
+          "nodeIndex": "BI vw_Locations_LCGMSMissingValue",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 36
+        },
+        {
+          "location": {
+            "x": 8025.1,
+            "y": 0
+          },
+          "nodeIndex": "BI vw_ReferralsManagement_SupsOfPsychSYxx",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 37
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

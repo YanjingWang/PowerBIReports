@@ -1,0 +1,41 @@
+table 'Referral Rate Selector'
+	lineageTag: 312dab86-d97a-4f9c-98a4-27119434d08e
+
+	measure 'Rank Min Access' = 5
+		formatString: 0
+		lineageTag: 7bcfad42-ba87-4756-a196-31c011e3bf86
+
+	measure 'Rank Min Tri' = .6
+		formatString: 0
+		lineageTag: ec7ca60a-22a0-4ce0-8209-3d975fa57565
+
+	column 'Referral Data Thru'
+		dataType: string
+		lineageTag: 815343cd-c953-4078-99ff-d94c3c7fe60e
+		summarizeBy: none
+		sourceColumn: Referral Data Thru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Data Thru Short'
+		dataType: string
+		lineageTag: f0e2eb32-42af-40ac-82bb-24ee72e0eda3
+		summarizeBy: none
+		sourceColumn: Referral Data Thru Short
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Referral Rate Selector-ee9dfd72-d399-48e2-8d44-eb02adf93b15' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *, CASE #(lf)#(tab)#(tab)WHEN [Referral Data Thru] LIKE '%End%'#(lf)#(tab)#(tab)#(tab)THEN 'End of SY'#(lf)#(tab)#(tab)ELSE CONCAT (#(lf)#(tab)#(tab)#(tab)#(tab)'First ', (#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)SELECT TOP 1 SchoolDays#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)FROM [SEO_REPORTING].[BI].[vw_SPF_AccessData_AllSettings]#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)WHERE SchoolDays IS NOT NULL#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)), ' Days of SY'#(lf)#(tab)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab)END AS [Referral Data Thru Short]#(lf)FROM (#(lf)#(tab)VALUES ('End of School Year'), (#(lf)#(tab)#(tab)CONCAT (#(lf)#(tab)#(tab)#(tab)'First ', (#(lf)#(tab)#(tab)#(tab)#(tab)SELECT TOP 1 SchoolDays#(lf)#(tab)#(tab)#(tab)#(tab)FROM [SEO_REPORTING].[BI].[vw_SPF_AccessData_AllSettings]#(lf)#(tab)#(tab)#(tab)#(tab)WHERE SchoolDays IS NOT NULL#(lf)#(tab)#(tab)#(tab)#(tab)), ' Days of School'#(lf)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab))#(lf)#(tab)) AS sub([Referral Data Thru])"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Referral Rate Selector/Source.{Referral Data Thru,0}","Section1/Referral Rate Selector/Source.{Referral Data Thru Short,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Referral Rate Selector/Source.{Referral Data Thru,0}","Section1/Referral Rate Selector/Source.{Referral Data Thru Short,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_NavigationStepName = Navigation
+

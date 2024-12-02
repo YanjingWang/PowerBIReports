@@ -1,0 +1,89 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 8/17/2018 3:40:45 PM.
+queryGroup 'Query Errors - 8/17/2018 3:40:45 PM'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Date","Ref Type Filter","Outcome Toggle","Classification Toggle","ELL Toggle","Ethnicity Toggle","Grade Toggle","Temporary Housing Toggle","Referral School Year Toggle","Home Language Toggle","Is City Council Toggle","Month Filter","SPF_AccessData","Access Selector","BI vw_ReferralsRateCitywide","Referral Rate Selector","Current School Setting Toggle","Compliance Calculation2 Toggle","BI vw_UserSecurity","BI vw_SameTimeReferrals","IEPConferenceStatus Toggle","Learning Preference Toggle","Instructional Cohort Toggle","RecommendedProgram Toggle","RecommendedPlacement Toggle","Outcome Month Toggle","New Referal Month Toggle","Grade Grouped Toggle","ELL Toggle 2","Red Flag","BI vw_SupsOfPsych","BI vw_SupsOfPsychCitywide","Outcome Table New","BI vw_Locations","BI vw_ReferralsManagement_CityWideMetrics","ComplianceDays Toggle","Query1","Invoked Function","BI vw_Locations_LCGMSMissingValue","BI vw_ReferralsManagement_SupsOfPsychSYxx"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_00f41ac1-946b-4076-b956-f56fa0590e6d
+ref table Date
+ref table LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64
+ref table 'Ref Type Filter'
+ref table 'Outcome Toggle'
+ref table 'Classification Toggle'
+ref table 'ELL Toggle'
+ref table 'Ethnicity Toggle'
+ref table 'Grade Toggle'
+ref table 'Temporary Housing Toggle'
+ref table 'Referral School Year Toggle'
+ref table 'Home Language Toggle'
+ref table 'Is City Council Toggle'
+ref table 'Month Filter'
+ref table SPF_AccessData
+ref table LocalDateTable_0cb99442-44c6-4f66-b979-d6dff92bcd64
+ref table 'Access Selector'
+ref table 'BI vw_ReferralsRateCitywide'
+ref table LocalDateTable_d5b65031-54b1-4692-a228-b6893254ac82
+ref table 'Referral Rate Selector'
+ref table 'Compliance Calculation2 Toggle'
+ref table 'BI vw_UserSecurity'
+ref table 'BI vw_SameTimeReferrals'
+ref table 'IEPConferenceStatus Toggle'
+ref table 'Learning Preference Toggle'
+ref table 'Instructional Cohort Toggle'
+ref table 'RecommendedProgram Toggle'
+ref table 'RecommendedPlacement Toggle'
+ref table 'Outcome Month Toggle'
+ref table 'New Referal Month Toggle'
+ref table 'Grade Grouped Toggle'
+ref table 'ELL Toggle 2'
+ref table 'Red Flag'
+ref table 'BI vw_SupsOfPsych'
+ref table 'BI vw_SupsOfPsychCitywide'
+ref table LocalDateTable_720e76a4-7ea9-44ea-b9de-d2a519ae9efc
+ref table 'Outcome Table New'
+ref table 'BI vw_Locations'
+ref table 'BI vw_ReferralsManagement_CityWideMetrics'
+ref table LocalDateTable_ae80dbd4-3be3-43cc-9280-4b3d1d550436
+ref table 'ComplianceDays Toggle'
+ref table 'Invoked Function'
+ref table LocalDateTable_b4d9cea5-e45b-4c1d-91e7-619906b31f9b
+ref table LocalDateTable_94386803-e1f2-4bf3-8a4e-facb33615eec
+ref table LocalDateTable_185c3693-6574-4e4a-b6e1-73cdf46648ed
+ref table LocalDateTable_a2cffaf4-2d7d-4053-9eff-70e462856ef0
+ref table LocalDateTable_498d88f5-c2e8-446e-b6d6-78709844c383
+ref table LocalDateTable_553abbf9-ef58-4a25-a7e6-f113683eb20a
+ref table LocalDateTable_5224e837-dc59-4f2d-8c15-b1550a22e6ad
+ref table LocalDateTable_7bed5414-b281-421b-8b79-c4883e1b77ac
+ref table LocalDateTable_723849a8-d0e7-4f29-afa2-8f036ff99b27
+ref table LocalDateTable_1ffd24d3-0ebb-4536-8b05-44e9a33f77f8
+ref table LocalDateTable_b1fd64a7-93b4-43be-ae08-7361a1126855
+ref table LocalDateTable_9450fd77-df64-4105-9531-47f078b26c3e
+ref table LocalDateTable_73ef3b88-31fb-46f4-8aef-b20a1c33273d
+ref table LocalDateTable_3d006e95-9e22-46bf-b775-6c47e83a46e9
+ref table LocalDateTable_a4c0dd6b-4959-4340-8606-273663400165
+ref table LocalDateTable_7b3dd9c9-5c22-4629-9fe7-7917f044a6e3
+ref table LocalDateTable_0b4fa5f2-ff38-45a4-b6dd-178dfd225e6a
+ref table 'BI vw_Locations_LCGMSMissingValue'
+ref table 'BI vw_ReferralsManagement_SupsOfPsychSYxx'
+ref table LocalDateTable_f4220a6f-42e1-4122-9968-48e3182f8712
+
+ref role DynamicRLS
+ref role 'Pamella Terry'
+ref role 'ACCESS Affinity Group'
+ref role Test
+

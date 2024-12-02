@@ -1,0 +1,194 @@
+table 'BI vw_SameTimeReferrals'
+	lineageTag: 7510e353-5b1f-494f-bfb8-da33417de707
+
+	measure 'Total Timely Same Time Compliance' =
+			
+			SUM ( 'BI vw_SameTimeReferrals'[ComplianceNumerator] )
+		formatString: 0
+		lineageTag: 56ff99db-6bd2-4436-821a-beee3e02bee3
+
+	measure 'Total Complete Same Time Compliance' =
+			
+			SUM ( 'BI vw_SameTimeReferrals'[ComplianceDenominator] )
+		formatString: 0
+		lineageTag: 25b980c9-3782-4230-b8e5-f24f61a4301f
+
+	measure '% Timely Same Time YTD' =
+			
+			CALCULATE (
+			    [Total Timely Same Time Compliance] / [Total Complete Same Time Compliance]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f2b9414a-820b-4e75-8e03-1596e809dba7
+
+	measure '% Timely Same Time EOY' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear],
+			    BLANK (),
+			    CALCULATE (
+			        [Total Timely Same Time Compliance] / [Total Complete Same Time Compliance]
+			    )
+			)
+		lineageTag: 32bdffec-13a6-499d-b55c-ffdcf139e9de
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Timely same time Error' =
+			
+			IFERROR ( [% Timely Same Time YTD], BLANK () )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4242bff9-da5e-45a4-a574-de6d31630ab0
+
+	column FinalComplianceSchoolDBN
+		dataType: string
+		lineageTag: fe92afeb-538a-40df-9491-516aeaa4dccd
+		summarizeBy: none
+		sourceColumn: FinalComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: 1d756e1a-0610-483d-9a9d-04de46c2d1a6
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicDesc
+		dataType: string
+		lineageTag: c8717a75-8c89-473b-bd3f-a23b5bf8498e
+		summarizeBy: none
+		sourceColumn: EthnicDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 8b471a04-f19b-441c-aa70-4310c12723ba
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 16875f71-452e-47cb-bf98-c6ff9b7c64e2
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Thru'
+		dataType: string
+		lineageTag: ad0912bb-11e8-432c-bedf-d30230069561
+		summarizeBy: none
+		sourceColumn: Data Thru
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceNumerator
+		dataType: int64
+		formatString: #,0
+		lineageTag: a8d2fd1b-35d0-4159-b218-5815eae6765c
+		summarizeBy: sum
+		sourceColumn: ComplianceNumerator
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceDenominator
+		dataType: int64
+		formatString: #,0
+		lineageTag: c39f458e-47cd-4484-90e2-e5943d561354
+		summarizeBy: sum
+		sourceColumn: ComplianceDenominator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Open'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 27d40063-2a37-4e34-a9ea-8a524765be47
+		summarizeBy: sum
+		sourceColumn: Total Open
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: fd2ce892-b7aa-48e9-80c6-5bfc915f0a43
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Compliance Calculation2'
+		dataType: string
+		lineageTag: 431fc171-515e-46d7-b0d3-ad7d77e487b5
+		summarizeBy: none
+		sourceColumn: Compliance Calculation2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 95db123f-7479-4add-90c0-a080529b7a5d
+		summarizeBy: none
+		sourceColumn: ReferralDate
+
+		variation Variation
+			isDefault
+			relationship: 7adcdb80-0be1-4f6c-b1fc-84286291efbc
+			defaultHierarchy: LocalDateTable_ae80dbd4-3be3-43cc-9280-4b3d1d550436.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OutcomeDate
+		dataType: string
+		lineageTag: adfb0385-af3f-4f10-8f67-f2a7236d287b
+		summarizeBy: none
+		sourceColumn: OutcomeDate
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'ReferralTypeDesc Hierarchy'
+		lineageTag: 0b8f0b51-a2ef-495a-be81-3c2bb1592e8d
+
+		level ReferralTypeDesc
+			lineageTag: 217f7622-4347-4dc5-b978-7affae7a61e3
+			column: ReferralTypeDesc
+
+		level FinalComplianceSchoolDBN
+			lineageTag: b27ad30e-fd5f-4a32-b624-fbc2e8537a03
+			column: FinalComplianceSchoolDBN
+
+	partition 'BI vw_SameTimeReferrals-2a312b1b-46f2-4631-adc8-e4dd3497b6f7' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_ReferralsManagement_SameTimeReferrals = Source{[Schema="BI",Item="vw_ReferralsManagement_SameTimeReferrals"]}[Data],
+				    #"Sorted Rows" = Table.Sort(BI_vw_ReferralsManagement_SameTimeReferrals,{{"FinalComplianceSchoolDBN", Order.Descending}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Sorted Rows", "ELLStatus", "ELLStatus - Copy"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Duplicated Column",{{"ELLStatus - Copy", "ELL_Status2"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","Not MLL/ELL","Not ELL",Replacer.ReplaceText,{"ELL_Status2"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","MLL/ELL","ELL",Replacer.ReplaceText,{"ELL_Status2"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Replaced Value1", "SchoolYearSortCustom", each if [SchoolYear] = "2015-2016" then 7 else if [SchoolYear] = "2016-2017" then 6 else if [SchoolYear] = "2017-2018" then 5 else if [SchoolYear] = "2018-2019" then 4 else if [SchoolYear] = "2019-2020" then 3 else if [SchoolYear] = "2020-2021" then 2 else if [SchoolYear] = "2021-2022" then 1 else null),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Conditional Column",{{"SchoolYearSortCustom", "SchoolYearSort"}}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Renamed Columns1","Not ELL","NOT ELL",Replacer.ReplaceText,{"ELL_Status2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(BI_vw_ReferralsManagement_SameTimeReferrals,{{"ReferralDate", type text}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(BI_vw_ReferralsManagement_SameTimeReferrals,{{"OutcomeDate", type text}}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Changed Type1",null,"LCGMS Missing Schools",Replacer.ReplaceValue,{"FinalComplianceSchoolDBN"})
+				in
+				    #"Replaced Value3"
+
+	annotation PBI_QueryRelationships = {"columnCount":12,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{FinalComplianceSchoolDBN,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ReferralTypeDesc,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{EthnicDesc,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{GradeLevel,3}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ELLStatus,4}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Data Thru,5}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ComplianceNumerator,6}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ComplianceDenominator,7}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Total Open,8}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{SchoolYear,9}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Compliance Calculation2,10}","Section1/vwSameTimeReferrals/Replaced Value1.{ELL_Status2,11}"],"ColumnCount":12,"KeyColumnNames":[],"ColumnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{FinalComplianceSchoolDBN,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ReferralTypeDesc,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{EthnicDesc,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{GradeLevel,3}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ELLStatus,4}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Data Thru,5}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ComplianceNumerator,6}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{ComplianceDenominator,7}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Total Open,8}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{SchoolYear,9}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vwSameTimeReferrals.{Compliance Calculation2,10}","Section1/vwSameTimeReferrals/Replaced Value1.{ELL_Status2,11}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

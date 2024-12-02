@@ -1,0 +1,24 @@
+table 'Instructional Cohort Toggle'
+	lineageTag: 00a2877d-3c9c-4b0f-bd81-a5955d52a09d
+
+	column InstructionalCohort
+		dataType: string
+		lineageTag: a158f7d9-d07c-4e32-a888-2d7b4779bea4
+		summarizeBy: none
+		sourceColumn: InstructionalCohort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Instructional Cohort Toggle-62f19ee3-8f5e-402c-b43a-116a230defd2' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nNUitWJVnIsLs5Mz0tN0XXKSc1LSU1BFXQrzcmpVAhKzc0vSQXL+OWXKMBklWJjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [InstructionalCohort = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"InstructionalCohort", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Instructional Cohort Toggle/Changed Type.{InstructionalCohort,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Instructional Cohort Toggle/Changed Type.{InstructionalCohort,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

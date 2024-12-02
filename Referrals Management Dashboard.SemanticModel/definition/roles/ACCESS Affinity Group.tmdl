@@ -1,0 +1,5 @@
+role 'ACCESS Affinity Group'
+	modelPermission: read
+
+	annotation PBI_Id = 390fc6591f00482fb2eb026bceddd06f
+

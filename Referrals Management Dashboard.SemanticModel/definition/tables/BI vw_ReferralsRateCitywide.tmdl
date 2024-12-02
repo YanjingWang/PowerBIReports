@@ -1,0 +1,415 @@
+table 'BI vw_ReferralsRateCitywide'
+	lineageTag: 1d4e4c9b-78dd-46f3-a484-01116393af98
+
+	measure 'Access Measure City' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Reevaluation", [Referral Reeval Rate City],
+			        MySelection = "Initial", [Referral Rate City],
+			        [% SWDs City]
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9439236b-7cf2-46ef-b63c-e7feada5639d
+
+	measure '% SWDs City' =
+			
+			SUM ( 'BI vw_ReferralsRateCitywide'[# SWDs] )
+			    / SUM ( 'BI vw_ReferralsRateCitywide'[# Students] )
+		lineageTag: 1ca9b5fd-2844-4b08-be3a-7c98fba70867
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ref rate CW Toggle' =
+			
+			IF (
+			    AND (
+			        SELECTEDVALUE ( 'Referral Rate Selector'[Referral Data Thru] ) = "End of School Year",
+			        MIN ( 'BI vw_ReferralsRateCitywide'[SchoolYear] ) = "2024-2025"
+			    ),
+			    BLANK (),
+			    [Access Measure City]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 84d26046-1246-43d3-876f-999aba6b03e1
+
+	measure 'Referral Rate EOY_C' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear_c],
+			    BLANK (),
+			    SUM ( [# Referrals] ) / SUM ( [# Students] )
+			)
+		lineageTag: b065447a-8f82-4c5f-a440-682d9128d3df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '# Reeval Ref Toggle_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE (
+			        'Referral Rate Selector'[Referral Data Thru],
+			        "End of School Year"
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "End of School Year",
+			            IF (
+			                MIN ( 'BI vw_ReferralsRateCitywide'[SchoolYear] ) = [CurrentSchoolYear_c],
+			                BLANK (),
+			                SUM ( 'BI vw_ReferralsRateCitywide'[# Reevals] )
+			            ),
+			        LEFT ( MySelection, 5 ) = "First", SUM ( [# Reevals YTD] ),
+			        [Reeval Referral Rate EOY_c]
+			    )
+		lineageTag: ddb817ff-626a-4ec5-ba89-f7ec9c206d53
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '# Ref Toggle_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE (
+			        'Referral Rate Selector'[Referral Data Thru],
+			        "End of School Year"
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "End of School Year",
+			            IF (
+			                MIN ( 'BI vw_ReferralsRateCitywide'[SchoolYear] ) = [CurrentSchoolYear_c],
+			                BLANK (),
+			                SUM ( 'BI vw_ReferralsRateCitywide'[# Referrals] )
+			            ),
+			        LEFT ( MySelection, 5 ) = "First", SUM ( [# Referrals YTD] ),
+			        [Referral Rate EOY_C]
+			    )
+		lineageTag: 6a764ad0-f603-4c83-b46b-88ff85cbd3d2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Access Denominator_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Initial", SUM ( [# Students] ),
+			        MySelection = "Reevaluation", SUM ( [# SWDs] )
+			    )
+		formatString: #,0
+		lineageTag: c0f65dab-20e7-408c-a8c4-96f48a874155
+
+	measure 'Access District Title_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    "District Referral Rate: " & MySelection
+		lineageTag: 523f9e05-28ea-4947-a597-6bf7fb57555d
+
+	measure 'Access Numerator_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Initial", [# Ref Toggle_c],
+			        MySelection = "Reevaluation", [# Reeval Ref Toggle_c]
+			    )
+		formatString: #,0
+		lineageTag: 5af5379b-124f-47c2-9cca-e85bb45a1fe6
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Access Measure_c' =
+			
+			[Access Numerator_c] / [Access Denominator_c]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f0dbeced-7b2a-42d3-9f72-08652a3f5530
+
+	measure 'Access Reeval Denominator_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Reevaluation" )
+			RETURN
+			    SWITCH ( TRUE (), MySelection = "Reevaluation", SUM ( [# SWDs] ) )
+		formatString: 0
+		lineageTag: 90e922d5-f374-425c-ac06-a0231d014acd
+
+	measure 'Access Reeval Numerator_c' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Reevaluation" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Reevaluation", [# Reeval Ref Toggle_c],
+			        SUM ( [# SWDs] )
+			    )
+		lineageTag: c2db9763-b6c8-43a4-9c32-8be9e433c2b8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Access Reeval Measure_c' =
+			
+			[Access reeval Numerator_c] / [Access reeval Denominator_c]
+		lineageTag: 4e5a6632-693b-4644-af89-ad2b83cf0e39
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reeval Referral Rate EOY_c' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear_c],
+			    BLANK (),
+			    SUM ( [# Reevals] ) / SUM ( [# SWDs] )
+			)
+		lineageTag: f0c8db44-3a21-458b-a957-eeda04f564b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CurrentSchoolYear_c = "2024-2025"
+		lineageTag: 83a8cba6-312e-4ba8-acfc-6399613cc75e
+
+	measure Measure
+		lineageTag: 3fb61155-a162-488d-9ecd-1a7173329dc2
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column SCHOOL_DBN
+		dataType: string
+		lineageTag: 35a31de9-412d-48d9-a201-f116d5730fae
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: e8ad7b48-df9e-40b9-a82c-6cd5446ce857
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		lineageTag: d114d0ca-3795-41af-8819-82433940d6fe
+		summarizeBy: none
+		sourceColumn: Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 41d7db7d-7d74-4fa3-97f6-7d35a16e18a5
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: fd9b8350-c3be-4d3d-b1e9-402643d88f1a
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Para'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5a06bff-29b2-49d7-a284-4d1f399acd07
+		summarizeBy: sum
+		sourceColumn: # Para
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Special'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d21f2c5-896b-476b-9d12-a624b3edeb2b
+		summarizeBy: sum
+		sourceColumn: # Special
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# ICT'
+		dataType: int64
+		formatString: 0
+		lineageTag: d7344b45-fbe6-4f5a-ad02-9b2339a026a2
+		summarizeBy: sum
+		sourceColumn: # ICT
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SETSS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 816f6ab8-dec8-4e6e-9263-6842d6768d20
+		summarizeBy: sum
+		sourceColumn: # SETSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f3490fd-c91c-4adc-b300-a9cd873da7a7
+		summarizeBy: sum
+		sourceColumn: # SWDs
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4261ee47-8f90-41b9-8dd3-54b6ada4c380
+		summarizeBy: sum
+		sourceColumn: # Students
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44f1435c-b91a-4bf3-8416-f51990e3d546
+		summarizeBy: none
+		sourceColumn: Last_Updated
+
+		variation Variation
+			isDefault
+			relationship: daa831d1-4180-4b65-ad88-3143765674b1
+			defaultHierarchy: LocalDateTable_d5b65031-54b1-4692-a228-b6893254ac82.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: c2ccf21d-1c61-4942-9672-c901e730d5b5
+		summarizeBy: sum
+		sourceColumn: # Referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals YTD'
+		dataType: int64
+		formatString: 0
+		lineageTag: d85d2521-9d8c-4b14-9bd7-7c1ea558efb6
+		summarizeBy: sum
+		sourceColumn: # Referrals YTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 953e0915-0861-4f6f-ba33-e9a2794cef25
+		summarizeBy: sum
+		sourceColumn: # Reevals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals YTD'
+		dataType: int64
+		formatString: 0
+		lineageTag: f73df0e4-e495-4b1a-b431-cd68af560b67
+		summarizeBy: sum
+		sourceColumn: # Reevals YTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		lineageTag: cc5d4a57-ed33-4afd-b367-108aff59e88a
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 21d87c2f-8182-43c1-b8f9-c274ed729fb9
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDays
+		dataType: int64
+		lineageTag: 45074c92-1d42-47c7-88f5-3d779944171b
+		summarizeBy: sum
+		sourceColumn: SchoolDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Setting
+		dataType: string
+		lineageTag: 82c90209-0003-4d2e-9360-7e1e1f1a2625
+		summarizeBy: none
+		sourceColumn: Setting
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_Status
+		dataType: string
+		lineageTag: 118292fe-3c90-4cc0-9f32-fe759482dfcf
+		summarizeBy: none
+		sourceColumn: ELL_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# NYSAA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0593691d-e920-4e2c-8d1b-57bf85ee06d4
+		summarizeBy: sum
+		sourceColumn: # NYSAA
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# D75'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4246065f-dcee-4a63-9171-3093d0401c53
+		summarizeBy: sum
+		sourceColumn: # D75
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_Status2
+		dataType: string
+		lineageTag: de498a09-526b-4f31-b3fa-9fd2fa57cd20
+		summarizeBy: none
+		sourceColumn: ELL_Status2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_ReferralsRateCitywide-bed7655d-d864-4bf2-b106-28ce0194ec82' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT * FROM [SEO_REPORTING].[BI].[vw_SPF_AccessData_AllSettings]"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"ELL","MLL/ELL",Replacer.ReplaceText,{"ELL_Status"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","KG","0K",Replacer.ReplaceText,{"Grade"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Replaced Value1", "ELL_Status2", each if [ELL_Status] = "MLL/ELL" then "ELL" else if [ELL_Status] = "NOT MLL/ELL" then "NOT ELL" else null)
+				in
+				    #"Added Conditional Column"
+
+	annotation PBI_QueryRelationships = {"columnCount":23,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/vwReferralRateCitywide/Source.{SCHOOL_DBN,0}","Section1/vwReferralRateCitywide/Source.{Setting,1}","Section1/vwReferralRateCitywide/Source.{SchoolYear,2}","Section1/vwReferralRateCitywide/Replaced Value.{ELL_Status,3}","Section1/vwReferralRateCitywide/Replaced Value1.{Grade,4}","Section1/vwReferralRateCitywide/Source.{Gender,5}","Section1/vwReferralRateCitywide/Source.{Ethnicity,6}","Section1/vwReferralRateCitywide/Source.{# Para,7}","Section1/vwReferralRateCitywide/Source.{# Special,8}","Section1/vwReferralRateCitywide/Source.{# D75,9}","Section1/vwReferralRateCitywide/Source.{# ICT,10}","Section1/vwReferralRateCitywide/Source.{# SETSS,11}","Section1/vwReferralRateCitywide/Source.{# NYSAA,12}","Section1/vwReferralRateCitywide/Source.{# SWDs,13}","Section1/vwReferralRateCitywide/Source.{# Students,14}","Section1/vwReferralRateCitywide/Source.{Last_Updated,15}","Section1/vwReferralRateCitywide/Source.{# Referrals,16}","Section1/vwReferralRateCitywide/Source.{# Referrals YTD,17}","Section1/vwReferralRateCitywide/Source.{# Reevals,18}","Section1/vwReferralRateCitywide/Source.{# Reevals YTD,19}","Section1/vwReferralRateCitywide/Source.{SchoolKey,20}","Section1/vwReferralRateCitywide/Source.{TableKey,21}","Section1/vwReferralRateCitywide/Source.{SchoolDays,22}"],"ColumnCount":23,"KeyColumnNames":[],"ColumnIdentities":["Section1/vwReferralRateCitywide/Source.{SCHOOL_DBN,0}","Section1/vwReferralRateCitywide/Source.{Setting,1}","Section1/vwReferralRateCitywide/Source.{SchoolYear,2}","Section1/vwReferralRateCitywide/Replaced Value.{ELL_Status,3}","Section1/vwReferralRateCitywide/Replaced Value1.{Grade,4}","Section1/vwReferralRateCitywide/Source.{Gender,5}","Section1/vwReferralRateCitywide/Source.{Ethnicity,6}","Section1/vwReferralRateCitywide/Source.{# Para,7}","Section1/vwReferralRateCitywide/Source.{# Special,8}","Section1/vwReferralRateCitywide/Source.{# D75,9}","Section1/vwReferralRateCitywide/Source.{# ICT,10}","Section1/vwReferralRateCitywide/Source.{# SETSS,11}","Section1/vwReferralRateCitywide/Source.{# NYSAA,12}","Section1/vwReferralRateCitywide/Source.{# SWDs,13}","Section1/vwReferralRateCitywide/Source.{# Students,14}","Section1/vwReferralRateCitywide/Source.{Last_Updated,15}","Section1/vwReferralRateCitywide/Source.{# Referrals,16}","Section1/vwReferralRateCitywide/Source.{# Referrals YTD,17}","Section1/vwReferralRateCitywide/Source.{# Reevals,18}","Section1/vwReferralRateCitywide/Source.{# Reevals YTD,19}","Section1/vwReferralRateCitywide/Source.{SchoolKey,20}","Section1/vwReferralRateCitywide/Source.{TableKey,21}","Section1/vwReferralRateCitywide/Source.{SchoolDays,22}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

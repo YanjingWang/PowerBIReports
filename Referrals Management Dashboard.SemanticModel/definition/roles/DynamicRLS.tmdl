@@ -1,0 +1,73 @@
+role DynamicRLS
+	modelPermission: read
+
+	tablePermission 'BI vw_Locations' =
+			(
+			[FieldSupportCenterReportingName] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "FSC"
+			)
+			||
+			(
+			[CSESchoolDBN] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "CSE Chairperson"
+			)
+			||
+			 (
+			[CSESchoolDBN] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "CSE SEEPO"
+			)
+			||
+			[SupervisorPsychName] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "CSE Supervisor of Psychologists"
+			||
+			(
+			[OTSupervisor] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "OTSupervisor"
+			)
+			||
+			(
+			[PTSupervisor] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "PTSupervisor"
+			)
+			||
+			(
+			[SpeechSupervisor] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "SpeechSupervisor"
+			)
+			||
+			(
+			
+			[SuperintendentName] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "Superintendent"
+			)
+			||
+			(
+			[SupervisorPsychName] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "Supervisor of Psychologists"
+			)
+			||
+			(
+			[ExecutiveSuperintendentName] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "Executive Superintendent"
+			)
+			||
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "Central"
+			||
+			 (
+			[SuperintendentLocationCode] = LOOKUPVALUE('BI vw_UserSecurity'[LocationKey],'BI vw_UserSecurity'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('BI vw_UserSecurity'[BIRole],'BI vw_UserSecurity'[UserEmail],USERNAME())= "Superintendent Support"
+			)
+
+	annotation PBI_Id = 758e59c4aaf64286b67943abb8573205
+

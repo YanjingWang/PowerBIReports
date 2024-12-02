@@ -1,0 +1,540 @@
+table 'Invoked Function'
+	lineageTag: b1402f68-3f0a-4a89-acfb-41af936c1e97
+
+	measure ReportDate =
+			
+			CALCULATE (
+			    MAX ( 'BI vw_SupsOfPsych'[RefDate] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[QueryType] = "Query"
+			            && 'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			    )
+			)
+		formatString: mm/dd/yyyy
+		lineageTag: 7be3404f-3353-4a3a-bffa-17638c4b4f5b
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure PriorReportDate =
+			
+			VAR MaxDate =
+			    CALCULATE (
+			        MAX ( 'BI vw_SupsOfPsych'[RefDate] ),
+			        FILTER (
+			            'BI vw_SupsOfPsych',
+			            'BI vw_SupsOfPsych'[QueryType] = "Query"
+			                && 'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			        )
+			    )
+			VAR yyyy =
+			    YEAR ( MaxDate )
+			VAR PY = yyyy - 1
+			VAR PYDate =
+			    CALCULATE (
+			        MAX ( 'BI vw_SupsOfPsych'[RefDate] ),
+			        FILTER (
+			            'BI vw_SupsOfPsych',
+			            'BI vw_SupsOfPsych'[QueryType] = "Query"
+			                && YEAR ( 'BI vw_SupsOfPsych'[RefDate] ) = PY
+			                && 'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			        ),
+			        FILTER ( 'Invoked Function', 'Invoked Function'[YTDFlag] = "Y" )
+			    )
+			RETURN
+			    PYDate
+			//CALCULATE(PYDate,'Invoked Function'[YTDFlag] = "Y")
+		formatString: mm/dd/yyyy
+		lineageTag: c7ffd1ee-8a94-4784-b4f8-f96828ccc5a9
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 2Yr_PriorReportDate =
+			
+			VAR MaxDate =
+			    CALCULATE (
+			        MAX ( 'BI vw_SupsOfPsych'[RefDate] ),
+			        FILTER (
+			            'BI vw_SupsOfPsych',
+			            'BI vw_SupsOfPsych'[QueryType] = "Query"
+			                && 'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			        )
+			    )
+			VAR yyyy =
+			    YEAR ( MaxDate )
+			VAR PY = yyyy - 2
+			VAR PYDate =
+			    CALCULATE (
+			        MAX ( 'BI vw_SupsOfPsych'[RefDate] ),
+			        FILTER (
+			            'BI vw_SupsOfPsych',
+			            'BI vw_SupsOfPsych'[QueryType] = "Query"
+			                && YEAR ( 'BI vw_SupsOfPsych'[RefDate] ) = PY
+			                && 'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			        ),
+			        FILTER ( 'Invoked Function', 'Invoked Function'[YTDFlag] = "Y" )
+			    )
+			RETURN
+			    PYDate
+		formatString: mm/dd/yyyy
+		lineageTag: 13b794fb-4d29-4fed-87f7-b81c3ba1fcf0
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 34d2c933-9d7a-437a-8f09-4f6cc664c905
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 467231ae-141a-4842-b7bc-c1cd0da15117
+			defaultHierarchy: LocalDateTable_b4d9cea5-e45b-4c1d-91e7-619906b31f9b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 126983e9-ead3-4c07-9842-ef6de31e4e7c
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 5173ee95-3405-4896-b816-5dd6d1bba0c9
+		summarizeBy: sum
+		sourceColumn: QuarterOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d9797d-965e-4e09-990c-43266c9a4355
+		summarizeBy: sum
+		sourceColumn: MonthOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 9290bbba-94ee-4e60-af73-91ade91f2e12
+		summarizeBy: sum
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateInt
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ced1f53-6f49-4f02-8a40-b9ddb38cc85e
+		summarizeBy: sum
+		sourceColumn: DateInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 96fc84b6-6eb9-4584-af39-819a2c11c9ca
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthInCalendar
+		dataType: string
+		lineageTag: 29f59b1f-cd65-4f4b-9f70-876cc5d474bf
+		summarizeBy: none
+		sourceColumn: MonthInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterInCalendar
+		dataType: string
+		lineageTag: 3daa12df-e4d6-4e30-812a-fd71650856c5
+		summarizeBy: none
+		sourceColumn: QuarterInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayInWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c08fb34-9b24-41a2-a28c-c193247336dd
+		summarizeBy: sum
+		sourceColumn: DayInWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName
+		dataType: string
+		lineageTag: c24ae57c-fd7a-4b90-ac1e-1ce69dbd10d3
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnding
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dd1f0735-884e-4004-89fd-0a6118d8ab9c
+		summarizeBy: none
+		sourceColumn: WeekEnding
+
+		variation Variation
+			isDefault
+			relationship: 26ab3af7-0214-4286-a7ea-803f055368e3
+			defaultHierarchy: LocalDateTable_94386803-e1f2-4bf3-8a4e-facb33615eec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MonthEnding
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 21b863d9-0cc4-4f20-9513-b3843d34ddfe
+		summarizeBy: none
+		sourceColumn: MonthEnding
+
+		variation Variation
+			isDefault
+			relationship: a6ebbf70-5642-44b0-bc10-83b8c4b3a299
+			defaultHierarchy: LocalDateTable_185c3693-6574-4e4a-b6e1-73cdf46648ed.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 21412c05-2c63-4e6a-90de-2858d52a259d
+		summarizeBy: sum
+		sourceColumn: Week Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthnYear
+		dataType: int64
+		formatString: 0
+		lineageTag: c64aa92d-6acc-452b-b9a9-b77b698969c7
+		summarizeBy: sum
+		sourceColumn: MonthnYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarternYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d9178a3-a054-40f7-af94-647592575b3c
+		summarizeBy: sum
+		sourceColumn: QuarternYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: c38c5685-dbe6-484e-b9b0-7627ecda4b9c
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Quarter'
+		dataType: string
+		lineageTag: 9b2b7f8b-6f54-4e54-8134-2fa1a214ca95
+		summarizeBy: none
+		sourceColumn: Fiscal Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: d330679f-acfe-4dc7-b1fc-67e0ca197d97
+		summarizeBy: sum
+		sourceColumn: Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAfterToday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8c1780e8-eb68-423b-b177-bb2d8962c031
+		summarizeBy: none
+		sourceColumn: IsAfterToday
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a577a533-3405-4880-a690-fdb88fb77c6f
+		summarizeBy: none
+		sourceColumn: IsWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHoliday
+		dataType: string
+		lineageTag: b39b5e02-5383-4b0a-8241-96b0532ea83b
+		summarizeBy: none
+		sourceColumn: IsHoliday
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOffset
+		dataType: int64
+		formatString: 0
+		lineageTag: 0acd2814-3f55-48ba-9aeb-da23db3a1185
+		summarizeBy: sum
+		sourceColumn: WeekOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOffset
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b1d1601-b664-43a4-8255-eacd7453e821
+		summarizeBy: sum
+		sourceColumn: MonthOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOffset
+		dataType: int64
+		formatString: 0
+		lineageTag: c0403859-c935-495c-a945-05b83702705b
+		summarizeBy: sum
+		sourceColumn: QuarterOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearOffset
+		dataType: int64
+		formatString: 0
+		lineageTag: 85bc21df-1797-4767-aa65-7c47a3278ba3
+		summarizeBy: sum
+		sourceColumn: YearOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYearOffset
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e7145b6-95f7-4498-9d50-6fe9af8771a0
+		summarizeBy: sum
+		sourceColumn: FiscalYearOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompletedWeek
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a5b2b638-240f-4aa9-960d-d17b8170e4c6
+		summarizeBy: none
+		sourceColumn: CompletedWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompletedMonth
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1a0f1e38-5b2b-4c16-bcce-dc8752202253
+		summarizeBy: none
+		sourceColumn: CompletedMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompletedQuarter
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 285d02cb-2075-49d0-abe4-9ecbf1409509
+		summarizeBy: none
+		sourceColumn: CompletedQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7b75e708-0dca-4065-b3db-1ea8ebdda7fc
+		summarizeBy: none
+		sourceColumn: CurrentDate
+
+		variation Variation
+			isDefault
+			relationship: ea7fbd19-6f00-4803-a656-2a6838dab844
+			defaultHierarchy: LocalDateTable_a2cffaf4-2d7d-4053-9eff-70e462856ef0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CurrentDateMonth
+		dataType: double
+		lineageTag: 0bc3d03a-ba78-44b1-bfd9-30fceef558bc
+		summarizeBy: sum
+		sourceColumn: CurrentDateMonth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Current Fiscal Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: c2e59eb0-da50-47d7-85a5-796612d99450
+		summarizeBy: sum
+		sourceColumn: Current Fiscal Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthFlag
+		dataType: string
+		lineageTag: 9fdb4287-0fa4-4bf2-a39b-64deeae9ebd6
+		summarizeBy: none
+		sourceColumn: MonthFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfCurrentDate
+		dataType: int64
+		formatString: 0
+		lineageTag: a0bc57ec-a09d-4545-91b3-9cdf066bf2b7
+		summarizeBy: sum
+		sourceColumn: DayOfCurrentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscalDays =
+			IF(MONTH('Invoked Function'[Date]) > 6,
+			                    DATEDIFF(DATE(Year('Invoked Function'[Date]), 7,1), 'Invoked Function'    [Date],DAY)+1,
+			DATEDIFF(DATE(Year('Invoked Function'[Date]), 1,1), 'Invoked Function'[Date],DAY)+185
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 458bd4ec-05be-4a2a-9931-a22899ae39ef
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentfiscalDays =
+			IF(MONTH('Invoked Function'[CurrentDate]) > 6,
+			                    DATEDIFF(DATE(Year('Invoked Function'[CurrentDate]), 7,1), 'Invoked Function'    [CurrentDate],DAY)+1,
+			DATEDIFF(DATE(Year('Invoked Function'[CurrentDate]), 1,1), 'Invoked Function'[CurrentDate],DAY)+185
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: cf0dd6ea-495a-4f4b-aa1c-08afc3d88b7d
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column YTDFlag = IF('Invoked Function'[fiscalDays] <= 'Invoked Function'[CurrentfiscalDays],"Y","N")
+		dataType: string
+		lineageTag: a2989239-d2a7-4fb5-b094-95d1fb90602b
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Week Num' =
+			
+			VAR _FiscalWeekStart = 27
+			RETURN
+			    IF (
+			        (WEEKNUM('Invoked Function'[Date])) >= _FiscalWeekStart,
+			        ( WEEKNUM('Invoked Function'[Date])) - ( _FiscalWeekStart - 1 ),
+			        52 + ( WEEKNUM('Invoked Function'[Date]) ) - ( _FiscalWeekStart - 1 ))
+		dataType: int64
+		formatString: 0
+		lineageTag: d28ff877-6a7d-4022-b0fd-1e2d65dbcdd0
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Fiscal Week Num' =
+			
+			VAR _FiscalWeekStart = 27
+			RETURN
+			    IF (
+			        (WEEKNUM('Invoked Function'[CurrentDate])) >= _FiscalWeekStart,
+			        ( WEEKNUM('Invoked Function'[CurrentDate])) - ( _FiscalWeekStart - 1 ),
+			        52 + ( WEEKNUM('Invoked Function'[CurrentDate]) ) - ( _FiscalWeekStart - 1 ))
+		dataType: int64
+		formatString: 0
+		lineageTag: b1eae544-0278-4196-99d5-5d6726a77928
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column YTDWeekFlag = IF('Invoked Function'[Fiscal Week Num] = 'Invoked Function'[Current Fiscal Week Num],"Y","N")
+		dataType: string
+		lineageTag: 97a66f13-dc01-4be1-b951-3199716bb1f8
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfDate = ```
+			WEEKDAY('Invoked Function'[Date]) 
+			```
+		dataType: int64
+		formatString: 0
+		lineageTag: 0059d549-e497-4967-880b-47f04c530c4f
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDay_CurrentDate = WEEKDAY('Invoked Function'[CurrentDate])
+		dataType: int64
+		formatString: 0
+		lineageTag: fb23d410-5a9e-4987-9fee-e3b910434eac
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDayFlag = ```
+			IF('Invoked Function'[DayOfDate] = 'Invoked Function'[WeekDay_CurrentDate],"y","n") 
+			```
+		dataType: string
+		lineageTag: fefafd97-7d38-447c-b382-3c511f59bd32
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Invoked Function-ec4a062d-e86f-4353-8a50-0be02d53c6fb' = m
+		mode: import
+		source =
+				let
+				    Source = Query1(#date(2010, 1, 1), #date(2024, 12, 31), 7, null),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Fiscal Period C", "Current Fiscal Month"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Current Fiscal Month", Int64.Type}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "MonthFlag", each if [Fiscal Period] <= [Current Fiscal Month] then 1 else 0),
+				    #"Inserted Day" = Table.AddColumn(#"Added Conditional Column", "Column1", each Date.Day([CurrentDate]), Int64.Type),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Day",{{"Column1", "DayOfCurrentDate"}})
+				in
+				    #"Renamed Columns1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

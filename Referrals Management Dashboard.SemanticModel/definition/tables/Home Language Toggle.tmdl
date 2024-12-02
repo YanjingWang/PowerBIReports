@@ -1,0 +1,25 @@
+table 'Home Language Toggle'
+	lineageTag: d3b411c3-46fe-46f7-bc36-6e3d24c33518
+
+	column 'Home Language'
+		dataType: string
+		lineageTag: ab5b4dea-492d-4e68-a652-f012b63da18d
+		summarizeBy: none
+		sourceColumn: Home Language
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Home Language Toggle-ac88fd5e-313b-418b-9e3e-0dda04a12f4f' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs7IzEstTlWK1YlWcs1Lz8kszgCz/UsyUovArOCCxDywaCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [HomeLanguage = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"HomeLanguage", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"HomeLanguage", "Home Language"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Home Language Toggle/Changed Type.{HomeLanguage,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Home Language Toggle/Changed Type.{HomeLanguage,0}"],"RelationshipInfo":[]}
+

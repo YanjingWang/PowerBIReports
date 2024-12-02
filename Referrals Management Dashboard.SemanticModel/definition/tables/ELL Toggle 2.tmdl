@@ -1,0 +1,25 @@
+table 'ELL Toggle 2'
+	lineageTag: 4e87383e-1b7a-4e6e-855c-2320f66c4ff2
+
+	column ELL_Status2
+		dataType: string
+		lineageTag: 1223d917-48c8-42da-9454-7150678d2b32
+		summarizeBy: none
+		sourceColumn: ELL_Status2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'ELL Toggle 2-57dc248a-51b2-4786-942f-679a972a3efb' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcvXxUYrViVbyyy9RALNjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [ELL_Status2 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ELL_Status2", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Not ELL","NOT ELL",Replacer.ReplaceText,{"ELL_Status2"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/ELL Toggle 2/Changed Type.{ELL_Status2,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/ELL Toggle 2/Changed Type.{ELL_Status2,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

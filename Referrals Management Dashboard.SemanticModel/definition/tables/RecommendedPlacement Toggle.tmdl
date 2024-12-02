@@ -1,0 +1,24 @@
+table 'RecommendedPlacement Toggle'
+	lineageTag: 96b91544-1525-4c7e-a993-694a732553cb
+
+	column RecommendedPlacement
+		dataType: string
+		lineageTag: b7f2b286-b79c-434f-888b-2f3e36f8d54d
+		summarizeBy: none
+		sourceColumn: RecommendedPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'RecommendedPlacement Toggle-91944b87-f9e3-46ff-bfab-4dff2219cfa4' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("RZBPa8MwDMW/ish5ZV3H6Ln/RgelC3g7lCwHYauLwLWM4mR0n36uw+hJ4qf39JCaplr9ICcO31B7tHShkOCVA3r+xcQSqvahqdaC6kDOsBGJpHkwEuzcYIsEPRjSkS31Rb3pUBMpGNuJ+IK2eIUPJUy3/YXs5UKPe+kjp+x/C33Swd62fQ3z+WI5uThTtgmeZs+LiSxfSj2eDJghRslBDo61+ae77WwVo8pIrqD31JGWrkbN2ej9dbrUAYe78/NwuD+gats/", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [RecommendedPlacement = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"RecommendedPlacement", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/RecommendedPlacement Toggle/Changed Type.{RecommendedPlacement,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/RecommendedPlacement Toggle/Changed Type.{RecommendedPlacement,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

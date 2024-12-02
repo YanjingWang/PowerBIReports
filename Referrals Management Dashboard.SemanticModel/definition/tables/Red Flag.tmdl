@@ -1,0 +1,22 @@
+table 'Red Flag'
+	lineageTag: 3bb34f6c-c0f5-4f32-ad8c-dd887d072b88
+
+	column 'Red Flag Report'
+		dataType: string
+		lineageTag: 1eeac6f9-77e9-438e-9e57-acaaa1385d0e
+		summarizeBy: none
+		sourceColumn: Red Flag Report
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Red Flag-21f9930c-99d5-4c26-9d89-50579004bce8' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCinKTM3Ly0zMUYqNBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Red Flag Report" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Red Flag Report", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

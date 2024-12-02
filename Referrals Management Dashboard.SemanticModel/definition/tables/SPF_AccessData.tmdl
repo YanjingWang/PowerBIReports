@@ -1,0 +1,443 @@
+table SPF_AccessData
+	lineageTag: 647a1596-f599-4f14-84fe-79183eee1761
+
+	measure 'Access Denominator' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Initial", SUM ( [# Students] ),
+			        MySelection = "Reevaluation", SUM ( [# SWDs] )
+			    )
+		formatString: #,0
+		lineageTag: 6c46e107-5f81-4f2f-bffd-610b0f7322cf
+
+	measure 'Access Numerator' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Initial", [# Ref Toggle],
+			        MySelection = "Reevaluation", [# Reeval Ref Toggle]
+			    )
+		formatString: #,0
+		lineageTag: 6ae8016c-918e-477c-aaac-b75264457d2e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '# Ref Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE (
+			        'Referral Rate Selector'[Referral Data Thru],
+			        "End of School Year"
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "End of School Year",
+			            IF (
+			                MIN ( 'SPF_AccessData'[SchoolYear] ) = [CurrentSchoolYear],
+			                BLANK (),
+			                SUM ( 'SPF_AccessData'[# Referrals] )
+			            ),
+			        LEFT ( MySelection, 5 ) = "First", SUM ( [# Referrals YTD] ),
+			        [Referral Rate EOY]
+			    )
+		lineageTag: 71ed0d3b-3329-4632-8e07-dd149803ba58
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CurrentSchoolYear = "2024-2025"
+		lineageTag: 60961070-e2cb-419a-bd81-4719f0a75f78
+
+	measure 'Referral Rate EOY' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear],
+			    BLANK (),
+			    SUM ( [# Referrals] ) / SUM ( [# Students] )
+			)
+		lineageTag: 0e919011-cb3e-4829-8be8-6f85efa8b949
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Access Measure' =
+			
+			[Access Numerator] / [Access Denominator]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c2fc4865-37a0-4bfd-a584-12a5b6fb8b0f
+
+	measure 'Access Top 10 Title' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    "Top 10 Highest Referral Rate: " & MySelection & " | " & "2024-2025"
+		lineageTag: 9af6d4ed-f8b0-43b5-8d6c-a2b27c5311de
+
+	measure 'Access District Title' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    "District Referral Rate: " & MySelection
+		lineageTag: aae77aec-f2c7-4851-b02b-f817616493e2
+
+	measure 'Access Reeval Denominator' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Reevaluation" )
+			RETURN
+			    SWITCH ( TRUE (), MySelection = "Reevaluation", SUM ( [# SWDs] ) )
+		formatString: 0
+		lineageTag: 3fe75ea9-0a4f-4501-8acb-baedcc130b99
+
+	measure '# Reeval Ref Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE (
+			        'Referral Rate Selector'[Referral Data Thru],
+			        "End of School Year"
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "End of School Year",
+			            IF (
+			                MIN ( 'SPF_AccessData'[SchoolYear] ) = [CurrentSchoolYear],
+			                BLANK (),
+			                SUM ( 'SPF_AccessData'[# Reevals] )
+			            ),
+			        LEFT ( MySelection, 5 ) = "First", SUM ( [# Reevals YTD] ),
+			        [Reeval Referral Rate EOY]
+			    )
+		lineageTag: 5a42fce0-ef47-4639-839b-dd140a6fa17c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Access Reeval Numerator' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Reevaluation" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Reevaluation", [# Reeval Ref Toggle],
+			        SUM ( [# SWDs] )
+			    )
+		formatString: 0
+		lineageTag: 7fdd9deb-0de3-4f6f-842f-84ba77707ee3
+
+	measure 'Access Reeval Measure' =
+			
+			[Access reeval Numerator] / [Access reeval Denominator]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9297f8d5-096e-4f04-b6b2-6df9500cd5d6
+
+	measure 'Reeval Referral Rate EOY' =
+			
+			IF (
+			    MIN ( 'Referral School Year Toggle'[Referral School Year] ) = [CurrentSchoolYear],
+			    BLANK (),
+			    SUM ( [# Reevals] ) / SUM ( [# SWDs] )
+			)
+		lineageTag: b40cd1d3-c8d5-43a2-a61d-1775dc7b90e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RR School Level Title' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Ref Type Filter'[Ref Type], "Initial" )
+			RETURN
+			    "School (↑), District and Superintendent (↓↓) Level Referral Rate: " & MySelection
+		lineageTag: 99b6924d-f05a-4818-be74-f2740b067a6c
+
+	measure 'Access 2018' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2018-2019" )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b82cfb91-c5d1-4cbc-b0df-e4052df4c3f5
+
+	measure 'Access 2019' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2019-2020" )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f237afbc-1371-4fff-b2dc-ffce5d505132
+
+	measure 'Access 2020' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2020-2021" )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8cc92299-abe7-4464-b685-d3b6a2f4fa4f
+
+	measure 'Access 2021' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2021-2022" )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cd0f6b9b-233e-4229-9f94-6495c3b34307
+
+	measure 'Access 2022' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2022-2023" )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9c90babc-3ec8-4920-bde1-b5a1f5136484
+
+	measure 'Access 2023' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2023-2024" )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: be1b6d20-b353-4261-a90c-9a6769bdb52b
+
+	measure 'Access 2024' =
+			
+			CALCULATE ( [Access Measure], SPF_AccessData[SchoolYear] = "2024-2025" )
+		lineageTag: 244d3a1f-9b97-4824-aa8e-7eea471bef75
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SCHOOL_DBN
+		dataType: string
+		lineageTag: 8720391d-01af-407d-9f98-4a28a59476e1
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 9e6f26f7-66cd-471a-9f95-7d8ea12eec15
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		lineageTag: b7128389-fd88-4b64-950e-7ccae79dc1ca
+		summarizeBy: none
+		sourceColumn: Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 63d99575-104c-41a7-855b-d58af77482eb
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: 435d8704-ba4f-4154-9627-c3245840c0e8
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Para'
+		dataType: int64
+		formatString: 0
+		lineageTag: de753e2c-1701-4b7b-a80c-84f3cc8fdc26
+		summarizeBy: sum
+		sourceColumn: # Para
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Special'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1791189e-893b-401f-ab4b-2526976b3a24
+		summarizeBy: sum
+		sourceColumn: # Special
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# ICT'
+		dataType: int64
+		formatString: 0
+		lineageTag: 74d10e88-8851-4f74-8b1e-31696c05f01e
+		summarizeBy: sum
+		sourceColumn: # ICT
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SETSS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4efcd9c5-0f83-475a-a13f-1577608a25ac
+		summarizeBy: sum
+		sourceColumn: # SETSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs'
+		dataType: int64
+		formatString: 0
+		lineageTag: 49045437-1194-450a-9e10-7065328c68da
+		summarizeBy: sum
+		sourceColumn: # SWDs
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6a60540-a0ca-402b-8d3b-826581dd218d
+		summarizeBy: sum
+		sourceColumn: # Students
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bfb9338e-24e4-4886-b591-7e26a3bab683
+		summarizeBy: none
+		sourceColumn: Last_Updated
+
+		variation Variation
+			isDefault
+			relationship: 4394fbdb-2edc-4421-a7b3-0e9b596e7880
+			defaultHierarchy: LocalDateTable_0cb99442-44c6-4f66-b979-d6dff92bcd64.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 695ce4b7-f5c5-4e06-b895-66178a0d7a34
+		summarizeBy: sum
+		sourceColumn: # Referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals YTD'
+		dataType: int64
+		formatString: 0
+		lineageTag: b18652bd-4a5b-40fa-af72-c5382ff8c11f
+		summarizeBy: sum
+		sourceColumn: # Referrals YTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 41d90966-d7d7-4ec9-b178-40dbcddd8c90
+		summarizeBy: sum
+		sourceColumn: # Reevals
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals YTD'
+		dataType: int64
+		formatString: 0
+		lineageTag: 57a84bab-6ee6-437c-b71e-456686ba943a
+		summarizeBy: sum
+		sourceColumn: # Reevals YTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		lineageTag: b208ba48-3ae9-4971-ad85-236c736ce4b7
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 934eeeb3-f9cd-49c7-b12a-162c347bd465
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDays
+		dataType: int64
+		lineageTag: f96c187f-78be-451a-b431-8ad95afdfeb3
+		summarizeBy: sum
+		sourceColumn: SchoolDays
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ELL_Status
+		dataType: string
+		lineageTag: 177e60bb-cbfb-4a2a-8768-9c3c15ce4490
+		summarizeBy: none
+		sourceColumn: ELL_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Setting
+		dataType: string
+		lineageTag: 0c465f0e-c1e0-4ef4-87a2-91670298417a
+		summarizeBy: none
+		sourceColumn: Setting
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# NYSAA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8486358a-1ba0-4cfe-a00c-7e0aba9de0e4
+		summarizeBy: sum
+		sourceColumn: # NYSAA
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# D75'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c8e2b64-1c7c-45cb-a86f-f2f023b21cf5
+		summarizeBy: sum
+		sourceColumn: # D75
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Grouped '
+		dataType: string
+		lineageTag: ec1e7d73-d90b-4a02-bd52-452682301564
+		summarizeBy: none
+		sourceColumn: "Grade Grouped "
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_Status2
+		dataType: string
+		lineageTag: 6ce91b90-ab64-4daa-9689-5d824ff156d5
+		summarizeBy: none
+		sourceColumn: ELL_Status2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SPF_AccessData-a7d7628b-d53c-416f-8829-0e2fce5d5159 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="Select *#(lf)From SEO_REPORTING.[BI].[vw_SPF_AccessData_AllSettings]"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"KG","0K",Replacer.ReplaceText,{"Grade"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","ELL","MLL/ELL",Replacer.ReplaceText,{"ELL_Status"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Replaced Value1", "Grade Grouped ", each if [Grade] = "0K" then "K-5" else if [Grade] = "01" then "K-5" else if [Grade] = "02" then "K-5" else if [Grade] = "03" then "K-5" else if [Grade] = "04" then "K-5" else if [Grade] = "05" then "K-5" else if [Grade] = "06" then #date(2020, 6, 8) else if [Grade] = "07" then #date(2020, 6, 8) else if [Grade] = "08" then #date(2020, 6, 8) else if [Grade] = "09" then #date(2020, 9, 12) else if [Grade] = "10" then #date(2020, 9, 12) else if [Grade] = "11" then #date(2020, 9, 12) else if [Grade] = "12" then #date(2020, 9, 12) else null),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Added Conditional Column", "ELL_Status", "ELL_Status - Copy"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Duplicated Column",{{"ELL_Status - Copy", "ELL_Status2"}}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Renamed Columns","MLL/ELL","ELL",Replacer.ReplaceText,{"ELL_Status2"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","Not MLL/ELL","Not ELL",Replacer.ReplaceText,{"ELL_Status2"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value3", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_QueryRelationships = {"columnCount":25,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/SPF_AccessData/Source.{SCHOOL_DBN,0}","Section1/SPF_AccessData/Source.{Setting,1}","Section1/SPF_AccessData/Source.{SchoolYear,2}","Section1/SPF_AccessData/Replaced Value1.{ELL_Status,3}","Section1/SPF_AccessData/Replaced Value.{Grade,4}","Section1/SPF_AccessData/Source.{Gender,5}","Section1/SPF_AccessData/Source.{Ethnicity,6}","Section1/SPF_AccessData/Source.{# Para,7}","Section1/SPF_AccessData/Source.{# Special,8}","Section1/SPF_AccessData/Source.{# D75,9}","Section1/SPF_AccessData/Source.{# ICT,10}","Section1/SPF_AccessData/Source.{# SETSS,11}","Section1/SPF_AccessData/Source.{# NYSAA,12}","Section1/SPF_AccessData/Source.{# SWDs,13}","Section1/SPF_AccessData/Source.{# Students,14}","Section1/SPF_AccessData/Source.{Last_Updated,15}","Section1/SPF_AccessData/Source.{# Referrals,16}","Section1/SPF_AccessData/Source.{# Referrals YTD,17}","Section1/SPF_AccessData/Source.{# Reevals,18}","Section1/SPF_AccessData/Source.{# Reevals YTD,19}","Section1/SPF_AccessData/Source.{SchoolKey,20}","Section1/SPF_AccessData/Source.{TableKey,21}","Section1/SPF_AccessData/Source.{SchoolDays,22}","Section1/SPF_AccessData/Added Conditional Column.{Grade Grouped ,23}","Section1/SPF_AccessData/Replaced Value3.{ELL_Status2,24}"],"ColumnCount":25,"KeyColumnNames":[],"ColumnIdentities":["Section1/SPF_AccessData/Source.{SCHOOL_DBN,0}","Section1/SPF_AccessData/Source.{Setting,1}","Section1/SPF_AccessData/Source.{SchoolYear,2}","Section1/SPF_AccessData/Replaced Value1.{ELL_Status,3}","Section1/SPF_AccessData/Replaced Value.{Grade,4}","Section1/SPF_AccessData/Source.{Gender,5}","Section1/SPF_AccessData/Source.{Ethnicity,6}","Section1/SPF_AccessData/Source.{# Para,7}","Section1/SPF_AccessData/Source.{# Special,8}","Section1/SPF_AccessData/Source.{# D75,9}","Section1/SPF_AccessData/Source.{# ICT,10}","Section1/SPF_AccessData/Source.{# SETSS,11}","Section1/SPF_AccessData/Source.{# NYSAA,12}","Section1/SPF_AccessData/Source.{# SWDs,13}","Section1/SPF_AccessData/Source.{# Students,14}","Section1/SPF_AccessData/Source.{Last_Updated,15}","Section1/SPF_AccessData/Source.{# Referrals,16}","Section1/SPF_AccessData/Source.{# Referrals YTD,17}","Section1/SPF_AccessData/Source.{# Reevals,18}","Section1/SPF_AccessData/Source.{# Reevals YTD,19}","Section1/SPF_AccessData/Source.{SchoolKey,20}","Section1/SPF_AccessData/Source.{TableKey,21}","Section1/SPF_AccessData/Source.{SchoolDays,22}","Section1/SPF_AccessData/Added Conditional Column.{Grade Grouped ,23}","Section1/SPF_AccessData/Replaced Value3.{ELL_Status2,24}"],"RelationshipInfo":[]}
+

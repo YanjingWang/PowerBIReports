@@ -1,0 +1,2528 @@
+table 'BI vw_SupsOfPsych'
+	lineageTag: c84b10c7-eb76-426b-85a3-dbc1e1fc24c0
+
+	measure '% Classification' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Classification Toggle'[Classification] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Autism",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Autism"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Deaf-Blindness",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Deaf-Blindness"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Deafness",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Deafness"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Emotional Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Emotional Disability"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Hearing Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Hearing Impairment"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Intellectual Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Intellectual Disability"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Learning Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Learning Disability"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Multiple Disabilities",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Multiple Disabilities"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Orthopedic Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Orthopedic Impairment"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Other Health Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Other Health Impairment"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Pre-school student with a Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Pre-school student with a Disability"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Speech or Language Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Speech or Language Impairment"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Traumatic Brain Injury",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Traumatic Brain Injury"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Visual Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Visual Impairment"
+			                )
+			            ) / [Count IEP],
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ) / [Count IEP] )
+			    ) + 0
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 20025c81-7ea3-4541-9985-2f62c5a074bc
+
+	measure 'Count IEP' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ReportOutcome] = "IEP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "SP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "IESP"
+			    )
+			)
+		formatString: 0
+		lineageTag: 407ff19c-5860-4a90-9d2c-6bd6233f728b
+
+	measure 'Status Banner' =
+			
+			CONCATENATE (
+			    "Case Status | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 62750201-295b-494f-b3e4-891035683ea1
+
+	measure Banner =
+			
+			CONCATENATE ( "Total Cases - ", FORMAT ( [Total Cases], "#,0" ) )
+		lineageTag: f91dcf2e-51de-4bf0-85ec-d88654bc0162
+
+	measure 'Total Cases' =
+			
+			COUNT ( 'BI vw_SupsOfPsych'[Case Status] )
+		formatString: 0
+		lineageTag: de609ab3-d0e0-4e5d-8f34-b85a06014330
+
+	measure 'Average Completed by month' =
+			
+			[Count Completed]
+			    / CALCULATE (
+			        DISTINCTCOUNT ( 'BI vw_SupsOfPsych'[Outcome Month Name] ),
+			        'BI vw_SupsOfPsych'[Outcome Month Name] <> BLANK ()
+			    )
+		lineageTag: dd3e87a3-2b90-4b4f-880c-7c9ef090052a
+
+	measure 'Count Completed' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[Case Status] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[Case Status] = "Completed" )
+			) + 0
+		formatString: #,0
+		lineageTag: c1e9a2c5-6396-47b7-ad3d-0f241541ec92
+
+	measure 'Count of Referral Document IDT' =
+			
+			COUNT ( 'BI vw_SupsOfPsych'[ReferralDocumentIDT] )
+		formatString: 0
+		lineageTag: d896c587-9c12-4c79-8f83-d4af3d610ea1
+
+	measure 'Average Referrals' =
+			
+			[Count of Referral Document IDT]
+			    / CALCULATE (
+			        DISTINCTCOUNT ( 'BI vw_SupsOfPsych'[Referral Month Name] ),
+			        'BI vw_SupsOfPsych'[Referral Month Name] <> BLANK ()
+			    )
+		lineageTag: 76dd3b78-8cf9-4db6-ad3c-851ceed0ec68
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Open Banner' =
+			
+			CONCATENATE (
+			    "Open Referrals | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 1d9cc54e-b821-4252-b5c0-9f9bfed77a1c
+
+	measure 'Total Open' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[Case Status] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[Case Status] = "Open" )
+			)
+		formatString: #,0
+		lineageTag: 1ec772c0-3145-499e-93af-33cb768c8744
+
+	measure 'Total Over 60' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceDays] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceDays] = "> 60 Days (overdue)"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 69d49630-58d0-4225-b184-703ac1aff889
+
+	measure '% of Open Cases Overdue' =
+			
+			[Total Over 60] / [Total Open]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3dffd75d-e9cf-4fb5-9ce9-77ea4b350624
+
+	measure 'Rank Overdue' =
+			
+			RANKX (
+			    ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			    IF (
+			        [Total Over 60] > [Rank Min],
+			        RANKX (
+			            ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			            [Total Over 60],
+			            ,
+			            ASC
+			        )
+			            + RANKX (
+			                ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			                [% of Open Cases Overdue],
+			                ,
+			                ASC
+			            )
+			                / ( COUNTROWS ( ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ) ) + 1 ),
+			        BLANK ()
+			    )
+			)
+		lineageTag: 65855519-dcb2-486f-bb70-3c0847d63a62
+
+	measure 'Rank Min' = .6
+		lineageTag: 3fade0fd-6ba1-4ea1-80ed-e20461b1ce93
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Awaiting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[Case Status] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Case Status] = "Awaiting Consent"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 849ffb83-4978-4a66-ab58-79b63416fdec
+
+	measure 'Dynamic Banner' =
+			
+			IF (
+			    HASONEVALUE ( 'BI vw_Locations'[SchoolDBN] ),
+			    DISTINCT ( 'BI vw_Locations'[SchoolDBN] ) & " | "
+			        & DISTINCT ( 'BI vw_Locations'[LocationName] ),
+			    IF (
+			        AND (
+			            HASONEVALUE ( 'BI vw_Locations'[SuperintendentName] ),
+			            HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			        ),
+			        DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) & " | "
+			            & DISTINCT ( 'BI vw_Locations'[SuperintendentName] ),
+			        IF (
+			            AND (
+			                HASONEVALUE ( 'BI vw_Locations'[SuperintendentName] ),
+			                NOT ( HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) )
+			            ),
+			            "Superintendent | " & DISTINCT ( 'BI vw_Locations'[SuperintendentName] ),
+			            IF (
+			                AND (
+			                    NOT ( HASONEVALUE ( 'BI vw_Locations'[SuperintendentName] ) ),
+			                    HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                ),
+			                "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ),
+			                IF (
+			                    AND (
+			                        HASONEVALUE ( 'BI vw_Locations'[AdminDistrict] ),
+			                        HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                    ),
+			                    DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) & " | "
+			                        & DISTINCT ( 'BI vw_Locations'[AdminDistrict] ),
+			                    IF (
+			                        AND (
+			                            HASONEVALUE ( 'BI vw_Locations'[AdminDistrict] ),
+			                            NOT ( HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) )
+			                        ),
+			                        "District | " & DISTINCT ( 'BI vw_Locations'[AdminDistrict] ),
+			                        IF (
+			                            AND (
+			                                NOT ( HASONEVALUE ( 'BI vw_Locations'[AdminDistrict] ) ),
+			                                HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                            ),
+			                            "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ),
+			                            IF (
+			                                AND (
+			                                    HASONEVALUE ( 'BI vw_Locations'[ExecutiveSuperintendentName] ),
+			                                    HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                                ),
+			                                DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) & " | "
+			                                    & DISTINCT ( 'BI vw_Locations'[ExecutiveSuperintendentName] ),
+			                                IF (
+			                                    AND (
+			                                        HASONEVALUE ( 'BI vw_Locations'[ExecutiveSuperintendentName] ),
+			                                        NOT ( HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) )
+			                                    ),
+			                                    "District | " & DISTINCT ( 'BI vw_Locations'[ExecutiveSuperintendentName] ),
+			                                    IF (
+			                                        AND (
+			                                            NOT ( HASONEVALUE ( 'BI vw_Locations'[ExecutiveSuperintendentName] ) ),
+			                                            HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                                        ),
+			                                        "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ),
+			                                        IF (
+			                                            HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterName] ),
+			                                            "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterName] ),
+			                                            IF (
+			                                                AND (
+			                                                    HASONEVALUE ( 'BI vw_SupsOfPsych'[SupervisorPsychName] ),
+			                                                    HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                                                ),
+			                                                DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) & " | "
+			                                                    & DISTINCT ( 'BI vw_SupsOfPsych'[SupervisorPsychName] ),
+			                                                IF (
+			                                                    AND (
+			                                                        HASONEVALUE ( 'BI vw_SupsOfPsych'[SupervisorPsychName] ),
+			                                                        NOT ( HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] ) )
+			                                                    ),
+			                                                    "Sup of Psych | " & DISTINCT ( 'BI vw_SupsOfPsych'[SupervisorPsychName] ),
+			                                                    IF (
+			                                                        AND (
+			                                                            NOT ( HASONEVALUE ( 'BI vw_SupsOfPsych'[SupervisorPsychName] ) ),
+			                                                            HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterReportingName] )
+			                                                        ),
+			                                                        "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterReportingName] ),
+			                                                        IF (
+			                                                            HASONEVALUE ( 'BI vw_Locations'[FieldSupportCenterName] ),
+			                                                            "B/CO | " & DISTINCT ( 'BI vw_Locations'[FieldSupportCenterName] ),
+			                                                            "Citywide"
+			                                                        )
+			                                                    )
+			                                                )
+			                                            )
+			                                        )
+			                                    )
+			                                )
+			                            )
+			                        )
+			                    )
+			                )
+			            )
+			        )
+			    )
+			)
+		lineageTag: 168c552d-56c8-40ed-8d1d-e49825bbf86d
+
+	measure 'Outcome Banner' =
+			
+			CONCATENATE (
+			    "Percent Outcomes Resulting in - ",
+			    IF (
+			        HASONEVALUE ( 'Outcome Table New'[Outcome] ),
+			        DISTINCT ( 'Outcome Table New'[Outcome] ),
+			        "IEP"
+			    )
+			)
+		lineageTag: c78a71d1-767b-40b6-90d0-8d6b9d60e362
+
+	measure 'Case Outcome Page Banner' =
+			
+			CONCATENATE (
+			    "Completed Case Outcomes | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: d5de9689-2880-4aa0-a3b8-fb0be2d3858e
+
+	measure '% Outcome' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Outcome Table New'[Outcome], "IEP" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "IEP",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "IEP" )
+			            ) / [Count Completed],
+			        MySelection = "Caseclose",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "Caseclose" )
+			            ) / [Count Completed],
+			        MySelection = "Declass",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "Declass" )
+			            ) / [Count Completed],
+			        MySelection = "Discharge",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "Discharge" )
+			            ) / [Count Completed],
+			        MySelection = "Ineligible",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ReportOutcome] = "Ineligible"
+			                )
+			            ) / [Count Completed],
+			        MySelection = "IESP",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			                FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "IESP" )
+			            ) / [Count Completed],
+			        CALCULATE (
+			            COUNT ( 'BI vw_SupsOfPsych'[ReportOutcome] ),
+			            FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ReportOutcome] = "IEP" )
+			        ) / [Count Completed]
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 1c156e5e-b130-4d09-ba73-0abed892db6a
+
+	measure 'IEP Outcome Page Banner' =
+			
+			CONCATENATE (
+			    "Completed IEP Outcomes | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 420f2c47-e323-49f6-ae17-75f882e0712e
+
+	measure '% of timeliness cases overdue' =
+			
+			[Timeliness Over 60] / [Total Complete]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: dad75263-8d75-4171-9ce9-d3abce6e4618
+
+	measure 'Timeliness Over 60' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[StudentID] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Timeliness] = "Greater than 60 days"
+			    )
+			)
+		formatString: 0
+		lineageTag: 990edd78-73e8-4b84-9c22-04d8a12c4723
+
+	measure 'Timely under 60' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[Timeliness] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Timeliness] = "Less than 60 days"
+			    )
+			)
+		formatString: 0
+		lineageTag: 47c6fb4e-ce8c-4b1d-b2bb-002faa8c0c0b
+
+	measure 'Total Complete' =
+			
+			SUM ( 'BI vw_SupsOfPsych'[Total Completed] )
+		formatString: 0
+		lineageTag: 3481d341-5d52-4e34-a6bc-bd559c4e7a4c
+
+	measure '% in compliance' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[Timeliness] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Timeliness] = "Less than 60 days"
+			    )
+			) / [Total Compliance] + 0
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 005fa2c3-bad8-43ce-ad9e-e6f7e7d3ced5
+
+	measure 'Timeliness under 60' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[StudentID] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Timeliness] = "Less than 60 days"
+			    )
+			) + 0
+		formatString: #,0
+		lineageTag: a5f67dcb-5f13-46b7-b42e-b052ff669db1
+
+	measure 'Rank Completed Overdue' =
+			
+			RANKX (
+			    ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			    IF (
+			        [Total Complete Over 60] > [Rank Min],
+			        RANKX (
+			            ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			            [Total Complete Over 60],
+			            ,
+			            ASC
+			        )
+			            + RANKX (
+			                ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ),
+			                [Total Complete],
+			                ,
+			                DESC
+			            )
+			                / ( COUNTROWS ( ALL ( 'BI vw_SupsOfPsych'[ComplianceSchoolDBN] ) ) + 1 ),
+			        BLANK ()
+			    )
+			)
+		formatString: 0
+		lineageTag: e3b26b49-eb38-44d1-805c-9d21f8262336
+
+	measure 'Total Complete Over 60' =
+			
+			SUM ( 'BI vw_SupsOfPsych'[Total Completed Overdue] )
+		formatString: 0
+		lineageTag: 5280bf7e-abad-447e-aca9-0b04ada720b5
+
+	measure '% of timeliness placement' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[TimelinessofPlacement] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[TimelinessofPlacement] = "Placement Within 10 Days"
+			            && 'BI vw_SupsOfPsych'[placementdocstatusdesc] = "Final"
+			    )
+			) / [Total Complete]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 462a03c7-05de-48f0-a254-d5e0c5319294
+
+	measure 'Placement Page Banner' =
+			
+			CONCATENATE (
+			    "Placement Notice | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initials and Reevaluation"
+			    )
+			)
+		lineageTag: 0927671e-c433-42c1-8a69-860c1935f73e
+
+	measure 'Count Program Rec Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'RecommendedProgram Toggle'[RecommendedProgram] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Special Class",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Special Class"
+			                )
+			            ),
+			        MySelection = "Integrated Co-Teaching",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Integrated Co-Teaching"
+			                )
+			            ),
+			        MySelection = "No Program Recommendation",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "No Program Recommendation"
+			                )
+			            ),
+			        MySelection = "No Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "No Services"
+			                )
+			            ),
+			        MySelection = "Other Program",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Other Program"
+			                )
+			            ),
+			        MySelection = "Related Services Only",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Related Services Only"
+			                )
+			            ),
+			        MySelection = "Special Education Teacher Support Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Special Education Teacher Support Services"
+			                )
+			            ),
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ) )
+			    ) + 0
+		formatString: #,0
+		lineageTag: ec4f69af-f617-45e8-8c7b-00cf39d35536
+
+	measure 'Count Classification Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'Classification Toggle'[Classification] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Autism",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Autism"
+			                )
+			            ),
+			        MySelection = "Deaf-Blindness",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Deaf-Blindness"
+			                )
+			            ),
+			        MySelection = "Deafness",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Deafness"
+			                )
+			            ),
+			        MySelection = "Emotional Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Emotional Disability"
+			                )
+			            ),
+			        MySelection = "Hearing Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Hearing Impairment"
+			                )
+			            ),
+			        MySelection = "Intellectual Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Intellectual Disability"
+			                )
+			            ),
+			        MySelection = "Learning Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Learning Disability"
+			                )
+			            ),
+			        MySelection = "Multiple Disabilities",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Multiple Disabilities"
+			                )
+			            ),
+			        MySelection = "Orthopedic Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Orthopedic Impairment"
+			                )
+			            ),
+			        MySelection = "Other Health Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Other Health Impairment"
+			                )
+			            ),
+			        MySelection = "Pre-school student with a Disability",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Pre-school student with a Disability"
+			                )
+			            ),
+			        MySelection = "Speech or Language Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Speech or Language Impairment"
+			                )
+			            ),
+			        MySelection = "Traumatic Brain Injury",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Traumatic Brain Injury"
+			                )
+			            ),
+			        MySelection = "Visual Impairment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ClassificationDesc] = "Visual Impairment"
+			                )
+			            ),
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[ClassificationDesc] ) )
+			    )
+		formatString: #,0
+		lineageTag: 8efef237-cd31-4467-a3f8-da2c9df7dbaf
+
+	measure 'Classification Banner' =
+			
+			CONCATENATE (
+			    "students are classified ",
+			    IF (
+			        HASONEVALUE ( 'Classification Toggle'[Classification] ),
+			        DISTINCT ( 'Classification Toggle'[Classification] ),
+			        ""
+			    )
+			)
+		lineageTag: 5a1a0a32-038e-4910-a2b0-0649239b3ec2
+
+	measure 'Classification Percent Banner' =
+			
+			CONCATENATE (
+			    "of students classified ",
+			    IF (
+			        HASONEVALUE ( 'Classification Toggle'[Classification] ),
+			        DISTINCT ( 'Classification Toggle'[Classification] ),
+			        ""
+			    )
+			)
+		lineageTag: 2dc2bccc-22fd-431d-8d75-55ca0fea29f1
+
+	measure '% Program Rec' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'RecommendedProgram Toggle'[RecommendedProgram] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Special Class",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Special Class"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Integrated Co-Teaching",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Integrated Co-Teaching"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "No Program Recommendation",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "No Program Recommendation"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "No Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "No Services"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Other Program",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Other Program"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Related Services Only",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Related Services Only"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Special Education Teacher Support Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedProgram] = "Special Education Teacher Support Services"
+			                )
+			            ) / [Count IEP],
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ) / [Count IEP] )
+			    ) + 0
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ac72e4f9-6882-4694-94df-12eec8666535
+
+	measure 'Count Placement Rec Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'RecommendedPlacement Toggle'[RecommendedPlacement] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "D75",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			                )
+			            ),
+			        MySelection = "Awaiting Placement Finalization",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Awaiting Placement Finalization"
+			                )
+			            ),
+			        MySelection = "Board of Cooperative Educational Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Board of Cooperative Educational Services"
+			                )
+			            ),
+			        MySelection = "Charter School",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Charter School"
+			                )
+			            ),
+			        MySelection = "Day Treatment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Day Treatment"
+			                )
+			            ),
+			        MySelection = "Home/Hospital Instruction",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Home/Hospital Instruction"
+			                )
+			            ),
+			        MySelection = "District 1-32",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "District 1-32"
+			                )
+			            ),
+			        MySelection = "D75 Co-Located",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75 Co-Located"
+			                )
+			            ),
+			        MySelection = "NYS Supported NPS",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NYS Supported NPS"
+			                )
+			            ),
+			        MySelection = "NYSED-Approved",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NYSED-Approved"
+			                )
+			            ),
+			        MySelection = "Other",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Other"
+			                )
+			            ),
+			        MySelection = "Parentally Placed in NPS",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Parentally Placed in NPS"
+			                )
+			            ),
+			        MySelection = "NULL Placement",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NULL Placement"
+			                )
+			            ),
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ) )
+			    ) + 0
+		formatString: 0
+		lineageTag: 1108bb11-ba7e-4bfd-846e-6170d0ac61e1
+
+	measure '% Placement Rec' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'RecommendedPlacement Toggle'[RecommendedPlacement] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "D75",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Awaiting Placement Finalization",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Awaiting Placement Finalization"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Board of Cooperative Educational Services",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Board of Cooperative Educational Services"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Charter School",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Charter School"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Day Treatment",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Day Treatment"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Home/Hospital Instruction",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Home/Hospital Instruction"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "District 1-32",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "District 1-32"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "D75 Co-Located",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75 Co-Located"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "NYS Supported NPS",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NYS Supported NPS"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "NYSED-Approved",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NYSED-Approved"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Other",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Other"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "Parentally Placed in NPS",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "Parentally Placed in NPS"
+			                )
+			            ) / [Count IEP],
+			        MySelection = "NULL Placement",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[RecommendedPlacement] = "NULL Placement"
+			                )
+			            ) / [Count IEP],
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ) / [Count IEP] )
+			    ) + 0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 296ce0a4-b8f5-40b2-ade4-aa8077562248
+
+	measure 'Demog Page Banner' = "Initial Referrals Demographic Overview: CSD & Charter Only"
+		lineageTag: 6762124e-57c4-4f98-87f4-864ad17bf492
+
+	measure 'Total SC Recs' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ProgramTypeMRE] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ProgramTypeMRE] = "Special Class"
+			    )
+			)
+		formatString: #,0
+		lineageTag: f0266fbf-8a1c-485a-99f3-5da9238b1217
+
+	measure 'Total Count Prog Rec' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[RecommendedProgram] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ReportOutcome] = "IEP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "SP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "IESP"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 9866e2f2-c9b0-48f9-b097-36b14d7054f6
+
+	measure 'Total Count Plac Rec' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ReportOutcome] = "IEP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "SP"
+			            || 'BI vw_SupsOfPsych'[ReportOutcome] = "IESP"
+			    )
+			)
+		formatString: #,0
+		lineageTag: a79b9d8a-0b94-417d-9a57-5f67bc251b5b
+
+	measure '% SC Rec' =
+			
+			[Total SC Recs] / [Total Count Prog Rec]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 538b328c-b86c-4108-9c81-fb57cb44ffcb
+
+	measure 'Total D75 Plac' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[RecommendedPlacement] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[RecommendedPlacement] = "D75"
+			    )
+			)
+		formatString: #,0
+		lineageTag: ac2eb6c7-216d-4053-822b-cf37ae94dcdc
+
+	measure '% D75 Plac' =
+			
+			[Total D75 Plac] / [Total Count Plac Rec]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8d24adef-ccea-4ea6-87af-0c1f3f526835
+
+	measure 'Referral Rate Page Banner' =
+			
+			CONCATENATE (
+			    "Referral Rate | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "Initial"
+			    )
+			)
+		lineageTag: 1e6347ce-675a-4471-af37-9655e3939bef
+
+	measure 'Total Placed' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[PlacementStatus] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[PlacementStatus] = "Placed in Recommended Setting"
+			    )
+			)
+		formatString: 0
+		lineageTag: 596b6c40-1718-4887-907d-7bbff225d4d6
+
+	measure 'Total Not Placed' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[PlacementStatus] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[PlacementStatus] = "Not Placed in Recommended Setting"
+			    )
+			)
+		formatString: 0
+		lineageTag: 372568f2-6f12-4899-b538-21d5bae5398d
+
+	measure 'Total Invalid Placed' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[PlacementStatus] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[PlacementStatus] = "Placement Recommendation not valid"
+			    )
+			)
+		formatString: 0
+		lineageTag: 874db43f-3101-4401-b26e-5529bb59133a
+
+	measure 'PlacementSettings Banner' =
+			
+			CONCATENATE (
+			    "Placement Settings | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initials and Reevaluation"
+			    )
+			)
+		lineageTag: 015fa61d-4757-431c-820c-28e070254086
+
+	measure 'Total No Outcomes' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[PlacementStatus] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[PlacementStatus] = "Awaiting Outcome"
+			    )
+			)
+		formatString: 0
+		lineageTag: b8b95c34-8087-492e-83a6-3ee3cb682dc9
+
+	measure 'LRE Banner' = "Recommendations for More/Less Restrictive Placement"
+		lineageTag: 502a7435-1edb-457d-b9f5-800824f7ed91
+
+	measure 'Total Equal Comp' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ComplianceStatus] = "Equal" )
+			)
+		formatString: 0
+		lineageTag: e880c99f-17a7-4df5-a507-2e325dad2b93
+
+	measure 'Total LRE' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ComplianceStatus] = "LRE" )
+			)
+		formatString: 0
+		lineageTag: 380dd327-c099-4737-8f06-08537d76f803
+
+	measure 'Total MRE' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ComplianceStatus] = "MRE" )
+			)
+		formatString: 0
+		lineageTag: 7d61d5bd-39ba-4673-b344-2e1a5fa83fbf
+
+	measure 'Total Awaiting Comp' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			    FILTER ( 'BI vw_SupsOfPsych', 'BI vw_SupsOfPsych'[ComplianceStatus] = "" )
+			)
+		formatString: 0
+		lineageTag: a51b6717-c1d0-4f90-9943-0b947a45c6d6
+
+	measure 'Median days' =
+			
+			MEDIAN ( 'BI vw_SupsOfPsych'[IEPMeetingCompliance] )
+		formatString: 0
+		lineageTag: fe5e51c4-9e72-4440-9b13-6f80422d5a3d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'ComplianceStatus Toggle' =
+			
+			VAR MySelection =
+			    SELECTEDVALUE ( 'BI vw_SupsOfPsych'[ComplianceSettings] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        MySelection = "Equal Placement",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ComplianceSettings] = "Equal Placement"
+			                )
+			            ),
+			        MySelection = "Specialized School to Community School",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ComplianceSettings] = "Specialized School to Community School"
+			                )
+			            ),
+			        MySelection = "Community School to Specialized School",
+			            CALCULATE (
+			                COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ),
+			                FILTER (
+			                    'BI vw_SupsOfPsych',
+			                    'BI vw_SupsOfPsych'[ComplianceSettings] = "Community School to Specialized School"
+			                )
+			            ),
+			        CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[ComplianceStatus] ) )
+			    )
+		formatString: 0
+		lineageTag: 9b8b43e5-a826-4b35-9131-1fdfdc864850
+
+	measure 'Total Equal Comp Setting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceSettings] = "Equal Placement"
+			    )
+			)
+		formatString: 0
+		lineageTag: 3777606c-f408-40f7-a43d-93367bcd3f4f
+
+	measure 'Total Specialized Comp Setting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceSettings] = "Specialized School to Community School"
+			    )
+			)
+		formatString: 0
+		lineageTag: c1a247cb-4550-4776-8e4a-94b873da2072
+
+	measure 'Total Community Comp Setting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceSettings] = "Community School to Specialized School"
+			    )
+			)
+		formatString: 0
+		lineageTag: fb7713a9-dae0-4db7-b864-0d90b3172fe0
+
+	measure 'Total Compliance Placements' =
+			
+			[Total Specialized Comp Setting] + [Total Community Comp Setting]
+		formatString: 0
+		lineageTag: 6408bf64-754a-4c8c-85b4-8635f3ba012c
+
+	measure 'Total % Compliance Placements' =
+			
+			CALCULATE (
+			    'BI vw_SupsOfPsych'[Total Compliance Placements]
+			        / SUM ( 'BI vw_SupsOfPsych'[Total Compliance Placements] )
+			)
+		lineageTag: 2e411fa6-5b76-455d-b934-3523c86f30b4
+
+	measure 'Total Compliance Setting' =
+			
+			CALCULATE ( COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ) )
+		formatString: 0
+		lineageTag: 342d4944-9085-42f2-ae9c-78a0dc2ebd58
+
+	measure Count_ComplianceSetting_NR
+		lineageTag: ef367dcb-459b-4905-bb38-5dcf6389c468
+
+	measure '% Equal Comp Setting' =
+			
+			[Total Equal Comp Setting] / [Total Compliance Placements]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6fda98f1-4aa9-4bd9-8a55-e7c05af10f21
+
+	measure '% Specialized Comp Setting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceSettings] = "Specialized School to Community School"
+			    )
+			) / [Total Compliance Placements]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2d051315-756d-46e4-8592-5e923750c69a
+
+	measure '% Community Comp Setting' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[ComplianceSettings] ),
+			    FILTER (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[ComplianceSettings] = "Community School to Specialized School"
+			    )
+			) / [Total Compliance Placements]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ec8fc576-f4c9-463e-b077-ad9585354022
+
+	measure 'Total % Comp Setting' =
+			
+			[% Specialized Comp Setting] + [% Community Comp Setting]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f2752394-4b6c-47da-8eba-8af6cdeeb702
+
+	measure D75_TotalCount =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_SupsOfPsych'[StudentID] ),
+			    ALLEXCEPT (
+			        'BI vw_SupsOfPsych',
+			        'BI vw_SupsOfPsych'[Case Status],
+			        'BI vw_SupsOfPsych'[ReferralSchoolYear],
+			        'BI vw_SupsOfPsych'[ReportOutcome]
+			    )
+			)
+		formatString: 0
+		lineageTag: f27e96b7-dfcc-4fdc-87bf-9075cf87c47c
+
+	measure D75_Percentage =
+			
+			COUNT ( 'BI vw_SupsOfPsych'[StudentID] ) / [D75_TotalCount]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3200bbdb-444f-4588-8b8e-80e531b6556e
+
+	measure CurrentYTDCount =
+			
+			TOTALYTD ( SUM ( 'BI vw_SupsOfPsych'[CNT] ), 'Invoked Function'[Date], "6/30" )
+			//var x = TOTALYTD(SUM('BI vw_SupsOfPsych'[CNT] ),'Invoked Function'[Date],"6/30")))
+		lineageTag: e962d017-3643-4f1c-90f6-194d2a512b95
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure PrevYearDate =
+			
+			VAR CY =
+			    TOTALYTD (
+			        COUNT ( 'BI vw_SupsOfPsych'[StudentID] ),
+			        'BI vw_SupsOfPsych'[RefDate],
+			        "6/30"
+			    )
+			VAR PY =
+			    CALCULATE ( CY, SAMEPERIODLASTYEAR ( 'BI vw_SupsOfPsych'[RefDate] ) )
+			RETURN
+			    PY
+			//CALCULATE(COUNT('BI vw_SupsOfPsych'[StudentID]),DATESYTD(DATEADD('BI vw_SupsOfPsych'[RefDate],-1,YEAR),"6/30"))
+		formatString: 0
+		lineageTag: 235a8107-8c01-4328-8f91-9a5dd74f86e6
+
+	measure %CurrentYTDCount =
+			
+			CALCULATE ( [CurrentYTDCount] / [D75_TotalCount] )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bc6bfd13-7de7-45ef-94e0-4414c6a33430
+
+	measure Cnt0 =
+			
+			VAR x = SUM ( 'BI vw_SupsOfPsych'[CNT] ) RETURN IF ( ISBLANK ( x ), 0, x )
+			//IF(ISBLANK(Count('BI vw_SupsOfPsych'[StudentID])),0,COUNT('BI vw_SupsOfPsych'[StudentID]))
+		formatString: 0
+		lineageTag: f1f69f75-c823-403e-987c-2011700471bf
+
+	measure 'D75 Outcome Page Banner' =
+			
+			CONCATENATE (
+			    "Completed YOY D75 Outcomes | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        DISTINCT ( 'BI vw_SupsOfPsych'[ReferralTypeDesc] ),
+			        "All Referrals: Initial and Reevaluation"
+			    )
+			)
+		lineageTag: 0b00a184-9df8-4edb-8f8d-a5ef239a20dd
+
+	measure D75CYDate =
+			
+			"D75 CY Date - " & FORMAT ( [ReportDate], "MM/DD/YY" )
+		lineageTag: 81b78162-fd7b-4251-94b6-b5c8b9d28457
+
+	measure D75PYDate =
+			
+			"D75 PY Date - " & FORMAT ( [PriorReportDate], "MM/DD/YY" )
+		lineageTag: f51065d5-5868-4a6e-8704-c1fd00648fe8
+
+	measure D75_2PYDate =
+			
+			"D75 2PY Date- " & FORMAT ( [2Yr_PriorReportDate], "MM/DD/YY" )
+		lineageTag: 9f44b043-287a-4104-bb4f-a794b56efb70
+
+	column StudentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7045d5d6-e6f6-4e67-8d06-f12da4830e7a
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 18487efe-e4f4-44ff-83b0-6a002ee2ae8a
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: ca2f42a3-d5b4-4706-9fbd-6a7d982edd23
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8f76abe0-18f9-4fe1-847c-c69c36c79a5e
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: 0e50d2fa-cad4-404b-9de7-48ece1de893b
+			defaultHierarchy: LocalDateTable_498d88f5-c2e8-446e-b6d6-78709844c383.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column BirthYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 9cbe3cc4-fc23-415b-ab1b-758dcd10334a
+		summarizeBy: sum
+		sourceColumn: BirthYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 2f5e25bc-60de-4ddf-af59-98dbd4c334f0
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 0327d585-2a76-4c69-a1c9-41834e208885
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: dc0c51b7-0b61-4d2b-81c6-246b5e2346b1
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column TempResFlag
+		dataType: string
+		lineageTag: 97f5c09c-efb1-4697-91aa-1c975172a161
+		summarizeBy: none
+		sourceColumn: TempResFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: f73366ce-9b9f-4567-997b-d272eb97e353
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicDesc
+		dataType: string
+		lineageTag: d6d64d79-89ff-44b2-b774-42c89b4b43dd
+		summarizeBy: none
+		sourceColumn: EthnicDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguage
+		dataType: string
+		lineageTag: 617e0fb4-d603-414b-a3ab-e57a9b566ee7
+		summarizeBy: none
+		sourceColumn: HomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 3e3f4338-48a4-4f1a-bd3c-189a3a2dd778
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: 591c89e0-2602-44bb-9e18-c276471c28bd
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeTypeDesc
+		dataType: string
+		lineageTag: fad41e05-ecb4-4901-abfb-7cca0e342301
+		summarizeBy: none
+		sourceColumn: OutcomeTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfileIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 3036454c-d43b-47c5-953d-9cb3ad97c5c6
+		summarizeBy: sum
+		sourceColumn: ProfileIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDocumentIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: a67a8c70-a3f4-4f4a-a81e-82cdda348fbe
+		summarizeBy: sum
+		sourceColumn: OutcomeDocumentIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportOutcome
+		dataType: string
+		lineageTag: 45149c8c-38b3-4ce2-9010-c5988cf1adc7
+		summarizeBy: none
+		sourceColumn: ReportOutcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISInactiveDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 189df8b4-ed41-4a6c-a32e-714f18924dc6
+		summarizeBy: none
+		sourceColumn: SESISInactiveDate
+
+		variation Variation
+			isDefault
+			relationship: 4ac0510e-d2f4-4998-8b67-38f99e68e359
+			defaultHierarchy: LocalDateTable_553abbf9-ef58-4a25-a7e6-f113683eb20a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ReferralDocumentIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f85e914-e15b-4964-a039-769cb457e7f0
+		summarizeBy: sum
+		sourceColumn: ReferralDocumentIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDate
+		dataType: string
+		lineageTag: cbb3ea1e-3682-4d47-bae0-14ee61b026b9
+		summarizeBy: none
+		sourceColumn: ReferralDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Month Name'
+		dataType: string
+		lineageTag: 450f2447-2fae-4f30-9d0d-9a615b6e8e0f
+		summarizeBy: none
+		sourceColumn: Referral Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLatestReferral
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 58cfc226-c4b8-48d6-a186-b6f3b30b043e
+		summarizeBy: none
+		sourceColumn: IsLatestReferral
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCityCouncil
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a9ed77d8-840d-44d4-bae3-17ae5b8f0351
+		summarizeBy: none
+		sourceColumn: IsCityCouncil
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendPlacementDesc
+		dataType: string
+		lineageTag: 6a004b34-b717-4e54-b19e-45d5954f9d56
+		summarizeBy: none
+		sourceColumn: RecommendPlacementDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentDate
+		dataType: string
+		lineageTag: 0d2cb726-b164-4d76-a918-caef225f2c24
+		summarizeBy: none
+		sourceColumn: ConsentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e10d86bf-a20d-4a64-bff8-99871e3b09af
+		summarizeBy: none
+		sourceColumn: AssessmentDate
+
+		variation Variation
+			isDefault
+			relationship: 9da848fb-8caa-4117-bb1c-c15f83d968eb
+			defaultHierarchy: LocalDateTable_5224e837-dc59-4f2d-8c15-b1550a22e6ad.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OutcomeDate
+		dataType: string
+		lineageTag: 55919b31-4c6c-456a-ae1b-d0bdf6752e30
+		summarizeBy: none
+		sourceColumn: OutcomeDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outcome Month Name'
+		dataType: string
+		lineageTag: 1dddccf4-c774-4dd3-a31b-c6e1dbf5b275
+		summarizeBy: none
+		sourceColumn: Outcome Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPMeetingCompliance
+		dataType: int64
+		formatString: 0
+		lineageTag: 793347da-42c7-4cd2-9792-612b431537b4
+		summarizeBy: sum
+		sourceColumn: IEPMeetingCompliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentCompliance
+		dataType: int64
+		formatString: 0
+		lineageTag: a20a6b2c-3a61-43f7-beb8-c4d4d0a3e9f4
+		summarizeBy: sum
+		sourceColumn: ConsentCompliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentCompliance
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a9dce2d-44d5-48d1-a5bc-c8626b96ef52
+		summarizeBy: sum
+		sourceColumn: AssessmentCompliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPConferenceStatus
+		dataType: string
+		lineageTag: cc1593df-0b44-41d3-848c-6d216d414344
+		summarizeBy: none
+		sourceColumn: IEPConferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPComplianceMetric
+		dataType: string
+		lineageTag: 2695be9e-af72-4423-bb91-410e8ac73576
+		summarizeBy: none
+		sourceColumn: IEPComplianceMetric
+
+		annotation SummarizationSetBy = Automatic
+
+	column referralplacementschooldays
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b872749-098a-4d0d-b012-47cce1562d9b
+		summarizeBy: sum
+		sourceColumn: referralplacementschooldays
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomePlacementSchoolDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ac9f936-b63f-4b54-8721-57c2c4bf1845
+		summarizeBy: sum
+		sourceColumn: OutcomePlacementSchoolDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalizedPlacement
+		dataType: string
+		lineageTag: 6094bad6-34bb-4c63-b6ca-269ea4bce039
+		summarizeBy: none
+		sourceColumn: FinalizedPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedPlacement
+		dataType: string
+		lineageTag: 00b0d299-d262-4104-b029-ee98acef9342
+		summarizeBy: none
+		sourceColumn: RecommendedPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessofPlacement
+		dataType: string
+		lineageTag: 9625944c-9872-40f1-8c80-3932e8154643
+		summarizeBy: none
+		sourceColumn: TimelinessofPlacement
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlacementDocStatusDesc
+		dataType: string
+		lineageTag: db5648ec-432a-43b6-9116-52c5148f1abe
+		summarizeBy: none
+		sourceColumn: PlacementDocStatusDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column MRERecommendation
+		dataType: string
+		lineageTag: a1e81a41-a39d-4fff-8ee6-5028454ac110
+		summarizeBy: none
+		sourceColumn: MRERecommendation
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedProgram
+		dataType: string
+		lineageTag: 5b2deae6-a57a-4c3e-8993-0ceb8a7a7dbe
+		summarizeBy: none
+		sourceColumn: RecommendedProgram
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Status'
+		dataType: string
+		lineageTag: 21e33c1e-f574-4fbe-b525-2c9013ac2aac
+		summarizeBy: none
+		sourceColumn: Case Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: f4a6ac7c-7fe0-4920-b2c1-b2bf1b4acb2b
+		summarizeBy: sum
+		sourceColumn: Total Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed Overdue'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2838a63d-6b0c-494a-81a0-e00cca0745c2
+		summarizeBy: sum
+		sourceColumn: Total Completed Overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed Overdue Text'
+		dataType: string
+		lineageTag: 50cf0a5c-4cbb-4485-bbc5-c3e4717e2bdb
+		summarizeBy: none
+		sourceColumn: Total Completed Overdue Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed with CaseClose'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eea99d2-a568-45df-8c47-4e53d9f95226
+		summarizeBy: sum
+		sourceColumn: Total Completed with CaseClose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed without CaseClose'
+		dataType: int64
+		formatString: 0
+		lineageTag: a9c293d8-c29d-4e47-ad30-ed697b6d2753
+		summarizeBy: sum
+		sourceColumn: Total Completed without CaseClose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Open Overdue'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4a57bee3-7f8c-4225-9606-aa7f3daf5dd4
+		summarizeBy: sum
+		sourceColumn: Total Open Overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column Timeliness
+		dataType: string
+		lineageTag: 632c164c-775e-4d67-a23f-1817588b4017
+		summarizeBy: none
+		sourceColumn: Timeliness
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessDays
+		dataType: string
+		lineageTag: 2e258e03-9f41-41a5-901e-fbc091d4586a
+		summarizeBy: none
+		sourceColumn: TimelinessDays
+		sortByColumn: TimelinessDaysSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessDaysSort
+		dataType: string
+		lineageTag: e28ffb63-8546-4584-849b-6ce35f9a65d5
+		summarizeBy: none
+		sourceColumn: TimelinessDaysSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSort
+		dataType: string
+		lineageTag: b3245987-5c47-4f24-bea1-5a4b19eb9c04
+		summarizeBy: none
+		sourceColumn: ComplianceSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessOpendays
+		dataType: string
+		lineageTag: 473780fa-180e-49d5-8d6f-06f2fa6e9c59
+		summarizeBy: none
+		sourceColumn: TimelinessOpendays
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessOpendaysSort
+		dataType: string
+		lineageTag: cb1a31bc-191c-4c54-9830-7fdfb3fee67a
+		summarizeBy: none
+		sourceColumn: TimelinessOpendaysSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReasonForDelayDesc
+		dataType: string
+		lineageTag: 9632fd46-99ff-4d37-88db-db11ae568f2f
+		summarizeBy: none
+		sourceColumn: ReasonForDelayDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReasonsforDelay
+		dataType: string
+		lineageTag: a9edf3a1-2caa-4ebc-86ff-99bd02b31f9f
+		summarizeBy: none
+		sourceColumn: ReasonsforDelay
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectedIEPImplementationDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 87a5ffd6-4792-4002-a36e-3ef1ec0b7ae5
+		summarizeBy: none
+		sourceColumn: ProjectedIEPImplementationDate
+
+		variation Variation
+			isDefault
+			relationship: 9076b872-3bed-4fbb-8a43-24af20e86977
+			defaultHierarchy: LocalDateTable_7bed5414-b281-421b-8b79-c4883e1b77ac.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateIEP
+		dataType: string
+		lineageTag: d51f0ebd-4660-41d3-a650-58b3e24c8322
+		summarizeBy: none
+		sourceColumn: DateIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolYear
+		dataType: string
+		lineageTag: 9897f3ca-08f2-4490-8d1b-03e28631fdf3
+		summarizeBy: none
+		sourceColumn: ReferralSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolYear
+		dataType: string
+		lineageTag: 54571ec9-c349-49e6-98a8-4aa89eaa614e
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeReasonDesc
+		dataType: string
+		lineageTag: 8fedb043-5580-4d31-b60d-f070efa49f3a
+		summarizeBy: none
+		sourceColumn: OutcomeReasonDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralProcessStageDesc
+		dataType: string
+		lineageTag: 693ac3d9-e564-473f-ba55-5b2980ed9503
+		summarizeBy: none
+		sourceColumn: ReferralProcessStageDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolType
+		dataType: string
+		lineageTag: 82d0cdf2-2d09-42a3-b50b-fc657bf09c03
+		summarizeBy: none
+		sourceColumn: ReferralSchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolType
+		dataType: string
+		lineageTag: 27cb3bcd-909b-483a-b4ee-b22848f41551
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSourceDesc
+		dataType: string
+		lineageTag: c19c3205-6374-466a-8ae0-9945750bb455
+		summarizeBy: none
+		sourceColumn: ReferralSourceDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column EvaluatorName
+		dataType: string
+		lineageTag: 0fe48680-02e8-41dc-aaab-3a53fab77df4
+		summarizeBy: none
+		sourceColumn: EvaluatorName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LanguageofAssessment
+		dataType: string
+		lineageTag: b17484df-9f78-4e51-b033-ed0881676cbf
+		summarizeBy: none
+		sourceColumn: LanguageofAssessment
+
+		annotation SummarizationSetBy = Automatic
+
+	column EvaluatorPositionDesc
+		dataType: string
+		lineageTag: 34f3c3e2-95dc-45af-95fd-e7193324bb56
+		summarizeBy: none
+		sourceColumn: EvaluatorPositionDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentProviderTypeDesc
+		dataType: string
+		lineageTag: 890a7538-d1ff-4a7b-9b97-766d6d6583af
+		summarizeBy: none
+		sourceColumn: AssessmentProviderTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificationDesc
+		dataType: string
+		lineageTag: 3327a743-420e-4783-97a1-28262b0b3e0d
+		summarizeBy: none
+		sourceColumn: ClassificationDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralCreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 51568b17-18ac-4d5f-8768-c08f8087be76
+		summarizeBy: none
+		sourceColumn: ReferralCreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 0c927998-ac1d-47de-a263-a32f6270725a
+			defaultHierarchy: LocalDateTable_723849a8-d0e7-4f29-afa2-8f036ff99b27.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralFinalizedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 30bc5564-57e2-4a00-891e-f6dedea1f0c4
+		summarizeBy: none
+		sourceColumn: ReferralFinalizedDate
+
+		variation Variation
+			isDefault
+			relationship: 9bcb6a83-d17b-4089-85c9-91ea286e3438
+			defaultHierarchy: LocalDateTable_1ffd24d3-0ebb-4536-8b05-44e9a33f77f8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentCreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9a4808b5-f695-4555-8762-d3b2dff380ce
+		summarizeBy: none
+		sourceColumn: ConsentCreatedDate
+
+		variation Variation
+			isDefault
+			relationship: ef71c45f-a5b1-49ee-b362-75fafab857fd
+			defaultHierarchy: LocalDateTable_b1fd64a7-93b4-43be-ae08-7361a1126855.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentFinalizedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 057147b9-976d-4b1b-8bcf-a30e38bc7730
+		summarizeBy: none
+		sourceColumn: ConsentFinalizedDate
+
+		variation Variation
+			isDefault
+			relationship: 47b603c7-bfd9-4d6c-b44d-c4f90385ace9
+			defaultHierarchy: LocalDateTable_9450fd77-df64-4105-9531-47f078b26c3e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentCreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f81cd8e0-c98c-4c8e-8e33-4304d52d8b50
+		summarizeBy: none
+		sourceColumn: AssessmentCreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 718a9d1f-7fa5-4c63-8442-d32206706046
+			defaultHierarchy: LocalDateTable_73ef3b88-31fb-46f4-8aef-b20a1c33273d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentFinalizedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e2f565b3-aaa6-45d6-9c10-b95c8896845b
+		summarizeBy: none
+		sourceColumn: AssessmentFinalizedDate
+
+		variation Variation
+			isDefault
+			relationship: c4c74034-8dc8-4035-9cae-556654ca774a
+			defaultHierarchy: LocalDateTable_3d006e95-9e22-46bf-b775-6c47e83a46e9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeCreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0d461738-594f-482c-9010-b81f56971012
+		summarizeBy: none
+		sourceColumn: OutcomeCreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 6f3cc000-a95c-4164-9734-ba65157237d5
+			defaultHierarchy: LocalDateTable_a4c0dd6b-4959-4340-8606-273663400165.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeFinalizedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a9a3845-c95e-489c-926f-330df638cec2
+		summarizeBy: none
+		sourceColumn: OutcomeFinalizedDate
+
+		variation Variation
+			isDefault
+			relationship: 087df00b-c9ab-4b4b-9e12-966a1bf088f3
+			defaultHierarchy: LocalDateTable_7b3dd9c9-5c22-4629-9fe7-7917f044a6e3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentDocStatusDesc
+		dataType: string
+		lineageTag: eb1f2d56-b44b-4fd1-a850-f9fb045321d2
+		summarizeBy: none
+		sourceColumn: ConsentDocStatusDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentDocStatusDesc
+		dataType: string
+		lineageTag: dc476db5-d027-4d26-88b5-cce5164d58e1
+		summarizeBy: none
+		sourceColumn: AssessmentDocStatusDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDocStatusDesc
+		dataType: string
+		lineageTag: d5a76d35-08e3-47dd-9d99-2a167a30379b
+		summarizeBy: none
+		sourceColumn: OutcomeDocStatusDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDocComment
+		dataType: string
+		lineageTag: 74c4b2ad-36f7-409d-b476-8d54295a216a
+		summarizeBy: none
+		sourceColumn: ReferralDocComment
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsentDocComment
+		dataType: string
+		lineageTag: 880a9c2c-e6bb-4854-86bc-ace86c87b127
+		summarizeBy: none
+		sourceColumn: ConsentDocComment
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentDocComment
+		dataType: string
+		lineageTag: 59b733e4-9a28-4af8-8304-3d95f6bb6926
+		summarizeBy: none
+		sourceColumn: AssessmentDocComment
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDocComment
+		dataType: string
+		lineageTag: 647d24f3-987c-4e74-a2ad-d1dd18fa1412
+		summarizeBy: none
+		sourceColumn: OutcomeDocComment
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: e1f76d8d-c424-43ec-8754-3132a46b2779
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDistrict
+		dataType: string
+		lineageTag: 4a22c5ee-6e9e-4850-9c09-d7b9a12789c8
+		summarizeBy: none
+		sourceColumn: EnrolledDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledSchoolSetting
+		dataType: string
+		lineageTag: a6fc2714-ebd4-4ab1-8d0e-c560feb3f36a
+		summarizeBy: none
+		sourceColumn: EnrolledSchoolSetting
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhysicalLocation
+		dataType: string
+		lineageTag: e883d6fb-a4cf-456e-84e2-ed4ee9c50fb9
+		summarizeBy: none
+		sourceColumn: PhysicalLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficialClass
+		dataType: string
+		lineageTag: c188a509-ef9e-417d-9b7e-0f51b064dc19
+		summarizeBy: none
+		sourceColumn: OfficialClass
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolDBN
+		dataType: string
+		lineageTag: 75cede9b-3d7d-4a82-bdb8-0266ebab26c5
+		summarizeBy: none
+		sourceColumn: ReferralSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolDBN
+		dataType: string
+		lineageTag: 28a5b9c8-d6db-4a30-9da2-f6fbb1ebd2ab
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssignedSchoolDBN
+		dataType: string
+		lineageTag: 47f3e27e-1ff1-47c8-b9c8-e40d803ca379
+		summarizeBy: none
+		sourceColumn: AssignedSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssignedSchoolDistrict
+		dataType: string
+		lineageTag: b9409e35-68c2-4880-b548-d2a33acb96b4
+		summarizeBy: none
+		sourceColumn: AssignedSchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeDistrict
+		dataType: string
+		lineageTag: c73a02ec-e503-4c78-a589-b2edefc64a51
+		summarizeBy: none
+		sourceColumn: HomeDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSchoolDBN
+		dataType: string
+		lineageTag: a2773082-9fc6-496e-91fe-91bed5f948c4
+		summarizeBy: none
+		sourceColumn: ComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgramTypeMRE
+		dataType: string
+		lineageTag: 00acc2df-37f5-479f-bf55-4fe12cf03038
+		summarizeBy: none
+		sourceColumn: ProgramTypeMRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlacementStatus
+		dataType: string
+		lineageTag: 1a41d422-22a2-4dcf-b2ea-41812e4c3255
+		summarizeBy: none
+		sourceColumn: PlacementStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceStatus
+		dataType: string
+		lineageTag: a3bc717e-5f3b-4c8e-9935-799a10628a0e
+		summarizeBy: none
+		sourceColumn: ComplianceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentName
+		dataType: string
+		lineageTag: 84036e09-b2fc-4041-a31c-c9f57abccfaf
+		summarizeBy: none
+		sourceColumn: SuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorPsychName
+		dataType: string
+		lineageTag: 46f48832-b7f6-4eae-8dbb-94ad141de800
+		summarizeBy: none
+		sourceColumn: SupervisorPsychName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MealCode
+		dataType: string
+		lineageTag: 5c469fd0-1cd6-4730-b0d5-fcb486fa018e
+		summarizeBy: none
+		sourceColumn: MealCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorRecommendPlacementDesc
+		dataType: string
+		lineageTag: 99077ff1-fea5-48b9-81d9-a921b2dcbd2d
+		summarizeBy: none
+		sourceColumn: PriorRecommendPlacementDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlacementRecommendChange
+		dataType: string
+		lineageTag: e013c8bd-3835-48fd-ae45-938e8bc852a2
+		summarizeBy: none
+		sourceColumn: PlacementRecommendChange
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorNoticeSelectionDesc
+		dataType: string
+		lineageTag: 32abdc19-f814-4c88-a29a-d4aaa70090fd
+		summarizeBy: none
+		sourceColumn: PriorNoticeSelectionDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSettings
+		dataType: string
+		lineageTag: 4dc2a8bb-6819-4c4a-a392-1d307aeb511e
+		summarizeBy: none
+		sourceColumn: ComplianceSettings
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceDays
+		dataType: string
+		lineageTag: 77bfb91d-8b40-4e65-b103-0e385c1cd042
+		summarizeBy: none
+		sourceColumn: ComplianceDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column RefDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 18e4fa94-2d20-4802-bfe0-5ec3aa87a403
+		summarizeBy: none
+		sourceColumn: RefDate
+
+		variation Variation
+			isDefault
+			relationship: 494df7ac-8a14-45a3-9929-0c6143a6ff0c
+			defaultHierarchy: LocalDateTable_0b4fa5f2-ff38-45a4-b6dd-178dfd225e6a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CNT
+		dataType: double
+		lineageTag: ae9f5a2e-e981-4acd-aeb8-20e0c5e46eed
+		summarizeBy: sum
+		sourceColumn: CNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QueryType
+		dataType: string
+		lineageTag: 3a9d200f-f9fe-4fbc-a3e5-ecdd03d08940
+		summarizeBy: none
+		sourceColumn: QueryType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_SupsOfPsych-c9c8b7cc-d2ca-4c13-ab27-81cb9783ae54' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_ReferralsManagement_SupsOfPsych = Source{[Schema="BI",Item="vw_ReferralsManagement_SupsOfPsych"]}[Data],
+				    #"Inserted Literal" = Table.AddColumn(BI_vw_ReferralsManagement_SupsOfPsych, "QueryType", each "Query", type text),
+				    #"Added Conditional Column" = Table.AddColumn(#"Inserted Literal", "Custom", each if [ELLStatus] = "MLL/ELL" then "ELL" else "Not ELL"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column",{{"Custom", "ELL_Status2"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns", "Referral Month Name", "Referral Month Name - Copy"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Duplicated Column",{{"Referral Month Name - Copy", "Referral Month"}}),
+				    #"Sorted Rows" = Table.Sort(#"Renamed Columns1",{{"TimelinessDaysSort", Order.Ascending}}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Sorted Rows", "OutcomeMonthSort", each if [Outcome Month Name] = "July" then 1 else if [Outcome Month Name] = "August" then 2 else if [Outcome Month Name] = "September" then 3 else if [Outcome Month Name] = "October" then 4 else if [Outcome Month Name] = "November" then 5 else if [Outcome Month Name] = "December" then 6 else if [Outcome Month Name] = "January" then 7 else if [Outcome Month Name] = "February" then 8 else if [Outcome Month Name] = "March" then 9 else if [Outcome Month Name] = "April" then 10 else if [Outcome Month Name] = "May" then 11 else if [Outcome Month Name] = "June" then 12 else "Null"),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Conditional Column1", each true),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Filtered Rows", "PlacementStatus2", each if [PlacementStatus] = null then "Awaiting Outcome" else [PlacementStatus]),
+				    #"Added Conditional Column3" = Table.AddColumn(#"Added Conditional Column2", "ComplianceStatus2", each if [ComplianceStatus] = "" then "Awaiting" else [ComplianceStatus]),
+				    #"Added Conditional Column4" = Table.AddColumn(#"Added Conditional Column3", "TimelinessOpendaySort1", each if [TimelinessOpendays] = "Awaiting Consent " then "A" else if [TimelinessOpendays] = "Due in <= 10 Days" then "B" else if [TimelinessOpendays] = "Due in 11-20 Days" then "C" else if [TimelinessOpendays] = "Due in 21-60 Days" then "D" else if [TimelinessOpendays] = "Open for 61-90 Days" then "E" else if [TimelinessOpendays] = "Open for 91-120 Days" then "F" else if [TimelinessOpendays] = "Open for > than 120 Days" then "G" else if [TimelinessOpendays] = "Completed" then "H" else null),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Inserted Literal",{{"ReferralDate", type text}, {"OutcomeDate", type text}, {"DateIEP", type text}, {"ConsentDate", type text}}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Changed Type", "ReferralDate", "ReferralDate - Copy"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Duplicated Column1",{{"ReferralDate - Copy", type date}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type1",{{"ReferralDate - Copy", "RefDate"}}),
+				    #"Inserted Factorial" = Table.AddColumn(#"Renamed Columns2", "Column1", each Number.Factorial(1), type number),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Inserted Factorial",{{"Column1", "CNT"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns3",null,"LCGMS Missing Schools",Replacer.ReplaceValue,{"ComplianceSchoolDBN"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+

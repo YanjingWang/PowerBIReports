@@ -1,0 +1,24 @@
+table 'IEPConferenceStatus Toggle'
+	lineageTag: b1baf990-1ca8-4739-b7d7-b25ca6e952d1
+
+	column IEPConferenceStatus
+		dataType: string
+		lineageTag: b2203031-b1a5-4dd0-8b52-1dd5dd3db4bc
+		summarizeBy: none
+		sourceColumn: IEPConferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IEPConferenceStatus Toggle-f1d8707a-0545-4399-9599-fffedffbeeb4' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs7PLchJLUlNUYrViVbyyy9RqEwtUShOzkhNKc2BigYjeLEA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [IEPConferenceStatus = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"IEPConferenceStatus", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/IEPConferenceStatus Toggle/Changed Type.{IEPConferenceStatus,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/IEPConferenceStatus Toggle/Changed Type.{IEPConferenceStatus,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

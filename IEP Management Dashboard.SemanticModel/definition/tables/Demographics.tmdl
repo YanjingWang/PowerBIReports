@@ -1,0 +1,105 @@
+table Demographics
+	isHidden
+	lineageTag: c185ca6a-8308-44e6-8f80-7d1ec100629c
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: 41b07a56-31cb-41b9-858c-2754ea306d68
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		isHidden
+		lineageTag: b805f08a-83f5-4fb0-9529-933d13605f6a
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ELL Status'
+		dataType: string
+		isHidden
+		lineageTag: b3d282d9-f950-4eb9-bf87-0cbedf55ce30
+		summarizeBy: none
+		sourceColumn: ELL Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		isHidden
+		lineageTag: 1c10fc0e-15bf-42c4-ba0a-d2e1dfea2d27
+		summarizeBy: none
+		sourceColumn: Grade
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeOrder
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e03a092d-6c4a-4518-bd8c-f2b097d01c95
+		summarizeBy: sum
+		sourceColumn: GradeOrder
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		isHidden
+		lineageTag: 827df6ca-17e9-4f28-9fbf-36689411bce8
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 9b29da9d-87a7-4760-adc7-223d7ae9d201
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 52e39f5e-e4f1-4891-980d-d63e7c1c2108
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		lineageTag: 95a8ff4f-c1fc-40cb-b75e-00e8aed1385f
+		summarizeBy: none
+		sourceColumn: SY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Demographics-531025b7-44d8-4f9e-bcc3-6e0abd3db370 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="Select *#(lf)FROM#(lf)SEO_REPORTING.bi.vw_IEPManagement_Demographics"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

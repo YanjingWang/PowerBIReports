@@ -1,0 +1,53 @@
+table 'Goals Citywide'
+	lineageTag: 9cccd0f7-76b0-4a88-8403-af9fe3830e1f
+
+	measure 'Citywide All Goals Reports' = sum('Goals Citywide'[NumStudentsProgressEntered])/sum('Goals Citywide'[NumStudents])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ac02b26d-0532-4af2-a469-f826e6925dbb
+
+		changedProperty = FormatString
+
+	column NumStudents
+		dataType: int64
+		formatString: 0
+		lineageTag: c912aa83-36e0-40bc-8c5f-6f760b2d7e8c
+		summarizeBy: sum
+		sourceColumn: NumStudents
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumStudentsProgressEntered
+		dataType: int64
+		formatString: 0
+		lineageTag: 0116d77c-2690-4003-8007-61b978776284
+		summarizeBy: sum
+		sourceColumn: NumStudentsProgressEntered
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 24908d18-8095-4d9a-91d6-984dffb6708c
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		lineageTag: d69e8648-9515-41fd-9457-9a10d5d92639
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Goals Citywide-84ebfa8a-eb11-4d50-a4c9-bff08d7a447b' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="select count(studentid) as NumStudents#(lf),sum(case when ReportingCategoryNumeric = 2 then 1 else 0 end) as NumStudentsProgressEntered#(lf),TableKey#(lf),StudentKey#(lf)from (select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent#(lf)union#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY22#(lf)union#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY23#(lf)union#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY24) gl#(lf)left outer join SEO_MART.dbo.RPT_Locations loc#(lf)on gl.EnrolledDBN = loc.SchoolDBN#(lf)where loc.SchoolType = 'CSD'#(lf)and gl.ReportingCategory <> 'Grace Period'#(lf)Group by TableKey,Studentkey"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

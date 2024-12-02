@@ -1,0 +1,50 @@
+role 'Dynamic RLS'
+	modelPermission: read
+
+	tablePermission Locations =
+			(
+			[FieldSupportCenterReportingName] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "FSC"
+			)
+			||
+			(
+			[Superintendent] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent"
+			)
+			||
+			(
+			[OTSupervisor] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "OTSupervisor"
+			)
+			||
+			(
+			[PTSupervisor] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "PTSupervisor"
+			)
+			||
+			(
+			[SpeechSupervisor] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "SpeechSupervisor"
+			)
+			||
+			(
+			[SupervisorPsychName] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Supervisor of Psychologists"
+			)
+			||
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Central"
+			||
+			(
+			[SuperintendentLocationCode] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent Support"
+			)
+
+	annotation PBI_Id = 176c8a49b08a4989b75659581db4148f
+

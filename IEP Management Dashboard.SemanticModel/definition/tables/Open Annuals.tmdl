@@ -1,0 +1,466 @@
+table 'Open Annuals'
+	isHidden
+	lineageTag: f3ee9758-7bcd-41a1-8d71-e3e3fff0cd99
+
+	measure 'Total Open Annuals' = count('Open Annuals'[StudentID])
+		formatString: #,0
+		isHidden
+		lineageTag: 83e9c4f3-fb14-47dc-a787-542f71b6bea4
+
+	column StudentID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 41c98c9f-3716-4d10-a2c9-f8c3b09a6758
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		isHidden
+		lineageTag: 9d747ac8-7faa-43d0-99b4-0925b0c25cf4
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		isHidden
+		lineageTag: 0aad50d7-833b-45ab-875d-4cd3990ec165
+		summarizeBy: none
+		sourceColumn: LastName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 9a480e19-1b5a-45a7-9d01-3fa0d8ccff86
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: fc95b136-b998-445c-9cc5-e3290b434081
+			defaultHierarchy: LocalDateTable_814820a9-695d-4ec3-b8e0-4c8f5283dd9d.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: a0232edc-c8ed-4f98-aaad-0cdbd2194061
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		isHidden
+		lineageTag: 1b6a06ee-d07f-49b3-a7bb-a91e16fb3e21
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		isHidden
+		lineageTag: 40a9a87f-3d8a-45e8-b55a-369389ac225b
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		isHidden
+		lineageTag: 3f149731-65bb-4c2f-9339-47c18da1169a
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledSchoolSetting
+		dataType: string
+		isHidden
+		lineageTag: 693cb32d-fdb1-4afd-918c-f167bbfc66cd
+		summarizeBy: none
+		sourceColumn: EnrolledSchoolSetting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATSStatus
+		dataType: string
+		isHidden
+		lineageTag: 10c6c58b-3f5e-4867-b617-8ac777be6f09
+		summarizeBy: none
+		sourceColumn: ATSStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATSInactiveDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 92e3a568-5c55-48e6-a0bd-ff94dade3716
+		summarizeBy: none
+		sourceColumn: ATSInactiveDate
+
+		variation Variation
+			isDefault
+			relationship: 87904347-6164-4999-9919-e1adad73c358
+			defaultHierarchy: LocalDateTable_58bedb64-8fa7-4b24-9bd5-6ebd82337af6.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		isHidden
+		lineageTag: 63af2514-93b8-4d3f-a381-30690848dc63
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSchool
+		dataType: string
+		isHidden
+		lineageTag: 84d40942-11aa-45e3-866e-2f06092baff7
+		summarizeBy: none
+		sourceColumn: ComplianceSchool
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorSYOutcomeDocumentIDT
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b7930cec-4f09-4375-a544-48089d9056b5
+		summarizeBy: sum
+		sourceColumn: PriorSYOutcomeDocumentIDT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorSYOutcomeSchool
+		dataType: string
+		isHidden
+		lineageTag: eb894e11-36fa-4350-ac45-c271843532fa
+		summarizeBy: none
+		sourceColumn: PriorSYOutcomeSchool
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorSYOutcomeDocumentType
+		dataType: string
+		isHidden
+		lineageTag: 8043aeda-708f-4389-a2e7-7a6340284eca
+		summarizeBy: none
+		sourceColumn: PriorSYOutcomeDocumentType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorSYOutcomeDate
+		dataType: dateTime
+		isHidden
+		formatString: m/d/yyyy
+		lineageTag: b8c06f89-f0dc-489b-96c6-58d7da0f0087
+		summarizeBy: none
+		sourceColumn: PriorSYOutcomeDate
+
+		variation Variation
+			isDefault
+			relationship: d026afb7-58c1-4c31-b36c-2f30a1742bb2
+			defaultHierarchy: LocalDateTable_931f8193-4e3f-40f4-9fbe-9ab69462a517.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ReportingSYOutcomeDocumentIDT
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cadd3776-708a-4d20-a23d-a0ebd5d14447
+		summarizeBy: sum
+		sourceColumn: ReportingSYOutcomeDocumentIDT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingSYOutcomeSchool
+		dataType: string
+		isHidden
+		lineageTag: 7b5e883b-b09b-46e7-8e43-1d9a1b7c63e7
+		summarizeBy: none
+		sourceColumn: ReportingSYOutcomeSchool
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingSYOutcomeDocumentType
+		dataType: string
+		isHidden
+		lineageTag: 394eaef6-473b-4cd2-9585-980f67d51337
+		summarizeBy: none
+		sourceColumn: ReportingSYOutcomeDocumentType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingSYOutcomeDate
+		dataType: dateTime
+		isHidden
+		formatString: m/d/yyyy
+		lineageTag: e58c25a0-bf49-4353-afbc-b7d1b3fd477e
+		summarizeBy: none
+		sourceColumn: ReportingSYOutcomeDate
+
+		variation Variation
+			isDefault
+			relationship: 094b46fe-5467-4260-846f-f208c3b779a0
+			defaultHierarchy: LocalDateTable_beafb836-1034-4301-8f1c-123d8c15eb74.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ProjectedAnnualDate
+		dataType: dateTime
+		isHidden
+		formatString: m/d/yyyy
+		lineageTag: a3b89762-f1bb-4031-83f2-be17dd537d48
+		summarizeBy: none
+		sourceColumn: ProjectedAnnualDate
+
+		variation Variation
+			isDefault
+			relationship: 9fb41ba3-5a3e-4da7-90e1-3c2daaf44651
+			defaultHierarchy: LocalDateTable_82862736-a142-493c-b8d8-468ed6ceb225.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ComplianceDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7d35ef19-818f-44dc-9a3f-889975dffb54
+		summarizeBy: none
+		sourceColumn: ComplianceDate
+
+		variation Variation
+			isDefault
+			relationship: a59c8426-7a3a-444f-ac61-07eca7c6bf0c
+			defaultHierarchy: LocalDateTable_bea973eb-b738-40d7-b841-1c8dbefc3d34.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCompliant
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f291b5d8-a877-4c83-8e9a-b03753179723
+		summarizeBy: sum
+		sourceColumn: IsCompliant
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysOverCompliance
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 60c0cace-3493-4d41-a931-301185b1ade6
+		summarizeBy: sum
+		sourceColumn: DaysOverCompliance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: m/d/yyyy
+		lineageTag: 2f895c65-e366-48eb-b2e6-a126fe280ce5
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 514cf6d3-bf2e-4f10-8dc5-826bde7f4bbb
+			defaultHierarchy: LocalDateTable_8e3e458a-ada4-4922-9d7d-eecd0155c90b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 7d06ddcf-fb70-4564-9981-3adfd42fb7bb
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncludeInComplianceRollUpFlag
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 387e56a4-2743-40ee-913b-adf1a905ea95
+		summarizeBy: sum
+		sourceColumn: IncludeInComplianceRollUpFlag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenFlag
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 993dfb6c-b880-4023-addf-aff72b54d6c2
+		summarizeBy: sum
+		sourceColumn: OpenFlag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenAndOverdueFlag
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b443d306-77d6-47d0-844c-19a746c5aef2
+		summarizeBy: sum
+		sourceColumn: OpenAndOverdueFlag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthAnnualProjected
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 41e6d81a-b9bb-4418-b99c-53f1870ce8b4
+		summarizeBy: sum
+		sourceColumn: MonthAnnualProjected
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysUntilDue
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3641d7fd-3442-4ab5-ad5f-b8b135e86355
+		summarizeBy: sum
+		sourceColumn: DaysUntilDue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorityStatus
+		dataType: string
+		isHidden
+		lineageTag: eed6bb43-07f4-4987-a9f3-eed63a254720
+		summarizeBy: none
+		sourceColumn: PriorityStatus
+		sortByColumn: PriorityOrder
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriorityOrder
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 41149865-f62a-4f0d-bcd7-6f806ea461db
+		summarizeBy: sum
+		sourceColumn: PriorityOrder
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		isHidden
+		lineageTag: d010cb16-2e51-4865-8929-c91712f34963
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Open Annuals-13ba8f30-d644-4a9e-a9b7-a76e9f359b25' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [StudentID]#(lf)      ,[FirstName]#(lf)      ,[LastName]#(lf)      ,[BirthDate]#(lf)      ,[Gender]#(lf)      ,[ELLStatus]#(lf)      ,[EthnicityGroupCC]#(lf)      ,[GradeLevel]#(lf)      ,[EnrolledSchoolSetting]#(lf)      ,[ATSStatus]#(lf)      ,[ATSInactiveDate]#(lf)      ,[EnrolledDBN]#(lf)      ,[ComplianceSchool]#(lf)      ,[PriorSYOutcomeDocumentIDT]#(lf)      ,[PriorSYOutcomeSchool]#(lf)      ,[PriorSYOutcomeDocumentType]#(lf)      ,[PriorSYOutcomeDate]#(lf)      ,[ReportingSYOutcomeDocumentIDT]#(lf)      ,[ReportingSYOutcomeSchool]#(lf)      ,[ReportingSYOutcomeDocumentType]#(lf)      ,[ReportingSYOutcomeDate]#(lf)      ,[ProjectedAnnualDate]#(lf)      ,[ComplianceDate]#(lf)      ,[IsCompliant]#(lf)      ,[DaysOverCompliance]#(lf)      ,[ProcessedDate]#(lf)      ,[SchoolYear]#(lf)      ,[IncludeInComplianceRollUpFlag]#(lf)      ,[OpenFlag]#(lf)      ,[OpenAndOverdueFlag]#(lf)      ,[DaysUntilDue]#(lf)      ,[PriorityStatus]#(lf)      ,[PriorityOrder]#(lf)      ,[MonthAnnualProjected]#(lf),StudentKey#(lf)  FROM [SEO_REPORTING].[dbo].[vw_PCL47_Annuals_OCSMonthly]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

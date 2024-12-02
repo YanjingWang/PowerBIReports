@@ -1,0 +1,472 @@
+table 'Progress Monitoring'
+	lineageTag: 47b37336-401f-4271-8d91-92944adc513f
+
+	measure 'Total Annual Goals' = count('Progress Monitoring'[StudentID])
+		formatString: #,0
+		lineageTag: ec4f962c-b68f-4b58-91e9-b61d8105d007
+
+	measure 'Total Students' = DISTINCTCOUNT('Progress Monitoring'[StudentID])
+		formatString: #,0
+		lineageTag: 24fe7308-0d82-4bb4-89a4-28c2bdc3b440
+
+	column StudentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 681adf01-af0b-4c89-ba79-0ddcb0a87253
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 57adb1aa-a7da-4d3b-8a71-76db9d9b43ed
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 765c9aff-9385-4dd3-899b-221598091437
+			defaultHierarchy: LocalDateTable_e4fac727-4609-45dc-b7eb-5f44ce7e9d1b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NoProgressMadeFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 667b9990-bcf2-4d79-8069-0c0059272991
+		summarizeBy: sum
+		sourceColumn: NoProgressMadeFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column LittleProgressMadeFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 7828bf41-dfd8-4564-8354-9fe9e42e8a05
+		summarizeBy: sum
+		sourceColumn: LittleProgressMadeFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalMetFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d9bbe43f-6ace-40d5-84ec-9d9540e87ffb
+		summarizeBy: none
+		sourceColumn: GoalMetFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysSinceIEPEffectiveDate
+		dataType: int64
+		formatString: 0
+		lineageTag: a8e5de7a-4110-42eb-a8ab-87d1e7f718bc
+		summarizeBy: sum
+		sourceColumn: DaysSinceIEPEffectiveDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPWithin3MonthsFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fb96ed9-2b3f-4fc4-9ab8-12ceca28aff2
+		summarizeBy: sum
+		sourceColumn: IEPWithin3MonthsFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressMadeFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bb8e9bd-4fce-4962-ad99-cd9565d84f82
+		summarizeBy: sum
+		sourceColumn: ProgressMadeFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		lineageTag: 6dfa893c-435c-4bb3-8a8b-4438a03977bd
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentIEPIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: ea974257-8ff7-47bb-be94-70a3a6c8606f
+		summarizeBy: sum
+		sourceColumn: CurrentIEPIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalIEPIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 71721f84-d0f0-4854-a939-cf9841cf307c
+		summarizeBy: sum
+		sourceColumn: GoalIEPIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalIEPEffectiveDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3307089d-c8b2-495d-a9ab-dfd328f1835a
+		summarizeBy: none
+		sourceColumn: GoalIEPEffectiveDate
+
+		variation Variation
+			isDefault
+			relationship: 80032e36-de3c-43d4-bbc1-54e032fd9b60
+			defaultHierarchy: LocalDateTable_bcb57921-f65a-42ae-a295-0e10b48c8d0d.'Date Hierarchy'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalIEPDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1eb879b7-1632-4e2f-bccd-cd5f96102747
+		summarizeBy: none
+		sourceColumn: GoalIEPDate
+
+		variation Variation
+			isDefault
+			relationship: 595c6335-1808-4473-a731-d7ac92ebf6b4
+			defaultHierarchy: LocalDateTable_bbf0c615-9078-4e80-b868-3409320ffb84.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalIEPFinalizationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a741c4fa-d300-4709-bd60-8bd1b3f227d4
+		summarizeBy: none
+		sourceColumn: GoalIEPFinalizationDate
+
+		variation Variation
+			isDefault
+			relationship: 7a318a9b-8526-48c6-8cf3-951a472482bd
+			defaultHierarchy: LocalDateTable_5f3d59cb-cdbf-4063-ad1f-c54c7d6aaa42.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Goal
+		dataType: string
+		lineageTag: e2d5d901-1c23-4d88-8431-590b0cef2ca8
+		summarizeBy: none
+		sourceColumn: Goal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Goalkey
+		dataType: string
+		lineageTag: 73e89e89-2970-4afe-b45b-6c08283cf47a
+		summarizeBy: none
+		sourceColumn: Goalkey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Method
+		dataType: string
+		lineageTag: 4e5f2d1c-5856-410a-8eca-778c8782ac50
+		summarizeBy: none
+		sourceColumn: Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column Criteria
+		dataType: string
+		lineageTag: ef47602b-45c0-42bc-aecd-d89aed6485a4
+		summarizeBy: none
+		sourceColumn: Criteria
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestProgressReport
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d4db5ba-80ec-4436-9834-ffea71aa2bba
+		summarizeBy: sum
+		sourceColumn: LatestProgressReport
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestProgressTowardAnnual
+		dataType: int64
+		formatString: 0
+		lineageTag: bc00177e-d6fa-44fd-93de-673f9bff4458
+		summarizeBy: sum
+		sourceColumn: LatestProgressTowardAnnual
+
+		annotation SummarizationSetBy = Automatic
+
+	column WasMakingProgressFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 6442784d-383f-4188-9649-90c5cbb1c798
+		summarizeBy: sum
+		sourceColumn: WasMakingProgressFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalProgressReports
+		dataType: int64
+		formatString: 0
+		lineageTag: 2980d841-4d8e-4b43-9cdd-ab299a7e27f9
+		summarizeBy: sum
+		sourceColumn: TotalProgressReports
+
+		annotation SummarizationSetBy = Automatic
+
+	column Schedule
+		dataType: string
+		lineageTag: 9758d6c3-8260-4135-97ad-408989574f8c
+		summarizeBy: none
+		sourceColumn: Schedule
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPrintProgressReport
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6b80ebb4-06d0-42a1-a2b2-ae8013b0c177
+		summarizeBy: none
+		sourceColumn: IsPrintProgressReport
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 89349003-f8d1-4d64-aa1d-c7ef9abe158c
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 3e5e6aac-a2f2-4607-91b4-08d80df9de93
+			defaultHierarchy: LocalDateTable_e750e47f-c939-44e1-9bdc-cb9f6bb4966c.'Date Hierarchy'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestProgressReportDesc
+		dataType: string
+		lineageTag: 2b63b00c-6e97-4ba9-be6c-ae40c2a1bea3
+		summarizeBy: none
+		sourceColumn: LatestProgressReportDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestProgressTowardAnnualDesc
+		dataType: string
+		lineageTag: a0bad530-bb45-4f66-ab8a-240d4e736b99
+		summarizeBy: none
+		sourceColumn: LatestProgressTowardAnnualDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressEnteredFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: eeaed41e-80c8-41c1-941a-c83f1590c7ce
+		summarizeBy: sum
+		sourceColumn: ProgressEnteredFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column RedFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: fe2f2f4f-3e89-4a7b-b898-236d2d531ffc
+		summarizeBy: sum
+		sourceColumn: RedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnticipateMeetingGoalFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 58b57273-8a81-4587-b859-8364eff184a6
+		summarizeBy: sum
+		sourceColumn: AnticipateMeetingGoalFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DoNotAnticipateMeetingGoalFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: cef6dc54-b9ae-4423-a851-84fdb5010fa3
+		summarizeBy: sum
+		sourceColumn: DoNotAnticipateMeetingGoalFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedThisSYFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: aa66c3fa-69a2-4deb-ba90-2db267f397b4
+		summarizeBy: sum
+		sourceColumn: ModifiedThisSYFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysSinceProgressEntered
+		dataType: int64
+		formatString: 0
+		lineageTag: 87db171a-c562-4e3d-b272-2102f1f02a8f
+		summarizeBy: sum
+		sourceColumn: DaysSinceProgressEntered
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentIEPFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: c42f8302-8b96-4e7e-9ebe-b47121da5cdb
+		summarizeBy: sum
+		sourceColumn: CurrentIEPFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressStoppedFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f4b6445-1424-4831-ad0a-f14bfa49f73c
+		summarizeBy: sum
+		sourceColumn: ProgressStoppedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 36ddaf3b-b40e-4eb0-bbfb-e0454ad1a974
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 168aaf3a-82d3-497e-af1c-de28eb509e88
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: 48c4ecd5-041e-4b52-b7be-54a6dc486346
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestReasonNotProgressing
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f5089b3-67db-44e9-a19f-715cbaf8c776
+		summarizeBy: sum
+		sourceColumn: LatestReasonNotProgressing
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestReasonNotProgressingDesc
+		dataType: string
+		lineageTag: 2cefb10c-4a1a-4c5a-b139-922c2234b949
+		summarizeBy: none
+		sourceColumn: LatestReasonNotProgressingDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestReasonGoalNotMet
+		dataType: string
+		lineageTag: 5c1f554e-2696-405e-9169-dd350bf94c77
+		summarizeBy: none
+		sourceColumn: LatestReasonGoalNotMet
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: dcefede3-1d18-4550-ac8f-6d40de17cb7a
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column SYKey
+		dataType: string
+		lineageTag: a3fbd6fb-220d-41d4-8e29-1efde8711822
+		summarizeBy: none
+		sourceColumn: SYKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoalNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: db426c63-d59f-4789-a534-323304a82fc1
+		summarizeBy: sum
+		sourceColumn: GoalNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressReported
+		dataType: string
+		lineageTag: 70c377f3-1b10-4b12-91a0-2fcf7dfaa22a
+		summarizeBy: none
+		sourceColumn: ProgressReported
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 12848ce8-f8a6-470e-848c-f22fdce67c5d
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryProgramType
+		dataType: string
+		lineageTag: 571d8600-8fe3-4147-bb01-d00aec1b6ab1
+		summarizeBy: none
+		sourceColumn: PrimaryProgramType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficialClass
+		dataType: string
+		lineageTag: edb4e69f-52ec-424a-a9b7-e720a4809a44
+		summarizeBy: none
+		sourceColumn: OfficialClass
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Progress Entered and This SY' = 'Progress Monitoring'[ProgressEnteredFlag]*'Progress Monitoring'[ModifiedThisSYFlag]
+		dataType: int64
+		formatString: 0
+		lineageTag: b95bc3cb-0f67-4e9e-8680-49c6fb8d4949
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Progress Monitoring-80aa1f54-e5c7-4665-8bb2-43b14015d3c4' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_MART", [Query="SELECT *#(lf),CONCAT(StudentID, SchoolYear) as SYKey#(lf)  FROM [SEO_REPORTING].[dbo].[INT_MeasurableAnnualGoals]#(lf)  where CurrentIEPFlag = 1"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

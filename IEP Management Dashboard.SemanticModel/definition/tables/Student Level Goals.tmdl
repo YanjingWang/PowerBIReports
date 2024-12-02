@@ -1,0 +1,549 @@
+table 'Student Level Goals'
+	lineageTag: 93d75bc5-340a-40bc-a878-76dda291f2d7
+
+	measure '# Students with No Goals' = CALCULATE(COUNT('Student Level Goals'[StudentID]),'Student Level Goals'[ReportingCategory]="No Goals - Any IEP")
+		formatString: 0
+		lineageTag: e7beeeb6-0791-4a66-8562-b00a2b312db3
+
+	measure '% Students with No Goals' = [# Students with No Goals]/COUNT('Student Level Goals'[StudentID])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 54bbbffd-a186-4867-b2f6-94755be8d659
+
+		changedProperty = FormatString
+
+	measure '# Students Not Progressing' = SUM('Student Level Goals'[SomeGoalsNoProgressMade#])
+		formatString: 0
+		lineageTag: b1d1473e-e4f7-422a-a906-c8e78fe6483a
+
+	measure 'PM Data Updated' = "Data updated on " & MAX('Student Level Goals'[ProcessedDate])
+		lineageTag: 1be2657c-0192-4a95-ac33-029d490da092
+
+	column StudentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 744fe618-e53e-4267-b6f2-11cb3941f234
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 0cd986a8-4893-44ad-87f5-8ed5c63154b1
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 3e02eb74-f3ab-432a-b9a1-0d7d572cd7a9
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8969a94b-963e-4594-b5d0-8063e07ad5f4
+		summarizeBy: none
+		sourceColumn: OutcomeDate
+
+		variation Variation
+			isDefault
+			relationship: efdd600c-09fc-4a50-b70a-13927b401301
+			defaultHierarchy: LocalDateTable_51826f37-ca70-42e8-94fb-06ded8c90820.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EffectiveDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d09308e-f152-4c8f-bed7-918719f0f116
+		summarizeBy: none
+		sourceColumn: EffectiveDate
+
+		variation Variation
+			isDefault
+			relationship: f6c07ef4-571d-41fd-ad0e-dbb966c17222
+			defaultHierarchy: LocalDateTable_2f30ef91-dbe5-42b6-8347-6f95bb5d40b2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: ce6d2ceb-b517-4334-9510-91d0a48674f0
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Enrolled School Setting'
+		dataType: string
+		lineageTag: 5383050b-c180-4794-9782-ad381649bdd3
+		summarizeBy: none
+		sourceColumn: Enrolled School Setting
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		lineageTag: 56898610-0ff0-46c3-9d2e-1c9b267c0d90
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 9181fd72-3720-4746-a758-7c1402d16c43
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ELL Status'
+		dataType: string
+		lineageTag: 5ff0ac78-6bb1-41f2-a773-4dc12bf92dac
+		summarizeBy: none
+		sourceColumn: ELL Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Home Language'
+		dataType: string
+		lineageTag: 4fa3e4e8-2dd3-4855-9f27-10938a06500a
+		summarizeBy: none
+		sourceColumn: Home Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 128437c3-b12c-47ca-ba30-ea4370fc882e
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Level'
+		dataType: string
+		lineageTag: 42aabec6-2fe0-4f51-b903-f1761ba380db
+		summarizeBy: none
+		sourceColumn: Grade Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Level Order'
+		dataType: string
+		lineageTag: c774d9ec-64bd-4cc8-bc4b-f9b9e9532998
+		summarizeBy: none
+		sourceColumn: Grade Level Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroup
+		dataType: string
+		lineageTag: 6c5404f6-7afe-44e2-8f09-62c8c051fd8b
+		summarizeBy: none
+		sourceColumn: AgeGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroupOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 63306aaa-2512-434f-a965-567e7effd43d
+		summarizeBy: sum
+		sourceColumn: AgeGroupOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Meal Status'
+		dataType: string
+		lineageTag: b7b9f69e-4078-4f50-8671-5c492fc38ae8
+		summarizeBy: none
+		sourceColumn: Meal Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Temporary Residence Flag'
+		dataType: string
+		lineageTag: 79293d19-6f23-409e-baa7-a2521c41ab30
+		summarizeBy: none
+		sourceColumn: Temporary Residence Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 078a2d9c-0e70-49ad-9709-95b6bb6f44d0
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Program Type'
+		dataType: string
+		lineageTag: 26f6defb-7096-4c85-8244-89dc23780e56
+		summarizeBy: none
+		sourceColumn: Primary Program Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LRE Metric'
+		dataType: string
+		lineageTag: 948e0935-acc1-4b9b-ae1a-2a56db5157a1
+		summarizeBy: none
+		sourceColumn: LRE Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MRE Recommendation'
+		dataType: string
+		lineageTag: bce3c798-cc1d-4452-a378-b10062d2d5cc
+		summarizeBy: none
+		sourceColumn: MRE Recommendation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Specialized Program'
+		dataType: string
+		lineageTag: 4ef91c04-a5b8-48a0-a177-ddda334fd712
+		summarizeBy: none
+		sourceColumn: Specialized Program
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Assessment'
+		dataType: string
+		lineageTag: f1e36ef1-1ed5-400c-aa93-7f46d6c8a992
+		summarizeBy: none
+		sourceColumn: Alternate Assessment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ESY Flag'
+		dataType: string
+		lineageTag: 365e1bbc-8b7a-470f-b4a0-c267929c7a68
+		summarizeBy: none
+		sourceColumn: ESY Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		lineageTag: fb5ffca4-2d58-4b3a-9a95-3594025d98ac
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Goalkey
+		dataType: string
+		lineageTag: de9e8bc1-1602-42a7-8d8a-ce527fcf3a1d
+		summarizeBy: none
+		sourceColumn: Goalkey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingCategory
+		dataType: string
+		lineageTag: 56a277d0-4873-4fe6-826e-f8748c3125f0
+		summarizeBy: none
+		sourceColumn: ReportingCategory
+		sortByColumn: ReportingCategoryNumeric
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingCategoryNumeric
+		dataType: int64
+		formatString: 0
+		lineageTag: bbaea8ba-84d1-409c-98f1-1b9cbac71383
+		summarizeBy: sum
+		sourceColumn: ReportingCategoryNumeric
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentIEPIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 99312e0d-4f86-4943-90f4-88a6d87df3f9
+		summarizeBy: sum
+		sourceColumn: CurrentIEPIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b5dbf256-6aee-40e9-aca4-140ffcabb4f3
+		summarizeBy: none
+		sourceColumn: LastModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 768d72a7-1921-423e-9fea-483fa57093b1
+			defaultHierarchy: LocalDateTable_4e836346-a67b-4a16-a477-c2b0d2737a61.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressEnteredIEPIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 35dd0032-d6eb-461b-afcc-5668c92f27ca
+		summarizeBy: sum
+		sourceColumn: ProgressEnteredIEPIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountGoalsProgressEnteredCurrentIEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e8c858a-7480-4705-bc05-4f46209209e3
+		summarizeBy: sum
+		sourceColumn: CountGoalsProgressEnteredCurrentIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountGoalsCurrentIEP
+		dataType: int64
+		formatString: 0
+		lineageTag: cf18708f-d37d-4512-a89f-21b704ca45aa
+		summarizeBy: sum
+		sourceColumn: CountGoalsCurrentIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column PercentGoalsProgressEnteredCurrentIEP
+		dataType: double
+		lineageTag: 6bf5758f-a70e-473a-bd67-f42ed67c1cd0
+		summarizeBy: sum
+		sourceColumn: PercentGoalsProgressEnteredCurrentIEP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllGoalsProgressEnteredCurrentIEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 42c35668-4d5c-4b8a-8d26-b8f6440ba836
+		summarizeBy: sum
+		sourceColumn: AllGoalsProgressEnteredCurrentIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column SomeGoalsProgressEnteredCurrentIEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 10056abb-fa30-4bd6-9c82-726ab7dffc9d
+		summarizeBy: sum
+		sourceColumn: SomeGoalsProgressEnteredCurrentIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllGoalsProgressEnteredAnyIEP
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b7291c67-53d4-4074-87b2-dcecd5a8f361
+		summarizeBy: average
+		sourceColumn: AllGoalsProgressEnteredAnyIEP
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column SomeGoalsProgressEnteredAnyIEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d4654e7-040d-4ec8-a9f0-b95b1aa0e481
+		summarizeBy: sum
+		sourceColumn: SomeGoalsProgressEnteredAnyIEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountGoalsProgressMade
+		dataType: int64
+		formatString: 0
+		lineageTag: fdcb892b-9ff1-448b-8c3f-11e079dcac60
+		summarizeBy: sum
+		sourceColumn: CountGoalsProgressMade
+
+		annotation SummarizationSetBy = Automatic
+
+	column PercentGoalsProgressMade
+		dataType: double
+		lineageTag: 795d8b2b-ac35-4a28-b4dc-49fd70ba663c
+		summarizeBy: sum
+		sourceColumn: PercentGoalsProgressMade
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllGoalsProgressMade
+		dataType: int64
+		formatString: 0
+		lineageTag: 360e7d10-08fb-4924-90ad-7d9852bcdfbf
+		summarizeBy: sum
+		sourceColumn: AllGoalsProgressMade
+
+		annotation SummarizationSetBy = Automatic
+
+	column SomeGoalsProgressMade
+		dataType: int64
+		formatString: 0
+		lineageTag: f4184c64-3633-4af5-948e-ec776c9eeeb5
+		summarizeBy: sum
+		sourceColumn: SomeGoalsProgressMade
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountGoalsNoProgressMade
+		dataType: int64
+		formatString: 0
+		lineageTag: 60687a35-92bd-42fb-96fa-bd9598ec60c3
+		summarizeBy: sum
+		sourceColumn: CountGoalsNoProgressMade
+
+		annotation SummarizationSetBy = Automatic
+
+	column SomeGoalsNoProgressMade
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e4faa57a-0875-4080-a492-c35776db849e
+		summarizeBy: average
+		sourceColumn: SomeGoalsNoProgressMade
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column CountDoNotAnticipateMeetingGoal
+		dataType: int64
+		formatString: 0
+		lineageTag: 1762010d-623e-4e8a-aa33-d215dec7255c
+		summarizeBy: sum
+		sourceColumn: CountDoNotAnticipateMeetingGoal
+
+		annotation SummarizationSetBy = Automatic
+
+	column DoNotAnticipateMeetingSomeGoals
+		dataType: int64
+		formatString: 0
+		lineageTag: 56f48902-83e4-46ed-b2e4-b02469ba345d
+		summarizeBy: sum
+		sourceColumn: DoNotAnticipateMeetingSomeGoals
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountRedFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: aaa09373-2b47-450d-a64e-08503618420b
+		summarizeBy: sum
+		sourceColumn: CountRedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column SomeGoalsRedFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 005ce98b-d0ff-4910-b749-231a6b4599e3
+		summarizeBy: sum
+		sourceColumn: SomeGoalsRedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1ab5c0a7-dcff-4e8e-a25f-d273ca189e00
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: cb6d18de-b757-43c3-89db-230966bc3a5c
+			defaultHierarchy: LocalDateTable_6fb8b1e7-00f7-46c6-a147-73d23e7916c5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProgressEnteredRank
+		dataType: int64
+		formatString: 0
+		lineageTag: dfc7891b-fa5a-4350-ab59-929a4b644643
+		summarizeBy: sum
+		sourceColumn: ProgressEnteredRank
+
+		annotation SummarizationSetBy = Automatic
+
+	column SomeGoalsNoProgressMade# = 'Student Level Goals'[SomeGoalsNoProgressMade]
+		dataType: int64
+		formatString: #,0
+		lineageTag: 08d2db96-234b-4268-9675-f46f45a686eb
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 48a7ef0c-0696-446b-9d19-ab33132a929f
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 4846414a-852e-47c1-b702-112fd1c32ba8
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column SYKey
+		dataType: string
+		lineageTag: ce3f76db-920c-41f3-b49a-c70e216d8cff
+		summarizeBy: none
+		sourceColumn: SYKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reported on Prior IEP?' = IF('Student Level Goals'[ReportingCategory] = "All Goals - Any IEP", "Yes", "No")
+		dataType: string
+		lineageTag: ce09ad60-8aec-409f-a96c-5f848a1fde7d
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column GracePeriod
+		dataType: string
+		lineageTag: d6e64a82-189e-42b2-96b7-dcb3cfd3a98e
+		summarizeBy: none
+		sourceColumn: GracePeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Student Level Goals-25463da1-3364-497d-86f9-fed9c6be1138' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="Select *#(lf),CONCAT(StudentID,SchoolYear) as SYKey#(lf)FROM#(lf)(select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent#(lf)UNION#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY24#(lf)UNION#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY23#(lf)UNION#(lf)select * from SEO_REPORTING.dbo.RPT_MeasurableAnnualGoalsStudent_SY22) a#(lf)"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

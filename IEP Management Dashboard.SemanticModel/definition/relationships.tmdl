@@ -1,0 +1,137 @@
+relationship 2a9ce46e-806f-4f5a-83a5-f366df285924
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ClosedDate
+	toColumn: LocalDateTable_c35e7d28-3049-4a60-8042-c9a86edc0e42.Date
+
+relationship 23ea3845-4cd6-4858-92fa-e74df1c9b271
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Annual Reviews'.ProcessedDate
+	toColumn: LocalDateTable_d6a4e602-fe93-48b4-bc84-dcad70175b11.Date
+
+relationship fc95b136-b998-445c-9cc5-e3290b434081
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.BirthDate
+	toColumn: LocalDateTable_814820a9-695d-4ec3-b8e0-4c8f5283dd9d.Date
+
+relationship 87904347-6164-4999-9919-e1adad73c358
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.ATSInactiveDate
+	toColumn: LocalDateTable_58bedb64-8fa7-4b24-9bd5-6ebd82337af6.Date
+
+relationship d026afb7-58c1-4c31-b36c-2f30a1742bb2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.PriorSYOutcomeDate
+	toColumn: LocalDateTable_931f8193-4e3f-40f4-9fbe-9ab69462a517.Date
+
+relationship 094b46fe-5467-4260-846f-f208c3b779a0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.ReportingSYOutcomeDate
+	toColumn: LocalDateTable_beafb836-1034-4301-8f1c-123d8c15eb74.Date
+
+relationship 9fb41ba3-5a3e-4da7-90e1-3c2daaf44651
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.ProjectedAnnualDate
+	toColumn: LocalDateTable_82862736-a142-493c-b8d8-468ed6ceb225.Date
+
+relationship a59c8426-7a3a-444f-ac61-07eca7c6bf0c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.ComplianceDate
+	toColumn: LocalDateTable_bea973eb-b738-40d7-b841-1c8dbefc3d34.Date
+
+relationship 514cf6d3-bf2e-4f10-8dc5-826bde7f4bbb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Open Annuals'.ProcessedDate
+	toColumn: LocalDateTable_8e3e458a-ada4-4922-9d7d-eecd0155c90b.Date
+
+relationship 7afa07f9-7951-4488-9c51-6aa3a9d1926a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ProcessedDate
+	toColumn: LocalDateTable_616f32f6-6d88-4ec6-92b4-fa15686126fa.Date
+
+relationship 2ea02cc1-1d9c-43fc-833a-40889cf7e467
+	fromColumn: 'Annual Reviews'.ComplianceSchoolDBN
+	toColumn: Locations.SchoolDBN
+
+relationship efdd600c-09fc-4a50-b70a-13927b401301
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Level Goals'.OutcomeDate
+	toColumn: LocalDateTable_51826f37-ca70-42e8-94fb-06ded8c90820.Date
+
+relationship f6c07ef4-571d-41fd-ad0e-dbb966c17222
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Level Goals'.EffectiveDate
+	toColumn: LocalDateTable_2f30ef91-dbe5-42b6-8347-6f95bb5d40b2.Date
+
+relationship b81fba40-3612-4022-8ddd-e62afd18b7a6
+	fromColumn: 'Student Level Goals'.EnrolledDBN
+	toColumn: Locations.SchoolDBN
+
+relationship 768d72a7-1921-423e-9fea-483fa57093b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Level Goals'.LastModifiedDate
+	toColumn: LocalDateTable_4e836346-a67b-4a16-a477-c2b0d2737a61.Date
+
+relationship cb6d18de-b757-43c3-89db-230966bc3a5c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Level Goals'.ProcessedDate
+	toColumn: LocalDateTable_6fb8b1e7-00f7-46c6-a147-73d23e7916c5.Date
+
+relationship 80032e36-de3c-43d4-bbc1-54e032fd9b60
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Progress Monitoring'.GoalIEPEffectiveDate
+	toColumn: LocalDateTable_bcb57921-f65a-42ae-a295-0e10b48c8d0d.Date
+
+relationship 595c6335-1808-4473-a731-d7ac92ebf6b4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Progress Monitoring'.GoalIEPDate
+	toColumn: LocalDateTable_bbf0c615-9078-4e80-b868-3409320ffb84.Date
+
+relationship 7a318a9b-8526-48c6-8cf3-951a472482bd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Progress Monitoring'.GoalIEPFinalizationDate
+	toColumn: LocalDateTable_5f3d59cb-cdbf-4063-ad1f-c54c7d6aaa42.Date
+
+relationship 3e5e6aac-a2f2-4607-91b4-08d80df9de93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Progress Monitoring'.ModifiedDate
+	toColumn: LocalDateTable_e750e47f-c939-44e1-9bdc-cb9f6bb4966c.Date
+
+relationship b687cf18-b834-4ebd-a256-6fff41ca65d5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Annual Reviews Citywide'.ProcessedDate
+	toColumn: LocalDateTable_7a4c9e93-3f8c-4454-9c34-c2d3df3fa4e2.Date
+
+relationship c38ecc40-730f-4a85-9073-e48de5b9ff32
+	fromColumn: 'Annual Reviews'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship c55eb60b-6b52-4731-acbb-eff94580a359
+	fromColumn: 'Student Level Goals'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 7774882c-6c77-4e72-92d3-fc2e58d226f2
+	fromColumn: 'Annual Reviews Citywide'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship a3534a86-192c-4d90-9cf1-02d44e94ed1b
+	fromColumn: 'Open Annuals'.EnrolledDBN
+	toColumn: Locations.SchoolDBN
+
+relationship 7d17fc97-e0d4-4539-a12f-1f8a46647578
+	toCardinality: many
+	fromColumn: 'Open Annuals'.StudentKey
+	toColumn: Demographics.StudentKey
+
+relationship 909a7521-c0cb-40c7-b024-63602b55e3a1
+	fromColumn: 'Goals Citywide'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 765c9aff-9385-4dd3-899b-221598091437
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Progress Monitoring'.ProcessedDate
+	toColumn: LocalDateTable_e4fac727-4609-45dc-b7eb-5f44ce7e9d1b.Date
+
+relationship c9737e71-303c-4e39-a11d-5132168649e7
+	fromColumn: 'Progress Monitoring'.SYKey
+	toColumn: 'Student Level Goals'.SYKey
+

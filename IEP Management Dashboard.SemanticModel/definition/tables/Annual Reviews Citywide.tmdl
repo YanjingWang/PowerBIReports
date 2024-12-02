@@ -1,0 +1,107 @@
+table 'Annual Reviews Citywide'
+	lineageTag: 3f4eba2f-99c9-41a6-8148-9591ea0b508b
+
+	measure 'Timeliness of Annual Reviews Citywide' = sum('Annual Reviews Citywide'[Annuals On Time])/sum('Annual Reviews Citywide'[Total Annuals])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3ada2e43-d740-4570-91d9-f7f4d9c31846
+
+		changedProperty = FormatString
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 24e116ce-7285-4ebf-bd7e-8d7d405d836a
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 37ce3afb-d906-419d-a1a5-08d372b11cdd
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		lineageTag: b57d1c32-a20c-44fc-9af5-08f178faa546
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 5c528d11-fea4-4f4d-a605-b3064b973704
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 6da87182-9159-494a-be34-526e81fcc923
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61aef05c-140c-4632-b1f4-211115d15352
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: b687cf18-b834-4ebd-a256-6fff41ca65d5
+			defaultHierarchy: LocalDateTable_7a4c9e93-3f8c-4454-9c34-c2d3df3fa4e2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: 1daf027d-a132-44af-97f9-55b2bd345b75
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentKey
+		dataType: string
+		lineageTag: 27dcc115-cba5-47ac-80c2-fb000902d377
+		summarizeBy: none
+		sourceColumn: StudentKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Annuals On Time'
+		dataType: int64
+		formatString: 0
+		lineageTag: ada18ee4-b5b5-48ec-b2d4-e6206e34afc4
+		summarizeBy: sum
+		sourceColumn: Annuals On Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Annuals'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2633ffa0-5be1-4fa1-a0fd-cf7c08a677f0
+		summarizeBy: sum
+		sourceColumn: Total Annuals
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Annual Reviews Citywide-257bf360-f385-488b-802b-73410cd19218' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [ELLStatus]#(lf)      ,[Gender]#(lf)      ,[EthnicityGroupCC]#(lf)      ,[GradeLevel]#(lf)      ,sum([Annuals On Time]) as [Annuals On Time]#(lf)      ,sum([Total Annuals]) as [Total Annuals]#(lf)      ,[SchoolYear]#(lf)      ,a.[ProcessedDate]#(lf)      ,[TableKey]#(lf)#(tab),StudentKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SEOverview_Annuals] a#(lf)  left outer join SEO_REPORTING.bi.vw_SPFDashboard_Locations loc#(lf)  on a.ComplianceSchoolDBN = loc.SchoolDBN#(lf)  where loc.SchoolType = 'CSD'#(lf)  group by ELLStatus,Gender,GradeLevel,EthnicityGroupCC,SchoolYear,a.ProcessedDate,TableKey,StudentKey"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

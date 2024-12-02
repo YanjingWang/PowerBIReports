@@ -1,0 +1,47 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Locations","Users","Progress Monitoring","Annual Reviews","Open Annuals","Demographics","Student Level Goals","Annual Reviews Citywide","Goals Citywide"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_62c7587b-f236-43b4-bd9e-2021fc45199b
+ref table Locations
+ref table Users
+ref table LocalDateTable_c35e7d28-3049-4a60-8042-c9a86edc0e42
+ref table 'Progress Monitoring'
+ref table 'Annual Reviews'
+ref table LocalDateTable_d6a4e602-fe93-48b4-bc84-dcad70175b11
+ref table 'Open Annuals'
+ref table LocalDateTable_814820a9-695d-4ec3-b8e0-4c8f5283dd9d
+ref table LocalDateTable_58bedb64-8fa7-4b24-9bd5-6ebd82337af6
+ref table LocalDateTable_931f8193-4e3f-40f4-9fbe-9ab69462a517
+ref table LocalDateTable_beafb836-1034-4301-8f1c-123d8c15eb74
+ref table LocalDateTable_82862736-a142-493c-b8d8-468ed6ceb225
+ref table LocalDateTable_bea973eb-b738-40d7-b841-1c8dbefc3d34
+ref table LocalDateTable_8e3e458a-ada4-4922-9d7d-eecd0155c90b
+ref table Demographics
+ref table LocalDateTable_616f32f6-6d88-4ec6-92b4-fa15686126fa
+ref table 'Student Level Goals'
+ref table LocalDateTable_51826f37-ca70-42e8-94fb-06ded8c90820
+ref table LocalDateTable_2f30ef91-dbe5-42b6-8347-6f95bb5d40b2
+ref table LocalDateTable_4e836346-a67b-4a16-a477-c2b0d2737a61
+ref table LocalDateTable_6fb8b1e7-00f7-46c6-a147-73d23e7916c5
+ref table LocalDateTable_bcb57921-f65a-42ae-a295-0e10b48c8d0d
+ref table LocalDateTable_bbf0c615-9078-4e80-b868-3409320ffb84
+ref table LocalDateTable_5f3d59cb-cdbf-4063-ad1f-c54c7d6aaa42
+ref table LocalDateTable_e750e47f-c939-44e1-9bdc-cb9f6bb4966c
+ref table 'Annual Reviews Citywide'
+ref table LocalDateTable_7a4c9e93-3f8c-4454-9c34-c2d3df3fa4e2
+ref table 'Goals Citywide'
+ref table LocalDateTable_e4fac727-4609-45dc-b7eb-5f44ce7e9d1b
+

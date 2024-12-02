@@ -1,0 +1,314 @@
+table T5
+	isHidden
+	lineageTag: 3cf91146-034c-4a8f-80e4-770ab86816c9
+
+	measure '% Restrictive T5' = sum(T5[NumRestrictiveRec])/sum(T5[NumClassifiedIEP])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: e26cbd76-d6c6-43d8-a555-a83b79ba3ad3
+
+	measure '% Special Class T5' = sum(T5[NumSpecialClass])/sum(T5[NumClassifiedIEP])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 089d39e5-5aae-42ee-98f3-faaec1d77220
+
+	measure '% Para T5' = sum(T5[NumParas])/sum(T5[NumClassified])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 95d3cd99-73d6-41df-89c4-cb04f6408cb4
+
+	measure '% T5 Cases on Time' = sum(T5[NumCompliant])/sum(T5[NumDue])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 631c0d61-1f9f-43b3-b480-dd41b8eaaec3
+
+	measure '% T5 Cases On Time Group' = ```
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% T5 Cases on Time],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% T5 Cases on Time],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+			
+			```
+		formatString: 0%;-0%;0%
+		isHidden
+		lineageTag: eeaa6fe8-de7a-4b12-95b3-7ac69081d7af
+
+	measure '% Restrictive T5 Group' = ```
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Restrictive T5],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", "N/A",
+			"")
+			
+			```
+		formatString: 0%;-0%;0%
+		isHidden
+		lineageTag: 99c8fa9f-7828-48fc-bf47-f37837ce3b4c
+
+	measure '% Special Class T5 Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Special Class T5],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", "N/A",
+			"")
+		formatString: 0%;-0%;0%
+		isHidden
+		lineageTag: 1cce2fa7-a4fc-4627-ac87-101914d36e7d
+
+	measure '% Para T5 Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Para T5],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", "N/A",
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 19e1a237-cfde-40ff-9148-d5465e9e05cb
+
+	measure 'T5 Charter Warning' = If(SELECTEDVALUE(Locations[School Type]) = "Charter", "T5 students who go to Charter schools are evaluted by CSEs, please select SchoolType=NPS to view this data", "")
+		isHidden
+		lineageTag: f74d28a7-0909-4ec7-a3dc-cf1304d07135
+
+	measure '% T5 Cases on Time Callout NA' = IF(ISBLANK([% T5 Cases on Time]),[NAText],[% T5 Cases on Time])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 6976faf8-7137-4e52-aa25-d4ade939ed6c
+
+	measure '% Restrictive T5 Callout NA' = IF(ISBLANK([% Restrictive T5]),[NAText],[% Restrictive T5])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 74f3ed20-76cf-4b71-bb9f-3fcd5842c8ba
+
+	measure '% Special Class T5 Callout NA' = IF(ISBLANK([% Special Class T5]),[NAText],[% Special Class T5])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 899b8908-10c8-4f00-805e-c1243a523ff2
+
+	measure '% Para T5 Callout NA' = IF(ISBLANK([% Para T5]),[NAText],[% Para T5])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c7588f60-361a-47f9-9d22-0a564bfcee63
+
+	column T5IEPTeam
+		dataType: string
+		isHidden
+		lineageTag: b2b867c2-abf0-4bef-80ca-904315f8acc6
+		summarizeBy: none
+		sourceColumn: T5IEPTeam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		isHidden
+		lineageTag: 29faf6b4-ac63-4fa9-ab99-48b4548a088f
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		isHidden
+		lineageTag: c1de28f8-a9ef-4d77-ad8e-af90ef5057f2
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumT5Cases
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2258ae68-46bf-43a4-bfe7-e803d9a46105
+		summarizeBy: sum
+		sourceColumn: NumT5Cases
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumClassified
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 7a99ae18-9d64-4716-b3b3-9c1a5d3230e6
+		summarizeBy: sum
+		sourceColumn: NumClassified
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumSpecialClass
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 979eeeb4-e409-4be2-90d3-953f04109377
+		summarizeBy: sum
+		sourceColumn: NumSpecialClass
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumRestrictiveRec
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 98a99115-be42-4994-b13c-227b04bc353c
+		summarizeBy: sum
+		sourceColumn: NumRestrictiveRec
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumParas
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a9a66595-901b-4299-af8d-c91b27a0df55
+		summarizeBy: sum
+		sourceColumn: NumParas
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: f36445fc-cab1-42ce-8475-f96255be29e0
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: d1d0f788-f8ab-409b-8716-ec72f3af6949
+			defaultHierarchy: LocalDateTable_f1bed14f-9219-461e-a5c9-c6f4e9bda00d.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 68b2b3ad-3971-4cec-b89d-a8d7a0bf399c
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolType
+		dataType: string
+		isHidden
+		lineageTag: aab4d266-eb3d-4b01-92fe-26d718c0b06d
+		summarizeBy: none
+		sourceColumn: SchoolType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSKey
+		dataType: string
+		isHidden
+		lineageTag: 6c1822f7-c0a1-4b94-a6a5-6c1708de1b79
+		summarizeBy: none
+		sourceColumn: PSKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumCompliant
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 26d011fc-fcfe-4672-bdee-eebd66523af7
+		summarizeBy: sum
+		sourceColumn: NumCompliant
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumDue
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0ed09e05-7016-4aab-926f-403188d81c09
+		summarizeBy: sum
+		sourceColumn: NumDue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumClassifiedIEP
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 2dfb7954-6bfb-4477-8db2-7b8bff10fac2
+		summarizeBy: sum
+		sourceColumn: NumClassifiedIEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumClassifiedAutism
+		dataType: int64
+		formatString: 0
+		lineageTag: 91e82430-bf41-4765-b1d5-4f68c9d9abd1
+		summarizeBy: sum
+		sourceColumn: NumClassifiedAutism
+
+		annotation SummarizationSetBy = Automatic
+
+	partition T5-420d61d8-189c-4966-abfa-99a5c4871f82 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="select *#(lf)from [SEO_REPORTING].bi.[vw_SEOverview_T5]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

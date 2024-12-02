@@ -1,0 +1,27 @@
+table 'Suspension Toggle'
+	isHidden
+	lineageTag: 4d6e2ae7-2e5f-44b2-b34a-308b9113ba84
+
+	column 'Suspension Data Thru'
+		dataType: string
+		isHidden
+		lineageTag: ddc1b40d-4277-4934-a80a-b89f876be27f
+		summarizeBy: none
+		sourceColumn: Suspension Data Thru
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension Toggle-762f49e0-fe40-4148-914e-5b061addf865' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *#(lf)FROM #(lf)(#(lf)VALUES('End of SY'),#(lf)(CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.bi.vw_SPFDashboard_Suspension), ' Days of SY'))#(lf))#(lf)AS sub([Suspension Data Thru])#(lf)"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Suspension Toggle/Source.{Suspension Data Thru,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Suspension Toggle/Source.{Suspension Data Thru,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

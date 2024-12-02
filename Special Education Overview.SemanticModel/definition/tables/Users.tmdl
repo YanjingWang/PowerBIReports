@@ -1,0 +1,48 @@
+table Users
+	isHidden
+	lineageTag: 6eaa6f32-7502-4a7e-ae82-701fa36f6eaf
+
+	column BIRole
+		dataType: string
+		lineageTag: e245f9d0-42dd-4f44-bebb-129916712a7c
+		summarizeBy: none
+		sourceColumn: BIRole
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationKey
+		dataType: string
+		lineageTag: d950ae4b-2b73-4617-82d7-59c6efd86e29
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		lineageTag: f0d5de14-54c0-439e-8bc8-7c3d7fb39ff7
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserEmail
+		dataType: string
+		lineageTag: f2b312e6-effa-4a3e-a7d1-cf9fc9c3954e
+		summarizeBy: none
+		sourceColumn: UserEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Users-8e82df30-403c-4b0e-a8c6-8e63cffd63a9 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [BIRole]#(lf)      ,[LocationKey]#(lf)      ,[UserName]#(lf)      ,[UserEmail]#(lf)  FROM [SEO_REPORTING].[BI].[vw_UserSecurity]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Users/Source.{BIRole,0}","Section1/Users/Source.{LocationKey,1}","Section1/Users/Source.{UserName,2}","Section1/Users/Source.{UserEmail,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Section1/Users/Source.{BIRole,0}","Section1/Users/Source.{LocationKey,1}","Section1/Users/Source.{UserName,2}","Section1/Users/Source.{UserEmail,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,221 @@
+table 'Related Services AGRW'
+	lineageTag: fde32706-c105-4045-a086-91729ed41dab
+
+	measure 'Para Callout AGRW' = CALCULATE([% Encountered Para AGRW],FILTER('Related Services AGRW','Related Services AGRW'[SchoolYear]=[Para RS Callout SY]))
+		lineageTag: a6ec40e2-5d34-45f9-8067-6fad2f3ec2a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Para Callout Group AGRW' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Para Callout AGRW],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Para Callout AGRW],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 670f8556-4073-4e51-90e3-5a12490dd456
+
+	measure 'Para Callout NA AGRW' = IF(ISBLANK([Para Callout AGRW]),[NAText],[Para Callout AGRW])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9350c009-5010-43ec-8b1d-bc742151f8ea
+
+	measure 'RS Callout AGRW' = CALCULATE([% Encountered RS AGRW],FILTER('Related Services AGRW','Related Services AGRW'[SchoolYear]=[RS Callout SY AGRW]))
+		lineageTag: fd79f90a-88b5-4960-aba1-8663c13cd73c
+
+	measure Measure
+		lineageTag: 234aee3a-db2f-4394-889e-f7689e62f126
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'RS Callout Group AGRW' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([RS Callout AGRW],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([RS Callout AGRW],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4641dcf1-9cfe-4c89-8b54-d75695c045dd
+
+	measure 'RS Callout NA AGRW' = IF(ISBLANK([RS Callout AGRW]),[NAText],[RS Callout AGRW])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9c7e0096-4d2a-4d15-bcbe-c1e9e18504dc
+
+	measure 'RS Callout SY AGRW' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Related Services AGRW'[WeekToggle])
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of SY", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"previous PS"),
+			Left(MySelection,4) = "Week", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest PS"))
+		lineageTag: 898f42b2-48f1-42c0-ba47-7ff22ca92208
+
+	measure '% Encountered Para AGRW' = CALCULATE(sum('Related Services AGRW'[NumEncountered])/sum('Related Services AGRW'[NumMandates]),'Related Services AGRW'[MandateType] = "P")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 407e60cd-6d4b-4d59-8e96-0a21335f6c55
+
+	measure '% Encountered RS AGRW' = CALCULATE(sum('Related Services AGRW'[NumEncountered])/sum('Related Services AGRW'[NumMandates]),'Related Services AGRW'[MandateType] = "RS")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: adff951b-4bc2-49de-82e7-59f2f4af6afa
+
+	measure '% RS Mandates Encountered (# Mandates) AGRW' = IF(ISBLANK([% Encountered RS AGRW]),"--", FORMAT([% Encountered RS AGRW],"0.0%") & " (" & sum('Related Services AGRW'[NumMandates]) & ")")
+		lineageTag: d0d1bebf-c909-469b-8697-425ec07126c7
+
+	measure 'Para RS Callout SY' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Related Services AGRW'[WeekToggle])
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of SY", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous PS"),
+			Left(MySelection,4) = "Week", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest PS"))
+		lineageTag: 3ec8de20-e831-4200-8159-a39f204508d3
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: 507c0aba-ad81-4567-98f9-2a79d044ae34
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMandates
+		dataType: int64
+		formatString: 0
+		lineageTag: d033283e-23cf-4973-a376-615d0a7ac56a
+		summarizeBy: sum
+		sourceColumn: NumMandates
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumEncountered
+		dataType: int64
+		formatString: 0
+		lineageTag: a4a9837f-1337-4a9b-bc7b-35747a8e3ae2
+		summarizeBy: sum
+		sourceColumn: NumEncountered
+
+		annotation SummarizationSetBy = Automatic
+
+	column MandateType
+		dataType: string
+		lineageTag: 1f0f6c79-198a-4a3f-bad4-4958a4107d8c
+		summarizeBy: none
+		sourceColumn: MandateType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 948bde98-408b-4d25-83b6-cdf705f6b65f
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		lineageTag: ff96b3fd-e012-4501-80fb-15d96213e902
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledSchoolSetting
+		dataType: string
+		lineageTag: 1cde0160-4441-4613-98be-86d6f420513c
+		summarizeBy: none
+		sourceColumn: EnrolledSchoolSetting
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 7bfa6a42-a6f9-4506-b049-276f47f08bd1
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bba170b1-6876-4a87-9d99-b64f2fa07f83
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 236b2ca3-4106-4f2a-a5e3-7d7be20eecd5
+			defaultHierarchy: LocalDateTable_d8b37356-ecfd-4a79-bd6b-6de38b35dd78.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolWeekNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 904fa66f-f5cd-4716-b53a-64d452320206
+		summarizeBy: sum
+		sourceColumn: SchoolWeekNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekToggle
+		dataType: string
+		lineageTag: 71029966-4b0f-4775-aed0-8efba0771860
+		summarizeBy: none
+		sourceColumn: WeekToggle
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSKey
+		dataType: string
+		lineageTag: 1a1a7b0c-61cb-4945-84ab-a55cfbb06227
+		summarizeBy: none
+		sourceColumn: PSKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column swnumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eafe286-fdfa-476e-931e-c8212ce4276d
+		summarizeBy: sum
+		sourceColumn: swnumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column swinsessionnumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c6cfcc8-3792-417a-9ba8-f0f4c1c737d2
+		summarizeBy: sum
+		sourceColumn: swinsessionnumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Related Services AGRW-d9eb28f9-6860-4a8f-859b-6a6fa9144a03' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="Select * from seo_reporting.BI.VW_SEOverview_RS_test"]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each [EthnicityGroupCC] <> null)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+

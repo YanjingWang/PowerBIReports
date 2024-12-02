@@ -1,0 +1,29 @@
+table SchoolYear
+	lineageTag: ae0c14fa-483b-4da9-83f0-48560b4b355c
+
+	column SchoolYearLabel
+		dataType: string
+		lineageTag: e2f3df7a-77d1-4f19-814d-866971757686
+		summarizeBy: none
+		sourceColumn: SchoolYearLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 49b0fe59-0c9c-4b8e-81b4-0acd9cc5f4e0
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SchoolYear-9c50a315-6bb0-4787-8d01-f72563262bc3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SchoolYearLabel]#(lf)      ,[SchoolYear]#(lf)  FROM [SEO_REPORTING].[BI].[vw_SPFDashboard_SY]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

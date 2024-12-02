@@ -1,0 +1,30 @@
+table 'RS Week Toggle'
+	lineageTag: 649a3197-4dd7-4991-b59e-a2f5eaafa373
+
+	column 'Week Toggle'
+		dataType: string
+		lineageTag: 45269b26-6f15-4d1f-9c83-7bdd8532ea45
+		summarizeBy: none
+		sourceColumn: Week Toggle
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: bb300e93-0b66-44ff-b5fa-b5904c102645
+		summarizeBy: sum
+		sourceColumn: SWNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'RS Week Toggle-40b8dfd4-8f3c-425d-8bc7-54246e4f9a08' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="select case when SWNumber >= 40 then 'End of SY'#(lf)else concat('Week', ' ', SWNUmber, ' ', 'of SY') end as 'Week Toggle', SWNumber#(lf)from#(lf)(#(lf)#(lf)select #(lf)max(a.SWnumber) as SWNumber from  #(lf)seo_reporting.[BI].[vw_RelatedServices_RSMandate_Calendar] a#(lf)where a.schoolyear in (select max(schoolyear) from seo_mart.dbo.AGRW_RPT_RS_Provisioning)#(lf))z#(lf)#(lf)union#(lf)#(lf)select 'End of SY' as 'Week Toggle', #(lf)max(a.SWnumber) as SWNumber from  #(lf)seo_reporting.[BI].[vw_RelatedServices_RSMandate_Calendar] a#(lf)where a.schoolyear in (select max(schoolyear) from seo_mart.dbo.AGRW_RPT_RS_Provisioning)#(lf)"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

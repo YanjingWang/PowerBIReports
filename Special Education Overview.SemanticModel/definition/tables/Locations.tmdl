@@ -1,0 +1,328 @@
+table Locations
+	isHidden
+	lineageTag: 5c4cef01-f7a0-4b21-bf81-d1b1941c5749
+
+	measure 'One Page Title' =
+			
+			IF( HASONEVALUE(Locations[School DBN]), Distinct(Locations[School DBN]) &  " | " & Distinct(Locations[Location Name]),
+			    IF(HASONEVALUE(Locations[Superintendent]), "Superintendent | " & Distinct(Locations[Superintendent]),
+			        IF(HASONEVALUE(Locations[Executive Superintendent]), "Executive Superintendent | " & Distinct(Locations[Executive Superintendent]) , "Citywide")))
+		isHidden
+		lineageTag: ae0568db-23d9-4efb-b7cf-90517af5694f
+
+	measure 'One Page Subtitle' =
+			
+			IF( HASONEVALUE(Locations[School DBN]), Distinct(Locations[School Level]) & " | Principal " & Distinct(Locations[Principal]) & " | Superintendent " & Distinct(Locations[Superintendent]),"")
+		isHidden
+		lineageTag: 88c59231-a9bf-4d4d-abd2-38490e3f7975
+
+	column AffinityGroup
+		dataType: string
+		isHidden
+		lineageTag: 8a2d8fd8-833a-49e5-aea2-fcf3b307e7e1
+		summarizeBy: none
+		sourceColumn: AffinityGroup
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDescription
+		dataType: string
+		isHidden
+		lineageTag: 60b719db-3fa3-4202-bba5-e602e7bbf441
+		summarizeBy: none
+		sourceColumn: StatusDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClosedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7bd7110b-476c-48c0-8ff8-9215b6edae42
+		summarizeBy: none
+		sourceColumn: ClosedDate
+
+		variation Variation
+			isDefault
+			relationship: 3aa22f68-2459-4065-afb3-47d46ed0fe0a
+			defaultHierarchy: LocalDateTable_6a0f01ad-6bd6-4716-bbb0-456758d29022.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkLocationCode
+		dataType: string
+		isHidden
+		lineageTag: e48bd739-50cf-457b-ab90-2a1a1cfdda60
+		summarizeBy: none
+		sourceColumn: HSNetworkLocationCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationName
+		dataType: string
+		isHidden
+		lineageTag: 5f626614-da10-46a3-85c5-b679a238c6f7
+		summarizeBy: none
+		sourceColumn: Tier2SupportLocationName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationCode
+		dataType: string
+		isHidden
+		lineageTag: 502d649f-9825-4eac-b716-abb6b4f84e77
+		summarizeBy: none
+		sourceColumn: Tier2SupportLocationCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationTypeDescription
+		dataType: string
+		isHidden
+		lineageTag: 095f2ba6-1730-444c-91bc-0d44ffecd9cf
+		summarizeBy: none
+		sourceColumn: LocationTypeDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISSchoolKindDescription
+		dataType: string
+		isHidden
+		lineageTag: e4d492bf-6813-47fa-bf17-682d11d0d28a
+		summarizeBy: none
+		sourceColumn: SESISSchoolKindDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7ddca444-27d9-428a-84b2-140b4ff8e6cd
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 86b61c8e-ce8e-4d8f-9b1c-89a304d02fdf
+			defaultHierarchy: LocalDateTable_30f7dbfd-29aa-4974-902e-0a3af33099b6.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Admin District'
+		dataType: string
+		isHidden
+		lineageTag: 4f75f625-a45a-406f-ab2b-0a3d1b36cd2a
+		summarizeBy: none
+		sourceColumn: Admin District
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSE District'
+		dataType: string
+		isHidden
+		lineageTag: 86e6f4ff-f3b3-4b00-afd2-2b5b725057d5
+		summarizeBy: none
+		sourceColumn: CSE District
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Geographical District'
+		dataType: string
+		isHidden
+		lineageTag: 04cac934-e13d-41d8-a0ec-5716fbfdb52e
+		summarizeBy: none
+		sourceColumn: Geographical District
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School DBN'
+		dataType: string
+		isHidden
+		lineageTag: 86212c18-c1da-4c66-b222-5557ebfe74c5
+		summarizeBy: none
+		sourceColumn: School DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSE School DBN'
+		dataType: string
+		isHidden
+		lineageTag: 6b5ff735-0dc5-4881-84a7-d1ee393c834e
+		summarizeBy: none
+		sourceColumn: CSE School DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Type'
+		dataType: string
+		isHidden
+		lineageTag: 4cf89ddd-d922-45ac-855b-28158dd6fe5f
+		summarizeBy: none
+		sourceColumn: School Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Location Name'
+		dataType: string
+		isHidden
+		lineageTag: 2ffc9642-0c65-4593-bcc6-763607a494a1
+		summarizeBy: none
+		sourceColumn: Location Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Borough/Citywide Office'
+		dataType: string
+		isHidden
+		lineageTag: 2235dab6-f584-4c9b-ab1e-a4b945b88b7c
+		summarizeBy: none
+		sourceColumn: Borough/Citywide Office
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accountability Status'
+		dataType: string
+		isHidden
+		lineageTag: 0d55f12b-b7af-4361-8076-80f75273072c
+		summarizeBy: none
+		sourceColumn: Accountability Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Level'
+		dataType: string
+		isHidden
+		lineageTag: c55c369a-2ad7-4bd5-b3d4-37089cbf8b27
+		summarizeBy: none
+		sourceColumn: School Level
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Principal
+		dataType: string
+		isHidden
+		lineageTag: cc2e0580-7a79-477b-9934-19342b8e725a
+		summarizeBy: none
+		sourceColumn: Principal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Superintendent
+		dataType: string
+		isHidden
+		lineageTag: 686c12a7-9952-4881-9ca9-0c374417fc12
+		summarizeBy: none
+		sourceColumn: Superintendent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Executive Superintendent'
+		dataType: string
+		isHidden
+		lineageTag: 63578345-44ad-46c2-a1c7-f90710834e2f
+		summarizeBy: none
+		sourceColumn: Executive Superintendent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Supervisor of Psychology'
+		dataType: string
+		isHidden
+		lineageTag: e8cc4eff-c4ee-4d22-b54c-ef515df7121c
+		summarizeBy: none
+		sourceColumn: Supervisor of Psychology
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSE Flag'
+		dataType: string
+		isHidden
+		lineageTag: 4931b53c-b2e3-4e5d-8057-63b1db4d4bdc
+		summarizeBy: none
+		sourceColumn: CSE Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Active Flag'
+		dataType: string
+		isHidden
+		lineageTag: c6b3cc35-9bf1-4206-b742-03c05ca73bd6
+		summarizeBy: none
+		sourceColumn: Active Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IEP Teacher Flag'
+		dataType: string
+		isHidden
+		lineageTag: e89f3a4f-9be6-4a20-b8fb-ea19d12903bf
+		summarizeBy: none
+		sourceColumn: IEP Teacher Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Locations-5e4cbc9e-64d2-4f17-9713-58b5c3d2b77f = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [AdminDistrict] as [Admin District]#(lf)      ,[CSEDistrict] as [CSE District]#(lf)      ,[GeographicalDistrict] as [Geographical District]#(lf)      ,[SchoolDBN] as [School DBN]#(lf)      ,[CSESchoolDBN] as [CSE School DBN]#(lf)      ,[SchoolType] as [School Type]#(lf)      ,[LocationName] as [Location Name]#(lf)      ,[FieldSupportCenterReportingName] as [Borough/Citywide Office]#(lf)      ,[AffinityGroup]#(lf)      ,[AccountabilityStatus] as [Accountability Status]#(lf)      ,[StatusDescription]#(lf)      ,[ClosedDate]#(lf)      ,[HSNetworkLocationCode]#(lf)      ,[Tier2SupportLocationName]#(lf)      ,[Tier2SupportLocationCode]#(lf)      ,[LocationTypeDescription]#(lf)      ,[LocationCategoryDescription] as [School Level]#(lf)      ,[SESISSchoolKindDescription]#(lf)      ,[PrincipalName] as Principal#(lf)      ,[SuperintendentName] as Superintendent#(lf)      ,[ExecutiveSuperintendentName] as [Executive Superintendent]#(lf)      ,[SupervisorPsychName] as [Supervisor of Psychology]#(lf)      ,[CSEFlag] as [CSE Flag]#(lf)      ,[ActiveFlag] as [Active Flag]#(lf)      ,[IEPTeacherFlag] as [IEP Teacher Flag]#(lf)      ,[ProcessedDate]#(lf)  FROM [SEO_REPORTING].[BI].[vw_Locations]#(lf)#(lf)union#(lf)#(lf)select 'Unassigned' as [Admin District]#(lf)      ,NULL as [CSE District]#(lf)      ,NULL as [Geographical District]#(lf)      ,'Unassigned' as [School DBN]#(lf)      ,NULL as [CSE School DBN]#(lf)      ,'CSD' as [School Type]#(lf)      ,NULL  as [Location Name]#(lf)      ,'Unassigned' as [Borough/Citywide Office]#(lf)      ,NULL #(lf)      ,NULL  as [Accountability Status]#(lf)      ,NULL #(lf)      ,NULL #(lf)      ,NULL #(lf)      ,NULL #(lf)      ,NULL #(lf)      ,NULL #(lf)      ,NULL as [School Level]#(lf)      ,NULL #(lf)      ,NULL  as Principal#(lf)      ,NULL  as Superintendent#(lf)      ,NULL  as [Executive Superintendent]#(lf)      ,NULL  as [Supervisor of Psychology]#(lf)      ,NULL   as [CSE Flag]#(lf)      ,NULL   as [Active Flag]#(lf)      ,NULL   as [IEP Teacher Flag]#(lf)      ,NULL  "])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":26,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Locations/Source.{Admin District,0}","Section1/Locations/Source.{CSE District,1}","Section1/Locations/Source.{Geographical District,2}","Section1/Locations/Source.{School DBN,3}","Section1/Locations/Source.{CSE School DBN,4}","Section1/Locations/Source.{School Type,5}","Section1/Locations/Source.{Location Name,6}","Section1/Locations/Source.{Borough/Citywide Office,7}","Section1/Locations/Source.{AffinityGroup,8}","Section1/Locations/Source.{Accountability Status,9}","Section1/Locations/Source.{StatusDescription,10}","Section1/Locations/Source.{ClosedDate,11}","Section1/Locations/Source.{HSNetworkLocationCode,12}","Section1/Locations/Source.{Tier2SupportLocationName,13}","Section1/Locations/Source.{Tier2SupportLocationCode,14}","Section1/Locations/Source.{LocationTypeDescription,15}","Section1/Locations/Source.{School Level,16}","Section1/Locations/Source.{SESISSchoolKindDescription,17}","Section1/Locations/Source.{Principal,18}","Section1/Locations/Source.{Superintendent,19}","Section1/Locations/Source.{Executive Superintendent,20}","Section1/Locations/Source.{Supervisor of Psychology,21}","Section1/Locations/Source.{CSE Flag,22}","Section1/Locations/Source.{Active Flag,23}","Section1/Locations/Source.{IEP Teacher Flag,24}","Section1/Locations/Source.{ProcessedDate,25}"],"ColumnCount":26,"KeyColumnNames":[],"ColumnIdentities":["Section1/Locations/Source.{Admin District,0}","Section1/Locations/Source.{CSE District,1}","Section1/Locations/Source.{Geographical District,2}","Section1/Locations/Source.{School DBN,3}","Section1/Locations/Source.{CSE School DBN,4}","Section1/Locations/Source.{School Type,5}","Section1/Locations/Source.{Location Name,6}","Section1/Locations/Source.{Borough/Citywide Office,7}","Section1/Locations/Source.{AffinityGroup,8}","Section1/Locations/Source.{Accountability Status,9}","Section1/Locations/Source.{StatusDescription,10}","Section1/Locations/Source.{ClosedDate,11}","Section1/Locations/Source.{HSNetworkLocationCode,12}","Section1/Locations/Source.{Tier2SupportLocationName,13}","Section1/Locations/Source.{Tier2SupportLocationCode,14}","Section1/Locations/Source.{LocationTypeDescription,15}","Section1/Locations/Source.{School Level,16}","Section1/Locations/Source.{SESISSchoolKindDescription,17}","Section1/Locations/Source.{Principal,18}","Section1/Locations/Source.{Superintendent,19}","Section1/Locations/Source.{Executive Superintendent,20}","Section1/Locations/Source.{Supervisor of Psychology,21}","Section1/Locations/Source.{CSE Flag,22}","Section1/Locations/Source.{Active Flag,23}","Section1/Locations/Source.{IEP Teacher Flag,24}","Section1/Locations/Source.{ProcessedDate,25}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

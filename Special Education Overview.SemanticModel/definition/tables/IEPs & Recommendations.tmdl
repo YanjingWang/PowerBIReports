@@ -1,0 +1,506 @@
+table 'IEPs & Recommendations'
+	isHidden
+	lineageTag: f4f83e9f-b759-4c39-9086-815a40797346
+
+	measure '% Students with IEPs' = IF(SUM([# Students]) = 0, BLANK(),SUM([# SWDs])/SUM([# Students]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 79eab1ca-d592-460e-bc48-2c60cd350cdc
+
+	measure AsOfMsg_Access = "Latest school year data updated on " & FORMAT(MAX('IEPs & Recommendations'[LAST_UPDATED]), "MMM dd, YYYY")
+		isHidden
+		lineageTag: b82a51f5-b16f-4ab8-b004-bcffd652a659
+
+	measure '% SWDs in Special Class' = SUM([# SWDs in Special Class])/SUM([# SWDs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c268490e-1359-4316-afdb-4acac3cf4f1a
+
+	measure '% IEPs with Paras' = SUM([# SWDs with Paras])/SUM([# SWDs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 63497ae5-8c9e-43ee-a918-c7c3f7da1425
+
+	measure '% SWD average per ELL_STATUS' =
+			
+			AVERAGEX(
+				KEEPFILTERS(VALUES('Demographics'[ELL_STATUS])),
+				CALCULATE([% Students with IEPs])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c919a17e-09c5-417e-a0c1-21ca0e925d3c
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+	measure '% SWDs in ICT' = SUM([# ICT])/SUM([# SWDs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 802cf2fb-3255-4819-9a08-e45f29144373
+
+	measure '% SWDs in SETSS' = SUM([# SETSS])/SUM([# SWDs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: b028ab77-f8fd-49f6-89d0-f3a6eeae3757
+
+	measure CurrentSchoolYear = "2024-2025"
+		isHidden
+		lineageTag: 0ef51747-e463-4d84-b1c1-2bf274edb5c1
+
+	measure '% IEPs with D75 Placement' = SUM('IEPs & Recommendations'[# D75])/SUM('IEPs & Recommendations'[# SWDs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 1774fb23-08af-4978-aae2-a6a9c6c30d26
+
+	measure 'Referral Rate EOY' = IF(MIN(Demographics[SchoolYear]) = [CurrentSchoolYear] || SUM('IEPs & Recommendations'[# Students]) = 0, BLANK(), SUM([# Referrals])/SUM([# Students]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: f742e1db-bb54-4dfd-9d66-867717460155
+
+	measure 'Referral Rate YTD' = if(SUM('IEPs & Recommendations'[# Students]) = 0, BLANK(), SUM('IEPs & Recommendations'[# Referrals YTD])/SUM('IEPs & Recommendations'[# Students]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 63d7686a-8ee7-4675-a84a-381e846515b3
+
+	measure 'Referral Rate' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of School Year", IF(min('Demographics'[SchoolYear])=[CurrentSchoolYear],blank(),[Referral Rate EOY]),
+			Left(MySelection,5) = "First", [Referral Rate YTD],
+			[Referral Rate EOY])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 37d56f9b-9ca3-4940-8b29-db059a2342e0
+
+	measure LastSY = "2019-2020"
+		isHidden
+		lineageTag: 9a2f7dac-e149-4d43-a5db-ccde756bab4f
+
+	measure 'Referral Rate Callout' = CALCULATE([Referral Rate],FILTER('IEPs & Recommendations','IEPs & Recommendations'[SchoolYear]=[Referral Rate Callout SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 0cf6dcef-a13c-46db-9f88-f694b69c3206
+
+	measure '% Students with IEPs Group' = ```
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Students with IEPs],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% Students with IEPs],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 590d4859-2bb2-4073-a2cd-1d90a6acebd8
+
+	measure '% IEPs with D75 Placement Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% IEPs with D75 Placement],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% IEPs with D75 Placement],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 27bfa1a7-e728-43eb-8dab-c129e507e4b0
+
+	measure '% SWDs in Special Class Placement Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% SWDs in Special Class],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% SWDs in Special Class],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: a99aa1c6-87e8-4d17-b5f1-fb942b23ccde
+
+	measure '% IEPs with Paras Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% IEPs with Paras],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% IEPs with Paras],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: b25e14bc-0ac4-41fd-aa1a-f5a6eb6ea134
+
+	measure 'Referral Rate Callout Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Referral Rate Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Referral Rate Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: be51a556-718b-4c7f-96a9-625b90624ad4
+
+	measure 'Referral Rate Callout SY' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of SY", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous"),
+			Left(MySelection,5) = "First", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Current"),
+			LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous"))
+		isHidden
+		lineageTag: 333eccf8-9f54-454d-9a52-9c87bce33ad8
+
+	measure 'Referral Rate (# Initial Referrals)' = IF(ISBLAnK([Referral Rate]), "--", FORMAT([Referral Rate],"0.0%") & " ("  & [Referrals]  & ")")
+		isHidden
+		lineageTag: eeeade5c-09e4-48a5-9961-9f734232ef7e
+
+	measure Referrals =
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of School Year", IF(min('Demographics'[SchoolYear])=[CurrentSchoolYear],blank(),sum([# Referrals])),
+			Left(MySelection,5) = "First", sum([# Referrals YTD]),
+			sum([# Referrals]))
+		formatString: #,0
+		isHidden
+		lineageTag: caa34d3c-3694-4709-afd4-c8f4b5a2260b
+
+	measure '% Students with IEPs (#)' = FORMAT([% Students with IEPs],"0.0%") & " (" & SUM([# SWDS]) & ")"
+		isHidden
+		lineageTag: 0e0f3554-0a7e-445a-9fba-885da0d4ecc6
+
+	measure '% IEPs with Special Class (#)' = FORMAT([% SWDs in Special Class],"0.0%") & " (" & SUM([# SWDs in Special Class]) & ")"
+		isHidden
+		lineageTag: 59297c2c-42ff-42e0-b0ec-5b313448235e
+
+	measure '% IEPs with Paraprofessionals (#)' = FORMAT([% IEPs with Paras],"0.0%") & " (" & SUM([# SWDs with Paras]) & ")"
+		isHidden
+		lineageTag: 6649e4b3-2b9e-48e6-83ba-0bf21632af4a
+
+	measure 'Referral Rate Callout NA' = IF(ISBLANK([Referral Rate Callout]),[NAText],[Referral Rate Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 8ba8aaf2-13cd-4472-935e-6ac17e3a12d7
+
+	measure '% Students with IEPs Callout NA' = IF(ISBLANK([% Students with IEPs]),[NAText], [% Students with IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c5dcc4de-7870-4b94-9c09-29f40bf24d42
+
+	measure NAText = "N/A"
+		isHidden
+		lineageTag: 955b0a78-288d-4126-870a-5d4233599c93
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 725b1c4f-620b-41b7-b4f6-5dc189661935
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 67edacde-fa19-451e-bc06-7bbec90026b3
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 15cfb731-537c-46a9-aaeb-1f8ba7686cfd
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs with Paras'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: b3fa0e62-4aa9-4a59-a011-7e2e9db7b682
+		summarizeBy: sum
+		sourceColumn: # SWDs with Paras
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs in Special Class'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 5ac6931e-4205-479b-807d-250f74ade71c
+		summarizeBy: sum
+		sourceColumn: # SWDs in Special Class
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 89fba474-c09e-44e7-b987-d9cd5d2201b4
+		summarizeBy: sum
+		sourceColumn: # SWDs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 6a0b29d7-e8ca-4cbb-a1aa-30614817bf85
+		summarizeBy: sum
+		sourceColumn: # Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: 9c4a1c33-493f-43c6-becc-9af7473b0392
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: b1779cff-6602-4bf2-8bff-9e687fc0d60b
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 8c67696f-697e-46c6-97af-5087b591d7e5
+		summarizeBy: sum
+		sourceColumn: # Referrals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals YTD'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: c9ea73bd-8be6-46bc-a105-7a210479f2f5
+		summarizeBy: sum
+		sourceColumn: # Referrals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column '# ICT'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 470e1b7c-cf0e-4421-9010-3e903774c112
+		summarizeBy: sum
+		sourceColumn: # ICT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SETSS'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 4f4fd32f-b59d-47d6-b04b-90e1e170dbf5
+		summarizeBy: sum
+		sourceColumn: # SETSS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		isHidden
+		lineageTag: 01d0064d-2de4-4a55-ae33-a26bc118df71
+		summarizeBy: none
+		sourceColumn: Grade
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: a89a22d2-0cce-4b36-a0e9-f9105d37bf60
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		isHidden
+		lineageTag: 6044230e-ec23-4ecb-9f0f-325bd9b52cc6
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Updated
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 20875311-34df-473d-b520-ca595410290e
+		summarizeBy: none
+		sourceColumn: Last_Updated
+
+		variation Variation
+			isDefault
+			relationship: 14d7ec0b-008f-4644-9699-46aaa9c893ed
+			defaultHierarchy: LocalDateTable_b32dc6cd-cd7b-4751-834c-f6fe5aad69d3.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fd4025d5-410c-433b-bf85-127d7d81a2b9
+		summarizeBy: sum
+		sourceColumn: # Reevals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4076ae38-b811-4454-8610-4660c89f102e
+		summarizeBy: sum
+		sourceColumn: # Reevals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDays
+		dataType: int64
+		isHidden
+		lineageTag: ba77db34-8a6f-4987-bdc3-69624ec8b158
+		summarizeBy: sum
+		sourceColumn: SchoolDays
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '# NYSAA'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2524b450-db27-4baf-a209-ca5a01935e26
+		summarizeBy: sum
+		sourceColumn: # NYSAA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# D75'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 99921f67-f4b1-4f2e-a3f3-3c0aff7bf792
+		summarizeBy: sum
+		sourceColumn: # D75
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IEPs & Recommendations-e8324dc0-bfaf-45e3-8ab8-80a83aad812a' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SCHOOL_DBN]#(lf)      ,[SchoolYear]#(lf)      ,[ELL_STATUS]#(lf)      ,[Grade]#(lf)      ,[Gender]#(lf)      ,[Ethnicity]#(lf)      ,[# Para]#(lf)      ,[# D75]#(lf)      ,[# Special]#(lf)      ,[# ICT]#(lf)      ,[# SETSS]#(lf)      ,[# NYSAA]#(lf)      ,[# SWDs]#(lf)      ,[# Students]#(lf)      ,[Last_Updated]#(lf)      ,[# Referrals]#(lf)      ,[# Referrals YTD]#(lf)      ,[# Reevals]#(lf)      ,[# Reevals YTD]#(lf)      ,[SchoolKey]#(lf)      ,[TableKey]#(lf)      ,[SchoolDays]#(lf)  FROM [BI].[vw_SPF_AccessData_AllSettings]"]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"# Special", "# SWDs in Special Class"}, {"# Para", "# SWDs with Paras"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":22,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/IEPs & Recommendations/Source.{SCHOOL_DBN,0}","Section1/IEPs & Recommendations/Source.{SchoolYear,1}","Section1/IEPs & Recommendations/Source.{ELL_STATUS,2}","Section1/IEPs & Recommendations/Source.{Grade,3}","Section1/IEPs & Recommendations/Source.{Gender,4}","Section1/IEPs & Recommendations/Source.{Ethnicity,5}","Section1/IEPs & Recommendations/Source.{# Para,6}","Section1/IEPs & Recommendations/Source.{# D75,7}","Section1/IEPs & Recommendations/Source.{# Special,8}","Section1/IEPs & Recommendations/Source.{# ICT,9}","Section1/IEPs & Recommendations/Source.{# SETSS,10}","Section1/IEPs & Recommendations/Source.{# NYSAA,11}","Section1/IEPs & Recommendations/Source.{# SWDs,12}","Section1/IEPs & Recommendations/Source.{# Students,13}","Section1/IEPs & Recommendations/Source.{Last_Updated,14}","Section1/IEPs & Recommendations/Source.{# Referrals,15}","Section1/IEPs & Recommendations/Source.{# Referrals YTD,16}","Section1/IEPs & Recommendations/Source.{# Reevals,17}","Section1/IEPs & Recommendations/Source.{# Reevals YTD,18}","Section1/IEPs & Recommendations/Source.{SchoolKey,19}","Section1/IEPs & Recommendations/Source.{TableKey,20}","Section1/IEPs & Recommendations/Source.{SchoolDays,21}"],"ColumnCount":22,"KeyColumnNames":[],"ColumnIdentities":["Section1/IEPs & Recommendations/Source.{SCHOOL_DBN,0}","Section1/IEPs & Recommendations/Source.{SchoolYear,1}","Section1/IEPs & Recommendations/Source.{ELL_STATUS,2}","Section1/IEPs & Recommendations/Source.{Grade,3}","Section1/IEPs & Recommendations/Source.{Gender,4}","Section1/IEPs & Recommendations/Source.{Ethnicity,5}","Section1/IEPs & Recommendations/Source.{# Para,6}","Section1/IEPs & Recommendations/Source.{# D75,7}","Section1/IEPs & Recommendations/Source.{# Special,8}","Section1/IEPs & Recommendations/Source.{# ICT,9}","Section1/IEPs & Recommendations/Source.{# SETSS,10}","Section1/IEPs & Recommendations/Source.{# NYSAA,11}","Section1/IEPs & Recommendations/Source.{# SWDs,12}","Section1/IEPs & Recommendations/Source.{# Students,13}","Section1/IEPs & Recommendations/Source.{Last_Updated,14}","Section1/IEPs & Recommendations/Source.{# Referrals,15}","Section1/IEPs & Recommendations/Source.{# Referrals YTD,16}","Section1/IEPs & Recommendations/Source.{# Reevals,17}","Section1/IEPs & Recommendations/Source.{# Reevals YTD,18}","Section1/IEPs & Recommendations/Source.{SchoolKey,19}","Section1/IEPs & Recommendations/Source.{TableKey,20}","Section1/IEPs & Recommendations/Source.{SchoolDays,21}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

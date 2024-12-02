@@ -1,0 +1,5 @@
+role 'Dynamic RLS'
+	modelPermission: read
+
+	annotation PBI_Id = a5182118fa47444b9a42d210d2ac5148
+

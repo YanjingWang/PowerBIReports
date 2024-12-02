@@ -1,0 +1,841 @@
+culture en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "locations.admin_district": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Admin District"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "School District": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.spotlight_sy1718": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Spotlight_SY1718"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Spotlight School": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.superintendent": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Superintendent"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SUPERINTENDENT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.school_dbn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "School DBN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Select a School": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.ell_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "ELL Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ELL Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.temporary_residence_flag": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "Temporary Residence Flag"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Temporary Residence*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.lre_metric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "LRE Metric"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Time in LRE*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.primary_program_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "Primary Program Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Primary Program*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics.ell_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics",
+			          "ConceptualProperty": "ELL_STATUS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ELL Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "program_services.weektoggle": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Program Services",
+			          "ConceptualProperty": "WeekToggle"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "program_services.ps_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Program Services",
+			          "ConceptualProperty": "PS Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Students Fully Served": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "program_services.ps_callout_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Program Services",
+			          "ConceptualProperty": "PS Callout SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "program_services.ps_students_fully_served__students": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Program Services",
+			          "ConceptualProperty": "% PS Students Fully Served (# Students)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Programs Students Fully Served** (# Students)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ieps__recommendations.swds_in_special_class": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "% SWDs in Special Class"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Special Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "% Special Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ieps__recommendations.swds_in_ict": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "% SWDs in ICT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ICT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ieps__recommendations.swds_in_setss": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "% SWDs in SETSS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% SETSS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ieps__recommendations.students_with_ieps": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "% Students with IEPs"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "ieps__recommendations.referral_rate_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "Referral Rate Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Referral Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ieps__recommendations.referral_rate_callout_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "IEPs & Recommendations",
+			          "ConceptualProperty": "Referral Rate Callout SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "referral_toggle.referral_data_thru_short": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Referral Toggle",
+			          "ConceptualProperty": "Referral Data Thru Short"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Referral Data Thru": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Data Thru": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demo_table.subgroup_cap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demo Table",
+			          "ConceptualProperty": "Subgroup CAP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Subgroup": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "referrals.timeliness_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Referrals",
+			          "ConceptualProperty": "Timeliness Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Timeliness": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "referrals.timeliness_callout_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Referrals",
+			          "ConceptualProperty": "Timeliness Callout SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "referrals.timeliness_of_initials__completed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Referrals",
+			          "ConceptualProperty": "Timeliness of Initials (# Completed)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Timeliness* of Initials (# Completed)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "referrals.timeliness_of_reevals__completed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Referrals",
+			          "ConceptualProperty": "Timeliness of Reevals (# Completed)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Timeliness* of Reevals (# Completed)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "graduation.grad_callout_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Graduation",
+			          "ConceptualProperty": "Grad CallOut SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "graduation.graduation_rate_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Graduation",
+			          "ConceptualProperty": "Graduation Rate (#)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Graduation Rate*** (#)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_rate_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Rate Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Suspension Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_rate_callout_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Rate Callout SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_toggle.suspension_data_thru": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension Toggle",
+			          "ConceptualProperty": "Suspension Data Thru"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Data Thru": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.ict_core_flag": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "ICT Core Flag"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ICT Core Flag*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.sc_core_flag": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "SC Core Flag"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SC Core Flag*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "student_register.specialized_program": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "Specialized Program"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Specialized Program*": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "related_services.rs_callout": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Related Services",
+			          "ConceptualProperty": "RS Callout"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "related_services.para_callout": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Related Services",
+			          "ConceptualProperty": "Para Callout"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "related_services.rs_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Related Services",
+			          "ConceptualProperty": "RS Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RS Mandates Encountered": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "related_services.para_callout_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Related Services",
+			          "ConceptualProperty": "Para Callout Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Para Mandates Encountered": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "setting.enrolled_school_setting": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Setting",
+			          "ConceptualProperty": "Enrolled School Setting"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "student_register.your_selection": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Student Register",
+			          "ConceptualProperty": "Your Selection"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "exam_data.iep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam Data",
+			          "ConceptualProperty": "IEP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IEP Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.borough_citywide_office": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Borough/Citywide Office"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "B/CO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics.schoolyear": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics",
+			          "ConceptualProperty": "SchoolYear"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SchoolYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

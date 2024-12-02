@@ -1,0 +1,42 @@
+table 'Referral Toggle'
+	isHidden
+	lineageTag: 06efede6-786e-4d34-ac9a-58f086af8a4a
+
+	column 'Referral Data Thru'
+		dataType: string
+		isHidden
+		lineageTag: 5f3678ec-4975-40e5-87eb-35c973c3bc33
+		summarizeBy: none
+		sourceColumn: Referral Data Thru
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Data Thru Short'
+		dataType: string
+		isHidden
+		lineageTag: 9979933b-b4ed-4904-a8a1-03a167bdedd3
+		summarizeBy: none
+		sourceColumn: Referral Data Thru Short
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Referral Toggle-c5879af2-db1e-483c-a4f5-fad188604693' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *#(lf),Case when [Referral Data Thru] like '%End%' Then 'End of SY' Else CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.dbo.SPF_AccessData where SchoolDays is not null), ' Days of SY') End as [Referral Data Thru Short]#(lf)FROM (VALUES('End of School Year'),(CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.dbo.SPF_AccessData where SchoolDays is not null), ' Days of School'))) #(lf)AS sub([Referral Data Thru])"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"First 1 Days of School","First 52 Days of School",Replacer.ReplaceText,{"Referral Data Thru"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","First 1 Days of SY","First 52 Days of SY",Replacer.ReplaceText,{"Referral Data Thru Short"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Referral Toggle/Source.{Referral Data Thru,0}","Section1/Referral Toggle/Source.{Referral Data Thru Short,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Referral Toggle/Source.{Referral Data Thru,0}","Section1/Referral Toggle/Source.{Referral Data Thru Short,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

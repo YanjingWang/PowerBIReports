@@ -1,0 +1,187 @@
+table Transition
+	isHidden
+	lineageTag: fec41375-0cd5-40c2-a107-75495e6df837
+
+	measure '% IEPS with Transition Plan' = sum(Transition[#Complete])/sum(Transition[#IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c0be9491-b5c8-4972-b293-bb8b2ba06aa0
+
+	measure '% IEPs with Transition Plan Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% IEPS with Transition Plan],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% IEPS with Transition Plan],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 528eda4c-c771-452d-a487-3ac66e3c978f
+
+	measure '% IEPs with Transition Plan (#)' = If([# Transition Age Students]>0, FORMAT([% IEPS with Transition Plan],"0.0%") & " (" & SUM([#Complete]) & ")","--")
+		isHidden
+		lineageTag: 6aee0f5b-c84b-4020-8b6d-49720bf56e15
+
+	measure '# Transition Age Students' = SUM([#IEPs])+0
+		formatString: 0
+		isHidden
+		lineageTag: 0a13a283-f7da-41d7-9940-ae2bd1aff392
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: e2cff5cc-33fb-4f61-8f3c-8d84c076895c
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 305ffa1c-fc59-458a-a48f-f264135b0230
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 459a816d-4ef1-4b08-80ee-70e4ec5145f9
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 4905f0e9-0962-4028-871b-0e4113fdaaa3
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 5cf23dea-3ab7-4ec9-a793-9b34063dcf04
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #IEPs
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: c0588ae4-374a-4827-ad76-12f43de0de47
+		summarizeBy: sum
+		sourceColumn: #IEPs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Complete
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 3dde465a-6358-4f98-be8a-beaedfc28166
+		summarizeBy: sum
+		sourceColumn: #Complete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Invalid
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ac5fcfab-12ba-4f24-a73e-c93111e3d2af
+		summarizeBy: sum
+		sourceColumn: #Invalid
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AsOfDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 1f1ece73-7dd1-44b8-b4d4-462642fb8a81
+		summarizeBy: none
+		sourceColumn: AsOfDate
+
+		variation Variation
+			isDefault
+			relationship: 648584b4-b0b4-4603-9c06-8f2377bba68f
+			defaultHierarchy: LocalDateTable_b646529c-688c-4aee-9782-0009774f3b1b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: ff4b17a4-c9b0-44ff-a674-5753e10a5783
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 47bee1e8-4eee-47cc-a761-40722be81526
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: c0fcc0bb-5f77-4510-8b73-89d23e3f693f
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Transition-21b1da78-ce17-459e-8d4d-ea7d88bebcb5 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SCHOOL_DBN]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[ELL_STATUS]#(lf)      ,[GRADE]#(lf)      ,[#IEPs]#(lf)      ,[#Complete]#(lf)      ,[#Invalid]#(lf)      ,[AsOfDate]#(lf)      ,[SchoolYear]#(lf)      ,SchoolKey#(lf)      ,TableKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Transition]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":12,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Transition/Source.{SCHOOL_DBN,0}","Section1/Transition/Source.{GENDER,1}","Section1/Transition/Source.{ETHNICITY,2}","Section1/Transition/Source.{ELL_STATUS,3}","Section1/Transition/Source.{GRADE,4}","Section1/Transition/Source.{#IEPs,5}","Section1/Transition/Source.{#Complete,6}","Section1/Transition/Source.{#Invalid,7}","Section1/Transition/Source.{AsOfDate,8}","Section1/Transition/Source.{SchoolYear,9}","Section1/Transition/Source.{SchoolKey,10}","Section1/Transition/Source.{TableKey,11}"],"ColumnCount":12,"KeyColumnNames":[],"ColumnIdentities":["Section1/Transition/Source.{SCHOOL_DBN,0}","Section1/Transition/Source.{GENDER,1}","Section1/Transition/Source.{ETHNICITY,2}","Section1/Transition/Source.{ELL_STATUS,3}","Section1/Transition/Source.{GRADE,4}","Section1/Transition/Source.{#IEPs,5}","Section1/Transition/Source.{#Complete,6}","Section1/Transition/Source.{#Invalid,7}","Section1/Transition/Source.{AsOfDate,8}","Section1/Transition/Source.{SchoolYear,9}","Section1/Transition/Source.{SchoolKey,10}","Section1/Transition/Source.{TableKey,11}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

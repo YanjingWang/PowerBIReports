@@ -1,0 +1,269 @@
+table 'Program Services'
+	isHidden
+	lineageTag: b92aad0f-5052-4351-bc57-d79c5e6510f2
+
+	measure '% PS Fully Served' = SUM('Program Services'[FullyLinked])/SUM('Program Services'[TotalStudents])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 7a2842d6-6263-4f31-958e-7b1d58dbca7d
+
+	measure 'PS Callout' = CALCULATE([% PS Fully Served],FILTER('Program Services','Program Services'[SchoolYear]=[PS Callout SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 56a497cd-760b-4f68-89d0-2a976154e554
+
+	measure 'PS Callout Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([PS Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([PS Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 948be743-d74c-4d95-92b7-db3580cf9fab
+
+	measure 'PS Business Rules' = IF(CALCULATE(HASONEVALUE('Program Services'[Calculation]),'Program Services'[Level] = "Student"),"**" & CALCULATE(MIN('Program Services'[Calculation]),'Program Services'[Level] = "Student"),"")
+		isHidden
+		lineageTag: 8d058733-d816-40d2-99e7-b5b34fb6ea06
+
+	measure 'PS Callout SY' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Program Services'[WeekToggle])
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of SY", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous PS"),
+			Left(MySelection,4) = "Week", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest PS"),
+			LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous PS"))
+		isHidden
+		lineageTag: 447e4468-a928-4a5a-88a2-95988037b44f
+
+	measure '% PS Mandates' = CALCULATE([% PS Fully Served], 'Program Services'[Level]="Mandate")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: df809dca-6679-41b9-8c29-70f57ee86b52
+
+	measure '% PS Student' = CALCULATE([% PS Fully Served], 'Program Services'[Level]="Student")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 814e252c-c57b-41dd-a29f-a0bb44b0cd4a
+
+	measure '% PS Mandates Fully Served (# Mandates)' = IF(ISBLANK([% PS Mandates]),"--", FORMAT([% PS Mandates],"0.0%") & " (" & [# PS Mandates] & ")")
+		isHidden
+		lineageTag: ca0b600f-f818-4bb4-bbe2-c7c825f4e306
+
+	measure '# PS Mandates' = CALCULATE(sum('Program Services'[TotalStudents]), 'Program Services'[Level]="Mandate")
+		isHidden
+		lineageTag: 2b6f61fc-0d67-42f2-88e3-80654ba33b09
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '# PS Students' = CALCULATE(sum('Program Services'[TotalStudents]), 'Program Services'[Level]="Student")
+		isHidden
+		lineageTag: 1f994dac-50bc-4eab-a72e-d6ef71741879
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% PS Students Fully Served (# Students)' = IF(ISBLANK([% PS Student]),"--", FORMAT([% PS Student],"0.0%") & " (" & [# PS Students] & ")")
+		isHidden
+		lineageTag: 6f755a4d-9b6b-4f42-9e60-52199d138ee5
+
+	measure 'PS Callout NA' = IF(ISBLANK([PS Callout]),[NAText],[PS Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: a5d246c9-a2a7-49c3-a9d0-82264dcff3fe
+
+	column schoolyear
+		dataType: string
+		isHidden
+		lineageTag: 17b93732-b825-4b6b-86f7-f69b2f1e1c1b
+		summarizeBy: none
+		sourceColumn: schoolyear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 50663b08-1deb-438b-a63c-5a5efe637f3f
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 1735619a-641d-4867-afb9-31f89acef085
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 41db3cca-45e2-4211-9d23-f10a6952b108
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalStudents
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 01daf443-da7c-4634-ae3e-bd1b596040a6
+		summarizeBy: sum
+		sourceColumn: TotalStudents
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column FullyLinked
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 4b60a7e6-ad4f-45e3-bef9-d0bf074559a6
+		summarizeBy: sum
+		sourceColumn: FullyLinked
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column PartiallyLinked
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: e49f528b-4a80-41cc-a0b7-a48f4fcc8ea8
+		summarizeBy: sum
+		sourceColumn: PartiallyLinked
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column NotLinked
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: ab78531d-06f7-40b5-aaa4-e70d7a579b1e
+		summarizeBy: sum
+		sourceColumn: NotLinked
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column week
+		dataType: int64
+		isHidden
+		lineageTag: 550c76db-eb6e-4cea-9be5-9137337d560d
+		summarizeBy: sum
+		sourceColumn: week
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PSKey
+		dataType: string
+		isHidden
+		lineageTag: 4a59b59a-2794-4f6b-a5be-f77eee45ec2b
+		summarizeBy: none
+		sourceColumn: PSKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Calculation
+		dataType: string
+		isHidden
+		lineageTag: 98807590-d5bd-4a37-9782-82ca08a42e11
+		summarizeBy: none
+		sourceColumn: Calculation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: string
+		isHidden
+		lineageTag: c26de35c-9270-4f49-bf8a-f13c6991ccc3
+		summarizeBy: none
+		sourceColumn: Level
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekToggle
+		dataType: string
+		isHidden
+		lineageTag: d32904ee-feef-4958-9599-cbae23d14a35
+		summarizeBy: none
+		sourceColumn: WeekToggle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Toggle Updated' = if('Program Services'[week] = 40, "End of SY" ,"Week"&" "&'Program Services'[WeekNumber]&" "&"of SY")
+		dataType: string
+		lineageTag: 4bb17fbc-46bb-48f9-8331-50bcb10bf4e5
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumber = 'Program Services'[week]
+		dataType: int64
+		lineageTag: ad874e6f-81eb-4897-be73-0383e5e4b41f
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Program Services-a72b2d23-e32d-4caa-913b-bc7f94e82e42' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="select * from#(lf)SEO_REPORTING.bi.vw_SEOverview_PS_test"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":13,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Program Services/Source.{schoolyear,0}","Section1/Program Services/Source.{SCHOOL_DBN,1}","Section1/Program Services/Source.{ELL_STATUS,2}","Section1/Program Services/Source.{ETHNICITY,3}","Section1/Program Services/Source.{TotalStudents,4}","Section1/Program Services/Source.{FullyLinked,5}","Section1/Program Services/Source.{PartiallyLinked,6}","Section1/Program Services/Source.{NotLinked,7}","Section1/Program Services/Source.{week,8}","Section1/Program Services/Source.{PSKey,9}","Section1/Program Services/Source.{Calculation,10}","Section1/Program Services/Source.{Level,11}","Section1/Program Services/Source.{WeekToggle,12}"],"ColumnCount":13,"KeyColumnNames":[],"ColumnIdentities":["Section1/Program Services/Source.{schoolyear,0}","Section1/Program Services/Source.{SCHOOL_DBN,1}","Section1/Program Services/Source.{ELL_STATUS,2}","Section1/Program Services/Source.{ETHNICITY,3}","Section1/Program Services/Source.{TotalStudents,4}","Section1/Program Services/Source.{FullyLinked,5}","Section1/Program Services/Source.{PartiallyLinked,6}","Section1/Program Services/Source.{NotLinked,7}","Section1/Program Services/Source.{week,8}","Section1/Program Services/Source.{PSKey,9}","Section1/Program Services/Source.{Calculation,10}","Section1/Program Services/Source.{Level,11}","Section1/Program Services/Source.{WeekToggle,12}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,229 @@
+table 'Related Services'
+	isHidden
+	lineageTag: 6765551b-8d5d-4bfc-9d35-f13754b1619f
+
+	measure '% Encountered RS' = CALCULATE(sum('Related Services'[NumEncountered])/sum('Related Services'[NumMandates]),'Related Services'[MandateType] = "RS")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 9bb5039d-4c30-4434-9043-91da7da0eaa8
+
+	measure '% Encountered Para' = CALCULATE(sum('Related Services'[NumEncountered])/sum('Related Services'[NumMandates]),'Related Services'[MandateType] = "P")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 325159d7-2508-4d91-9d30-50694b15d73e
+
+	measure 'RS Callout' = CALCULATE([% Encountered RS],FILTER('Related Services','Related Services'[SchoolYear]=[RS Callout SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 65a41d4f-0709-41a3-b200-d59e0de5ea83
+
+	measure 'Para Callout' = CALCULATE([% Encountered Para],FILTER('Related Services','Related Services'[SchoolYear]=[PS Callout SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: be7b4007-f204-4cbf-91f1-b5f1247f1eee
+
+	measure 'RS Callout Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([RS Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([RS Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 6cbeb8ac-6789-447f-80b1-af45b744d663
+
+	measure 'Para Callout Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Para Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Para Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 5e09724f-7bfc-4655-b267-e25d22190072
+
+	measure '% RS Mandates Encountered (# Mandates)' = IF(ISBLANK([% Encountered RS]),"--", FORMAT([% Encountered RS],"0.0%") & " (" & sum('Related Services'[NumMandates]) & ")")
+		isHidden
+		lineageTag: 6f3408ca-1e3d-4ef3-bff2-2ef5045bb322
+
+	measure 'RS Callout NA' = IF(ISBLANK([RS Callout]),[NAText],[RS Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c98031a5-f518-4cee-8915-28c5d5eafa2f
+
+	measure 'Para Callout NA' = IF(ISBLANK([Para Callout]),[NAText],[Para Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: c2cf2ef1-a8c3-44cd-be98-1e39dcfb99b7
+
+	measure 'RS Callout SY' =
+			
+			
+			VAR MySelection =
+			
+			SELECTEDVALUE ('Related Services'[WeekToggle])
+			
+			RETURN
+			
+			SWITCH (
+			
+			TRUE (),
+			
+			
+			MySelection = "End of SY", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest PS"),
+			
+			LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous PS"))
+		isHidden
+		lineageTag: 8504feee-4cdf-47c8-b0aa-6342beb2a642
+
+	column EnrolledDBN
+		dataType: string
+		isHidden
+		lineageTag: d4850e9c-dffb-4eb1-a824-825579c718b3
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMandates
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 95a3e605-2539-4bb1-a695-5099e3dd563b
+		summarizeBy: sum
+		sourceColumn: NumMandates
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumEncountered
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 3ddc3314-22a4-450a-9c1d-e3af80a21882
+		summarizeBy: sum
+		sourceColumn: NumEncountered
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MandateType
+		dataType: string
+		isHidden
+		lineageTag: 570c4f22-e243-416e-98a9-55c68d160e57
+		summarizeBy: none
+		sourceColumn: MandateType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		isHidden
+		lineageTag: efc16379-c469-4221-9737-c0dd7d4d34e4
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		isHidden
+		lineageTag: 665f98c5-a21d-48ee-81ae-fc3aca3a0076
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledSchoolSetting
+		dataType: string
+		isHidden
+		lineageTag: 46536636-d984-42e1-bf61-bc057af02275
+		summarizeBy: none
+		sourceColumn: EnrolledSchoolSetting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: c9dc6500-909c-44de-9281-308d5d7ed7da
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 2a132965-2bdb-4806-a6c0-e18d5915e080
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 359a2bcb-3051-469c-a8f2-76ceb3060bf0
+			defaultHierarchy: LocalDateTable_cd3e3d7c-0cfb-447f-82e5-433cd745c72b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSKey
+		dataType: string
+		isHidden
+		lineageTag: 5af87520-ed48-4502-9fd2-caee98dee623
+		summarizeBy: none
+		sourceColumn: PSKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekToggle
+		dataType: string
+		isHidden
+		lineageTag: 9266f93c-6e5e-4fa4-90f9-142a72cfc4d0
+		summarizeBy: none
+		sourceColumn: WeekToggle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Related Services-ff4afda1-5378-4848-bb8b-67f5c10181a5' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT  [EnrolledDBN]#(lf)      ,[NumMandates]#(lf)      ,[NumEncountered]#(lf)      ,[MandateType]#(lf)      ,[ELLStatus]#(lf)      ,[EthnicityGroupCC]#(lf)      ,[EnrolledSchoolSetting]#(lf)      ,[SchoolYear]#(lf)      ,[ProcessedDate]#(lf)      ,[PSKey]#(lf)      ,case when [WeekToggle] = 'Week 40 of SY' then 'End of SY'#(lf)   Else [WeekToggle] end [WeekToggle]#(lf)  FROM [SEO_REPORTING].[dbo].[SEOverview_RS]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

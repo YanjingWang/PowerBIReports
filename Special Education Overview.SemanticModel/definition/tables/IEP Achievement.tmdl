@@ -1,0 +1,50 @@
+table 'IEP Achievement'
+	isHidden
+	lineageTag: b785dfcf-a1db-4cc4-8bdf-d6e5ad624c85
+
+	column SWD
+		dataType: string
+		isHidden
+		lineageTag: dcdafb2e-ec2a-4208-9303-9cc6fa6ee34b
+		summarizeBy: none
+		sourceColumn: SWD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: c1660564-6c35-4810-8cd4-bd053a011466
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPExam
+		dataType: string
+		isHidden
+		lineageTag: 18c18f32-d1cf-47ec-a684-51fadb8be16a
+		summarizeBy: none
+		sourceColumn: IEPExam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IEP Achievement-238e508b-7153-45d0-a292-2dab576049fc' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCg53UdJRigRiT9cApVidaCW//DxdiKgfCOcrgCViAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [SWD = _t, IEP = _t, IEPExam = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SWD", type text}, {"IEP", type text}, {"IEPExam", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/IEP Achievement/Changed Type.{SWD,0}","Section1/IEP Achievement/Changed Type.{IEP,1}","Section1/IEP Achievement/Changed Type.{IEPExam,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/IEP Achievement/Changed Type.{SWD,0}","Section1/IEP Achievement/Changed Type.{IEP,1}","Section1/IEP Achievement/Changed Type.{IEPExam,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,137 @@
+table Demographics
+	isHidden
+	lineageTag: 29ff48ce-7478-4c9e-b665-b96b36df650a
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: a073a5d9-aa78-4dc9-9d1f-6081d78f6b10
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: e9f17534-ca39-42f1-8557-ff06f1bb65e9
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 831a26fb-5cb0-4b82-a917-e0bfa9fe0f20
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 879379f1-146c-413f-81d2-65a6a7f5e190
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 021921e1-6aa2-4eb4-a590-4c37b6c7bba7
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE_ORDER
+		dataType: string
+		isHidden
+		lineageTag: fa00dc97-7d0b-4c6c-bb21-b0dc45a1aeba
+		summarizeBy: none
+		sourceColumn: GRADE_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		isHidden
+		lineageTag: 849ed444-81f0-4fcf-838b-16252f17bedd
+		summarizeBy: none
+		sourceColumn: SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: d9508bbd-26e7-4ba0-8bcb-1d48ce1595fa
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITYShort
+		dataType: string
+		isHidden
+		lineageTag: 1ac88700-ee6e-4042-8e3f-7a970b0274ba
+		summarizeBy: none
+		sourceColumn: ETHNICITYShort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUSShort
+		dataType: string
+		isHidden
+		lineageTag: f378ba27-0287-4b88-8481-83ce3bf2c4e0
+		summarizeBy: none
+		sourceColumn: ELL_STATUSShort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSKey
+		dataType: string
+		isHidden
+		lineageTag: a93cff51-b548-48a9-a7f9-3c8817e4c965
+		summarizeBy: none
+		sourceColumn: PSKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Demographics-6ae0187b-0e49-40c7-8a0e-4c567fc9685f = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT * FROM SEO_REPORTING.bi.vw_SEOverview_Demographics"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":11,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demographics/Source.{SchoolYear,0}","Section1/Demographics/Source.{ELL_STATUS,1}","Section1/Demographics/Source.{GRADE,2}","Section1/Demographics/Source.{GENDER,3}","Section1/Demographics/Source.{ETHNICITY,4}","Section1/Demographics/Source.{GRADE_ORDER,5}","Section1/Demographics/Source.{SY,6}","Section1/Demographics/Source.{TableKey,7}","Section1/Demographics/Source.{PSKey,8}","Section1/Demographics/Source.{ETHNICITYShort,9}","Section1/Demographics/Source.{ELL_STATUSShort,10}"],"ColumnCount":11,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demographics/Source.{SchoolYear,0}","Section1/Demographics/Source.{ELL_STATUS,1}","Section1/Demographics/Source.{GRADE,2}","Section1/Demographics/Source.{GENDER,3}","Section1/Demographics/Source.{ETHNICITY,4}","Section1/Demographics/Source.{GRADE_ORDER,5}","Section1/Demographics/Source.{SY,6}","Section1/Demographics/Source.{TableKey,7}","Section1/Demographics/Source.{PSKey,8}","Section1/Demographics/Source.{ETHNICITYShort,9}","Section1/Demographics/Source.{ELL_STATUSShort,10}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Exception
+

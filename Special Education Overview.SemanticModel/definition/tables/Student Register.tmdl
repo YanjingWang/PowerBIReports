@@ -1,0 +1,517 @@
+table 'Student Register'
+	isHidden
+	lineageTag: 3ccd1821-764b-4c6e-9b41-9ee20694e797
+
+	measure 'Your Selection' = Count('Student Register'[StudentID])
+		formatString: #,0
+		isHidden
+		lineageTag: 2f878b80-1b36-46c0-ba8b-e3a78a8de8a7
+
+	measure '% of Total' = [Your Selection]/[Total Students]
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 35074dd5-7ea8-447d-b78f-44927c3c2f7a
+
+	measure 'Selection Text' = ```
+			
+			VAR gen = IF(ISFILTERED('Student Register'[Gender]),CONCATENATE(SELECTEDVALUE('Student Register'[Gender]), ", "),"")
+			
+			VAR ell = IF(ISFILTERED('Student Register'[ELL Status]),CONCATENATE(SELECTEDVALUE('Student Register'[ELL Status]), ", "),"")
+			
+			VAR eth =
+			    IF (
+			        ISFILTERED('Student Register'[Ethnicity]),
+			        IF(HASONEVALUE ('Student Register'[Ethnicity]),
+			            "Ethnicity [" & SELECTEDVALUE('Student Register'[Ethnicity],"") & "], ",
+			            "Ethnicity [Multiple], "),""
+			    )
+			
+			VAR hl = 
+			    IF (
+			        ISFILTERED('Student Register'[Home Language]),
+			        IF(HASONEVALUE ('Student Register'[Home Language]),
+			            "Home Language [" & SELECTEDVALUE('Student Register'[Home Language],"") & "], ",
+			            "Home Language [Multiple], "),""
+			    )
+			
+			VAR ms = IF(ISFILTERED('Student Register'[Meal Status]),CONCATENATE(SELECTEDVALUE('Student Register'[Meal Status]), ", "),"")
+			
+			VAR tr = IF(ISFILTERED('Student Register'[Temporary Residence Flag]),CONCATENATE("Temporary Residence [" & SELECTEDVALUE('Student Register'[Temporary Residence Flag]), "], "),"")
+			
+			VAR gr = 
+			    IF (
+			        ISFILTERED('Student Register'[Grade Level]),
+			        IF(HASONEVALUE ('Student Register'[Grade Level]),
+			            "Grade [" & SELECTEDVALUE('Student Register'[Grade Level],"") & "], ",
+			            "Grade [Multiple], "),""
+			    )
+			
+			VAR ag = 
+			    IF (
+			        ISFILTERED('Student Register'[Age]),
+			        IF(HASONEVALUE ('Student Register'[Age]),
+			            "Age [" & SELECTEDVALUE('Student Register'[Age],"") & "], ",
+			            "Age [Multiple], "),""
+			    )
+			
+			VAR bm = 
+			    IF (
+			        ISFILTERED('Student Register'[Birth Month]),
+			        IF(HASONEVALUE ('Student Register'[Birth Month]),
+			            "Birth Month [" & SELECTEDVALUE('Student Register'[Birth Month],"") & "], ",
+			            "Birth Month [Multiple], "),""
+			    )
+			RETURN
+			
+			VAR cl = 
+			    IF (
+			        ISFILTERED('Student Register'[Classification]),
+			        IF(HASONEVALUE ('Student Register'[Classification]),
+			            "Classification [" & SELECTEDVALUE('Student Register'[Classification],"") & "], ",
+			            "Classification [Multiple], "),""
+			    )
+			
+			VAR esy = IF(ISFILTERED('Student Register'[ESY Flag]),CONCATENATE("ESY [" & SELECTEDVALUE('Student Register'[ESY Flag]), "], "),"")
+			
+			VAR aa = IF(ISFILTERED('Student Register'[Alternate Assessment]),CONCATENATE("Alternate Assessment [" & SELECTEDVALUE('Student Register'[Alternate Assessment]), "], "),"")
+			
+			VAR pr = 
+			    IF (
+			        ISFILTERED('Student Register'[Primary Program Type]),
+			        IF(HASONEVALUE ('Student Register'[Primary Program Type]),
+			            "Primary Program [" & SELECTEDVALUE('Student Register'[Primary Program Type],"") & "], ",
+			            "Primary Program [Multiple], "),""
+			    )
+			
+			VAR lre = 
+			    IF (
+			        ISFILTERED('Student Register'[LRE Metric]),
+			        IF(HASONEVALUE ('Student Register'[LRE Metric]),
+			            "% Time in LRE [" & SELECTEDVALUE('Student Register'[LRE Metric],"") & "], ",
+			            "% Time in LRE [Multiple], "),""
+			    )
+			
+			VAR mre = 
+			    IF (
+			        ISFILTERED('Student Register'[MRE Recommendation]),
+			        IF(HASONEVALUE ('Student Register'[MRE Recommendation]),
+			            "MRE Recommendation [" & SELECTEDVALUE('Student Register'[MRE Recommendation],"") & "], ",
+			            "MRE Recommendation [Multiple], "),""
+			    )
+			
+			VAR ict4 = IF(ISFILTERED('Student Register'[ICT Core Flag]),CONCATENATE("ICT Core Flag [" & SELECTEDVALUE('Student Register'[ICT Core Flag]), "], "),"")
+			
+			VAR sc4 = IF(ISFILTERED('Student Register'[SC Core Flag]),CONCATENATE("SC Core Flag [" & SELECTEDVALUE('Student Register'[SC Core Flag]), "], "),"")
+			
+			VAR spec = 
+			    IF (
+			        ISFILTERED('Student Register'[Specialized Program]),
+			        IF(HASONEVALUE ('Student Register'[Specialized Program]),
+			            "Specialized Program [" & SELECTEDVALUE('Student Register'[Specialized Program],"") & "], ",
+			            "Specialized Program [Multiple], "),""
+			    )
+			
+			
+			var alltext = "Filtered By: " & gen & ell & eth & hl & ms & tr & gr & ag & bm & cl & esy & aa & pr & lre & mre & ict4 & sc4 & spec
+			
+			RETURN
+			IF(Len(alltext) > 13, LEFT(alltext,len(alltext)-2), "No Filter")
+			```
+		isHidden
+		lineageTag: 8c6d9086-8dd6-4ca9-b14e-f68ddfb007c6
+
+	measure 'Student Register Updated On' = "Student Register Snapshot updated on " & FORMAT(MAX(Locations[ProcessedDate]), "mm/dd/yyyy")
+		isHidden
+		lineageTag: 38e1f22b-21ba-4ea3-b413-dae2ab4ecfc3
+
+	measure Warning = ```
+			
+			VAR list = IF (ISFILTERED('Student Register'[Primary Program Type]),"Primary Program Type, ","")
+			    & IF (ISFILTERED('Student Register'[Temporary Residence Flag]),"Temporary Residence Flag, ","")
+			    & IF (ISFILTERED('Student Register'[LRE Metric]),"% Time in LRE, ","")
+			    & IF (ISFILTERED('Student Register'[ICT Core Flag]),"ICT Core Flag, ","")
+			    & IF (ISFILTERED('Student Register'[SC Core Flag]),"SC Core Flag, ","")
+			    & IF (ISFILTERED('Student Register'[Specialized Program]),"Specialized Program, ","")
+			
+			RETURN
+			IF (ISFILTERED('Student Register'[Primary Program Type]) 
+			        || ISFILTERED('Student Register'[Temporary Residence Flag])
+			        || ISFILTERED('Student Register'[LRE Metric])
+			        || ISFILTERED('Student Register'[ICT Core Flag])
+			        || ISFILTERED('Student Register'[SC Core Flag])
+			        || ISFILTERED('Student Register'[Specialized Program]),
+			    "Warning: Data not available for all years for selected filter(s) [" & left(list,len(list)-2) & "]","")
+			
+			```
+		isHidden
+		lineageTag: 68fe150c-165b-46b9-b69c-5b11bf8a987d
+
+	measure '# (% Change)' =
+			
+			VAR __PREVSY = (LEFT(max('Student Register'[SchoolYear]),4)-1) & "-" & (RIGHT(max('Student Register'[SchoolYear]),4)-1)
+			VAR __BASELINE_VALUE =
+				CALCULATE(
+					[Your Selection],
+					'Student Register'[SchoolYear] IN { __PREVSY }
+				)
+			VAR __MEASURE_VALUE = [Your Selection]
+			RETURN
+			FORMAT([Your Selection],"#,#,#") &
+				IF(
+					ISBLANK(__MEASURE_VALUE) || ISBLANK(__BASELINE_VALUE),BLANK(),
+					" (" & FORMAT(DIVIDE(__MEASURE_VALUE - __BASELINE_VALUE, __BASELINE_VALUE),"+#0.0%;-#0.0%") & ")"
+			    )
+		isHidden
+		lineageTag: f38405dd-f0ef-45e9-af10-3f12bc06c560
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "PercentageDifferenceFrom"
+				}
+
+	measure '% Change' =
+			
+			VAR __PREVSY = (LEFT(max('Student Register'[SchoolYear]),4)-1) & "-" & (RIGHT(max('Student Register'[SchoolYear]),4)-1)
+			VAR __BASELINE_VALUE =
+				CALCULATE(
+					[Your Selection],
+					'Student Register'[SchoolYear] IN { __PREVSY }
+				)
+			VAR __MEASURE_VALUE = [Your Selection]
+			RETURN
+				IF(
+					ISBLANK(__MEASURE_VALUE) || ISBLANK(__BASELINE_VALUE),BLANK(),
+					FORMAT(DIVIDE(__MEASURE_VALUE - __BASELINE_VALUE, __BASELINE_VALUE),"+#0.0%;-#0.0%")
+			    )
+		isHidden
+		lineageTag: 928d1d59-5197-4133-9618-b632a7753a67
+
+	column StudentID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 390547df-de4d-4d6f-92cf-b71193e1a665
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column EnrolledDBN
+		dataType: string
+		isHidden
+		lineageTag: 390fd33d-95a3-486b-8aad-541b9d611a8a
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: 08530690-edbe-46c9-b748-30314ba32b28
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8b614578-9106-4049-8d31-9a22c6210ef4
+		summarizeBy: sum
+		sourceColumn: Age
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		isHidden
+		lineageTag: c37e81c8-9f5e-497c-86bb-f27c96c56b07
+		summarizeBy: none
+		sourceColumn: Classification
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: c42b9457-71f0-427f-9370-637404c6c1d4
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: f38cf5db-b439-48b2-ae9b-889c34bedfca
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 3782459e-81b0-4d01-ad10-593fdacbf19d
+			defaultHierarchy: LocalDateTable_ed1544ef-d760-4c05-b7b4-4f283f7f01e9.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Enrolled School Setting'
+		dataType: string
+		isHidden
+		lineageTag: ab810784-a318-4a8c-a045-e9a5f1b4c465
+		summarizeBy: none
+		sourceColumn: Enrolled School Setting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		isHidden
+		lineageTag: 0efd8225-9e7c-40b8-b51d-f57d64507f84
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ELL Status'
+		dataType: string
+		isHidden
+		lineageTag: 38346cae-c9ca-4719-a584-372fbe4d211d
+		summarizeBy: none
+		sourceColumn: ELL Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Home Language'
+		dataType: string
+		isHidden
+		lineageTag: c6093762-8276-4c3a-b0e6-91e562875817
+		summarizeBy: none
+		sourceColumn: Home Language
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Level'
+		dataType: string
+		isHidden
+		lineageTag: 1308c2b2-5bc1-4213-a0aa-810a4ec2bd6e
+		summarizeBy: none
+		sourceColumn: Grade Level
+		sortByColumn: 'Grade Level Order'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Birth Month'
+		dataType: string
+		isHidden
+		lineageTag: 840b0a03-75ed-400d-9e94-658f5ce96664
+		summarizeBy: none
+		sourceColumn: Birth Month
+		sortByColumn: 'Birth Month Order'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Meal Status'
+		dataType: string
+		isHidden
+		lineageTag: 49188abd-699a-4dfd-9db6-1a7a7e327f01
+		summarizeBy: none
+		sourceColumn: Meal Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Temporary Residence Flag'
+		dataType: string
+		isHidden
+		lineageTag: 23b2a0c1-5306-44dd-ba27-3f846257f418
+		summarizeBy: none
+		sourceColumn: Temporary Residence Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Program Type'
+		dataType: string
+		isHidden
+		lineageTag: b04590a1-ea08-4c22-aad8-e128ddd3f981
+		summarizeBy: none
+		sourceColumn: Primary Program Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LRE Metric'
+		dataType: string
+		isHidden
+		lineageTag: c48448bf-6c51-43b9-bf9c-d20918e6c949
+		summarizeBy: none
+		sourceColumn: LRE Metric
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Specialized Program'
+		dataType: string
+		isHidden
+		lineageTag: f6aaced6-b77c-4a66-87d7-7dfc2f9b016b
+		summarizeBy: none
+		sourceColumn: Specialized Program
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ICT Core Flag'
+		dataType: string
+		isHidden
+		lineageTag: f4bc003f-97c6-4729-b2e3-f6f3d2cd8bbe
+		summarizeBy: none
+		sourceColumn: ICT Core Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SC Core Flag'
+		dataType: string
+		isHidden
+		lineageTag: 595c5038-69a5-4552-a915-8014eeba8976
+		summarizeBy: none
+		sourceColumn: SC Core Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Assessment'
+		dataType: string
+		isHidden
+		lineageTag: fdfffda4-becb-44f1-ab8a-4798beca74a1
+		summarizeBy: none
+		sourceColumn: Alternate Assessment
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ESY Flag'
+		dataType: string
+		isHidden
+		lineageTag: b58e7d93-7f05-42ec-ac69-2e9eabe372a7
+		summarizeBy: none
+		sourceColumn: ESY Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MRE Recommendation'
+		dataType: string
+		isHidden
+		lineageTag: 5baf1e8c-1e50-4d8c-82d3-b3a12d6b089f
+		summarizeBy: none
+		sourceColumn: MRE Recommendation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Level Order'
+		dataType: string
+		isHidden
+		lineageTag: 3480a8cc-d601-481f-a04f-1d46f1f9cb8f
+		summarizeBy: none
+		sourceColumn: Grade Level Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Birth Month Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7c53bc91-6944-47c2-a02f-08117c72c9fa
+		summarizeBy: sum
+		sourceColumn: Birth Month Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Recommended Placement'
+		dataType: string
+		lineageTag: 559020c5-ae93-487e-bfd5-0086863007bf
+		summarizeBy: none
+		sourceColumn: Recommended Placement
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationTypeVR
+		dataType: string
+		lineageTag: 9a13c7db-82b4-4ef8-ac97-8666ea5d4ad2
+		summarizeBy: none
+		sourceColumn: LocationTypeVR
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'ESY Flag Hierarchy'
+		isHidden
+		lineageTag: f1401c14-f611-4ff7-9470-afd8c4be371b
+
+		level 'ESY Flag'
+			lineageTag: bda990a3-de5f-4ca0-9cff-4f56696af669
+			column: 'ESY Flag'
+
+		level 'ICT Core Flag'
+			lineageTag: a5e18ce1-f765-47fd-9853-4a08a56782a3
+			column: 'ICT Core Flag'
+
+	partition 'Student Register-0ce466ed-75ea-46e6-9442-6e0962db0170' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *#(lf)  FROM [SEO_REPORTING].bi.vw_SEOverview_Register"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":33,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Student Register/Source.{StudentID,0}","Section1/Student Register/Source.{ProfileIDT,1}","Section1/Student Register/Source.{FirstName,2}","Section1/Student Register/Source.{LastName,3}","Section1/Student Register/Source.{EnrolledDBN,4}","Section1/Student Register/Source.{Enrolled School Setting,5}","Section1/Student Register/Source.{Ethnicity,6}","Section1/Student Register/Source.{Gender,7}","Section1/Student Register/Source.{ELL Status,8}","Section1/Student Register/Source.{Home Language,9}","Section1/Student Register/Source.{Age,10}","Section1/Student Register/Source.{Grade Level,11}","Section1/Student Register/Source.{Grade Level Order,12}","Section1/Student Register/Source.{Birth Month,13}","Section1/Student Register/Source.{Birth Month Order,14}","Section1/Student Register/Source.{Birth Year,15}","Section1/Student Register/Source.{Meal Status,16}","Section1/Student Register/Source.{Temporary Residence Flag,17}","Section1/Student Register/Source.{Classification,18}","Section1/Student Register/Source.{Primary Program Type,19}","Section1/Student Register/Source.{LRE Metric,20}","Section1/Student Register/Source.{MRE Recommendation,21}","Section1/Student Register/Source.{Specialized Program,22}","Section1/Student Register/Source.{ICT Core Flag,23}","Section1/Student Register/Source.{SC Core Flag,24}","Section1/Student Register/Source.{Alternate Assessment,25}","Section1/Student Register/Source.{Outcome Language,26}","Section1/Student Register/Source.{ESY Flag,27}","Section1/Student Register/Source.{LearningPreference,28}","Section1/Student Register/Source.{InstructionalCohort,29}","Section1/Student Register/Source.{Cohort Assignment,30}","Section1/Student Register/Source.{SchoolYear,31}","Section1/Student Register/Source.{ProcessedDate,32}"],"ColumnCount":33,"KeyColumnNames":[],"ColumnIdentities":["Section1/Student Register/Source.{StudentID,0}","Section1/Student Register/Source.{ProfileIDT,1}","Section1/Student Register/Source.{FirstName,2}","Section1/Student Register/Source.{LastName,3}","Section1/Student Register/Source.{EnrolledDBN,4}","Section1/Student Register/Source.{Enrolled School Setting,5}","Section1/Student Register/Source.{Ethnicity,6}","Section1/Student Register/Source.{Gender,7}","Section1/Student Register/Source.{ELL Status,8}","Section1/Student Register/Source.{Home Language,9}","Section1/Student Register/Source.{Age,10}","Section1/Student Register/Source.{Grade Level,11}","Section1/Student Register/Source.{Grade Level Order,12}","Section1/Student Register/Source.{Birth Month,13}","Section1/Student Register/Source.{Birth Month Order,14}","Section1/Student Register/Source.{Birth Year,15}","Section1/Student Register/Source.{Meal Status,16}","Section1/Student Register/Source.{Temporary Residence Flag,17}","Section1/Student Register/Source.{Classification,18}","Section1/Student Register/Source.{Primary Program Type,19}","Section1/Student Register/Source.{LRE Metric,20}","Section1/Student Register/Source.{MRE Recommendation,21}","Section1/Student Register/Source.{Specialized Program,22}","Section1/Student Register/Source.{ICT Core Flag,23}","Section1/Student Register/Source.{SC Core Flag,24}","Section1/Student Register/Source.{Alternate Assessment,25}","Section1/Student Register/Source.{Outcome Language,26}","Section1/Student Register/Source.{ESY Flag,27}","Section1/Student Register/Source.{LearningPreference,28}","Section1/Student Register/Source.{InstructionalCohort,29}","Section1/Student Register/Source.{Cohort Assignment,30}","Section1/Student Register/Source.{SchoolYear,31}","Section1/Student Register/Source.{ProcessedDate,32}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

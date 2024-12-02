@@ -1,0 +1,31 @@
+table 'Week Toggle'
+	isHidden
+	lineageTag: e4dc3239-1223-4aea-9c32-a55abdefabfb
+
+	column 'Week Toggle'
+		dataType: string
+		lineageTag: 436c286b-790a-4ae0-864a-c0ff9c8d92aa
+		summarizeBy: none
+		sourceColumn: Week Toggle
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWnumber
+		dataType: int64
+		formatString: 0
+		lineageTag: eb821bf2-5fbe-4635-86e1-d3f7112e76b1
+		summarizeBy: sum
+		sourceColumn: SWnumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Week Toggle-4fbc469b-35e7-4570-8ee4-0954631463f8' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="select case when SWnumber = 40 then 'End of SY'#(lf)else concat('Week', ' ', SWnumber, ' ', 'of SY') end as 'Week Toggle', SWnumber#(lf)from#(lf)(#(lf)#(lf)select #(lf)max(week) as SWnumber  from  #(lf)seo_reporting.[BI].[vw_ProvisionofServices_PSStudentYOY] a#(lf)where a.schoolyear in (select max(schoolyear) from seo_mart.dbo.AGRW_RPT_SEP_Provisioning)#(lf))z#(lf)#(lf)union #(lf)#(lf)select 'End of SY' as 'Week Toggle',#(lf)max(week) as SWnumber  from  #(lf)seo_reporting.[BI].[vw_ProvisionofServices_PSStudentYOY] a#(lf)where a.schoolyear in (select max(schoolyear) from seo_mart.dbo.AGRW_RPT_SEP_Provisioning)#(lf)"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

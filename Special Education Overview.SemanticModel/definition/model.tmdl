@@ -1,0 +1,54 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["IEPs & Recommendations","Users","Locations","Student Register","Student Register All","Setting","Demographics","Transition","Exam Data","Graduation","Suspension","Referrals","Referral Toggle","Suspension Toggle","Demo Table","Program Services","IEP Achievement","Related Services","Week Toggle","Annuals","T5","SchoolYear","Related Services AGRW","RS Week Toggle","Schooldbn"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_99954493-8b31-443b-b8cb-18a89b49f9cc
+ref table 'IEPs & Recommendations'
+ref table Users
+ref table LocalDateTable_b32dc6cd-cd7b-4751-834c-f6fe5aad69d3
+ref table Locations
+ref table LocalDateTable_6a0f01ad-6bd6-4716-bbb0-456758d29022
+ref table LocalDateTable_30f7dbfd-29aa-4974-902e-0a3af33099b6
+ref table 'Student Register'
+ref table LocalDateTable_ed1544ef-d760-4c05-b7b4-4f283f7f01e9
+ref table 'Student Register All'
+ref table LocalDateTable_533205a3-8a7a-4df0-9d0e-3ff7ea5be2da
+ref table Setting
+ref table Demographics
+ref table Transition
+ref table LocalDateTable_b646529c-688c-4aee-9782-0009774f3b1b
+ref table 'Exam Data'
+ref table Graduation
+ref table Suspension
+ref table LocalDateTable_aa86cf16-47d2-4089-9675-55ee5d5919c6
+ref table Referrals
+ref table 'Referral Toggle'
+ref table 'Suspension Toggle'
+ref table 'Demo Table'
+ref table 'Program Services'
+ref table 'IEP Achievement'
+ref table 'Related Services'
+ref table LocalDateTable_cd3e3d7c-0cfb-447f-82e5-433cd745c72b
+ref table 'Week Toggle'
+ref table Annuals
+ref table LocalDateTable_f3130f82-09f2-4ef7-b401-ce385d59f68c
+ref table T5
+ref table LocalDateTable_f1bed14f-9219-461e-a5c9-c6f4e9bda00d
+ref table SchoolYear
+ref table 'Related Services AGRW'
+ref table LocalDateTable_d8b37356-ecfd-4a79-bd6b-6de38b35dd78
+ref table 'RS Week Toggle'
+ref table Schooldbn
+

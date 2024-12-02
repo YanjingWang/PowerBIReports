@@ -1,0 +1,27 @@
+table Setting
+	isHidden
+	lineageTag: dfd6eb6b-7208-483f-8dde-bc863677e40f
+
+	column 'Enrolled School Setting'
+		dataType: string
+		isHidden
+		lineageTag: d7f2b5ef-61b2-4c38-81c6-4e004b72935f
+		summarizeBy: none
+		sourceColumn: Enrolled School Setting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Setting-95165c88-a757-42f4-b315-9c36170e0f9c = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_MART", [Query="select distinct [Enrolled School Setting] from [SEO_REPORTING].bi.vw_SEOverview_Register"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Setting/Source.{Enrolled School Setting,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Setting/Source.{Enrolled School Setting,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

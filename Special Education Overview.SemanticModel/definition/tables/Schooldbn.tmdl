@@ -1,0 +1,37 @@
+table Schooldbn
+	lineageTag: ac045bc1-fc8a-48b8-9825-39d5e688f2e4
+
+	column SCHOOL_DBN
+		dataType: string
+		lineageTag: a425b22c-ae24-446d-90fb-67cc8dd7151f
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolTypeNew = related(Locations[School Type])
+		dataType: string
+		lineageTag: 601c52a4-132e-4d78-9f12-bfef52ecd769
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Type Replaced' = if (ISBLANK(Schooldbn[SchoolTypeNew]), "NPS", Schooldbn[SchoolTypeNew])
+		dataType: string
+		lineageTag: e81ae563-e312-4035-8e11-f7ad5d17fe07
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Schooldbn-67f6f465-0fc4-4a11-89f1-9422893e27a5 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="select distinct SCHOOL_DBN from [BI].[vw_SPF_AccessData_AllSettings] nolock#(lf)union#(lf)select distinct  EnrolledDBN    from [SEO_REPORTING].bi.vw_SEOverview_Register nolock#(lf)union#(lf)  select distinct EnrolledDBN from  [SEO_REPORTING].bi.[vw_SEOverview_Register] nolock#(lf)where SchoolYear = (SELECT max(schoolyear)  FROM [SEO_REPORTING].bi.[vw_SEOverview_Register] nolock)#(lf)union#(lf)select distinct  SCHOOL_DBN from [SEO_REPORTING].bi.[vw_SPFDashboard_Transition] nolock#(lf)union#(lf)select distinct  SCHOOL_DBN from [SEO_REPORTING].[bi].[vw_SPFDashboard_ELAMath] nolock#(lf)union#(lf)select distinct  SCHOOL_DBN from  [SEO_REPORTING].bi.[vw_SPFDashboard_Grad] nolock#(lf)union#(lf)select distinct  SCHOOL_DBN from [SEO_REPORTING].bi.[vw_SEOverview_Suspension] nolock#(lf)union#(lf)select distinct FinalComplianceSchoolDBN from SEO_REPORTING.bi.vw_SEOverview_Timeliness nolock#(lf)union#(lf)select distinct  SCHOOL_DBN from SEO_REPORTING.bi.vw_SEOverview_PS nolock#(lf)union#(lf)select distinct  EnrolledDBN from [SEO_REPORTING].[dbo].[SEOverview_RS] nolock#(lf)union#(lf)select distinct  ComplianceSchoolDBN from [SEO_REPORTING].bi.[vw_SEOverview_Annuals] nolock#(lf)union#(lf)select distinct  T5IEPTeam from [SEO_REPORTING].bi.[vw_SEOverview_T5] nolock#(lf)union#(lf)select distinct EnrolledDBN  FROM seo_reporting.[BI].[vw_RelatedServices_RSMandate_Calendar] nolock#(lf) where #(lf)  schoolyear not in ('2015-2016', '2016-2017', '2017-2018', '2018-2019')#(lf)"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

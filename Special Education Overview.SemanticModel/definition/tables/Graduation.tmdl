@@ -1,0 +1,364 @@
+table Graduation
+	isHidden
+	lineageTag: a0359710-0019-46cf-a8ad-9d7bdfeec07c
+
+	measure 'Graduation Rate' = SUM(Graduation[Graduated])/sum(Graduation[Cohort])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: a9eeff1e-4fc9-47a6-a375-d1544a8548a3
+
+	measure 'Dropout Rate' = SUM(Graduation[Drop Out])/sum(Graduation[Cohort])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: ec8cc43f-c315-4390-8ccd-80786b63c36e
+
+	measure 'Graduation Rate Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Grad Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Grad Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: ac6f9208-efd4-4b18-8d54-d403c2ffbc68
+
+	measure 'Dropout Rate Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Dropout Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Dropout Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 3ba60405-52b1-4ada-ae32-b1bc7f94a2c3
+
+	measure 'Grad Business Rules' = IF(HASONEVALUE(Graduation[Type]),"***" & max(Graduation[Type]),"")
+		isHidden
+		lineageTag: 9dd9ce50-f755-4ce1-90db-5070daaec184
+
+	measure 'Grad CallOut SY' =
+			
+			VAR MyGroup =SELECTEDVALUE(Graduation[Type])
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "4 Year August",LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest Grad 4Y"),
+			MyGroup = "4 Year",LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest Grad 4Y"),
+			MyGroup = "5 Year August",LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest Grad 5Y"),
+			MyGroup = "5 Year",LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest Grad 5Y"),
+			MyGroup = "6 Year",LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Latest Grad 6Y"),
+			"")
+		isHidden
+		lineageTag: 3e0f0132-83bd-4a3a-9bbb-2421fe6472e6
+
+	measure 'Grad Callout' = CALCULATE(Graduation[Graduation Rate],FILTER(Graduation,Graduation[CohortYear_SY] = Graduation[Grad CallOut SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: d9925976-9612-42cc-b475-cece006e30f9
+
+	measure 'Dropout Callout' = CALCULATE(Graduation[Dropout Rate],FILTER(Graduation,Graduation[CohortYear_SY] = Graduation[Grad CallOut SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: e1009eb7-0574-443d-bf2f-dea20069c98a
+
+	measure 'Graduation Cohort' = IF(ISBLANK(SUM(Graduation[Cohort])),"--",SUM(Graduation[Cohort]))
+		formatString: #,0
+		isHidden
+		lineageTag: 4320c73c-a9b0-410e-96d0-d3702a95fe34
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Graduation Rate (#)' = IF(ISBLANK([Graduation Rate]), "--", FORMAT([Graduation Rate], "0.0%") & " (" & sum(Graduation[Graduated]) & ")")
+		isHidden
+		lineageTag: fc6a06a4-843e-49bd-ae8d-4e0002f2f527
+
+	measure 'Dropout Rate (#)' = IF(ISBLANK([Dropout Rate]), "--", FORMAT([Dropout Rate], "0.0%") & " (" & sum(Graduation[Drop Out]) & ")")
+		isHidden
+		lineageTag: 0d03b98b-b8d0-4538-92fe-2f996a2fe42e
+
+	measure 'Grad Callout NA' = IF(ISBLANK([Grad Callout]),[NAText],[Grad Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: da10abc7-2b65-4eb0-8942-f9cfea1f9e7f
+
+	measure 'Dropout Callout NA' = IF(ISBLANK([Dropout Callout]),[NAText],[Dropout Callout])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 970f2bbd-5f0d-451e-8c93-aa86ae451404
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 2bcfbfdb-bf50-4213-bc4d-1688e605fe7b
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 496390b3-96bd-480f-89e4-5e912ad20306
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 54d1b624-34a0-430d-b258-3aefbf75f262
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: ec1b696c-85ab-437a-8128-236a120cb4aa
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: 958f7396-8b87-44e6-aad4-c9a3360b99a0
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassOf
+		dataType: int64
+		isHidden
+		lineageTag: 09e57a7b-e128-4c04-91c3-2d64d0d1eb89
+		summarizeBy: sum
+		sourceColumn: ClassOf
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CohortYear
+		dataType: string
+		isHidden
+		lineageTag: d38a9abd-5d43-4a34-83e8-989526edb94c
+		summarizeBy: none
+		sourceColumn: CohortYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CohortYear_SY
+		dataType: string
+		isHidden
+		lineageTag: 01e666e5-2144-42d8-9481-34fa0fa82f4f
+		summarizeBy: none
+		sourceColumn: CohortYear_SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		isHidden
+		lineageTag: 52686cc0-0e2b-4599-bfed-1a357e7fbfe6
+		summarizeBy: none
+		sourceColumn: Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Diploma'
+		dataType: double
+		isHidden
+		lineageTag: 607d6bf0-a41f-45c9-98c9-acb255b1e3f5
+		summarizeBy: sum
+		sourceColumn: Local Diploma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Regents Diploma'
+		dataType: double
+		isHidden
+		lineageTag: 5c420c8e-2e81-46ef-ae0c-0c6d423b4867
+		summarizeBy: sum
+		sourceColumn: Regents Diploma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Advanced Regents'
+		dataType: double
+		isHidden
+		lineageTag: 5c6cf0ce-05ed-47b0-afc6-9182d14d3401
+		summarizeBy: sum
+		sourceColumn: Advanced Regents
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'All Regents'
+		dataType: double
+		isHidden
+		lineageTag: 61011df3-9c2f-4a34-9695-7e0b874fd428
+		summarizeBy: sum
+		sourceColumn: All Regents
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Graduated
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: ac0739af-332f-46d0-88e4-8d865dc13c59
+		summarizeBy: sum
+		sourceColumn: Graduated
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Drop Out'
+		dataType: double
+		isHidden
+		formatString: #,0
+		lineageTag: 6282153e-7fde-40a6-876c-f7e081fd57c4
+		summarizeBy: sum
+		sourceColumn: Drop Out
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Cohort
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 1ad5b10e-9454-42d7-9538-c82918d2c265
+		summarizeBy: sum
+		sourceColumn: Cohort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column membership_desc
+		dataType: string
+		isHidden
+		lineageTag: 61bc9317-3dd9-4698-9bb9-c7a2f79d7df3
+		summarizeBy: none
+		sourceColumn: membership_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column membership_key
+		dataType: double
+		isHidden
+		lineageTag: 7fbff004-7088-40df-81af-3f43731d2c62
+		summarizeBy: sum
+		sourceColumn: membership_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 75895829-9c20-4999-abaf-66772e603bba
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 40611913-42ab-4629-a69a-4078105c9d74
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: d27ee3ac-2cf4-4103-9fcc-17a3477eac9c
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Graduation-88d68625-5429-4ab5-bd0e-fefae4fc887d = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SCHOOL_DBN]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[ELL_STATUS]#(lf)      ,[IEP]#(lf)      ,[ClassOf]#(lf)      ,[CohortYear]#(lf)      ,[CohortYear_SY]#(lf)      ,[Type]#(lf)      ,[Local Diploma]#(lf)      ,[Regents Diploma]#(lf)      ,[Advanced Regents]#(lf)      ,[All Regents]#(lf)      ,[Graduated]#(lf)      ,[Drop Out]#(lf)      ,[Cohort]#(lf)      ,[membership_desc]#(lf)      ,[membership_key]#(lf)      ,[GRADE]#(lf)      ,[SchoolKey]#(lf)      ,[TableKey]#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Grad]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":21,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Graduation/Source.{SCHOOL_DBN,0}","Section1/Graduation/Source.{GENDER,1}","Section1/Graduation/Source.{ETHNICITY,2}","Section1/Graduation/Source.{ELL_STATUS,3}","Section1/Graduation/Source.{IEP,4}","Section1/Graduation/Source.{ClassOf,5}","Section1/Graduation/Source.{CohortYear,6}","Section1/Graduation/Source.{CohortYear_SY,7}","Section1/Graduation/Source.{Type,8}","Section1/Graduation/Source.{Local Diploma,9}","Section1/Graduation/Source.{Regents Diploma,10}","Section1/Graduation/Source.{Advanced Regents,11}","Section1/Graduation/Source.{All Regents,12}","Section1/Graduation/Source.{Graduated,13}","Section1/Graduation/Source.{Drop Out,14}","Section1/Graduation/Source.{Cohort,15}","Section1/Graduation/Source.{membership_desc,16}","Section1/Graduation/Source.{membership_key,17}","Section1/Graduation/Source.{GRADE,18}","Section1/Graduation/Source.{SchoolKey,19}","Section1/Graduation/Source.{TableKey,20}"],"ColumnCount":21,"KeyColumnNames":[],"ColumnIdentities":["Section1/Graduation/Source.{SCHOOL_DBN,0}","Section1/Graduation/Source.{GENDER,1}","Section1/Graduation/Source.{ETHNICITY,2}","Section1/Graduation/Source.{ELL_STATUS,3}","Section1/Graduation/Source.{IEP,4}","Section1/Graduation/Source.{ClassOf,5}","Section1/Graduation/Source.{CohortYear,6}","Section1/Graduation/Source.{CohortYear_SY,7}","Section1/Graduation/Source.{Type,8}","Section1/Graduation/Source.{Local Diploma,9}","Section1/Graduation/Source.{Regents Diploma,10}","Section1/Graduation/Source.{Advanced Regents,11}","Section1/Graduation/Source.{All Regents,12}","Section1/Graduation/Source.{Graduated,13}","Section1/Graduation/Source.{Drop Out,14}","Section1/Graduation/Source.{Cohort,15}","Section1/Graduation/Source.{membership_desc,16}","Section1/Graduation/Source.{membership_key,17}","Section1/Graduation/Source.{GRADE,18}","Section1/Graduation/Source.{SchoolKey,19}","Section1/Graduation/Source.{TableKey,20}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

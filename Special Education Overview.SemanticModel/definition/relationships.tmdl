@@ -1,0 +1,184 @@
+relationship 14d7ec0b-008f-4644-9699-46aaa9c893ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'IEPs & Recommendations'.Last_Updated
+	toColumn: LocalDateTable_b32dc6cd-cd7b-4751-834c-f6fe5aad69d3.Date
+
+relationship 3aa22f68-2459-4065-afb3-47d46ed0fe0a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ClosedDate
+	toColumn: LocalDateTable_6a0f01ad-6bd6-4716-bbb0-456758d29022.Date
+
+relationship 86b61c8e-ce8e-4d8f-9b1c-89a304d02fdf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ProcessedDate
+	toColumn: LocalDateTable_30f7dbfd-29aa-4974-902e-0a3af33099b6.Date
+
+relationship 3782459e-81b0-4d01-ad10-593fdacbf19d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Register'.ProcessedDate
+	toColumn: LocalDateTable_ed1544ef-d760-4c05-b7b4-4f283f7f01e9.Date
+
+relationship 1a02d187-e985-4dc0-90e5-834d5d997bbe
+	fromColumn: 'Student Register'.EnrolledDBN
+	toColumn: Locations.'School DBN'
+
+relationship 6615fd16-9e59-43cf-bd16-eb97eff636f4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Student Register All'.ProcessedDate
+	toColumn: LocalDateTable_533205a3-8a7a-4df0-9d0e-3ff7ea5be2da.Date
+
+relationship 42666d9c-4da0-490c-853b-cbe7727e4e6b
+	fromColumn: 'Student Register All'.EnrolledDBN
+	toColumn: Locations.'School DBN'
+
+relationship 8ca075df-2b62-4b34-ad44-8036eacfa407
+	fromColumn: 'Student Register'.'Enrolled School Setting'
+	toColumn: Setting.'Enrolled School Setting'
+
+relationship 0303f1e2-4a1f-4825-8099-2616e30a7149
+	fromColumn: 'Student Register All'.'Enrolled School Setting'
+	toColumn: Setting.'Enrolled School Setting'
+
+relationship aee21088-358c-45b2-8d36-a06ad875c5ce
+	fromColumn: 'IEPs & Recommendations'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 36e2a9b8-a91f-43f0-9e00-fd7aebed70f9
+	fromColumn: 'IEPs & Recommendations'.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 648584b4-b0b4-4603-9c06-8f2377bba68f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Transition.AsOfDate
+	toColumn: LocalDateTable_b646529c-688c-4aee-9782-0009774f3b1b.Date
+
+relationship d7e07167-86c4-4be4-a17e-2cc5d6092a43
+	fromColumn: Transition.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 9d9e97b9-fc0a-48ff-90b2-df879ea73ba4
+	fromColumn: Transition.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 2f0c82fb-e71a-4b39-b38d-455ffaf5050d
+	fromColumn: 'Exam Data'.TableKey
+	toColumn: Demographics.TableKey
+
+relationship fc3dfbac-8e6a-41a2-ab7d-81b5c38b6986
+	fromColumn: 'Exam Data'.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 2c80803b-5cad-4746-ba08-4c22a9bcf5ce
+	fromColumn: Graduation.TableKey
+	toColumn: Demographics.TableKey
+
+relationship b3219b47-7438-484e-a042-6d28737c29ca
+	fromColumn: Graduation.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 3af3e69b-5a0b-4c40-b6cd-038b76487688
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Suspension.AsOfDate
+	toColumn: LocalDateTable_aa86cf16-47d2-4089-9675-55ee5d5919c6.Date
+
+relationship 28419a9e-df5f-4237-a742-aab320842595
+	fromColumn: Suspension.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 65b28d52-6c17-436c-9522-d0e10c2c315b
+	fromColumn: Suspension.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 90d663c8-9e9b-4e66-8c6a-4374a3920b85
+	fromColumn: Referrals.TableKey
+	toColumn: Demographics.TableKey
+
+relationship d8fe6725-c147-4df2-b8b0-33110137e1cb
+	fromColumn: Referrals.'Data Thru'
+	toColumn: 'Referral Toggle'.'Referral Data Thru'
+
+relationship 0724911d-eefe-46c9-ac72-2963e178882e
+	fromColumn: 'Program Services'.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+
+relationship 03031238-ff7b-4b6a-8bfc-6b4c51b71ca5
+	toCardinality: many
+	fromColumn: 'Program Services'.PSKey
+	toColumn: Demographics.PSKey
+
+relationship 383bda9a-0784-4681-b363-ed7b8cb268ed
+	fromColumn: 'Exam Data'.IEP
+	toColumn: 'IEP Achievement'.IEPExam
+
+relationship 2872a4fc-963f-4e30-8b53-5c87aeed2e95
+	fromColumn: Graduation.IEP
+	toColumn: 'IEP Achievement'.IEPExam
+
+relationship 359a2bcb-3051-469c-a8f2-76ceb3060bf0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Related Services'.ProcessedDate
+	toColumn: LocalDateTable_cd3e3d7c-0cfb-447f-82e5-433cd745c72b.Date
+
+relationship 869e6955-caab-4d9e-8188-b833c6f1abfe
+	fromColumn: 'Related Services'.EnrolledDBN
+	toColumn: Locations.'School DBN'
+
+relationship 985f639e-7c1b-491d-aafd-657f37f15b27
+	toCardinality: many
+	fromColumn: 'Related Services'.PSKey
+	toColumn: Demographics.PSKey
+
+relationship 575320af-5974-4d0f-a9ba-a7a5bc4aa525
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Annuals.ProcessedDate
+	toColumn: LocalDateTable_f3130f82-09f2-4ef7-b401-ce385d59f68c.Date
+
+relationship 0775df03-5bd2-46fd-b507-a6f5912f95ce
+	fromColumn: Annuals.TableKey
+	toColumn: Demographics.TableKey
+
+relationship 66bdc9b1-6aa4-458b-bff7-e12531858745
+	fromColumn: Annuals.ComplianceSchoolDBN
+	toColumn: Locations.'School DBN'
+
+relationship d1d0f788-f8ab-409b-8716-ec72f3af6949
+	joinOnDateBehavior: datePartOnly
+	fromColumn: T5.ProcessedDate
+	toColumn: LocalDateTable_f1bed14f-9219-461e-a5c9-c6f4e9bda00d.Date
+
+relationship dd04687c-4862-4160-8576-5c3365cab4d7
+	toCardinality: many
+	fromColumn: T5.PSKey
+	toColumn: Demographics.PSKey
+
+relationship 94020427-d346-46c0-8bb8-43cbac38a10b
+	fromColumn: T5.T5IEPTeam
+	toColumn: Locations.'School DBN'
+
+relationship 9b487f9a-f48b-4010-b242-2c891c8c0784
+	toCardinality: many
+	fromColumn: Demographics.SchoolYear
+	toColumn: SchoolYear.SchoolYear
+
+relationship 6d1e9f64-b9a4-45e7-86ed-c9471ff3721d
+	fromColumn: Referrals.FinalComplianceSchoolDBN
+	toColumn: Locations.'School DBN'
+
+relationship 236b2ca3-4106-4f2a-a5e3-7d7be20eecd5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Related Services AGRW'.ProcessedDate
+	toColumn: LocalDateTable_d8b37356-ecfd-4a79-bd6b-6de38b35dd78.Date
+
+relationship ba255cf0-44ad-4592-b74e-45c06f8de1f4
+	fromColumn: 'Related Services AGRW'.EnrolledDBN
+	toColumn: Locations.'School DBN'
+
+relationship b7379f66-9980-4f07-af93-cc77c675cb7a
+	fromColumn: 'Related Services AGRW'.PSKey
+	toColumn: Demographics.TableKey
+
+relationship 7b38956e-efab-4282-875d-0d8753ef32a8
+	crossFilteringBehavior: bothDirections
+	fromColumn: Schooldbn.SCHOOL_DBN
+	toColumn: Locations.'School DBN'
+

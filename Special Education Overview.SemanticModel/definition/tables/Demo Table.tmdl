@@ -1,0 +1,64 @@
+table 'Demo Table'
+	isHidden
+	lineageTag: b53fe234-1357-447a-885a-ae74adbe3262
+
+	column Group
+		dataType: string
+		isHidden
+		lineageTag: fd67137f-ae7c-4dbe-8adf-8835a6b6afcb
+		summarizeBy: none
+		sourceColumn: Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subgroup
+		dataType: string
+		isHidden
+		lineageTag: bf962f80-9de0-43da-9fe2-3ee1bb6daab1
+		summarizeBy: none
+		sourceColumn: Subgroup
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b1716571-5d8f-4b80-ba4e-d3143f28ead0
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subgroup CAP'
+		dataType: string
+		isHidden
+		lineageTag: 2ad2db7e-269f-4d16-b86b-4564f1a1e1ed
+		summarizeBy: none
+		sourceColumn: Subgroup CAP
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Demo Table-f55cc875-c04c-43b2-9698-32b4600a6251' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wci3JyMtMziypVNJRcizOTMwD0cGejn5A2lApVgdVhVNOYnI2iPZxdPYG0kYYKjwyiwsSgTwQ0zM4wNHP0xnINMZQ51+SkVoEokM8XIOAtAmGivCMzJJUEO3hGeIKpE0hKnx8FIJLEktKi4FCQA6cNMeU9vMPUYBIIlgWSrGxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Group = _t, Subgroup = _t, #"Subgroup CAP" = _t, Order = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Group", type text}, {"Subgroup", type text}, {"Subgroup CAP", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demo Table/Changed Type.{Group,0}","Section1/Demo Table/Changed Type.{Subgroup,1}","Section1/Demo Table/Changed Type.{Subgroup CAP,2}","Section1/Demo Table/Changed Type.{Order,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demo Table/Changed Type.{Group,0}","Section1/Demo Table/Changed Type.{Subgroup,1}","Section1/Demo Table/Changed Type.{Subgroup CAP,2}","Section1/Demo Table/Changed Type.{Order,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

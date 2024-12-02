@@ -1,0 +1,157 @@
+table Annuals
+	isHidden
+	lineageTag: af093c30-9998-4f90-a7e1-47fe6f13c0f8
+
+	measure '% Annuals on Time' = sum(Annuals[Annuals On Time])/sum(Annuals[Total Annuals])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 4a71bbb7-cf1c-4a2a-a93e-d78adb250408
+
+	measure '% Annuals on Time Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Annuals on Time],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% Annuals on Time],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 5aa2e172-be9f-43c5-b999-dc7a3ecee7a4
+
+	measure '% Annuals on Time (#)' = IF(ISBLANK([% Annuals on Time]),"--", FORMAT([% Annuals on Time],"0.0%") & " (" & SUM([Total Annuals]) & ")")
+		isHidden
+		lineageTag: 72aaf0da-f2fd-4fff-9df3-b8e29656c45c
+
+	column ComplianceSchoolDBN
+		dataType: string
+		isHidden
+		lineageTag: fd40e313-4b24-4fbf-bb01-c1e725f8c609
+		summarizeBy: none
+		sourceColumn: ComplianceSchoolDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		isHidden
+		lineageTag: f892d8f3-6c5a-4b01-97ef-f0ccd5f47a4b
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: 245f014b-65a7-4597-92e9-5842394e722e
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		isHidden
+		lineageTag: 6e04d72c-4693-467d-8b74-0005eea43e05
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		isHidden
+		lineageTag: bd452065-3bb5-4f4e-a417-ac9567e3a6cb
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Annuals On Time'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 1ab0f67b-69e5-40d5-aa9e-f2a2502cdd45
+		summarizeBy: sum
+		sourceColumn: Annuals On Time
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Annuals'
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 2713de44-6017-4e26-84da-ded606999000
+		summarizeBy: sum
+		sourceColumn: Total Annuals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 90da70ab-42ea-4d4c-b0a2-33183e187b53
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 93be13e8-18e2-4729-bf56-d2d6586a24c8
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 575320af-5974-4d0f-a9ba-a7a5bc4aa525
+			defaultHierarchy: LocalDateTable_f3130f82-09f2-4ef7-b401-ce385d59f68c.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: 58f828c4-fdba-412d-bdab-eec379d146af
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Annuals-0650c553-5d43-4c78-8829-bab94f280092 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [ComplianceSchoolDBN]#(lf)      ,[ELLStatus]#(lf)      ,[Gender]#(lf)      ,[EthnicityGroupCC]#(lf)      ,[GradeLevel]#(lf)      ,[Annuals On Time]#(lf)      ,[Total Annuals]#(lf)      ,[SchoolYear]#(lf)      ,[ProcessedDate]#(lf)      ,[TableKey]#(lf)  FROM [SEO_REPORTING].bi.[vw_SEOverview_Annuals]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

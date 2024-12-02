@@ -1,0 +1,233 @@
+table Referrals
+	isHidden
+	lineageTag: fa941483-125a-44ab-baa2-340d50490f8a
+
+	measure Timeliness =
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of School Year", IF(min('Demographics'[SchoolYear])=LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Current"),blank(),sum(Referrals[ComplianceNumerator])/sum(Referrals[ComplianceDenominator])),
+			Left(MySelection,5) = "First", sum(Referrals[ComplianceNumerator])/sum(Referrals[ComplianceDenominator]),
+			sum(Referrals[ComplianceNumerator])/sum(Referrals[ComplianceDenominator]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 93e823a1-48e9-45b0-810a-25624d372ef9
+
+	measure 'Timeliness Callout' = CALCULATE([Timeliness],FILTER(Referrals,Referrals[SchoolYear]=[Referral Rate Callout SY]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 7d27c14c-1fb9-4354-a224-df7ddaf6d42a
+
+	measure 'Timeliness Business Rules' = IF(HASONEVALUE(Referrals[Compliance Calculation2]),"*" & max(Referrals[Compliance Calculation2]),"")
+		isHidden
+		lineageTag: 5b852cce-4727-4949-ae6f-2c15b79b64ff
+
+	measure 'Timeliness Callout Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Timeliness Callout],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Timeliness Callout],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: f379cf5d-0ae0-498d-a312-5a6baa3200d3
+
+	measure 'Timeliness Callout SY' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of School Year", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous"),
+			Left(MySelection,5) = "First", LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Current"),
+			LOOKUPVALUE(SchoolYear[SchoolYear],SchoolYear[SchoolYearLabel],"Previous"))
+		isHidden
+		lineageTag: bf475dab-af39-4a40-9708-319c72606073
+
+	measure '# Completed' =
+			VAR MySelection =
+			SELECTEDVALUE ('Referral Toggle'[Referral Data Thru], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "End of School Year", IF(min('Demographics'[SchoolYear])=[CurrentSchoolYear],blank(),sum(Referrals[ComplianceDenominator])),
+			Left(MySelection,5) = "First", sum(Referrals[ComplianceDenominator]),
+			sum(Referrals[ComplianceDenominator]))
+		formatString: 0
+		isHidden
+		lineageTag: 4fd9242a-fad8-447b-b833-7c74284f4bd5
+
+	measure 'Timeliness of Initials (# Completed)' =
+			IF(OR(ISERROR(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Initial")),ISBLANK(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Initial"))),"--",
+			FORMAT(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Initial"),"0.0%") & " (" & CALCULATE([# Completed],Referrals[ReferralTypeDesc]="Initial") & ")")
+		isHidden
+		lineageTag: 83e04c7f-e0c9-4203-b5c8-cfb6cbb3e961
+
+	measure 'Timeliness of Reevals (# Completed)' =
+			IF(OR(ISERROR(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Reevaluation")),ISBLANK(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Reevaluation"))),"--",
+			FORMAT(CALCULATE([Timeliness],Referrals[ReferralTypeDesc] = "Reevaluation"),"0.0%") & " (" & CALCULATE([# Completed],Referrals[ReferralTypeDesc] = "Reevaluation") & ")")
+		isHidden
+		lineageTag: 8a7935fc-e5c0-4493-84ea-13af63eac514
+
+	measure 'Referrals Updated' = "Updated " & FORMAT(MAX('IEPs & Recommendations'[Last_Updated]), "mm/dd/yy")
+		isHidden
+		lineageTag: f0337bb1-8c49-4094-9c1a-2c583103bbc4
+
+	column ReferralTypeDesc
+		dataType: string
+		isHidden
+		lineageTag: 8d49b4d7-cf49-434b-81a9-f33c7b1ae559
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ethnicity
+		dataType: string
+		isHidden
+		lineageTag: 7d0f830e-8e7b-4c4d-9ce4-e892f300831a
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grade
+		dataType: string
+		isHidden
+		lineageTag: aa5e3198-df1f-45aa-8c49-91314664a26c
+		summarizeBy: none
+		sourceColumn: Grade
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Thru'
+		dataType: string
+		isHidden
+		lineageTag: e5a2dd67-1e01-47ab-a877-dccd6fce6e54
+		summarizeBy: none
+		sourceColumn: Data Thru
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceNumerator
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 4f619758-d305-4383-8999-fd230a691717
+		summarizeBy: sum
+		sourceColumn: ComplianceNumerator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceDenominator
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 65236f2e-aa36-4074-a3ed-2f7a007997cf
+		summarizeBy: sum
+		sourceColumn: ComplianceDenominator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Open'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6628cb48-e67b-4121-81e2-f3f1fd86dc3e
+		summarizeBy: sum
+		sourceColumn: Total Open
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 388a8e31-85b7-4dd3-88a7-d36995bf3c72
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 8c874655-e6ab-4162-b6b1-de0e487335c0
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: 3013bf2c-d667-416b-872f-a3f2983cced7
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinalComplianceSchoolDBN
+		dataType: string
+		lineageTag: 157b4dcf-c83e-4bc6-942e-4c05fba1fab1
+		summarizeBy: none
+		sourceColumn: FinalComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		lineageTag: 48b64c78-7674-4178-bc36-3f368a62cc98
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Compliance Calculation2'
+		dataType: string
+		lineageTag: 14f59b88-059c-4dba-afd9-457d0ee8cb62
+		summarizeBy: none
+		sourceColumn: Compliance Calculation2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Referrals-e60da87f-99b8-42ea-9a42-f5a0563ea7e3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT * FROM SEO_REPORTING.bi.vw_SEOverview_Timeliness"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":13,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Referrals/Source.{FinalComplianceSchoolDBN,0}","Section1/Referrals/Source.{ReferralTypeDesc,1}","Section1/Referrals/Source.{Ethnicity,2}","Section1/Referrals/Source.{ELL_STATUS,3}","Section1/Referrals/Source.{Grade,4}","Section1/Referrals/Source.{Data Thru,5}","Section1/Referrals/Source.{ComplianceNumerator,6}","Section1/Referrals/Source.{ComplianceDenominator,7}","Section1/Referrals/Source.{Total Open,8}","Section1/Referrals/Source.{SchoolYear,9}","Section1/Referrals/Source.{SchoolKey,10}","Section1/Referrals/Source.{TableKey,11}","Section1/Referrals/Source.{Compliance Calculation2,12}"],"ColumnCount":13,"KeyColumnNames":[],"ColumnIdentities":["Section1/Referrals/Source.{FinalComplianceSchoolDBN,0}","Section1/Referrals/Source.{ReferralTypeDesc,1}","Section1/Referrals/Source.{Ethnicity,2}","Section1/Referrals/Source.{ELL_STATUS,3}","Section1/Referrals/Source.{Grade,4}","Section1/Referrals/Source.{Data Thru,5}","Section1/Referrals/Source.{ComplianceNumerator,6}","Section1/Referrals/Source.{ComplianceDenominator,7}","Section1/Referrals/Source.{Total Open,8}","Section1/Referrals/Source.{SchoolYear,9}","Section1/Referrals/Source.{SchoolKey,10}","Section1/Referrals/Source.{TableKey,11}","Section1/Referrals/Source.{Compliance Calculation2,12}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

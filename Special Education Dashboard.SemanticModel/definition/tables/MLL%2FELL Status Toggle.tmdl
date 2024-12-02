@@ -1,0 +1,33 @@
+table 'MLL/ELL Status Toggle'
+	lineageTag: 341bd7ba-8ddb-4fcb-af44-8a2622474761
+
+	column 'MLL/ELL Status'
+		dataType: string
+		lineageTag: 69b169b8-199a-44b5-a4b6-bf69b76a59ea
+		summarizeBy: none
+		sourceColumn: MLL/ELL Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ELL STATUS'
+		dataType: string
+		lineageTag: 3e5e33f5-24bd-4be7-8b91-86f0fa0e59e2
+		summarizeBy: none
+		sourceColumn: ELL STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MLL/ELL Status Toggle-01efc705-079e-4abc-9da0-d4c88d1eca3c' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8vXx0Xf18VHSUQKRsTrRSn7+IQoIURAPLBMLAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"MLL/ELL Toggle" = _t, #"ELL STATUS" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"MLL/ELL Toggle", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"MLL/ELL Toggle", "MLL/ELL Status"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/MLL\\/ELL Status/Changed Type.{MLL/ELL Toggle,0}","Section1/MLL\\/ELL Status/Source.{ELL STATUS,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/MLL\\/ELL Status/Changed Type.{MLL/ELL Toggle,0}","Section1/MLL\\/ELL Status/Source.{ELL STATUS,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

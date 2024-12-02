@@ -1,0 +1,388 @@
+table 'BI vw_JP_Referrals'
+	lineageTag: f372a749-cef1-4eab-bc1b-16f46840a997
+
+	measure 'Total Referrals' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]))
+		formatString: 0
+		lineageTag: b4af0ce4-31b6-4a31-ad12-487e57591418
+
+	measure 'Sum Completed Flag' = sum('BI vw_JP_Referrals'[Completed Flag])
+		formatString: #,0
+		lineageTag: 729cdf02-59bf-453c-9907-dbbe33c5a917
+
+	measure 'Sixty to Ninety' = CALCULATE(COUNT('BI vw_JP_Referrals'[TimelinessDays]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[TimelinessDays] = "Completed in 61-90 Days"))
+		formatString: 0
+		lineageTag: 5b816d90-9af4-4cd9-ae37-058c207880e1
+
+	measure 'Open Case Status Completed Count' = CALCULATE(count('BI vw_JP_Referrals'[Case Status]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[Case Status] = "Open"))
+		formatString: #,0
+		lineageTag: 0edf463c-5fee-4d46-9385-a94f0d819555
+
+	measure 'Ninety to One Twenty' = CALCULATE(COUNT('BI vw_JP_Referrals'[TimelinessDays]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[TimelinessDays] = "Completed in 91-120 Days"))
+		formatString: 0
+		lineageTag: f9dc6e31-995b-494c-a25c-71645f82f119
+
+	measure 'Less than Sixty' = CALCULATE(COUNT('BI vw_JP_Referrals'[TimelinessDays]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[TimelinessDays] = "Completed in <= 60 days"))
+		formatString: 0
+		lineageTag: ac626342-fde1-4459-a3fe-5c1556580aa7
+
+	measure 'Greater than One Twenty' = CALCULATE(COUNT('BI vw_JP_Referrals'[TimelinessDays]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[TimelinessDays] = "Completed in > than 120 Days"))
+		formatString: 0
+		lineageTag: 1cc69fa6-14c3-4dbe-80ea-7be1b81cf585
+
+	measure 'Concat Referrals' = CONCATENATE([Referrals Dynamic Banner], [Report Dynamic Banner])
+		lineageTag: c0e9cef1-ca04-4722-9ca4-2814bd2de2d7
+
+	measure 'Completed Case Status Completed' = CALCULATE(count('BI vw_JP_Referrals'[Case Status]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[Case Status] = "Completed"))
+		formatString: #,0
+		lineageTag: 6c6ae8c2-a8e6-471d-b8e0-adc832ad737e
+
+	measure 'Cases Completed with CC' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[Case Status] in {"Completed"} || ('BI vw_JP_Referrals'[ReportOutcomeJP] in {"Case Closed"})))
+		formatString: #,0
+		lineageTag: e09900df-e327-40b9-88d3-61c54252f7d2
+
+	measure 'Case Status Completed Count' = CALCULATE(COUNT('BI vw_JP_Referrals'[Case Status]))
+		formatString: #,0
+		lineageTag: 336b3127-d15a-4ae3-9bf6-ac3fb3eaa261
+
+	measure 'Case Closed Case Status Completed' = CALCULATE(count('BI vw_JP_Referrals'[Case Status]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[Case Status] = "Case Closed"))
+		formatString: 0
+		lineageTag: 1c3cdeaa-223f-47ca-8424-f15e0f49dca2
+
+	measure 'Awaiting Case Status Completed Count' = CALCULATE(count('BI vw_JP_Referrals'[Case Status]), FILTER('BI vw_JP_Referrals', 'BI vw_JP_Referrals'[Case Status] = "Awaiting"))
+		formatString: 0
+		lineageTag: 73ec40e6-adf2-4c2f-af41-eebdaf9db146
+
+	measure '% Open Case Status Completed' = [Open Case Status Completed Count]/[Case Status Completed Count]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 06a1989d-ea64-4b9c-82bc-aea59081e3a7
+
+	measure Measure
+		lineageTag: a95e8f2d-0133-42f9-9dca-3598cab75a5c
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure '% Completed Case Status Completed' = [Completed Case Status Completed]/[Case Status Completed Count]+0
+		formatString: 0%;-0%;0%
+		lineageTag: bad84403-a4d2-4174-b8b4-e4c3cb751881
+
+	measure '% Cases Completed Ineligible/Declass' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"Ineligible/Declass"}))/[Cases Completed with CC]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dba034e1-5d5c-4588-b408-14cf6176f63a
+
+	measure '% Cases Completed IEP' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"IEP", "IESP"}))/[Cases Completed with CC]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a511db7a-54b7-4316-9c1b-4e167c0f441d
+
+	measure '% Cases Completed Case Closed' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"Case Closed"}))/[Cases Completed with CC]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 93a208df-6a07-4028-8ddc-eadaf88c6bea
+
+	measure '% Case Closed Case Status Completed' = [Case Closed Case Status Completed]/[Case Status Completed Count]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 552a2a17-85d7-4c73-98d3-7dcc0dc8506d
+
+	measure '% Awaiting Case Status Completed' = [Awaiting Case Status Completed Count]/[Case Status Completed Count]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 708c6b9a-41c7-4d6d-894e-4f651240f21f
+
+	measure '# 90-120 Days' = ([Ninety to One Twenty]/[Sum Completed Flag])+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 18b9a667-0d30-4d4f-8c63-5900c498d11f
+
+	measure '# 60-90 Days' = ([Sixty to Ninety]/[Sum Completed Flag])+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 87bc894a-f5be-4579-bbda-93f47936a8c3
+
+	measure '# > 120 Days' = ([Greater than One Twenty]/[Sum Completed Flag])+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4e5d4321-5c75-4703-8a3a-c42c6841ea56
+
+	measure '(# < 60 Days)' = ([Less than Sixty]/[Sum Completed Flag])+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e748e567-f2f4-40e5-96f2-9d9c3627fb19
+
+	measure 'Cases Completed IEP Count' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"IEP", "IESP"}))
+		formatString: 0
+		lineageTag: 5dd12458-e246-40b8-bd2c-1b239b13b7bd
+
+	measure 'Cases Completed Case Closed Count' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"Case Closed"}))
+		formatString: 0
+		lineageTag: cc87dbb5-d684-4ef2-b063-997edcfb9352
+
+	measure 'Cases Completed Ineligible/Declass Count' = CALCULATE(COUNT('BI vw_JP_Referrals'[Students]),('BI vw_JP_Referrals'[ReportOutcomeJP] in {"Ineligible/Declass"}))
+		formatString: 0
+		lineageTag: 9ba96db1-934f-4b84-9122-5fd62c45643b
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 97d7dab5-e113-4ce8-a401-aec5e57f8a1c
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledSchoolSetting
+		dataType: string
+		isHidden
+		lineageTag: 443b349d-3ecc-4e82-ba1e-6a8531ecc212
+		summarizeBy: none
+		sourceColumn: EnrolledSchoolSetting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceSchoolDBN
+		dataType: string
+		lineageTag: 4572fa01-6e85-4be0-b603-e8f07dd90a88
+		summarizeBy: none
+		sourceColumn: ComplianceSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: a259b267-87a4-486d-8a9d-2694ec3bbce7
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: d1d0c133-7e35-4884-979a-938131b8fc5c
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		isHidden
+		lineageTag: 59de121f-400a-4316-8b01-56878cead697
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguage
+		dataType: string
+		lineageTag: 5d3c0c12-b85e-4509-a45f-447d49697d06
+		summarizeBy: none
+		sourceColumn: HomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column LanguageofAssessmentDesc
+		dataType: string
+		lineageTag: 6362e1f0-f627-442d-b384-b9c1cb3ea8a5
+		summarizeBy: none
+		sourceColumn: LanguageofAssessmentDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralSchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 1239776c-6d81-48b8-b75a-e8e2f249d6b2
+		summarizeBy: none
+		sourceColumn: ReferralSchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeSchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 07df7dba-972c-441d-95a8-d20a8501627d
+		summarizeBy: none
+		sourceColumn: OutcomeSchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPMeetingCompliance
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d4218d1d-ce76-4adf-9da8-3f90f1dd105d
+		summarizeBy: sum
+		sourceColumn: IEPMeetingCompliance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPComplianceMetric
+		dataType: string
+		lineageTag: b26ee92c-7b2f-40ad-9c51-23785b18c5ff
+		summarizeBy: none
+		sourceColumn: IEPComplianceMetric
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralTypeDesc
+		dataType: string
+		lineageTag: 2c5c8617-0401-4033-985c-1b127f99b131
+		summarizeBy: none
+		sourceColumn: ReferralTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportOutcomeJP
+		dataType: string
+		lineageTag: cbdfd9a8-11a7-4f1e-83ba-3176cf0dabe2
+		summarizeBy: none
+		sourceColumn: ReportOutcomeJP
+		sortByColumn: 'Report Outcome JP Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Status'
+		dataType: string
+		lineageTag: 562054e3-4759-46ba-9884-24b0cde0e0cf
+		summarizeBy: none
+		sourceColumn: Case Status
+		sortByColumn: 'Case Status Completed Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Completed Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9737a2cc-dc4e-4845-b289-8c02187a2753
+		summarizeBy: sum
+		sourceColumn: Completed Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Completed Timely Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: e0fef2a4-15ad-4a05-a124-461f895b9c76
+		summarizeBy: sum
+		sourceColumn: Completed Timely Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: fa8983d3-8c11-48e8-9781-cd2b307711e4
+		summarizeBy: sum
+		sourceColumn: Total Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed Overdue'
+		dataType: int64
+		formatString: 0
+		lineageTag: 193b0a51-7333-4a6a-bf10-41b71ac87894
+		summarizeBy: sum
+		sourceColumn: Total Completed Overdue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Completed with CaseClose'
+		dataType: int64
+		formatString: 0
+		lineageTag: 24984709-1aea-417a-afe4-0318fb65b73e
+		summarizeBy: sum
+		sourceColumn: Total Completed with CaseClose
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimelinessDays
+		dataType: string
+		lineageTag: 74dd88d4-9dd0-4186-b0bf-f1b40e7ce3c5
+		summarizeBy: none
+		sourceColumn: TimelinessDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column Students
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0e1c6aae-d028-4ee7-bbfe-2ca8a71cba4a
+		summarizeBy: sum
+		sourceColumn: Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculated Language'
+		dataType: string
+		lineageTag: c104ffed-6724-4129-8725-67874fc0941c
+		summarizeBy: none
+		sourceColumn: Calculated Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Status Completed Sort'
+		dataType: string
+		isHidden
+		lineageTag: e55b0305-f765-4dd5-b894-8e87aaf1ed3c
+		summarizeBy: none
+		sourceColumn: Case Status Completed Sort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Report Outcome JP Sort'
+		dataType: string
+		isHidden
+		lineageTag: 418c07a0-09fb-4df8-89e3-6987da3c54a3
+		summarizeBy: none
+		sourceColumn: Report Outcome JP Sort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Timeliness Days Shortened'
+		dataType: string
+		isHidden
+		lineageTag: 4fc39f66-3fb8-454d-ae27-6d74e915c3c0
+		summarizeBy: none
+		sourceColumn: Timeliness Days Shortened
+		sortByColumn: 'Timeliness Days Shortened Sort'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Timeliness Days Shortened Sort'
+		dataType: string
+		isHidden
+		lineageTag: 462c03b7-3140-4115-ae97-24845cc25416
+		summarizeBy: none
+		sourceColumn: Timeliness Days Shortened Sort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_Referrals-a57f76bd-d3dd-4df5-9299-a8e20fe0db49' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_Referrals = Source{[Schema="BI",Item="vw_JP_Referrals"]}[Data],
+				    #"Added Conditional Column" = Table.AddColumn(BI_vw_JP_Referrals, "Case Status Completed Sort", each if [Case Status] = "Completed" then 1 else if [Case Status] = "Case Closed" then 2 else if [Case Status] = "Awaiting " then 3 else if [Case Status] = "Open" then 4 else null),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "Report Outcome JP Sort", each if [ReportOutcomeJP] = "IEP" then 1 else if [ReportOutcomeJP] = "Case Closed" then 2 else if [ReportOutcomeJP] = "Ineligible/Declass" then 3 else null),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Added Conditional Column1", "Timeliness Days Shortened", each if [TimelinessDays] = "Completed in <= 60 days" then "<= 60 " else if [TimelinessDays] = "Completed in 61-90 Days" then "61-90 " else if [TimelinessDays] = "Completed in 91-120 Days" then "91-120" else if [TimelinessDays] = "Completed in > than 120 Days" then ">120 " else null),
+				    #"Added Conditional Column3" = Table.AddColumn(#"Added Conditional Column2", "Timeliness Days Shortened Sort", each if [Timeliness Days Shortened] = "<= 60 " then 1 else if [Timeliness Days Shortened] = "61-90 " then 2 else if [Timeliness Days Shortened] = "91-120 " then 3 else if [Timeliness Days Shortened] = ">120 " then 4 else null),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Conditional Column3",{{"Timeliness Days Shortened", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"HomeLanguageCCGroup", "HomeLanguage"}, {"LanguageofAssessmentDescCC", "LanguageofAssessmentDesc"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

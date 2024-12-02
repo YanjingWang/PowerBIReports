@@ -1,0 +1,193 @@
+table 'BI vw_JP_RSMandate'
+	lineageTag: 009dcbbd-5617-41bc-ab6e-50886c287d5d
+
+	measure 'RSMandate Sum' = SUM('BI vw_JP_RSMandate'[Recommendations])
+		formatString: #,0
+		lineageTag: f8739ce0-ab48-4346-8da2-f8cdfc8ef979
+
+	measure '% Full Encounter' = CALCULATE(sum('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"Full Encounter"}))/'BI vw_JP_RSMandate'[RSMandate Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 112c590f-a20d-40f1-9b3f-2fc2275e0407
+
+	measure '% Partial Encounter' = CALCULATE(Sum('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"Partial Encounter"}))/'BI vw_JP_RSMandate'[RSMandate Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 26a6467e-4178-4e26-98b7-259ddc6108d5
+
+	measure '% No Encounter' = CALCULATE(Sum('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"No Encounter"}))/'BI vw_JP_RSMandate'[RSMandate Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 38c73555-f775-4239-8884-1a74b4852e01
+
+	measure 'RSMandate Count' = CALCULATE(COUNT('BI vw_JP_RSMandate'[Recommendations]))
+		formatString: 0
+		lineageTag: cb51d4e6-6bc1-441d-9d12-71fa8e2a4584
+
+	measure 'Full Encounter Sum' = CALCULATE(SUM('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"Full Encounter"}))+0
+		formatString: #,0
+		lineageTag: 573f78b8-c672-4d8f-9950-b4d003aea39a
+
+	measure 'Partial Encounter Sum' = CALCULATE(SUM('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"Partial Encounter"}))+0
+		formatString: #,0
+		lineageTag: 325fca46-b298-45f5-9aed-6fd01ab1d7fb
+
+	measure 'No Encounter Sum' = CALCULATE(SUM('BI vw_JP_RSMandate'[Recommendations]),('BI vw_JP_RSMandate'[EncounterStatus]in {"No Encounter"}))+0
+		formatString: #,0
+		lineageTag: 9bc759dc-e338-42df-a69f-6c0c5700f64e
+
+	column SchoolDistrict
+		dataType: string
+		lineageTag: f93253f8-84bb-4350-ac74-7803d0efefb2
+		summarizeBy: none
+		sourceColumn: SchoolDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: afd45b60-5eb6-4831-a9cc-9152857683fb
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		isHidden
+		lineageTag: 5542de30-b2c0-4584-89fc-5bfc0c8b372f
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: b3fbcccf-4c37-4390-87ff-ddb6447a8fd0
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroup
+		dataType: string
+		lineageTag: 678f0bb0-7a1f-4a58-869b-09aa3d2fa90f
+		summarizeBy: none
+		sourceColumn: EthnicityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSRecommendedLanguage
+		dataType: string
+		lineageTag: c6c8c415-e413-4091-8246-1c6b27b2b1a4
+		summarizeBy: none
+		sourceColumn: RSRecommendedLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedLanguage
+		dataType: string
+		isHidden
+		lineageTag: 14e2ca58-eb65-4f0f-921a-f85960f13698
+		summarizeBy: none
+		sourceColumn: RecommendedLanguage
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSRecommendation
+		dataType: string
+		lineageTag: 35c690a5-813a-4a4a-9a16-72e5801a56dc
+		summarizeBy: none
+		sourceColumn: RSRecommendation
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSMandateType
+		dataType: string
+		isHidden
+		lineageTag: 961f768f-a2cb-49e1-ae95-5f973e5542da
+		summarizeBy: none
+		sourceColumn: RSMandateType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSMandateTypeSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dd3bb8a1-baa6-4db4-b33d-8c4d096804c0
+		summarizeBy: sum
+		sourceColumn: RSMandateTypeSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EncounterStatus
+		dataType: string
+		lineageTag: 91bb5bf3-4874-4426-84d0-62b4c5aa7e16
+		summarizeBy: none
+		sourceColumn: EncounterStatus
+		sortByColumn: EncounterStatusSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column EncounterStatusSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 010c0200-2614-4ae4-8170-ebb50c24bd4f
+		summarizeBy: sum
+		sourceColumn: EncounterStatusSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MandateSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2d62462e-cb03-41a1-81ff-f6e041398800
+		summarizeBy: sum
+		sourceColumn: MandateSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recommendations
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8e8cc852-2e90-4da4-972c-5c55bcc7865d
+		summarizeBy: sum
+		sourceColumn: Recommendations
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 67626cd3-40f6-4f90-87ae-44c860ffddc9
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_RSMandate-318f7bae-191a-4ef3-a020-b9d999a978a5' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_RSMandate = Source{[Schema="BI",Item="vw_JP_RSMandate"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(BI_vw_JP_RSMandate,{{"EthnicityGroupCC", "EthnicityGroup"}, {"RSMandateLanguageCC", "RSRecommendedLanguage"}, {"Mandates", "Recommendations"}, {"MandatesBilingual", "RSRecommendation"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

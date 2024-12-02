@@ -1,0 +1,22 @@
+table 'Classification Toggle'
+	lineageTag: ecb8ffd2-cdff-4848-9cb2-40b4e78f596c
+
+	column Classification
+		dataType: string
+		lineageTag: 97aed547-e2b8-492f-9aad-b98474a715f9
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Classification Toggle-56903c89-08ff-4212-bd1c-073b06d1d90a' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("VYwxCsMwDAC/Ijz3E6EtNBDo0NFkUIxqC2w5yPKQ35d4Ste747x3Uzduxa03756lGlfBDA9u1nVDCTTMQqjCEk+BG2e2Y/C3JdILhHvG1vjLAc/TpXkRZkswlx1ZC4kN99mJQoKqsKDEjpH+ivUH", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Classification = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Classification", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,32 @@
+table 'Grade Level Toggle'
+	lineageTag: 3137d72e-339f-4ccc-9f4d-307fcc47d59d
+
+	column 'Grade Level'
+		dataType: string
+		lineageTag: 60a0142c-770d-469d-b106-960ae320668f
+		summarizeBy: none
+		sourceColumn: Grade Level
+		sortByColumn: 'Grade Level Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grade Level Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: 91146220-3546-4004-8431-405b6aadb7ed
+		summarizeBy: sum
+		sourceColumn: Grade Level Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Grade Level Toggle-a787395c-cfec-4873-9d2c-ed28d9edadf4' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8tY1VdJRMlSK1YlWMtO1ALKNwGxLXUMjIMdYKTYWAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Grade Level" = _t, #"Grade Level Sort" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Grade Level", type text}, {"Grade Level Sort", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,27 @@
+table 'Referral Type Filter'
+	lineageTag: 36dcfa25-b6cd-471e-b768-b7e0a1f439d9
+
+	measure 'Referrals Dynamic Banner' = IF(HASONEVALUE('Referral Type Filter'[Ref Type]), " Referral Type- " &  DISTINCT('Referral Type Filter'[Ref Type]), "Initial and Reevaluation Referrals")
+		lineageTag: 3d9ddb0c-8d6d-4b6f-9fe6-ef4e043c7e7d
+
+	column 'Ref Type'
+		dataType: string
+		lineageTag: 5a19c3f0-fc09-459d-a1b4-ac71f2405c5a
+		summarizeBy: none
+		sourceColumn: Ref Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Referral Type Filter-1530c9fa-06f0-459d-93f1-95a7c42c1133' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8szLLMlMzFGK1YlWCkpNLUvMKU0syczPU4qNBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Ref Type" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Ref Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Ref Type Filter/Changed Type.{Ref Type,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Ref Type Filter/Changed Type.{Ref Type,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

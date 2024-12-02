@@ -1,0 +1,25 @@
+table 'Language Toggle'
+	lineageTag: 3cdcde90-3593-44b6-95bc-2911110f1211
+
+	column Language
+		dataType: string
+		lineageTag: 984322ed-67c1-4a42-8dd9-47c97c65d2f6
+		summarizeBy: none
+		sourceColumn: Language
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Language Toggle-c4575c9d-a7d6-490c-99c3-0b7cc42a1845' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcvVz9/EM9lCK1YlWCg5w9IOxnT08/VyDXcFs/xAP1yCl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Language " = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Language ", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Language ", "Language"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Language Toggle/Changed Type.{Language ,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Language Toggle/Changed Type.{Language ,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

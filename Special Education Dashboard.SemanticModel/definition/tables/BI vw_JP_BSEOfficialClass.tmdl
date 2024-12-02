@@ -1,0 +1,137 @@
+table 'BI vw_JP_BSEOfficialClass'
+	lineageTag: 8c15739e-4fe1-4526-b097-e6222e6625ba
+
+	measure 'Capacity Sum' = CALCULATE(SUM('BI vw_JP_BSEOfficialClass'[Capacity]))+0
+		formatString: #,0
+		lineageTag: dc3dad59-737b-42a1-92d5-97cb9addbb27
+
+	measure '% Capacity' = [Capacity Sum]/[LOI NotEnglish]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 73697bed-a68c-4ed3-92ae-81b510819248
+
+	measure 'BSE Concat' = CONCATENATE("BSE Program Capacity & Recommendations  ", [concat])
+		lineageTag: e49d7bf3-d925-45c0-8b91-ca0d34a14490
+
+	measure 'Capacity Recommendations Difference' = [Capacity Sum]- [LOI NotEnglish]
+		formatString: 0
+		lineageTag: 055d5807-15e6-4b6a-843c-140b9e4b8b80
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 1f1ccecc-e0bd-4b0f-9693-3afe5540f9c7
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: f98e5a8e-3b50-417f-882b-3057f67e1a61
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: eada33b0-b6d5-4666-add3-2b0ce680b21e
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		lineageTag: 9bc510b2-2cf5-4e41-afd3-a1eef5690d48
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	column LanguageofInstruction
+		dataType: string
+		lineageTag: 9fe982d4-2923-4ebf-871e-c6e6f889abcc
+		summarizeBy: none
+		sourceColumn: LanguageofInstruction
+
+		annotation SummarizationSetBy = Automatic
+
+	column SETypeFinal
+		dataType: string
+		lineageTag: 4f6c5160-bac8-4d36-8682-3d2827773efe
+		summarizeBy: none
+		sourceColumn: SETypeFinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpecialClassRatio
+		dataType: string
+		lineageTag: b6548d42-5e64-42b2-9ec2-c180b589a029
+		summarizeBy: none
+		sourceColumn: SpecialClassRatio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Overlap
+		dataType: string
+		lineageTag: 627009de-aff9-45b8-b052-eac70b29b629
+		summarizeBy: none
+		sourceColumn: Overlap
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capacity
+		dataType: int64
+		formatString: 0
+		lineageTag: aff54ad3-b36f-469a-99de-ead58de3de89
+		summarizeBy: sum
+		sourceColumn: Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vacancy
+		dataType: int64
+		formatString: 0
+		lineageTag: be8ae87c-51e7-40f8-8da2-2f3f783a8a54
+		summarizeBy: sum
+		sourceColumn: Vacancy
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSEEnrolledStudents
+		dataType: int64
+		formatString: 0
+		lineageTag: cd3bd275-a1ba-4bb2-9101-33a7dca1d53a
+		summarizeBy: sum
+		sourceColumn: BSEEnrolledStudents
+
+		annotation SummarizationSetBy = Automatic
+
+	column MSEEnrolledStudents
+		dataType: int64
+		formatString: 0
+		lineageTag: f9e118dd-57ac-4dab-8282-d77c45b0c755
+		summarizeBy: sum
+		sourceColumn: MSEEnrolledStudents
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 244bc905-8121-4b6d-baac-71e48849e169
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_BSEOfficialClass-0e1a8262-a468-4d8f-a130-9261db02a058' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_BSEOfficialClass = Source{[Schema="BI",Item="vw_JP_BSEOfficialClass"]}[Data]
+				in
+				    BI_vw_JP_BSEOfficialClass
+
+	annotation PBI_ResultType = Table
+

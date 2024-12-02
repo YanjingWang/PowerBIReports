@@ -1,0 +1,142 @@
+table 'BI vw_JP_PSMandate'
+	lineageTag: bedc228e-e1f2-4ec7-9792-d8b403aeed33
+
+	measure 'PSMandate Sum' = CALCULATE(sum('BI vw_JP_PSMandate'[Recommendations]))
+		formatString: #,0
+		lineageTag: d491ef6f-1737-44d4-8a5e-4c4c25d8cda9
+
+	measure 'Provision of Services Concat' = CONCATENATE( " Provision of Programs and Services ", [concat])
+		lineageTag: a1f9d82e-b0fe-4886-8379-8dc80e0f5598
+
+	measure '% Fully Scheduled' = CALCULATE(SUM('BI vw_JP_PSMandate'[Recommendations]),('BI vw_JP_PSMandate'[ScheduledStatus] in {"Fully Scheduled"}))/'BI vw_JP_PSMandate'[PSMandate Sum]+0
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: e8ef16dd-25a4-4e00-8fe9-93306a31d74c
+
+	measure '% Not Scheduled' = CALCULATE(SUM('BI vw_JP_PSMandate'[Recommendations]),('BI vw_JP_PSMandate'[ScheduledStatus] in {"Not Scheduled"}))/[PSMandate Sum]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5ef9c764-c187-4b9d-a05a-91748250aea5
+
+	measure 'Fully Scheduled Sum' = CALCULATE(SUM('BI vw_JP_PSMandate'[Recommendations]),('BI vw_JP_PSMandate'[ScheduledStatus] in {"Fully Scheduled"}))
+		formatString: #,0
+		lineageTag: 698f668a-26be-44b2-9d2d-69f546c96580
+
+	measure 'Not Scheduled Sum' = CALCULATE(SUM('BI vw_JP_PSMandate'[Recommendations]),('BI vw_JP_PSMandate'[ScheduledStatus] in {"Not Scheduled"}))
+		formatString: #,0
+		lineageTag: 0ade8b70-e7b9-4972-a496-dca70175f3dc
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 5b943205-5116-49d6-acfd-4efc0b0d379b
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: 55272e89-115a-4e82-8919-4f0ba956e428
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 6c861e01-a894-4a7d-b98c-1ab13b68b7e4
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4203056b-9ccc-4b32-9c4c-1be98d8ee435
+		summarizeBy: sum
+		sourceColumn: GradeLevelSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		lineageTag: df29e123-e2ef-4546-bd14-5ecf5dcd6d3e
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: fb06c769-897f-4a71-aa45-305b3fa97ccc
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroup
+		dataType: string
+		lineageTag: 214a843b-0c90-4425-a769-365148d607ff
+		summarizeBy: none
+		sourceColumn: EthnicityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSRecommendedLanguage
+		dataType: string
+		lineageTag: 2353f3a8-bafe-4e3d-8e8a-f176151eebf7
+		summarizeBy: none
+		sourceColumn: PSRecommendedLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedProgram
+		dataType: string
+		lineageTag: 8ed02c15-335b-4777-814a-7cb28c022c09
+		summarizeBy: none
+		sourceColumn: RecommendedProgram
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledStatus
+		dataType: string
+		isHidden
+		lineageTag: ae817d14-5eff-47d0-ab18-a03d42b4c918
+		summarizeBy: none
+		sourceColumn: ScheduledStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PossibleReasonNotServed
+		dataType: string
+		lineageTag: c7498c37-3352-466a-a01a-5243dff1f435
+		summarizeBy: none
+		sourceColumn: PossibleReasonNotServed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recommendations
+		dataType: int64
+		formatString: #,0
+		lineageTag: 792813c1-68f3-4c14-86a5-3514774cedeb
+		summarizeBy: sum
+		sourceColumn: Recommendations
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_PSMandate-75db6217-dfb4-493b-9414-4b76becc6e2f' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_PSMandate = Source{[Schema="BI",Item="vw_JP_PSMandate"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(BI_vw_JP_PSMandate,{{"EthnicityGroupCC", "EthnicityGroup"}, {"PSMandateLanguageCC", "PSRecommendedLanguage"}, {"Mandates", "Recommendations"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,35 @@
+table 'Outcome Toggle'
+	lineageTag: 28694279-577d-41d2-8b9c-38b9363abcfe
+
+	column Outcome
+		dataType: string
+		lineageTag: f95a2681-7040-4967-8342-b8e99bcb4012
+		summarizeBy: none
+		sourceColumn: Outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeGrouped
+		dataType: string
+		lineageTag: 82b6f106-eae7-474b-b202-3a50c50e2325
+		summarizeBy: none
+		sourceColumn: OutcomeGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Outcome Toggle-9d0c74ac-945c-42fa-b9f6-ec85632fe832' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nQNUIrViVZySU3OSSwuBrOdE4tTFZxz8otTU8B8z7zUnMz0zKScVKXYWAA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Outcome " = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome ", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Outcome ", "Outcome"}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Renamed Columns", "Outcome 2", each if [Outcome] = "IEP" then "IEP" else if [Outcome] = "Ineligible" then "Ineligible/Declass" else if [Outcome] = "Declass" then "Ineligible/Declass" else if [Outcome] = "Case Closed" then "Case Closed" else null),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Conditional Column",{{"Outcome 2", "OutcomeGrouped"}})
+				in
+				    #"Renamed Columns1"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Outcome Toggle/Changed Type.{Outcome ,0}","Section1/Outcome Toggle/Added Conditional Column.{Outcome 2,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Outcome Toggle/Changed Type.{Outcome ,0}","Section1/Outcome Toggle/Added Conditional Column.{Outcome 2,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

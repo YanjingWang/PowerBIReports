@@ -1,0 +1,24 @@
+table 'Admin District Toggle'
+	lineageTag: 0fd4ddf7-631c-4e51-b15a-a8b7142de3f8
+
+	column 'Administrative District'
+		dataType: string
+		lineageTag: e06c864b-47b0-4d71-8b38-fc20bec24094
+		summarizeBy: none
+		sourceColumn: Administrative District
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Admin District Toggle-a825adb5-eaf2-44cf-92fa-c811f1283fbf' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Jcy5DYBAAMTAXogJ2D3eWhD9twFiIkee+56WTM/8pTJklU12OeSU608WoYQSSiihhBJKKKGUUkoppZRSSimllFLKoAzKoBzf97w=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Administrative District" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Administrative District", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Admin District Toggle/Changed Type.{Administrative District,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Admin District Toggle/Changed Type.{Administrative District,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

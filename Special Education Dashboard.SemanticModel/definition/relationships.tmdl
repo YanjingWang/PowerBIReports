@@ -1,0 +1,240 @@
+relationship 3cd746b8-8cd5-4fff-a273-98fbd3862ce0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.'Data As Of'
+	toColumn: LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64.Date
+
+relationship b24e7001-fbed-41bc-992a-2d0fac441f99
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ClosedDate
+	toColumn: LocalDateTable_530cb355-6823-4815-afbe-321f08bda481.Date
+
+relationship aa9785f4-5aae-4372-b99f-2d542b575f35
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDate
+	toColumn: LocalDateTable_b430166b-bcdc-49f0-9503-0f27d26ee915.Date
+
+relationship c580698e-da74-42db-ba7d-38175ac30e9c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDateTime
+	toColumn: LocalDateTable_65d1cb9d-447b-43ff-b1bd-ef07dc7c0a61.Date
+
+relationship ad5c2545-99f9-4055-8014-eff97fb53386
+	fromColumn: 'BI vw_JP_Register'.EnrolledDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 799aa4af-2e71-4513-bc30-0f900a1e271e
+	fromColumn: 'BI vw_JP_Register'.ClassificationGrouped
+	toColumn: 'Classification Toggle'.Classification
+
+relationship e145cab5-d4e4-475b-909c-c73bf6f3fbbd
+	fromColumn: 'BI vw_JP_Register'.OutcomeLanguage
+	toColumn: 'Language Toggle'.Language
+
+relationship 4636c205-57fd-461b-aa30-31c7e579fa7a
+	fromColumn: 'BI vw_JP_Register'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship 7db46693-1967-48a6-89be-1a402b50eef4
+	fromColumn: 'BI vw_JP_Register'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship b567a304-c5c9-41a2-9506-4133f249d822
+	fromColumn: 'BI vw_JP_Register'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 04388992-55fe-4f69-b13c-66d46780222e
+	fromColumn: 'BI vw_JP_PSMandate'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship 04e7cddd-ad21-4581-837c-50cc0defa460
+	fromColumn: 'BI vw_JP_PSMandate'.EnrolledDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship a3ff1799-cf0b-4b8d-a839-44b7a26db576
+	fromColumn: 'BI vw_JP_PSMandate'.PSRecommendedLanguage
+	toColumn: 'Language Toggle'.Language
+
+relationship a258ec2b-3217-4d38-bbd9-3c3454ad0581
+	fromColumn: 'BI vw_JP_PSMandate'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship 4885e02f-8e7c-42f1-aa73-19676395db57
+	fromColumn: 'BI vw_JP_PSMandate'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship b99313f3-2be7-4cd2-bb44-6cec09f43965
+	fromColumn: 'BI vw_JP_PSMandate'.RecommendedProgram
+	toColumn: 'Program Type Toggle'.'Program Type'
+
+relationship 01156fa0-042d-4b7c-890b-6e955cf34b27
+	fromColumn: 'BI vw_JP_RSMandate'.SchoolDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship 93d9e6b3-6ceb-4a70-9c8d-cc69e6ca09d7
+	fromColumn: 'BI vw_JP_RSMandate'.EnrolledDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship a91cfaf3-c06b-4fc6-b5dd-3c63454755af
+	fromColumn: 'BI vw_JP_RSMandate'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 5725ccbc-9f4a-48fe-aac8-7abce9ca7a19
+	fromColumn: 'BI vw_JP_PSStudent'.EnrolledDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 1dd73c5e-63e8-4e0d-bde8-122a23e93829
+	fromColumn: 'BI vw_JP_PSStudent'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship ac416bd4-11b5-476e-b661-b3f8122b350b
+	fromColumn: 'BI vw_JP_PSStudent'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 39bebf40-3c30-4c22-8248-8168e44ec7d8
+	fromColumn: 'BI vw_JP_PSStudent'.PSOutcomeLanguage
+	toColumn: 'Language Toggle'.Language
+
+relationship 9052dbb4-bb6c-4e12-a84a-71a940d59ace
+	fromColumn: 'BI vw_JP_PSStudent'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship f3f87136-fa55-44e2-8616-f64b06acefe0
+	fromColumn: 'BI vw_JP_ENL'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship 29831fa9-2ba5-43a8-8d42-efaf7d86f4c4
+	fromColumn: 'BI vw_JP_ENL'.'School DBN'
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 9efb4623-cc74-4f4e-86a7-cec2a55ec0a9
+	fromColumn: 'BI vw_JP_ENL'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 77fe42bd-9fbb-4b4b-a7e8-ca223a5e5fea
+	fromColumn: 'BI vw_JP_ENL'.HomeLanguageCCGroup
+	toColumn: 'Language Toggle'.Language
+
+relationship 6504aea2-6f96-4963-99a0-f8e8e9f6a53b
+	fromColumn: 'BI vw_JP_ENL'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship 119df05f-a22b-412e-ace2-0cb0f072f444
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship 45bf5636-782d-493c-aa5a-1230e23d3baf
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.SchoolDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 1379daa0-8141-47b1-af33-a3ec48062ae3
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 65ea1377-762b-4ae5-9226-2cf83c7b69fb
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.'Language of Instruction'
+	toColumn: 'Language Toggle'.Language
+
+relationship 81876a21-5c5c-498c-b520-c31614f3052f
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.BilingualProgramRecommendation
+	toColumn: 'ICT/SC Program Toggle'.'Program Full'
+
+relationship d5070724-dfdc-4855-976a-6d342a2e18ff
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship 20a9351e-94f3-44fb-97db-85f027147a2d
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship 3d9996d7-5f88-47e1-a379-aaacefe15c5f
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.SchoolDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 75f8aa27-3804-4ec5-a24c-54ab985b7ae6
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.City
+	toColumn: 'Borough Toggle'.Borough
+
+relationship b338521a-82db-4678-b3af-bb4c0c1966b5
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship 6ced38b7-ec7f-4c1a-ba70-94d1ee29686b
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.SETypeFinal
+	toColumn: 'ICT/SC Program Toggle'.'Program Full'
+
+relationship 98d9ace0-6071-454b-8f8a-52ee1c77b433
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.LanguageofInstruction
+	toColumn: 'Language Toggle'.Language
+
+relationship 9662ec11-a58a-467f-a849-902e9243c883
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.Borough
+	toColumn: 'Borough Toggle'.Borough
+
+relationship f51d1cbc-a25c-4b6d-a4b9-aa2c04746271
+	fromColumn: 'BI vw_JP_BSEOfficialClass'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship 2a12ce36-82cd-4ae3-95de-ad2c5e85d978
+	fromColumn: 'BI vw_JP_Register'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship 3b0ff4b7-646d-4392-afe5-f1c2117010a7
+	fromColumn: 'BI vw_JP_Referrals'.ComplianceSchoolDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship 965e58e2-734f-42b6-abfa-739246fc2d7f
+	fromColumn: 'BI vw_JP_Referrals'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship 77e69140-67dd-49cb-adb8-bf3dcc3b4979
+	fromColumn: 'BI vw_JP_Referrals'.'Calculated Language'
+	toColumn: 'Language Toggle'.Language
+
+relationship 667c026e-79cb-495a-9026-cc4084319624
+	fromColumn: 'BI vw_JP_Referrals'.ReportOutcomeJP
+	toColumn: 'Outcome Toggle'.Outcome
+
+relationship 990e3d40-b252-49f6-92f9-40f3f36a3aa4
+	fromColumn: 'BI vw_JP_Referrals'.AdminDistrict
+	toColumn: 'Admin District Toggle'.'Administrative District'
+
+relationship ff278d9d-f78b-4c13-95fa-752e01d2e4b4
+	fromColumn: 'BI vw_JP_Referrals'.GradeLevelGrouped
+	toColumn: 'Grade Level Toggle'.'Grade Level'
+
+relationship e15fc5b8-77cc-4659-bcad-f4f97a590488
+	fromColumn: 'BI vw_JP_RSMandate'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship 3353dd92-3b77-4a40-9c2e-c8d3cb28c565
+	fromColumn: 'BI vw_JP_RSMandate'.RSRecommendedLanguage
+	toColumn: 'Language Toggle'.Language
+
+relationship 320fa111-d645-4cb4-b37a-972a92f3b429
+	fromColumn: 'BI vw_JP_PSMandate'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship f795db37-335b-46c2-93b0-db1027a9efab
+	fromColumn: 'BI vw_JP_ELLCAPBilingualPS'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship b6721cf8-34c6-46f8-993d-5d03d40c88ff
+	fromColumn: 'BI vw_JP_ENL'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship e4b50e21-4108-4785-a3ae-77e18a06b648
+	fromColumn: 'BI vw_JP_PSStudent'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship da6ce356-55ff-46fd-a62e-60758e00075d
+	fromColumn: 'BI vw_JP_RSMandate'.GradeLevel
+	toColumn: 'Grade Toggle'.'Grade '
+
+relationship fd92b76d-78f1-4f31-9d76-4ee0a782c9aa
+	fromColumn: 'BI vw_JP_Referrals'.ELLStatus
+	toColumn: 'MLL/ELL Status Toggle'.'ELL STATUS'
+
+relationship ee79888c-6612-4e12-be57-972f96e873a6
+	fromColumn: 'BI vw_JP_Referrals'.ReferralTypeDesc
+	toColumn: 'Referral Type Filter'.'Ref Type'
+

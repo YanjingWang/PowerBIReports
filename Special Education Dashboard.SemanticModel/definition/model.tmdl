@@ -1,0 +1,43 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Date","MLL/ELL Status Toggle","Language Toggle","Referral Type Filter","Outcome Toggle","Admin District Toggle","Classification Toggle","ICT/SC Program Toggle","BI vw_JP_Register","BI vw_Locations","Grade Level Toggle","Program Type Toggle","BI vw_JP_PSMandate","BI vw_JP_RSMandate","BI vw_JP_PSStudent","BI vw_JP_ENL","BI vw_JP_ELLCAPBilingualPS","BI vw_JP_BSEOfficialClass","Borough Toggle","Grade Toggle","BI vw_JP_Referrals"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_00f41ac1-946b-4076-b956-f56fa0590e6d
+ref table Date
+ref table LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64
+ref table 'MLL/ELL Status Toggle'
+ref table 'Language Toggle'
+ref table 'Referral Type Filter'
+ref table 'Outcome Toggle'
+ref table 'Admin District Toggle'
+ref table 'Classification Toggle'
+ref table 'ICT/SC Program Toggle'
+ref table 'BI vw_JP_Register'
+ref table 'BI vw_Locations'
+ref table LocalDateTable_530cb355-6823-4815-afbe-321f08bda481
+ref table LocalDateTable_b430166b-bcdc-49f0-9503-0f27d26ee915
+ref table LocalDateTable_65d1cb9d-447b-43ff-b1bd-ef07dc7c0a61
+ref table 'Grade Level Toggle'
+ref table 'Program Type Toggle'
+ref table 'BI vw_JP_PSMandate'
+ref table 'BI vw_JP_RSMandate'
+ref table 'BI vw_JP_PSStudent'
+ref table 'BI vw_JP_ENL'
+ref table 'BI vw_JP_ELLCAPBilingualPS'
+ref table 'BI vw_JP_BSEOfficialClass'
+ref table 'Borough Toggle'
+ref table 'Grade Toggle'
+ref table 'BI vw_JP_Referrals'
+

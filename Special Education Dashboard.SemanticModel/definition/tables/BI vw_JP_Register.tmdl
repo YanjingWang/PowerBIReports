@@ -1,0 +1,120 @@
+table 'BI vw_JP_Register'
+	lineageTag: a371f9f5-d2ff-4227-8f6f-c4bd89d8ebf4
+
+	measure Register_Concat = CONCATENATE("Student Register ", [concat])
+		lineageTag: de67dd8b-d556-4d9a-97c4-4df89b71fc01
+
+	measure 'Register Student Sum' = CALCULATE(SUM('BI vw_JP_Register'[Students]))+0
+		formatString: #,0
+		lineageTag: 6cf81665-8516-43f3-9a0f-ad319b2dd1c0
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: f4b60b6b-ccff-43c9-b35c-e17a950c9767
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: d0e7b522-c3b3-49c6-8b05-b6c1abd19d1e
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 22ef579e-b8ce-45b2-a31b-0f9bab8a3190
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		isHidden
+		lineageTag: c462d5e7-ff3e-4830-82ad-dd9ca879f4cc
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeLanguage
+		dataType: string
+		lineageTag: 7bfd8ca4-05f2-4aa0-b75f-83b7b170524f
+		summarizeBy: none
+		sourceColumn: OutcomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificationGrouped
+		dataType: string
+		lineageTag: 87226f91-9797-4bf6-b6e9-63abb000f02d
+		summarizeBy: none
+		sourceColumn: ClassificationGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: bd2c6740-754c-4d5f-b2ca-ae26744f954b
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Students
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 83bd048b-a793-4cf8-b1b2-00d8aa25c7aa
+		summarizeBy: sum
+		sourceColumn: Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MLLProficiencyDesc
+		dataType: string
+		lineageTag: b3830584-0d02-4d4d-90e9-7f854b6859f2
+		summarizeBy: none
+		sourceColumn: MLLProficiencyDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 9771a684-2571-4bac-8ace-0bd34b52da48
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 1b2e54e6-3a60-4b4c-b606-1cf4e8bf3137
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_Register-2058ad7b-9db0-4f8e-ac1e-e1da96e7e7e4' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_Register = Source{[Schema="BI",Item="vw_JP_Register"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(BI_vw_JP_Register,{{"OutcomeLanguageCC", "OutcomeLanguage"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

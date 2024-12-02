@@ -1,0 +1,164 @@
+table 'BI vw_JP_PSStudent'
+	lineageTag: 8bc3aded-f339-49e6-b7c7-cc9bd8f8ac44
+
+	measure 'PSStudent Sum' = CALCULATE(SUM('BI vw_JP_PSStudent'[Students]))
+		formatString: #,0
+		lineageTag: cee5594c-3b4d-4e24-8abb-432159adacfe
+
+	measure 'PSStudent Count' = CALCULATE(COUNT('BI vw_JP_PSStudent'[Students]))
+		formatString: #,0
+		lineageTag: d03c33e0-7fc8-45a6-a773-457b6bb5379d
+
+	measure '% Fully Receiving' = CALCULATE(sum('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Fully Receiving"}))/'BI vw_JP_PSStudent'[PSStudent Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: e8a73d64-48e7-47a3-8220-6e3cc19bb65e
+
+	measure '% Partially Receiving' = CALCULATE(SUM('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Partially Receiving"}))/'BI vw_JP_PSStudent'[PSStudent Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 7039a58a-8886-45e3-9d71-0d9068581fc1
+
+	measure '% Not Receiving' = CALCULATE(Sum('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Not Receiving"}))/'BI vw_JP_PSStudent'[PSStudent Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 106325cc-06af-49c7-b581-3329149819c6
+
+	measure 'Fully Receiving Sum' = CALCULATE(SUM('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Fully Receiving"}))
+		formatString: #,0
+		lineageTag: 5a782dc7-9a34-4e78-b041-ab04e91dc998
+
+	measure 'Partially Receiving Sum' = CALCULATE(SUM('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Partially Receiving"}))
+		formatString: #,0
+		lineageTag: 36abc26b-4065-49a5-860a-a435c7c99bee
+
+	measure 'Not Receiving Sum' = CALCULATE(SUM('BI vw_JP_PSStudent'[Students]),('BI vw_JP_PSStudent'[ReceivingStatus] in {"Not Receiving"}))
+		formatString: #,0
+		lineageTag: 83436da7-d501-4df3-b224-76f716ea1ab2
+
+	measure 'Possible Reasons Concat' = CONCATENATE("Program Services - Students Not Fully Served", [concat])
+		lineageTag: bca9d3f6-88f3-4048-a7ae-3a2f144eff72
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 791de580-8f7d-40e1-820e-998aaedceab2
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		isHidden
+		lineageTag: e8b38a53-70fb-4f1f-99f2-d96a538e341e
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		lineageTag: 87849c34-3a67-407e-ba17-a04818ec7bd3
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 21636944-fd96-4b46-8224-8a432999b291
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroup
+		dataType: string
+		lineageTag: 271d289e-2021-4ef4-a5fa-63cf6ef62a23
+		summarizeBy: none
+		sourceColumn: EthnicityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSOutcomeLanguage
+		dataType: string
+		lineageTag: 0637b595-5764-4cbf-8440-221f136b5676
+		summarizeBy: none
+		sourceColumn: PSOutcomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivingStatus
+		dataType: string
+		lineageTag: ad263052-2ce5-4dca-8883-0dc205a2b390
+		summarizeBy: none
+		sourceColumn: ReceivingStatus
+		sortByColumn: ReceivingStatusSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivingStatusSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0e0e8f57-33b2-4b6f-91c6-b9ab7c8dae98
+		summarizeBy: sum
+		sourceColumn: ReceivingStatusSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PossibleReasonNotServed
+		dataType: string
+		isHidden
+		lineageTag: 045fc08d-abc9-49b2-b92d-f22d54735194
+		summarizeBy: none
+		sourceColumn: PossibleReasonNotServed
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataMetric
+		dataType: string
+		isHidden
+		lineageTag: 82fc4a41-074a-4f8b-8f35-b9d0c14cffdd
+		summarizeBy: none
+		sourceColumn: DataMetric
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Students
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 57a5619a-2ce2-4afb-a342-2745d038fbad
+		summarizeBy: sum
+		sourceColumn: Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 0dea0593-f0be-4fc6-97c3-9136770acd60
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_PSStudent-1a7f5e9c-f346-4ad8-ad8d-37503e1fa332' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_PSStudent = Source{[Schema="BI",Item="vw_JP_PSStudent"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(BI_vw_JP_PSStudent,{{"EthnicityGroupCCFinal", "EthnicityGroup"}, {"PSOutcomeLanguageCC", "PSOutcomeLanguage"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

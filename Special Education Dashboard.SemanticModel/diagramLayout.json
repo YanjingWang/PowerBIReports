@@ -1,0 +1,274 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 336.8,
+            "y": 940.6
+          },
+          "nodeIndex": "Admin District Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 518,
+            "y": 1886.5
+          },
+          "nodeIndex": "BI vw_JP_BSEOfficialClass",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 287.1
+          },
+          "nodeIndex": "BI vw_JP_ELLCAPBilingualPS",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 585.7,
+            "y": 458.3
+          },
+          "nodeIndex": "BI vw_JP_ENL",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 923,
+            "y": 1886.5
+          },
+          "nodeIndex": "BI vw_JP_PSMandate",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 487.4,
+            "y": 0
+          },
+          "nodeIndex": "BI vw_JP_PSStudent",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1114.3,
+            "y": 458.3
+          },
+          "nodeIndex": "BI vw_JP_Referrals",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1124.8,
+            "y": 1273.6
+          },
+          "nodeIndex": "BI vw_JP_Register",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 42.3,
+            "y": 745.4
+          },
+          "nodeIndex": "BI vw_JP_RSMandate",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 325.9,
+            "y": 1203.7
+          },
+          "nodeIndex": "BI vw_Locations",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16.7,
+            "y": 1390.8
+          },
+          "nodeIndex": "Borough Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1439.6,
+            "y": 1320.7
+          },
+          "nodeIndex": "Classification Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1831.9,
+            "y": 1225.2
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 706.9,
+            "y": 1600.2
+          },
+          "nodeIndex": "Grade Level Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 718.2,
+            "y": 1202.8
+          },
+          "nodeIndex": "Grade Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 121.9,
+            "y": 1709.8
+          },
+          "nodeIndex": "ICT/SC Program Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 786.8,
+            "y": 1338
+          },
+          "nodeIndex": "Language Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 925.5,
+            "y": 916.6
+          },
+          "nodeIndex": "MLL/ELL Status Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1120.8,
+            "y": 172
+          },
+          "nodeIndex": "Outcome Toggle",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1113.3,
+            "y": 2344.8
+          },
+          "nodeIndex": "Program Type Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2224.2,
+            "y": 1273.2
+          },
+          "nodeIndex": "Referral Type Filter",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

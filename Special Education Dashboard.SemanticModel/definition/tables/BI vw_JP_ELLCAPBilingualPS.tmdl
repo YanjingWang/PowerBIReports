@@ -1,0 +1,208 @@
+table 'BI vw_JP_ELLCAPBilingualPS'
+	lineageTag: cef0adea-433b-46c9-b955-bb8d06da6093
+
+	measure 'Specialized Program Count' = CALCULATE(COUNT('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[SpecializedProgram] in {"BSE ICT", "BSE 12", "BSE D75", "BSE-ACES 12", "BSE-ASD NEST"})+0
+		formatString: 0
+		lineageTag: 74ec803f-aeac-44b8-a9c4-bd1bb34a473d
+
+	measure 'LOI NotEnglish' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[Language of Instruction]<>"English")+0
+		formatString: #,0
+		lineageTag: c7a5dde9-ca5f-43f0-997c-12d4f14c3276
+
+	measure '% Enrolled BSE' = [Specialized Program Sum]/[LOI NotEnglish]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 01daa867-fdca-42a1-bddd-22428f20970b
+
+	measure 'BSE Mixed Group' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]), 'BI vw_JP_ELLCAPBilingualPS'[BSEMixedGroup] = 1)+0
+		formatString: 0
+		lineageTag: 88d88e59-ada3-4c69-b81e-2ac742eec709
+
+	measure '% Enrolled BSE Mixed Group Classes' = [BSE Mixed Group]/[LOI NotEnglish]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8a8cbae4-6d8d-4b74-8229-b45afe725d8a
+
+	measure 'Recommended Enrolled' = [LOI NotEnglish] - [Specialized Program Sum] - [BSE Mixed Group]
+		formatString: #,0
+		lineageTag: 606b6e9b-94f2-41ab-a53b-52a59d3e7299
+
+	measure '% Recommended Enrolled' = [Recommended Enrolled]/[LOI NotEnglish]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ff9ba59c-0713-42b4-b0b5-ba28f78972e6
+
+	measure 'Fully Receiving' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[ReceivingStatus] in {"Fully Receiving"})+0
+		formatString: 0
+		lineageTag: 311febf7-1d08-433c-8f9e-ff821d2295be
+
+	measure 'ELLCAPBilingual Student Count' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]))
+		formatString: 0
+		lineageTag: 1b7ca0d8-e68f-4801-a17a-4b90d67cdb1a
+
+	measure '% Fully Receiving ELL CAP' = [Fully Receiving]/[LOI NotEnglish]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 43bc691b-2632-4a51-8833-39ae1840fc8e
+
+	measure 'Partially Receiving' = CALCULATE(sum('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[ReceivingStatus] in {"Partially Receiving"})+0
+		formatString: 0
+		lineageTag: c3dd0758-a802-4321-b2e1-29505b0ada66
+
+	measure 'Not Receiving' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[ReceivingStatus] in {"Not Receiving"})+0
+		formatString: #,0
+		lineageTag: 765892fb-51fd-4b2b-bfe4-0d1941dda9d1
+
+	measure '% Partially Receiving ELL CAP' = [Partially Receiving]/[LOI NotEnglish]+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e57b4de9-d612-461e-a1bf-0d48d0199191
+
+	measure '% Not Receiving ELL CAP' = [Not Receiving]/[LOI NotEnglish]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 76759ab1-9cc7-4a4e-a0a3-f22aa489987f
+
+	measure 'BSE ICT/SC Concat' = CONCATENATE("Recommended Bilingual Programs", [concat])
+		lineageTag: ea9f8790-870a-44ed-8913-fe0e528f7a0b
+
+	measure 'Specialized Program Sum' = CALCULATE(SUM('BI vw_JP_ELLCAPBilingualPS'[Students]),'BI vw_JP_ELLCAPBilingualPS','BI vw_JP_ELLCAPBilingualPS'[SpecializedProgram] in {"BSE ICT", "BSE 12", "BSE D75", "BSE-ACES 12", "BSE-ASD NEST"})
+		formatString: #,0
+		lineageTag: bed45025-1ddf-45b3-84fd-d2eb2e0cf223
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 8fcfa7e0-1bde-4bc1-ba03-7b9c2f3e2987
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: f2cb2c24-8843-41f2-9ca1-3e7baea212fb
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		lineageTag: 5946b36c-a691-47a0-a614-a4a52ca61815
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: af1055c0-cf9c-4396-8e5b-e680c0039918
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Language of Instruction'
+		dataType: string
+		lineageTag: cdc0548e-6c8e-4ba6-9005-ab2689956826
+		summarizeBy: none
+		sourceColumn: Language of Instruction
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpecializedProgram
+		dataType: string
+		lineageTag: e0c966a4-005f-4ed7-8ffc-25523968d930
+		summarizeBy: none
+		sourceColumn: SpecializedProgram
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivingStatus
+		dataType: string
+		lineageTag: 9545eb4b-bc56-4b16-b382-3090c075aca0
+		summarizeBy: none
+		sourceColumn: ReceivingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column BilingualProgramRecommendation
+		dataType: string
+		lineageTag: 056b9b20-d1d6-419a-bdff-6e6eb6987235
+		summarizeBy: none
+		sourceColumn: BilingualProgramRecommendation
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSEMixedGroup
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d2cf336-2965-4863-b4ae-b2559eaba5e1
+		summarizeBy: sum
+		sourceColumn: BSEMixedGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSEEnrollment
+		dataType: string
+		lineageTag: c0e943e8-a54a-498a-b599-03bb316040a9
+		summarizeBy: none
+		sourceColumn: BSEEnrollment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Students
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 7b63cd91-de97-43aa-89b5-03b71e68013b
+		summarizeBy: sum
+		sourceColumn: Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivingStatusFinal
+		dataType: string
+		lineageTag: 4e51f012-6adb-4ffd-8c24-07d700065db2
+		summarizeBy: none
+		sourceColumn: ReceivingStatusFinal
+		sortByColumn: ReceivingStatusFinalSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivingStatusFinalSort
+		dataType: string
+		isHidden
+		lineageTag: bb8c5354-37ca-4fa8-87e8-42de77c2861d
+		summarizeBy: none
+		sourceColumn: ReceivingStatusFinalSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Borough
+		dataType: string
+		lineageTag: 69cdec78-5ce4-4826-b574-c20e96eef4ed
+		summarizeBy: none
+		sourceColumn: Borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 2c45332b-5f55-4bee-91b6-b821669b3fcd
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_ELLCAPBilingualPS-a56cbe3a-ab7b-48c7-9a01-b7ac2b8cf52d' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_ELLCAPBilingualPS = Source{[Schema="BI",Item="vw_JP_ELLCAPBilingualPS"]}[Data],
+				    #"Added Conditional Column" = Table.AddColumn(BI_vw_JP_ELLCAPBilingualPS, "ReceivingStatusFinal", each if [ReceivingStatus] = "FULLY RECEIVING" then "Fully Scheduled" else if [ReceivingStatus] = "PARTIALLY RECEIVING" then "Partially Scheduled" else if [ReceivingStatus] = "NOT RECEIVING" then "Not Scheduled" else null),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "ReceivingStatusFinalSort", each if [ReceivingStatusFinal] = "Fully Scheduled" then 1 else if [ReceivingStatusFinal] = "Partially Scheduled" then 2 else if [ReceivingStatusFinal] = "Not Scheduled" then 3 else null)
+				in
+				    #"Added Conditional Column1"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,22 @@
+table 'Program Type Toggle'
+	lineageTag: 8dcae4a3-c305-4727-a493-f004e94c95e9
+
+	column 'Program Type'
+		dataType: string
+		lineageTag: 41b96546-a911-4522-8fe1-17aa409a0e60
+		summarizeBy: none
+		sourceColumn: Program Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Program Type Toggle-d5c1fabc-4915-4a66-a24b-924a886ecf9f' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8swrSU0vSixJTVFwztcNSU1MzsjMS1cITi0qy0xOLVaK1YlWCnYNCQ6GsApSkzMTcxSccxKLgXKxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Program Type" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Program Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

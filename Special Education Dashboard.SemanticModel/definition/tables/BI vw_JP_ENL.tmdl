@@ -1,0 +1,137 @@
+table 'BI vw_JP_ENL'
+	lineageTag: 0fd6578a-9e66-4217-8e0d-95f57c811475
+
+	measure 'ENLStudent Count' = CALCULATE(COUNT('BI vw_JP_ENL'[Students]))
+		formatString: 0
+		lineageTag: f590b781-f814-45e0-912c-2c84e98ad0f1
+
+	measure '% Served' = CALCULATE(sum('BI vw_JP_ENL'[Students]),('BI vw_JP_ENL'[ScheduledinSTARS] in {"Receiving"}))/[ENLStudent Sum]+0
+		formatString: 0%;-0%;0%
+		lineageTag: 7f498099-5f68-41c6-b0b6-b4a4d04e8e6a
+
+	measure '% Not Served' = CALCULATE(SUM('BI vw_JP_ENL'[Students]),('BI vw_JP_ENL'[ScheduledinSTARS] in {"Not Receiving"}))/[ENLStudent Sum]
+		formatString: 0%;-0%;0%
+		lineageTag: dacf02a7-902d-4b56-a97a-5325c66916ca
+
+	measure 'Served Count' = CALCULATE(COUNT('BI vw_JP_ENL'[Students]),('BI vw_JP_ENL'[ScheduledinSTARS] in {"Receiving"}))
+		formatString: #,0
+		lineageTag: 383ec835-084c-4a73-a604-5f5a8123ae30
+
+	measure 'Not Served Count' = CALCULATE(COUNT('BI vw_JP_ENL'[Students]),('BI vw_JP_ENL'[ScheduledinSTARS] in {"Not Receiving"}))
+		formatString: #,0
+		lineageTag: f6ac2e2f-0f14-4155-a4e3-5bc2ab33b757
+
+	measure 'Served Sum' = CALCULATE(sum('BI vw_JP_ENL'[Students]),('BI vw_JP_ENL'[ScheduledinSTARS] in {"Receiving"}))
+		formatString: 0
+		lineageTag: 422cc970-f22b-45f7-9c91-ab8c6b4ee153
+
+	measure 'ENLStudent Sum' = CALCULATE(Sum('BI vw_JP_ENL'[Students]))
+		formatString: 0
+		lineageTag: 7c22044b-fd65-4d57-aa66-95a0871f6fb1
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 989e4fdf-c45a-4aa5-88d3-506179110f92
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School DBN'
+		dataType: string
+		lineageTag: 11d94e23-916c-4df5-ba1f-5c5024f10cac
+		summarizeBy: none
+		sourceColumn: School DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguageCCGroup
+		dataType: string
+		lineageTag: 6d95ad4e-0441-4af3-969c-09b5e5241c6c
+		summarizeBy: none
+		sourceColumn: HomeLanguageCCGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 6c93d19e-677b-490e-9201-409730c622d9
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: d8b17198-3747-4ca9-b59b-3bf61dde8ad5
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevelGrouped
+		dataType: string
+		isHidden
+		lineageTag: 0ad8a8e6-afc6-4c79-b9f9-86fdf5b8832e
+		summarizeBy: none
+		sourceColumn: GradeLevelGrouped
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Proficiency
+		dataType: string
+		isHidden
+		lineageTag: 43c0cb74-e92a-429a-8580-83096c2a1973
+		summarizeBy: none
+		sourceColumn: Proficiency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledinSTARS
+		dataType: string
+		lineageTag: 73f7cafe-3269-4eb1-922c-7d96f2fbbfff
+		summarizeBy: none
+		sourceColumn: ScheduledinSTARS
+		sortByColumn: ScheduledinSTARSSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column Students
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 7bfd9d11-b4ae-45c5-b6db-314cc4c6ad7f
+		summarizeBy: sum
+		sourceColumn: Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledinSTARSSort
+		dataType: string
+		isHidden
+		lineageTag: 721c08c5-cce8-49ee-8383-64060602e92f
+		summarizeBy: none
+		sourceColumn: ScheduledinSTARSSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_JP_ENL-a47c4137-ff97-4af3-83bc-07776ca3b8f2' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING"),
+				    BI_vw_JP_ENL = Source{[Schema="BI",Item="vw_JP_ENL"]}[Data],
+				    #"Added Conditional Column" = Table.AddColumn(BI_vw_JP_ENL, "ScheduledinSTARSSort", each if [ScheduledinSTARS] = "Receiving" then 1 else if [ScheduledinSTARS] = "Not Receiving" then 2 else null)
+				in
+				    #"Added Conditional Column"
+
+	annotation PBI_ResultType = Table
+

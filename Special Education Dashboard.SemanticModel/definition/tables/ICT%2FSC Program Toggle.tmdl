@@ -1,0 +1,30 @@
+table 'ICT/SC Program Toggle'
+	lineageTag: 873c4ae7-4c8b-4b06-a422-1145e55c0461
+
+	column ICT/SC
+		dataType: string
+		lineageTag: be719a12-2cc4-48cf-b8ba-17626d7bd2c4
+		summarizeBy: none
+		sourceColumn: ICT/SC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Full'
+		dataType: string
+		lineageTag: 15131b70-1fa7-4db8-922a-932b362c8299
+		summarizeBy: none
+		sourceColumn: Program Full
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'ICT/SC Program Toggle-f879f4d4-fdf9-48e9-897a-4bbcf4c5e59b' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nQOUdJR8swrSU0vSixJTVFwztcNSU1MzsjMS1cITi0qy0xOLVaK1YlWCnYGKgwuSE3OTMxRcM5JLAYKxwIA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"ICT/SC" = _t, #"Program Full" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ICT/SC", type text}, {"Program Full", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

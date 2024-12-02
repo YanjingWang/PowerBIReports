@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["BI vw_Locations","BI vw_NPSProvisioningData"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_62c7587b-f236-43b4-bd9e-2021fc45199b
+ref table 'BI vw_Locations'
+ref table LocalDateTable_2090b776-abe6-4144-9f15-5e713e5a995b
+ref table LocalDateTable_e9bba842-be88-46e5-99a3-fc98063442fb
+ref table LocalDateTable_a2a4aa1c-8d07-4f0c-864b-4ddc7be78e89
+ref table 'BI vw_NPSProvisioningData'
+ref table LocalDateTable_7b7cebda-4ecf-468d-8f16-ce455557e19b
+ref table LocalDateTable_ab8bda46-64eb-46f9-b50e-94a9abf92c34
+ref table LocalDateTable_0b795a9d-7428-41aa-913f-ff26664ea18c
+ref table LocalDateTable_17c0de5f-c332-4619-a789-5016800724b3
+ref table LocalDateTable_61acfb66-7345-48b5-8613-7e9b6893c8d9
+ref table LocalDateTable_981d0bed-9143-4f83-a47e-bc2fea6bbc2d
+

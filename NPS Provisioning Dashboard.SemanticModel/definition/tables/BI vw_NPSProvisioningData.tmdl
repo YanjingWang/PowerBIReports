@@ -1,0 +1,795 @@
+table 'BI vw_NPSProvisioningData'
+	lineageTag: 3ec69923-d02c-477b-8c9a-5c980fe7e8e4
+
+	measure '% Fully Assigned' = ```
+			
+			IF(ISBLANK( 
+			CALCULATE(COUNT('BI vw_NPSProvisioningData'[StudentID]),('BI vw_NPSProvisioningData'[PAMandateStatus] in {"Fully Assigned","Manually Assigned","partially assigned", "Previously Assigned or Encountered"}))/COUNT('BI vw_NPSProvisioningData'[StudentID])
+			), 0,
+			CALCULATE(COUNT('BI vw_NPSProvisioningData'[StudentID]),('BI vw_NPSProvisioningData'[PAMandateStatus] in {"Fully Assigned","Manually Assigned","partially assigned", "Previously Assigned or Encountered"}))/COUNT('BI vw_NPSProvisioningData'[StudentID]))+0
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2876cc24-6e32-499c-aa2c-449243c8c97f
+
+	measure '# Fully Assigned' = CALCULATE(COUNT('BI vw_NPSProvisioningData'[StudentID]),('BI vw_NPSProvisioningData'[PAMandateStatus] in {"Fully Assigned"}))+0
+		formatString: 0
+		lineageTag: 9a8ba5b0-bdc1-4351-9059-7c6d0e6c7a0f
+
+	measure '% Full Encounter' = ```
+			IF(ISBLANK( 
+			CALCULATE(COUNT('BI vw_NPSProvisioningData'[StudentID]),('BI vw_NPSProvisioningData'[EncounterStatus] in {"Full Encounter"}))/COUNT('BI vw_NPSProvisioningData'[StudentID])
+			), 0,
+			CALCULATE(COUNT('BI vw_NPSProvisioningData'[StudentID]),('BI vw_NPSProvisioningData'[EncounterStatus] in {"Full Encounter"}))/COUNT('BI vw_NPSProvisioningData'[StudentID]))+0
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 90a2f08a-d9a9-4477-8084-b1a48630874c
+
+	column StudentCategory
+		dataType: string
+		lineageTag: dcbf9cb7-9020-4c0d-9af2-6ca24502b439
+		summarizeBy: none
+		sourceColumn: StudentCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateNotIntentRcvd
+		dataType: string
+		lineageTag: f6e8530a-a059-4391-a4b1-f6df1d667c4f
+		summarizeBy: none
+		sourceColumn: DateNotIntentRcvd
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentID
+		dataType: int64
+		formatString: 0
+		lineageTag: afd9343d-875d-44ce-a04e-2cac0ba873d5
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 01d502ba-e9ea-4cee-ab75-7670d4408e9a
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 741f3bde-a5a4-4973-9b83-7d32cde791c1
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		lineageTag: 3f9c932b-14f2-4bf6-8235-f69e15dd6ed0
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestOutcomeFlag
+		dataType: string
+		lineageTag: f574b178-86ed-48b0-9219-a48991dccf28
+		summarizeBy: none
+		sourceColumn: LatestOutcomeFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestOutcomeTypeDesc
+		dataType: string
+		lineageTag: 36b7b1de-a101-46f5-b2e0-127e93c16698
+		summarizeBy: none
+		sourceColumn: LatestOutcomeTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestOutcomeDate
+		dataType: string
+		lineageTag: e5b64dc5-311f-4178-a725-d5c6c7c47d95
+		summarizeBy: none
+		sourceColumn: LatestOutcomeDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDate
+		dataType: string
+		lineageTag: eed88269-ffe7-450d-9d70-6f65e93bd079
+		summarizeBy: none
+		sourceColumn: OutcomeDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeEffectiveDate
+		dataType: string
+		lineageTag: 7f2eb5b8-3056-4c3d-a62f-b0c5591a072e
+		summarizeBy: none
+		sourceColumn: OutcomeEffectiveDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeTypeDesc
+		dataType: string
+		lineageTag: 555e35c0-6327-4b41-8728-27c55166d6bf
+		summarizeBy: none
+		sourceColumn: OutcomeTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeDocumentIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b00c42a-6e72-4ba9-a621-c7281fb9a2d1
+		summarizeBy: sum
+		sourceColumn: OutcomeDocumentIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendPlacementDesc
+		dataType: string
+		lineageTag: eed79f4f-e360-49ff-bae1-89d1b65fcf0d
+		summarizeBy: none
+		sourceColumn: RecommendPlacementDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessStageDesc
+		dataType: string
+		lineageTag: a3c7e6ae-db97-4107-9190-2c8a7efdd3b8
+		summarizeBy: none
+		sourceColumn: ProcessStageDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveMandateFlag
+		dataType: string
+		lineageTag: 44f4fb58-da94-4a83-ae86-21081e11925f
+		summarizeBy: none
+		sourceColumn: ActiveMandateFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedMandateType
+		dataType: string
+		lineageTag: b2cacc63-b411-4b8c-8e6a-3d7846a81f85
+		summarizeBy: none
+		sourceColumn: RecommendedMandateType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedGroupType
+		dataType: string
+		lineageTag: 7db8acdb-e954-4e69-82ed-a95742614c7d
+		summarizeBy: none
+		sourceColumn: RecommendedGroupType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedLocation
+		dataType: string
+		lineageTag: 59847fa2-93a1-462d-ba58-cdcd0750c671
+		summarizeBy: none
+		sourceColumn: RecommendedLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedLanguage
+		dataType: string
+		lineageTag: 87ee46cc-4b1e-428e-8260-c543875aa5dc
+		summarizeBy: none
+		sourceColumn: RecommendedLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedFrequency
+		dataType: string
+		lineageTag: a04b04c9-1f9a-40ac-951b-a0140dbea556
+		summarizeBy: none
+		sourceColumn: RecommendedFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedDuration
+		dataType: string
+		lineageTag: f2ef946c-507f-4a81-9557-92c45a506cd5
+		summarizeBy: none
+		sourceColumn: RecommendedDuration
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecommendedStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a277f2b3-d889-4af9-9e0c-50257ba6d732
+		summarizeBy: none
+		sourceColumn: RecommendedStartDate
+
+		variation Variation
+			isDefault
+			relationship: d1ac075d-4451-4829-b01a-8b70e3770946
+			defaultHierarchy: LocalDateTable_7b7cebda-4ecf-468d-8f16-ce455557e19b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column RecommendedEndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ff0d7a0e-5ebc-49c9-b385-8191d08df144
+		summarizeBy: none
+		sourceColumn: RecommendedEndDate
+
+		variation Variation
+			isDefault
+			relationship: 4b7a5cbe-91c7-46e3-855d-215f15ca51b8
+			defaultHierarchy: LocalDateTable_ab8bda46-64eb-46f9-b50e-94a9abf92c34.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PAMandateStatus
+		dataType: string
+		lineageTag: 9bcdc4c2-4e53-43d9-8523-16e6979fa2e8
+		summarizeBy: none
+		sourceColumn: PAMandateStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAFirstAttendDate
+		dataType: string
+		lineageTag: df6d8313-3670-480c-9247-77cd48724ca1
+		summarizeBy: none
+		sourceColumn: PAFirstAttendDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAEarliestAssignmentDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7fdbea68-5958-4f31-b32c-f0f3fbcee191
+		summarizeBy: none
+		sourceColumn: PAEarliestAssignmentDate
+
+		variation Variation
+			isDefault
+			relationship: dbdf8788-7b1b-4b68-a727-51f6cbb9ed0f
+			defaultHierarchy: LocalDateTable_0b795a9d-7428-41aa-913f-ff26664ea18c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PACurrentAssignmentStatus
+		dataType: string
+		lineageTag: 78428808-1991-45fa-b69a-629712546552
+		summarizeBy: none
+		sourceColumn: PACurrentAssignmentStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAFirstAttendDelayReason
+		dataType: string
+		lineageTag: 79a38467-016b-4992-98af-e538cf86380b
+		summarizeBy: none
+		sourceColumn: PAFirstAttendDelayReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAAgencyName
+		dataType: string
+		lineageTag: 27b78598-516b-4b51-a209-a30b92877347
+		summarizeBy: none
+		sourceColumn: PAAgencyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAProviderName
+		dataType: string
+		lineageTag: c48e646e-607d-44ac-b4d0-a23f13578ec7
+		summarizeBy: none
+		sourceColumn: PAProviderName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAFullEncoutnersCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 53ede58d-5d38-474e-abe0-d27ba20816c8
+		summarizeBy: sum
+		sourceColumn: EAFullEncoutnersCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAPartialEncountersCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fd189a5-f849-4e49-a787-2baa4dea12e9
+		summarizeBy: sum
+		sourceColumn: EAPartialEncountersCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAStudentAbsenceCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fd6f986-7d95-4418-83cd-2c141ae9fff9
+		summarizeBy: sum
+		sourceColumn: EAStudentAbsenceCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAEarliestFullServiceDate
+		dataType: string
+		lineageTag: bd197bb2-e105-458f-b51c-03b8462f8cd9
+		summarizeBy: none
+		sourceColumn: EAEarliestFullServiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAEarliestPartialServiceDate
+		dataType: string
+		lineageTag: 8201683d-392c-41f5-808c-cd748893de2a
+		summarizeBy: none
+		sourceColumn: EAEarliestPartialServiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EALatestFullServiceDate
+		dataType: string
+		lineageTag: 223d86ab-9db8-4ddf-84cd-8be7be884613
+		summarizeBy: none
+		sourceColumn: EALatestFullServiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EALatestPartialServiceDate
+		dataType: string
+		lineageTag: 9d4692e5-d900-4885-94a9-e903500b0671
+		summarizeBy: none
+		sourceColumn: EALatestPartialServiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfileIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: aac20ae9-55c2-4d58-bd60-184e18564390
+		summarizeBy: sum
+		sourceColumn: ProfileIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		lineageTag: 7e30dc0b-bce9-48cd-8d1d-5bde6bb39ad6
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7382bf28-0feb-4091-aa9a-27310c2d110d
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: 05272636-44ab-40c3-9c7f-d5bcaf4b1137
+			defaultHierarchy: LocalDateTable_17c0de5f-c332-4619-a789-5016800724b3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HousingType
+		dataType: string
+		lineageTag: d6192a33-5b24-40b6-b2a8-da22c2ff5276
+		summarizeBy: none
+		sourceColumn: HousingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: 72368dac-1cdb-4594-9acd-4999ae22c1ec
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 5b23345b-30d5-446a-b5fa-97a69bc0c662
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalEmail
+		dataType: string
+		lineageTag: 6ecc4af7-45b5-47ee-841e-165ecbb49c68
+		summarizeBy: none
+		sourceColumn: PrincipalEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalPhoneNumber
+		dataType: string
+		lineageTag: 7dfc0fb2-905a-4751-a147-22f6508f76a1
+		summarizeBy: none
+		sourceColumn: PrincipalPhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBNAddress
+		dataType: string
+		lineageTag: fb364bc0-2977-4c8d-b9f2-c10764c2edc2
+		summarizeBy: none
+		sourceColumn: EnrolledDBNAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBNCity
+		dataType: string
+		lineageTag: 7bd8adfe-28bb-4969-b6cd-80617a0afd1a
+		summarizeBy: none
+		sourceColumn: EnrolledDBNCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBNZipcode
+		dataType: string
+		lineageTag: 64de82d6-7ac5-48c8-ac86-b2285c440c92
+		summarizeBy: none
+		sourceColumn: EnrolledDBNZipcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: 8aad7042-fc58-44cd-85f5-fb1a7d7dd1ac
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSE
+		dataType: string
+		lineageTag: 924d0380-c38b-4880-8331-c07584143c87
+		summarizeBy: none
+		sourceColumn: CSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeDistrict
+		dataType: string
+		lineageTag: 4939c07d-d8f5-4eff-8f69-ae1ca22d9dee
+		summarizeBy: none
+		sourceColumn: HomeDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNISchoolDBN
+		dataType: string
+		lineageTag: 59fff2c5-2442-4024-b2a8-7af4d3bfb25e
+		summarizeBy: none
+		sourceColumn: PNISchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNISchoolName
+		dataType: string
+		lineageTag: 8097419c-50b0-4178-afbf-c3170e0a49da
+		summarizeBy: none
+		sourceColumn: PNISchoolName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNISchoolPrincipalEmail
+		dataType: string
+		lineageTag: d1310a6f-8364-4d6a-a571-a6b39c5c7a0f
+		summarizeBy: none
+		sourceColumn: PNISchoolPrincipalEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNISchoolPrincipalPhone
+		dataType: string
+		lineageTag: 2a74f2f6-5729-4be1-839a-e3e6dc71c2b9
+		summarizeBy: none
+		sourceColumn: PNISchoolPrincipalPhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNIArticSchoolDBN
+		dataType: string
+		lineageTag: 4147cfed-161f-4802-9233-47cfcac94ec0
+		summarizeBy: none
+		sourceColumn: PNIArticSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNIArticSchoolName
+		dataType: string
+		lineageTag: d2b8af16-7443-4abb-84e9-8d45a2076cea
+		summarizeBy: none
+		sourceColumn: PNIArticSchoolName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNIArticSchoolPrincipalEmail
+		dataType: string
+		lineageTag: f4b19c71-e57d-4408-af47-c9ed510c0dd2
+		summarizeBy: none
+		sourceColumn: PNIArticSchoolPrincipalEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNIArticSchoolPrincipalPhone
+		dataType: string
+		lineageTag: 08884cd3-fe93-4ab7-a77f-96d3ca81736d
+		summarizeBy: none
+		sourceColumn: PNIArticSchoolPrincipalPhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETLProcessedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e5766407-61d7-4729-beed-0b04acef5a95
+		summarizeBy: none
+		sourceColumn: ETLProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 57f748ec-6f40-4e27-9288-c759e9c49e4f
+			defaultHierarchy: LocalDateTable_61acfb66-7345-48b5-8613-7e9b6893c8d9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETLProcessedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 68e13ee5-7f85-48a0-b4f3-18dda13d5dfb
+		summarizeBy: none
+		sourceColumn: ETLProcessedDateTime
+
+		variation Variation
+			isDefault
+			relationship: acb65190-2036-457a-ba7b-20e9a75098f5
+			defaultHierarchy: LocalDateTable_981d0bed-9143-4f83-a47e-bc2fea6bbc2d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PNIStatus
+		dataType: string
+		lineageTag: c15eeb0d-5d24-4493-978c-9dc6941d0544
+		summarizeBy: none
+		sourceColumn: PNIStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EncounterStatus
+		dataType: string
+		lineageTag: 32bfa132-e63b-41d7-8b46-eee1e3822b73
+		summarizeBy: none
+		sourceColumn: EncounterStatus
+		sortByColumn: EncounterStatusSort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column EncounterStatusSort
+		dataType: string
+		isHidden
+		lineageTag: 28f24774-1f99-43e4-afc5-52beebaef9f7
+		summarizeBy: none
+		sourceColumn: EncounterStatusSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EALatestServiceProviderName
+		dataType: string
+		lineageTag: 7306c23e-470b-4a48-bae0-e90407fd1e0c
+		summarizeBy: none
+		sourceColumn: EALatestServiceProviderName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EALatestServiceProviderID
+		dataType: string
+		lineageTag: 24f0fc8d-718f-43f3-b662-99a9f08f7e32
+		summarizeBy: none
+		sourceColumn: EALatestServiceProviderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date email sent to school/Parent'
+		dataType: string
+		lineageTag: 907f17b8-3f2d-47fa-b73c-280bdb3fc398
+		summarizeBy: none
+		sourceColumn: Date email sent to school/Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offer Sent to School or Parent'
+		dataType: string
+		lineageTag: fbec671e-9140-4766-b9df-459300cfed39
+		summarizeBy: none
+		sourceColumn: Offer Sent to School or Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was Provider Accepted Y/N'
+		dataType: string
+		lineageTag: 4626ad55-f6bd-4ce8-9745-35e20a1ff848
+		summarizeBy: none
+		sourceColumn: Was Provider Accepted Y/N
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Response'
+		dataType: string
+		lineageTag: b3d04e58-3c60-4ceb-a295-d79a75c32e5d
+		summarizeBy: none
+		sourceColumn: Parent Response
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Response'
+		dataType: string
+		lineageTag: 71d074fa-1b9c-4a88-a921-d97f2767630a
+		summarizeBy: none
+		sourceColumn: School Response
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent'
+		dataType: string
+		lineageTag: 45a250db-b76a-46d9-9d40-cdc92d2b6ac7
+		summarizeBy: none
+		sourceColumn: ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Notes on responses'
+		dataType: string
+		lineageTag: 859d357d-ce8a-47f7-9107-8551e2a4d779
+		summarizeBy: none
+		sourceColumn: Notes on responses
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Full email address of the NYCPS staff member who sent the offer'
+		dataType: string
+		lineageTag: 7d5ce8d2-3ebc-4e86-b6e3-91d0c4699995
+		summarizeBy: none
+		sourceColumn: Full email address of the NYCPS staff member who sent the offer
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProviderNameFromCSE
+		dataType: string
+		lineageTag: d0281d27-9a62-4f07-b051-b5af2268f25e
+		summarizeBy: none
+		sourceColumn: ProviderNameFromCSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactName
+		dataType: string
+		lineageTag: f8a77320-7b25-4c96-8e3a-b474905b79c2
+		summarizeBy: none
+		sourceColumn: PrimaryContactName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactEmail
+		dataType: string
+		lineageTag: f3317fb2-33f4-4e17-bc70-9c98e39d6ba5
+		summarizeBy: none
+		sourceColumn: PrimaryContactEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactPhone
+		dataType: string
+		lineageTag: e8fcddf2-1c4d-4b09-a7ab-455e7fbfc9fe
+		summarizeBy: none
+		sourceColumn: PrimaryContactPhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactAddress
+		dataType: string
+		lineageTag: b8887526-e4f0-4c61-b61e-7dd4506bc5be
+		summarizeBy: none
+		sourceColumn: PrimaryContactAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactLanguage
+		dataType: string
+		lineageTag: 517e148b-1aa6-4d96-aa45-5f6fe627181e
+		summarizeBy: none
+		sourceColumn: PrimaryContactLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentAddress
+		dataType: string
+		lineageTag: 2b7258e7-0538-4154-ba46-a30e9210b159
+		summarizeBy: none
+		sourceColumn: StudentAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column RedAlertStudent
+		dataType: string
+		lineageTag: 111b582b-180d-4988-98d0-a72dbecefc53
+		summarizeBy: none
+		sourceColumn: RedAlertStudent
+
+		annotation SummarizationSetBy = Automatic
+
+	column NPSSchoolType
+		dataType: string
+		lineageTag: 64bdf979-331a-4bfe-b60f-0e01283c9cc7
+		summarizeBy: none
+		sourceColumn: NPSSchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatestOutcomeDocumentIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 298271f0-4880-48d5-85fc-e61967e4ca5d
+		summarizeBy: sum
+		sourceColumn: LatestOutcomeDocumentIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAMandateID
+		dataType: int64
+		formatString: 0
+		lineageTag: cfa4edbf-69b8-4781-b3d6-6204083018d5
+		summarizeBy: count
+		sourceColumn: PAMandateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CarterStudent
+		dataType: string
+		lineageTag: 278c97f1-c44f-45bf-9394-42f9c47881f8
+		summarizeBy: none
+		sourceColumn: CarterStudent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_NPSProvisioningData-1778b474-2998-4926-9dc6-c6b0640755d6' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("ES00VPADOSQL180,51433"),
+				    SEO_REPORTING = Source{[Name="SEO_REPORTING"]}[Data],
+				    BI_vw_NPSProvisioningData_StudentMandate = SEO_REPORTING{[Schema="BI",Item="vw_NPSProvisioningData_StudentMandate"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(BI_vw_NPSProvisioningData_StudentMandate,{{"DateNotIntentRcvd", type text}, {"LatestOutcomeDate", type text}, {"OutcomeDate", type text}, {"OutcomeEffectiveDate", type text}, {"PAFirstAttendDate", type text}, {"PAEarliestAssignmentDate", type date}, {"EAEarliestFullServiceDate", type text}, {"EAEarliestPartialServiceDate", type text}, {"EALatestFullServiceDate", type text}, {"EALatestPartialServiceDate", type text}, {"EAFullEncoutnersCount", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

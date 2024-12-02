@@ -1,0 +1,49 @@
+relationship e01c5ea5-0e79-40fa-80e3-8eecd3b89e6e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ClosedDate
+	toColumn: LocalDateTable_2090b776-abe6-4144-9f15-5e713e5a995b.Date
+
+relationship 207b2283-681e-4e46-a556-e769b8b0585a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDate
+	toColumn: LocalDateTable_e9bba842-be88-46e5-99a3-fc98063442fb.Date
+
+relationship a25ac0d7-1572-466a-9790-57c10f05ab37
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDateTime
+	toColumn: LocalDateTable_a2a4aa1c-8d07-4f0c-864b-4ddc7be78e89.Date
+
+relationship d1ac075d-4451-4829-b01a-8b70e3770946
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.RecommendedStartDate
+	toColumn: LocalDateTable_7b7cebda-4ecf-468d-8f16-ce455557e19b.Date
+
+relationship 4b7a5cbe-91c7-46e3-855d-215f15ca51b8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.RecommendedEndDate
+	toColumn: LocalDateTable_ab8bda46-64eb-46f9-b50e-94a9abf92c34.Date
+
+relationship dbdf8788-7b1b-4b68-a727-51f6cbb9ed0f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.PAEarliestAssignmentDate
+	toColumn: LocalDateTable_0b795a9d-7428-41aa-913f-ff26664ea18c.Date
+
+relationship 05272636-44ab-40c3-9c7f-d5bcaf4b1137
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.BirthDate
+	toColumn: LocalDateTable_17c0de5f-c332-4619-a789-5016800724b3.Date
+
+relationship 57f748ec-6f40-4e27-9288-c759e9c49e4f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.ETLProcessedDate
+	toColumn: LocalDateTable_61acfb66-7345-48b5-8613-7e9b6893c8d9.Date
+
+relationship acb65190-2036-457a-ba7b-20e9a75098f5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_NPSProvisioningData'.ETLProcessedDateTime
+	toColumn: LocalDateTable_981d0bed-9143-4f83-a47e-bc2fea6bbc2d.Date
+
+relationship 2ecc251f-f525-4126-8980-058ed5315cb2
+	fromColumn: 'BI vw_NPSProvisioningData'.EnrolledDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+

@@ -1,0 +1,2038 @@
+table 'IEP Review Data'
+	isHidden
+	lineageTag: 542ff0f0-d37c-47a3-bae1-4868fc00cafa
+
+	measure Reviews = COUNT('IEP Review Data'[Q05_StudentID])
+		formatString: #,0
+		isHidden
+		lineageTag: f684157d-98dc-4747-9ab5-15c1abd0500f
+
+	measure AsOfDate = MAX('IEP Review Data'[PullDate])
+		formatString: mm/dd/yyyy
+		isHidden
+		lineageTag: 62ac6c87-36d3-4e6b-94f0-8adbb785131e
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ResponseID
+		dataType: double
+		isHidden
+		lineageTag: 638e8f03-5b17-4e2b-b13b-a04e7d55ffa6
+		summarizeBy: count
+		sourceColumn: ResponseID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StartDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: b2479244-1670-483e-82c9-a638e4f1efe1
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 391da83d-44e1-46e4-bab0-c827c2bdec7c
+			defaultHierarchy: LocalDateTable_8cce04c6-b67a-4328-bbc6-40d94d49dae2.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubmitDate
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: a118f62e-4371-4494-be82-c4e4a1d13e14
+		summarizeBy: none
+		sourceColumn: SubmitDate
+
+		variation Variation
+			isDefault
+			relationship: 2cfcbfac-886f-4644-9c01-76f2c16b3209
+			defaultHierarchy: LocalDateTable_b1f8da37-b095-4e27-9494-5c052f8f474b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		isHidden
+		lineageTag: f414e1a6-a881-4073-8c42-b936cb617e25
+		summarizeBy: none
+		sourceColumn: Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q01_SchoolDBN
+		dataType: string
+		isHidden
+		lineageTag: 6cd97ed2-4ccf-4dff-944b-e227558ce077
+		summarizeBy: none
+		sourceColumn: Q01_SchoolDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q04_CSE
+		dataType: string
+		isHidden
+		lineageTag: 015c8fe3-8292-4713-a270-7fc1b207a3fe
+		summarizeBy: none
+		sourceColumn: Q04_CSE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_StudentID
+		dataType: double
+		isHidden
+		lineageTag: 6126d964-ce56-475d-a0de-b5dcd0fc36f7
+		summarizeBy: count
+		sourceColumn: Q05_StudentID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Q06_FirstName
+		dataType: string
+		isHidden
+		lineageTag: 4c55c102-a476-41a4-8a12-e02ca193070c
+		summarizeBy: none
+		sourceColumn: Q06_FirstName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q07_LastName
+		dataType: string
+		isHidden
+		lineageTag: e63b9144-0d26-4fec-b721-cc08d5e0a5e3
+		summarizeBy: none
+		sourceColumn: Q07_LastName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q09_FinalizationDate
+		dataType: string
+		isHidden
+		lineageTag: 9b4d8cbd-2bd9-49c1-babd-0f403346cefc
+		summarizeBy: none
+		sourceColumn: Q09_FinalizationDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q10_Reviewers
+		dataType: string
+		isHidden
+		lineageTag: f3c1377a-ecac-48ad-bbdc-7e57364104f7
+		summarizeBy: none
+		sourceColumn: Q10_Reviewers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_SchoolStaff
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 40c54178-7d9c-45f4-bb3e-7fcfe406a8e9
+		summarizeBy: sum
+		sourceColumn: Q11_SchoolStaff
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_FSCStaff
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 26ed777f-44c7-4576-9a3a-d50a77b8cf92
+		summarizeBy: sum
+		sourceColumn: Q11_FSCStaff
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_RSETASC
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: b775b823-e1d9-4f0d-b147-80f3e70b6d9a
+		summarizeBy: sum
+		sourceColumn: Q11_RSETASC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_SupeOfPsych
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 70d52d99-ce5a-4fbd-8ee2-90458846b89d
+		summarizeBy: sum
+		sourceColumn: Q11_SupeOfPsych
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_CSEStaff
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: c0b2516d-1e84-4268-8473-b4b08c27e7e4
+		summarizeBy: sum
+		sourceColumn: Q11_CSEStaff
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q12_NumReviewers
+		dataType: double
+		isHidden
+		lineageTag: 22ac7fca-5f84-40db-9fae-dd16950fd610
+		summarizeBy: sum
+		sourceColumn: Q12_NumReviewers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Q21A_BasedOnAgeAppropriateStandards
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f1dc471f-f21a-4d64-87bd-3e31d1cad3cf
+		summarizeBy: average
+		sourceColumn: Q21A_BasedOnAgeAppropriateStandards
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q21B_ClassroomStateLocalSupplemental
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e863d971-e9f0-48b1-b026-d1d59f74c3a6
+		summarizeBy: average
+		sourceColumn: Q21B_ClassroomStateLocalSupplemental
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q21C_EvidenceOfComparativeAnalysis
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a7f610b0-7319-427f-9d98-f43fcaa393b4
+		summarizeBy: average
+		sourceColumn: Q21C_EvidenceOfComparativeAnalysis
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q21D_PLOPinReading
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3ab4d0f6-fa0a-4c9d-a9f6-a27398cdd6cf
+		summarizeBy: average
+		sourceColumn: Q21D_PLOPinReading
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q21E_PLOPinMath
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 93976a3f-68b5-4b16-9c54-b774424be8b6
+		summarizeBy: average
+		sourceColumn: Q21E_PLOPinMath
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q23_IEPIdentifiesSpeciallyDesignedInstruction
+		dataType: string
+		isHidden
+		lineageTag: 66da267b-de90-431d-b4f2-939f35d8540e
+		summarizeBy: none
+		sourceColumn: Q23_IEPIdentifiesSpeciallyDesignedInstruction
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q24_EffectOfDisabilityProvidesRationaleForIEP
+		dataType: string
+		isHidden
+		lineageTag: 43ad7d84-aa20-4117-8732-629810c0e688
+		summarizeBy: none
+		sourceColumn: Q24_EffectOfDisabilityProvidesRationaleForIEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q25_HealthNeeds
+		dataType: double
+		isHidden
+		formatString: 0%;-0%;0%
+		lineageTag: 116bd7d4-9f46-46a3-b57e-c585d3f24b0e
+		summarizeBy: average
+		sourceColumn: Q25_HealthNeeds
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Q26_HealthEvidence
+		dataType: double
+		isHidden
+		formatString: 0%;-0%;0%
+		lineageTag: 241a8aef-339e-45af-b189-9991a5ebf1b9
+		summarizeBy: average
+		sourceColumn: Q26_HealthEvidence
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: e9dd1f1a-2b62-4c97-a839-a01742e132ff
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESIS_DBN
+		dataType: string
+		isHidden
+		lineageTag: 585d1eea-fa87-49e5-8a02-2f1f09a05d05
+		summarizeBy: none
+		sourceColumn: SESIS_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 13d30842-75ea-4ae2-8da4-293a7e671acd
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASSIFICATION
+		dataType: string
+		isHidden
+		lineageTag: 01f41310-3289-4c82-a921-2a7e470ba42e
+		summarizeBy: none
+		sourceColumn: CLASSIFICATION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 9cb7d62b-c7b4-40a2-9455-31278cf04a54
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBNFix
+		dataType: string
+		isHidden
+		lineageTag: 1c5e52af-9321-4989-a262-c3054eadeea9
+		summarizeBy: none
+		sourceColumn: SchoolDBNFix
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewMonth = UPPER(LEFT('IEP Review Data'[SubmitDate].[Month],3))
+		dataType: string
+		isHidden
+		lineageTag: fd117d5d-b3ca-4510-a9bc-c94403e16ee9
+		summarizeBy: none
+		sortByColumn: 'Review Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review Month Number' = IF(Month('IEP Review Data'[SubmitDate])<7,Month('IEP Review Data'[SubmitDate])+6,Month('IEP Review Data'[SubmitDate])-6)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b4c5701c-07b8-467a-a48d-cbd460909f5a
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q41_BehaviorConcerns% = 'IEP Review Data'[Q42_BehaviorConcerns]
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: fc7f1e58-d06b-4679-ae9b-22e949ef281b
+		summarizeBy: average
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = User
+
+	column Q49_BehaviorPara% = 'IEP Review Data'[Q49_BehaviorPara]
+		dataType: double
+		isHidden
+		formatString: 0%;-0%;0%
+		lineageTag: 317ce5be-a997-4e65-99d7-db91d132c428
+		summarizeBy: average
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = User
+
+	column Q51_Age12orOver% = 'IEP Review Data'[Q51_Age12orOver]
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 84e18252-d7e5-4423-920f-94d232148987
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = User
+
+	column Q11_BehaviorSpecial
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 3abfefe9-40c3-4b12-bff3-d3f57a61ffe4
+		summarizeBy: sum
+		sourceColumn: Q11_BehaviorSpecial
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_TransitionSpecial
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: c487c46f-9936-4ef1-b90a-d43ed148c512
+		summarizeBy: sum
+		sourceColumn: Q11_TransitionSpecial
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PullDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 4305f769-1c06-4991-b629-4c733389d801
+		summarizeBy: none
+		sourceColumn: PullDate
+
+		variation Variation
+			isDefault
+			relationship: d3f081e5-48b1-4d53-8ba5-88f02fb2e06f
+			defaultHierarchy: LocalDateTable_97d832af-7631-4d6e-aa11-977b9846e410.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSE Filter' = IF(AND(NOT(ISBLANK('IEP Review Data'[Q04_CSE])),'IEP Review Data'[Q11_CSEStaff]=1),"Yes","No")
+		dataType: string
+		isHidden
+		lineageTag: c6d61268-baa0-4c73-9599-75112cc99747
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q54_Age15orOver%2 = 'IEP Review Data'[Q54_Age15orOver]
+		dataType: double
+		isHidden
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2d7d2d66-4612-4b2c-a43a-e0e1553946b3
+		summarizeBy: average
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = User
+
+	column ReviewerName
+		dataType: string
+		isHidden
+		lineageTag: 00b50081-9084-400e-b598-a5b4c7816f81
+		summarizeBy: none
+		sourceColumn: ReviewerName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_Partner
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 1c4c09b7-7a2c-4f06-83e4-ed6786029609
+		summarizeBy: sum
+		sourceColumn: Q11_Partner
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_RSSupe
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 001b53cb-ae98-4bc9-a466-f26d81f909d8
+		summarizeBy: sum
+		sourceColumn: Q11_RSSupe
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_SEOStaff
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: dbd7e3ab-0779-45e5-867a-7e9bea282f61
+		summarizeBy: sum
+		sourceColumn: Q11_SEOStaff
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2ormore = IF('IEP Review Data'[Q12_NumReviewers] >= 2, 1,0)
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c7e49169-bf3f-4af8-b9ab-8b075f4ee407
+		summarizeBy: average
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = User
+
+	column Q08_BirthDate
+		dataType: string
+		lineageTag: c3e134f7-8c47-4194-bbf1-38aa0cc57ae4
+		summarizeBy: none
+		sourceColumn: Q08_BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewerEmail
+		dataType: string
+		lineageTag: 4907a4c1-9f14-4797-8551-a5ff5a8d38e0
+		summarizeBy: none
+		sourceColumn: ReviewerEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q13A_Current
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: a73fcf2f-5ca5-4a76-a92f-3ee75dc60e1b
+		summarizeBy: average
+		sourceColumn: Q13A_Current
+
+		annotation SummarizationSetBy = User
+
+	column Q13B_Objective
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 90934b9e-1f9e-4509-9cfb-4753e70dd528
+		summarizeBy: average
+		sourceColumn: Q13B_Objective
+
+		annotation SummarizationSetBy = User
+
+	column Q13C_Observable
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: cf1361bf-1aad-4262-b6fa-40400f9c9967
+		summarizeBy: average
+		sourceColumn: Q13C_Observable
+
+		annotation SummarizationSetBy = User
+
+	column Q13D_JargonFree
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: abfd9c57-3df2-4989-a8e2-920b99483eb8
+		summarizeBy: average
+		sourceColumn: Q13D_JargonFree
+
+		annotation SummarizationSetBy = User
+
+	column Q13E_Specific
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 51f67f01-cf91-4fc7-8300-72d391b710bf
+		summarizeBy: average
+		sourceColumn: Q13E_Specific
+
+		annotation SummarizationSetBy = User
+
+	column Q13F_NoneOfTheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: ce0c9245-b60b-48f6-a9cd-472a155e4b42
+		summarizeBy: average
+		sourceColumn: Q13F_NoneOfTheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q14A_StudentVoiceYes
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: c6f71fc8-f5a1-4258-828c-9828ec6ceec3
+		summarizeBy: average
+		sourceColumn: Q14A_StudentVoiceYes
+
+		annotation SummarizationSetBy = User
+
+	column Q14B_StudentVoiceYesPriorExp
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7ae210ed-dd05-48c0-9a7c-258f999fdca7
+		summarizeBy: average
+		sourceColumn: Q14B_StudentVoiceYesPriorExp
+
+		annotation SummarizationSetBy = User
+
+	column Q14C_StudentVoiceYesVisionofSuccess
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7ff4dc2e-410c-4693-9698-9e35b4e752eb
+		summarizeBy: average
+		sourceColumn: Q14C_StudentVoiceYesVisionofSuccess
+
+		annotation SummarizationSetBy = User
+
+	column Q14D_StudentVoiceYesPriorities
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3c254c29-a379-4b86-81a1-5e719039639f
+		summarizeBy: average
+		sourceColumn: Q14D_StudentVoiceYesPriorities
+
+		annotation SummarizationSetBy = User
+
+	column Q14E_StudentVoiceNo
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 22276444-5697-4624-a59a-0f499067800d
+		summarizeBy: average
+		sourceColumn: Q14E_StudentVoiceNo
+
+		annotation SummarizationSetBy = User
+
+	column Q15A_ParentVoiceYes
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: d0194ffa-aa08-4f02-a90f-2dc734783cc4
+		summarizeBy: average
+		sourceColumn: Q15A_ParentVoiceYes
+
+		annotation SummarizationSetBy = User
+
+	column Q15B_ParentVoiceYesPriorExp
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: fcae53b6-0955-4c52-b5cf-8e1b7aeaa4bd
+		summarizeBy: average
+		sourceColumn: Q15B_ParentVoiceYesPriorExp
+
+		annotation SummarizationSetBy = User
+
+	column Q15C_ParentVoiceYesVisionofSuccess
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 5f3e7f26-ce68-4a84-b9f4-7debd52d1f04
+		summarizeBy: average
+		sourceColumn: Q15C_ParentVoiceYesVisionofSuccess
+
+		annotation SummarizationSetBy = User
+
+	column Q15D_ParentVoiceYesPriorities
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: c00549f1-9cff-4319-890f-b02f0763cf4c
+		summarizeBy: average
+		sourceColumn: Q15D_ParentVoiceYesPriorities
+
+		annotation SummarizationSetBy = User
+
+	column Q15E_ParentVoiceNo
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 6f5064bc-6375-484d-b1f4-367aa479f9f0
+		summarizeBy: average
+		sourceColumn: Q15E_ParentVoiceNo
+
+		annotation SummarizationSetBy = User
+
+	column Q16A_AttendParent
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 5cbcdfb8-7569-4d51-95dc-02338ba24189
+		summarizeBy: average
+		sourceColumn: Q16A_AttendParent
+
+		annotation SummarizationSetBy = User
+
+	column Q16B_AttendStudent
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e3c493c0-0fd4-4823-8f9f-140d1191f2e6
+		summarizeBy: average
+		sourceColumn: Q16B_AttendStudent
+
+		annotation SummarizationSetBy = User
+
+	column Q16C_AttendSPEDTeacher
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 8cd85582-8180-4872-a979-d83f1fde3f08
+		summarizeBy: average
+		sourceColumn: Q16C_AttendSPEDTeacher
+
+		annotation SummarizationSetBy = User
+
+	column Q16D_AttendGenEDTeacher
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: fc342ee1-8551-46bf-a5df-ce63cc8e5092
+		summarizeBy: average
+		sourceColumn: Q16D_AttendGenEDTeacher
+
+		annotation SummarizationSetBy = User
+
+	column Q16E_AttendRSProvider
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e6900543-282d-489b-beea-5bd2fbe7bb03
+		summarizeBy: average
+		sourceColumn: Q16E_AttendRSProvider
+
+		annotation SummarizationSetBy = User
+
+	column Q16F_AttendDistrictRep
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 36c0e070-56f7-4189-b405-c7ac1181d200
+		summarizeBy: average
+		sourceColumn: Q16F_AttendDistrictRep
+
+		annotation SummarizationSetBy = User
+
+	column Q16G_AgencyRepresentative
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: eb2e7c41-9e7e-41c8-97d9-91592b52d1f8
+		summarizeBy: average
+		sourceColumn: Q16G_AgencyRepresentative
+
+		annotation SummarizationSetBy = User
+
+	column Q16G_AttendOther
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 2ab7767a-4ea1-42ea-80b7-d48f4ca8e292
+		summarizeBy: average
+		sourceColumn: Q16G_AttendOther
+
+		annotation SummarizationSetBy = User
+
+	column Q16G_AttendOtherWriteIn
+		dataType: string
+		lineageTag: 7d5a3e29-8ea6-44ec-9447-fab5d2fad52b
+		summarizeBy: none
+		sourceColumn: Q16G_AttendOtherWriteIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q17_StudentInvite
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e08e69d4-b311-410b-8c83-8c9c068b0291
+		summarizeBy: average
+		sourceColumn: Q17_StudentInvite
+
+		annotation SummarizationSetBy = User
+
+	column Q18_LanguageOtherThanEnglish
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: b32fef66-8a29-4d84-ad3e-d1b0a8b62b6c
+		summarizeBy: average
+		sourceColumn: Q18_LanguageOtherThanEnglish
+
+		annotation SummarizationSetBy = User
+
+	column Q19A_LanguageSpecific
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e7fff583-6948-4dbe-8012-641799e4be7c
+		summarizeBy: average
+		sourceColumn: Q19A_LanguageSpecific
+
+		annotation SummarizationSetBy = User
+
+	column Q19B_LanguageBLInput
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: cf5c9c42-726f-4404-a65c-835094e76de0
+		summarizeBy: average
+		sourceColumn: Q19B_LanguageBLInput
+
+		annotation SummarizationSetBy = User
+
+	column Q19C_LanguageNone
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: ba3f4f41-4bdc-4468-b977-b13997dfce8f
+		summarizeBy: average
+		sourceColumn: Q19C_LanguageNone
+
+		annotation SummarizationSetBy = User
+
+	column Q20_AlignmentLanguage
+		dataType: string
+		lineageTag: 00287767-37eb-4804-a3ff-0c6fb0fa7ab6
+		summarizeBy: none
+		sourceColumn: Q20_AlignmentLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q21F_PLOPinSocial
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 1d053aec-924b-4b41-ad2c-7c97cd1ed958
+		summarizeBy: average
+		sourceColumn: Q21F_PLOPinSocial
+
+		annotation SummarizationSetBy = User
+
+	column Q21G_ProgressOnPriorGoals
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 37bb3214-c104-4bb7-abe6-43e9af3d0128
+		summarizeBy: average
+		sourceColumn: Q21G_ProgressOnPriorGoals
+
+		annotation SummarizationSetBy = User
+
+	column Q21H_PriorGoalsInformCurrentGoals
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e2b0c64a-f303-436b-830a-57a9babd40b3
+		summarizeBy: average
+		sourceColumn: Q21H_PriorGoalsInformCurrentGoals
+
+		annotation SummarizationSetBy = User
+
+	column Q21I_NoneOfTheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: b5cafa1a-52b2-4db6-819e-c2eea8ec2dd1
+		summarizeBy: average
+		sourceColumn: Q21I_NoneOfTheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q22A_StudentStrengthsYes
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 319330c4-7d53-4013-8baa-c7c3cc708f8e
+		summarizeBy: average
+		sourceColumn: Q22A_StudentStrengthsYes
+
+		annotation SummarizationSetBy = User
+
+	column Q22B_StudentStrengthsYesSpecific
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 7ee392e2-421e-4ede-b0d2-ec726b6b4162
+		summarizeBy: average
+		sourceColumn: Q22B_StudentStrengthsYesSpecific
+
+		annotation SummarizationSetBy = User
+
+	column Q22C_StudentStrengthsYesCultural
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: f005219a-8b00-4697-9b0f-395a79582761
+		summarizeBy: average
+		sourceColumn: Q22C_StudentStrengthsYesCultural
+
+		annotation SummarizationSetBy = User
+
+	column Q22D_StudentStrengthsYesInformIEP
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 51d5d145-30f8-4233-9ce9-cc4c0093b741
+		summarizeBy: average
+		sourceColumn: Q22D_StudentStrengthsYesInformIEP
+
+		annotation SummarizationSetBy = User
+
+	column Q22E_StudentStrengthsNo
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 1cb38fa4-ff90-4a15-a8ce-ef7952e98119
+		summarizeBy: average
+		sourceColumn: Q22E_StudentStrengthsNo
+
+		annotation SummarizationSetBy = User
+
+	column Q27A_ObjectiveMeasurableDescriptionOfHealthConcerns
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: b26625d1-2dcd-4833-8cdf-ced2dc18045f
+		summarizeBy: average
+		sourceColumn: Q27A_ObjectiveMeasurableDescriptionOfHealthConcerns
+
+		annotation SummarizationSetBy = User
+
+	column Q27B_DescriptionOfHowConcernsPreventAccess
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 36275d52-d752-4d8c-b489-776264d56f47
+		summarizeBy: average
+		sourceColumn: Q27B_DescriptionOfHowConcernsPreventAccess
+
+		annotation SummarizationSetBy = User
+
+	column Q27C_AnnualGoalsAboutHealthConcerns
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 710b76f6-1f95-49a1-a546-86ed05019103
+		summarizeBy: average
+		sourceColumn: Q27C_AnnualGoalsAboutHealthConcerns
+
+		annotation SummarizationSetBy = User
+
+	column Q27D_AnnualGoalsHealthPara
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: b5c063bb-5291-48b8-b59c-93760c49a0a4
+		summarizeBy: average
+		sourceColumn: Q27D_AnnualGoalsHealthPara
+
+		annotation SummarizationSetBy = User
+
+	column Q27E_NoInformation
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: eee0eac1-8b87-4655-b488-b6586fd5fbbc
+		summarizeBy: average
+		sourceColumn: Q27E_NoInformation
+
+		annotation SummarizationSetBy = User
+
+	column Q28_HealthPara
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 8c25e1d8-ed33-45d1-9425-aaba1211b72e
+		summarizeBy: average
+		sourceColumn: Q28_HealthPara
+
+		annotation SummarizationSetBy = User
+
+	column Q29A_AnnualGoalsSpecific
+		dataType: string
+		lineageTag: bea0acc8-c7c8-43c1-ad5b-aacd46460d83
+		summarizeBy: none
+		sourceColumn: Q29A_AnnualGoalsSpecific
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29B_AnnualGoalsObservableSkills
+		dataType: string
+		lineageTag: 6af3b9c0-1cab-4dac-bff9-687e2d8c8ac2
+		summarizeBy: none
+		sourceColumn: Q29B_AnnualGoalsObservableSkills
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29C_AnnualGoalsMeasurableCriteria
+		dataType: string
+		lineageTag: ce793357-9664-4179-8052-8128c32b0a88
+		summarizeBy: none
+		sourceColumn: Q29C_AnnualGoalsMeasurableCriteria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29D_AnnualGoalsDescribeAssessment
+		dataType: string
+		lineageTag: 02b8268e-13a9-4721-a87e-de31ea876198
+		summarizeBy: none
+		sourceColumn: Q29D_AnnualGoalsDescribeAssessment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29E_AnnualGoalsProgressMonitoringTimelines
+		dataType: string
+		lineageTag: 1778463c-590d-4fd6-a387-9c8314be3690
+		summarizeBy: none
+		sourceColumn: Q29E_AnnualGoalsProgressMonitoringTimelines
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29F_AnnualGoalsReflectStudentPriorities
+		dataType: string
+		lineageTag: 4c62eec0-cf4b-409c-91e5-0fa0e0e70d8f
+		summarizeBy: none
+		sourceColumn: Q29F_AnnualGoalsReflectStudentPriorities
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q29G_AnnualGoalsProgressMonitored
+		dataType: string
+		lineageTag: 32a4db58-186c-4a05-aee2-e838f205da4f
+		summarizeBy: none
+		sourceColumn: Q29G_AnnualGoalsProgressMonitored
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q30_NeedsAndGoalsProvideRationaleForServices
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 474766f6-11d5-422a-b027-241df31cd938
+		summarizeBy: average
+		sourceColumn: Q30_NeedsAndGoalsProvideRationaleForServices
+
+		annotation SummarizationSetBy = User
+
+	column Q31A_AccomodationsConnectToNeed
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 9e95eb22-ecf0-4d91-94aa-226f52519236
+		summarizeBy: average
+		sourceColumn: Q31A_AccomodationsConnectToNeed
+
+		annotation SummarizationSetBy = User
+
+	column Q31B_AccomodationsEvidenceBased
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: a0646a8b-a9f3-4264-aa5a-d72bfef250ec
+		summarizeBy: average
+		sourceColumn: Q31B_AccomodationsEvidenceBased
+
+		annotation SummarizationSetBy = User
+
+	column Q31C_HowWhenHowOften
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 24309213-bd43-4bdb-8351-e2d05755bf31
+		summarizeBy: average
+		sourceColumn: Q31C_HowWhenHowOften
+
+		annotation SummarizationSetBy = User
+
+	column Q31D_AccomodationsNotBasedOnNeed
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: db7128d7-88ee-4384-8247-142f4cf9d0be
+		summarizeBy: average
+		sourceColumn: Q31D_AccomodationsNotBasedOnNeed
+
+		annotation SummarizationSetBy = User
+
+	column Q32_AssistiveTechnologyConsidered
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 0cc9b97f-8d8f-4e99-9891-e770ebe43001
+		summarizeBy: average
+		sourceColumn: Q32_AssistiveTechnologyConsidered
+
+		annotation SummarizationSetBy = User
+
+	column Q33_AssistiveTechnologyRecommended
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 9daf9327-8a00-4613-99ee-ff96751a6916
+		summarizeBy: average
+		sourceColumn: Q33_AssistiveTechnologyRecommended
+
+		annotation SummarizationSetBy = User
+
+	column Q34_RSRecommendations
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: bbf6f109-38ae-414f-9652-1e1ec02ae65f
+		summarizeBy: average
+		sourceColumn: Q34_RSRecommendations
+
+		annotation SummarizationSetBy = User
+
+	column Q35_RSConnectToStudentNeed
+		dataType: string
+		lineageTag: 86f33970-f1a3-4751-b132-a49152a87451
+		summarizeBy: none
+		sourceColumn: Q35_RSConnectToStudentNeed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q36A_GoalsRequireProfessional
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 37139a0c-ceaf-4b2e-b509-9f826035d05c
+		summarizeBy: average
+		sourceColumn: Q36A_GoalsRequireProfessional
+
+		annotation SummarizationSetBy = User
+
+	column Q36B_PullOutNecessary
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 788b6235-3871-4001-bac6-2c7ed6c76702
+		summarizeBy: average
+		sourceColumn: Q36B_PullOutNecessary
+
+		annotation SummarizationSetBy = User
+
+	column Q36C_PullOutLimitedImpact
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 0c134d4d-6cf0-4073-8b23-08b878ca2bba
+		summarizeBy: average
+		sourceColumn: Q36C_PullOutLimitedImpact
+
+		annotation SummarizationSetBy = User
+
+	column Q36D_NoneOfTheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 2f480ad2-2ab0-49a0-b4fd-d4be51c2bf25
+		summarizeBy: average
+		sourceColumn: Q36D_NoneOfTheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q37_GenEdConsideredFirst
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 9b741310-62a9-4dc3-a52b-5bf5af57e0f7
+		summarizeBy: average
+		sourceColumn: Q37_GenEdConsideredFirst
+
+		annotation SummarizationSetBy = User
+
+	column Q38_ParticipateGenEd
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: a0411cee-9393-4922-9a42-f142901ac0a1
+		summarizeBy: average
+		sourceColumn: Q38_ParticipateGenEd
+
+		annotation SummarizationSetBy = User
+
+	column Q39_IEPComprehensivePlan
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 239dcc8d-30af-4f36-8192-4124d672c5e1
+		summarizeBy: average
+		sourceColumn: Q39_IEPComprehensivePlan
+
+		annotation SummarizationSetBy = User
+
+	column Q40_RecommendsTraining
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 08d363d2-588c-49a6-8b60-8cca97966167
+		summarizeBy: average
+		sourceColumn: Q40_RecommendsTraining
+
+		annotation SummarizationSetBy = User
+
+	column Q41A_SocialDevelopmentStrengths
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 6df6810f-3af5-49af-b1b4-15af16f7746e
+		summarizeBy: average
+		sourceColumn: Q41A_SocialDevelopmentStrengths
+
+		annotation SummarizationSetBy = User
+
+	column Q41B_SocialDevelopmentNeeds
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 20e07e56-d66f-4b2c-9a62-d577985636a0
+		summarizeBy: average
+		sourceColumn: Q41B_SocialDevelopmentNeeds
+
+		annotation SummarizationSetBy = User
+
+	column Q41C_SocialDevelopmentNo
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 9a2ab99e-df20-4af7-a6fd-ab38055658bf
+		summarizeBy: average
+		sourceColumn: Q41C_SocialDevelopmentNo
+
+		annotation SummarizationSetBy = User
+
+	column Q42_BehaviorConcerns
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 65390324-07c7-4da7-918d-f4ebb2696fb7
+		summarizeBy: average
+		sourceColumn: Q42_BehaviorConcerns
+
+		annotation SummarizationSetBy = User
+
+	column Q43A_ObjectiveMeasurableDescriptionOfBehaviorConcerns
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 7225e957-e1b2-4dc3-841c-9e912ba70fdd
+		summarizeBy: average
+		sourceColumn: Q43A_ObjectiveMeasurableDescriptionOfBehaviorConcerns
+
+		annotation SummarizationSetBy = User
+
+	column Q43B_ObjectiveMeasurableDescriptionOfHowConcernsInterfere
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 60dbc244-5045-45cf-ac76-01e5c61340c8
+		summarizeBy: average
+		sourceColumn: Q43B_ObjectiveMeasurableDescriptionOfHowConcernsInterfere
+
+		annotation SummarizationSetBy = User
+
+	column Q43C_IEPHighlightsConnection
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: a5441716-80d3-494c-a1a1-eb068113c6c8
+		summarizeBy: average
+		sourceColumn: Q43C_IEPHighlightsConnection
+
+		annotation SummarizationSetBy = User
+
+	column Q43D_AnnualGoalsForBehaviorConcerns
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 99205922-58c1-43b8-82e5-bc372355355b
+		summarizeBy: average
+		sourceColumn: Q43D_AnnualGoalsForBehaviorConcerns
+
+		annotation SummarizationSetBy = User
+
+	column Q43E_NoneOfTheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e61461d6-9c45-42ef-aa64-1b402af87ced
+		summarizeBy: average
+		sourceColumn: Q43E_NoneOfTheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q44_ConsiderationsFormCompleted
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 81dc4538-7b64-4ca5-a6e9-e264c879aedc
+		summarizeBy: average
+		sourceColumn: Q44_ConsiderationsFormCompleted
+
+		annotation SummarizationSetBy = User
+
+	column Q45_FBANecessary
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 8cb3ea06-1ec9-4080-ae2b-46f405c37ab4
+		summarizeBy: average
+		sourceColumn: Q45_FBANecessary
+
+		annotation SummarizationSetBy = User
+
+	column Q46_FBAConducted
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 85cb828c-bc63-4fc8-b3b8-f206b196a9b9
+		summarizeBy: average
+		sourceColumn: Q46_FBAConducted
+
+		annotation SummarizationSetBy = User
+
+	column Q47_BIPNecessary
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: b6581987-840b-4515-bde1-beb853458989
+		summarizeBy: average
+		sourceColumn: Q47_BIPNecessary
+
+		annotation SummarizationSetBy = User
+
+	column Q48_BIPCreated
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e88c31a7-90c0-4e8d-b089-52abd96a8f78
+		summarizeBy: average
+		sourceColumn: Q48_BIPCreated
+
+		annotation SummarizationSetBy = User
+
+	column Q49_BehaviorPara
+		dataType: double
+		formatString: #,0
+		lineageTag: b276989e-2d46-4e81-b84a-03e708e05f32
+		summarizeBy: sum
+		sourceColumn: Q49_BehaviorPara
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q50A_AnnualGoalsReducePara
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 58fdd85a-075d-4e55-bd91-2ae4f26480a9
+		summarizeBy: average
+		sourceColumn: Q50A_AnnualGoalsReducePara
+
+		annotation SummarizationSetBy = User
+
+	column Q50B_AnnualGoalsRequirePara
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 9188fcf5-f95a-4ebb-86c8-422bc0bfdbfa
+		summarizeBy: average
+		sourceColumn: Q50B_AnnualGoalsRequirePara
+
+		annotation SummarizationSetBy = User
+
+	column Q50C_AnnualGoalsIDBIP
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 92001240-9d67-442d-9c44-969a40b1ba4e
+		summarizeBy: average
+		sourceColumn: Q50C_AnnualGoalsIDBIP
+
+		annotation SummarizationSetBy = User
+
+	column Q50D_IEPDescribesParaTraining
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: d831002a-1647-4abf-b3ee-f8eb506c8a46
+		summarizeBy: average
+		sourceColumn: Q50D_IEPDescribesParaTraining
+
+		annotation SummarizationSetBy = User
+
+	column Q50E_NoneOfTheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 923c1ca6-268f-4946-80cf-6523ca09a1a8
+		summarizeBy: average
+		sourceColumn: Q50E_NoneOfTheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q51_Age12orOver
+		dataType: double
+		formatString: #,0%;-#,0%;#,0%
+		lineageTag: 21febbfc-62a5-4f7a-92a6-5af505626f32
+		summarizeBy: average
+		sourceColumn: Q51_Age12orOver
+
+		annotation SummarizationSetBy = User
+
+	column Q54_Age15orOver
+		dataType: double
+		formatString: #,0%;-#,0%;#,0%
+		lineageTag: 69d8e40b-2127-4d6e-8997-ebcb1a4cd070
+		summarizeBy: average
+		sourceColumn: Q54_Age15orOver
+
+		annotation SummarizationSetBy = User
+
+	column Q55_MPGAlignedToStudentNeed
+		dataType: string
+		lineageTag: 01d0d96f-86d4-47cd-8d3a-2df8dfbbec39
+		summarizeBy: none
+		sourceColumn: Q55_MPGAlignedToStudentNeed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q56D_TransitionNeedsMultiYearDescription
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 346fed0c-23aa-4a61-a4c6-7e53157a4051
+		summarizeBy: average
+		sourceColumn: Q56D_TransitionNeedsMultiYearDescription
+
+		annotation SummarizationSetBy = User
+
+	column Q56G_TransitionNeedsCDOSorSACC
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 85911506-e33f-4778-b7ac-b353daada052
+		summarizeBy: average
+		sourceColumn: Q56G_TransitionNeedsCDOSorSACC
+
+		annotation SummarizationSetBy = User
+
+	column Q57_CTAAlignedToStudentNeed
+		dataType: string
+		lineageTag: cd92195c-80d3-4f1f-a9ea-997d0a6c9b80
+		summarizeBy: none
+		sourceColumn: Q57_CTAAlignedToStudentNeed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q58_CTAAgentsAligned
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 58215c4c-b240-42bc-9c5d-0f095ea37255
+		summarizeBy: average
+		sourceColumn: Q58_CTAAgentsAligned
+
+		annotation SummarizationSetBy = User
+
+	column Q59_CTAInvalidAgent
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: ba4ce872-1a3e-4391-935b-8eb116809429
+		summarizeBy: average
+		sourceColumn: Q59_CTAInvalidAgent
+
+		annotation SummarizationSetBy = User
+
+	column Ethnicity
+		dataType: string
+		lineageTag: aac12f66-1fc4-41da-bdbb-cf225b6f0485
+		summarizeBy: none
+		sourceColumn: Ethnicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		lineageTag: 20e3b4dd-266c-4c7b-aabf-9d8ef0ed1df2
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeLanguage
+		dataType: string
+		lineageTag: 2e74217e-7426-4d57-a0bb-df08bdad07a6
+		summarizeBy: none
+		sourceColumn: HomeLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Key
+		dataType: string
+		lineageTag: 57894de6-df3f-4822-b72e-cf3348929fc9
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q60_AlignmentAnnualsGoalsPLOP
+		dataType: string
+		lineageTag: f0012142-55df-4863-9365-f9c2885c41c5
+		summarizeBy: none
+		sourceColumn: Q60_AlignmentAnnualsGoalsPLOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q61_AlignmentServicesPLOP
+		dataType: string
+		lineageTag: 383127b3-6365-4d8b-8378-310e5fa8b7f9
+		summarizeBy: none
+		sourceColumn: Q61_AlignmentServicesPLOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q62_AlignmentAmongPLOPAnnualGoalsServices
+		dataType: string
+		lineageTag: 0f10017d-652b-4018-b25a-429134a8cf19
+		summarizeBy: none
+		sourceColumn: Q62_AlignmentAmongPLOPAnnualGoalsServices
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYearGroup
+		dataType: string
+		lineageTag: ce601599-dbf6-4b89-b28d-fdf0bf2e4fa2
+		summarizeBy: none
+		sourceColumn: SchoolYearGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenStudentSpecialClass
+		dataType: double
+		formatString: 0
+		lineageTag: a5796fe0-a581-42df-8bc5-a78b0b1f7130
+		summarizeBy: sum
+		sourceColumn: Q05_KindergartenStudentSpecialClass
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenPara
+		dataType: double
+		formatString: 0
+		lineageTag: 80287a38-062e-4437-87fe-b2a136899751
+		summarizeBy: sum
+		sourceColumn: Q05_KindergartenPara
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenReeval
+		dataType: double
+		formatString: 0
+		lineageTag: 61638022-3a0c-42ea-be86-3f02e905ba86
+		summarizeBy: sum
+		sourceColumn: Q05_KindergartenReeval
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Turning5
+		dataType: double
+		formatString: 0
+		lineageTag: 2ac08e5d-0f93-46e0-9db8-8a4ea325da7e
+		summarizeBy: sum
+		sourceColumn: Q05_Turning5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_NYSAA
+		dataType: double
+		formatString: 0
+		lineageTag: 18f1c037-5140-49ca-b4be-2a124efc31e9
+		summarizeBy: sum
+		sourceColumn: Q05_NYSAA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_ModProm
+		dataType: double
+		formatString: 0
+		lineageTag: 374b0ec0-9458-41a8-9ae4-1970d400db94
+		summarizeBy: sum
+		sourceColumn: Q05_ModProm
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Suspended
+		dataType: double
+		formatString: 0
+		lineageTag: 7a770f82-1fe9-402c-995e-14f70288b787
+		summarizeBy: sum
+		sourceColumn: Q05_Suspended
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_BehaviorConcern
+		dataType: double
+		formatString: 0
+		lineageTag: de2c5d6d-7ba7-4149-bf40-a4ef7d2768f8
+		summarizeBy: sum
+		sourceColumn: Q05_BehaviorConcern
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Other
+		dataType: double
+		formatString: 0
+		lineageTag: 55ff958b-c968-4941-9a77-40f1eaf356c4
+		summarizeBy: sum
+		sourceColumn: Q05_Other
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN_Security
+		dataType: string
+		lineageTag: 20fed661-c1fe-4037-ac78-f51acf15fcdf
+		summarizeBy: none
+		sourceColumn: SchoolDBN_Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q11_SchoolOrCSEStaff
+		dataType: int64
+		formatString: 0
+		lineageTag: 6df4b907-de23-4f8b-82c8-76d543dc332e
+		summarizeBy: sum
+		sourceColumn: Q11_SchoolOrCSEStaff
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q52A_TransAssessment
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3921c1ff-7a69-404d-9630-5033058b763d
+		summarizeBy: average
+		sourceColumn: Q52A_TransAssessment
+
+		annotation SummarizationSetBy = User
+
+	column Q52A_TeacherTransAssessment
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 22de3854-dd0e-468b-b15a-f8943deef700
+		summarizeBy: average
+		sourceColumn: Q52A_TeacherTransAssessment
+
+		annotation SummarizationSetBy = User
+
+	column Q52C_StudentTransAssessment
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6008b9e7-9912-473a-8be8-12f1daa855d6
+		summarizeBy: average
+		sourceColumn: Q52C_StudentTransAssessment
+
+		annotation SummarizationSetBy = User
+
+	column Q52D_ParentTransAssessment
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c7b74028-2bac-4541-9ebf-b689aaaacd4a
+		summarizeBy: average
+		sourceColumn: Q52D_ParentTransAssessment
+
+		annotation SummarizationSetBy = User
+
+	column Q52E_NoTransAssessments
+		dataType: int64
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 69265ced-0144-484f-88d5-36811b2f522a
+		summarizeBy: average
+		sourceColumn: Q52E_NoTransAssessments
+
+		annotation SummarizationSetBy = User
+
+	column Q53_TransAssessmentsPLOP
+		dataType: string
+		lineageTag: e9347cc5-863c-4dc8-a731-0fc67bfc0d4b
+		summarizeBy: none
+		sourceColumn: Q53_TransAssessmentsPLOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Age14plus
+		dataType: int64
+		formatString: 0
+		lineageTag: 50043bd8-e5f0-410a-953c-8630e2a06c2e
+		summarizeBy: sum
+		sourceColumn: Q05_Age14plus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q20_AlignmentLanguageLong
+		dataType: string
+		lineageTag: 3996645c-1e79-4477-8c12-4db4dbb0c3e2
+		summarizeBy: none
+		sourceColumn: Q20_AlignmentLanguageLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenStudentSpecialClassYN
+		dataType: string
+		lineageTag: 0c70f3e2-6a7b-42ee-8162-ee21e0fa2d2b
+		summarizeBy: none
+		sourceColumn: Q05_KindergartenStudentSpecialClassYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenParaYN
+		dataType: string
+		lineageTag: 1536092b-784f-442a-992d-49d59bdb7b0a
+		summarizeBy: none
+		sourceColumn: Q05_KindergartenParaYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenReevalYN
+		dataType: string
+		lineageTag: 9525d219-d79b-48fb-bd5a-688c9e9cb752
+		summarizeBy: none
+		sourceColumn: Q05_KindergartenReevalYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Turning5YN
+		dataType: string
+		lineageTag: 40e6c0a0-1bd7-409f-9d2e-a98d7155b773
+		summarizeBy: none
+		sourceColumn: Q05_Turning5YN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_NYSAAYN
+		dataType: string
+		lineageTag: 3714701d-b0ff-4c1f-bbdc-6cca8ce49eb9
+		summarizeBy: none
+		sourceColumn: Q05_NYSAAYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_ModPromYN
+		dataType: string
+		lineageTag: c907cb14-818a-4a12-8a56-a1a04a363259
+		summarizeBy: none
+		sourceColumn: Q05_ModPromYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_SuspendedYN
+		dataType: string
+		lineageTag: 3b11a503-eb0c-46b6-83a0-b1291c32b2de
+		summarizeBy: none
+		sourceColumn: Q05_SuspendedYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_BehaviorConcernYN
+		dataType: string
+		lineageTag: f83a05c7-7cfc-4dbe-a92d-671b81a54aa8
+		summarizeBy: none
+		sourceColumn: Q05_BehaviorConcernYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Age14plusYN
+		dataType: string
+		lineageTag: a38af3dd-ec57-447d-8eaa-32a425ec951c
+		summarizeBy: none
+		sourceColumn: Q05_Age14plusYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_OtherYN
+		dataType: string
+		lineageTag: ae1dea13-6900-41c0-8102-d6e9409bd77a
+		summarizeBy: none
+		sourceColumn: Q05_OtherYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Grade1_5
+		dataType: int64
+		formatString: 0
+		lineageTag: f1bcb2ec-e8f1-489d-bbd4-c1673e505f84
+		summarizeBy: sum
+		sourceColumn: Q05_Grade1_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_Grade1_5YN
+		dataType: string
+		lineageTag: afdd76a2-fc57-430b-941f-22c5f15b3e2c
+		summarizeBy: none
+		sourceColumn: Q05_Grade1_5YN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q48_BIPPMSpecified
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 5e9ba6a9-7d38-4d48-9c3e-9e95048c5a05
+		summarizeBy: average
+		sourceColumn: Q48_BIPPMSpecified
+
+		annotation SummarizationSetBy = User
+
+	column Q48_BIPPMUploaded
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 5d554861-ede1-468f-b295-b59787001752
+		summarizeBy: average
+		sourceColumn: Q48_BIPPMUploaded
+
+		annotation SummarizationSetBy = User
+
+	column Q48_BIPNo
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 4eed4416-81fe-41b8-857e-82dc5da93205
+		summarizeBy: average
+		sourceColumn: Q48_BIPNo
+
+		annotation SummarizationSetBy = User
+
+	column Q60_AlignmentAnnualsGoalsPLOPLong
+		dataType: string
+		lineageTag: 5ceb814c-1954-4aa7-a9f0-a0c022a128eb
+		summarizeBy: none
+		sourceColumn: Q60_AlignmentAnnualsGoalsPLOPLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q61_AlignmentServicesPLOPLong
+		dataType: string
+		lineageTag: 0bf7c238-b966-426d-bc72-962ebc99491f
+		summarizeBy: none
+		sourceColumn: Q61_AlignmentServicesPLOPLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q62_AlignmentAmongPLOPAnnualGoalsServicesLong
+		dataType: string
+		lineageTag: b5c859ae-bfe9-43e1-aa5a-e85d262688cd
+		summarizeBy: none
+		sourceColumn: Q62_AlignmentAmongPLOPAnnualGoalsServicesLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q57ANY_CTAAlignedToStudentNeed
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 621f0285-a5cb-4949-ba08-b488db65c648
+		summarizeBy: average
+		sourceColumn: Q57ANY_CTAAlignedToStudentNeed
+
+		annotation SummarizationSetBy = User
+
+	column Q57A_Instruction
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: d610d62c-9722-4ac5-a305-9a0246244fc6
+		summarizeBy: average
+		sourceColumn: Q57A_Instruction
+
+		annotation SummarizationSetBy = User
+
+	column Q57B_RelatedServices
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e6a49cfe-1d86-4230-9053-b63c60524fb1
+		summarizeBy: average
+		sourceColumn: Q57B_RelatedServices
+
+		annotation SummarizationSetBy = User
+
+	column Q57C_CommunityExperiences
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 76e9eb92-7a7e-43ed-bee8-4b7281443923
+		summarizeBy: average
+		sourceColumn: Q57C_CommunityExperiences
+
+		annotation SummarizationSetBy = User
+
+	column Q57D_Employment
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 2b542595-157c-4668-bc76-c7c36146a3a9
+		summarizeBy: average
+		sourceColumn: Q57D_Employment
+
+		annotation SummarizationSetBy = User
+
+	column Q57E_DailyLivingSkills
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 20c4784b-50f7-41f5-b149-052e06c42b21
+		summarizeBy: average
+		sourceColumn: Q57E_DailyLivingSkills
+
+		annotation SummarizationSetBy = User
+
+	column Q57F_VocAssessment
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 5b7e911d-bfab-4aea-97f9-39f6b36890d6
+		summarizeBy: average
+		sourceColumn: Q57F_VocAssessment
+
+		annotation SummarizationSetBy = User
+
+	column Q57G_NoCTA
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: f67695bd-089f-4a2f-8b98-db8c620361f6
+		summarizeBy: average
+		sourceColumn: Q57G_NoCTA
+
+		annotation SummarizationSetBy = User
+
+	column Q57H_NoNotEnableMeetGoals
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 50d6a017-f3ff-4ef8-be12-bb42d57985ff
+		summarizeBy: average
+		sourceColumn: Q57H_NoNotEnableMeetGoals
+
+		annotation SummarizationSetBy = User
+
+	column Q56A_TransitionServicesEnableMeetGoals
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 63255aca-90bf-420f-b4cc-7f2c1e1f16eb
+		summarizeBy: average
+		sourceColumn: Q56A_TransitionServicesEnableMeetGoals
+
+		annotation SummarizationSetBy = User
+
+	column Q56B_TransitionNeedsListsSkills
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 54241bbb-dc21-4749-baad-f7804e470570
+		summarizeBy: average
+		sourceColumn: Q56B_TransitionNeedsListsSkills
+
+		annotation SummarizationSetBy = User
+
+	column Q56C_TransitionNeedsAlignWithPLOP
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 59672429-fb8f-4d48-b1b7-5f6cbd2dbc13
+		summarizeBy: average
+		sourceColumn: Q56C_TransitionNeedsAlignWithPLOP
+
+		annotation SummarizationSetBy = User
+
+	column Q56E_CourseofStudyHelpAchieveGoals
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: d6673cb0-382e-40d1-8741-abb714d14818
+		summarizeBy: average
+		sourceColumn: Q56E_CourseofStudyHelpAchieveGoals
+
+		annotation SummarizationSetBy = User
+
+	column Q56F_DescribesDiplomaTrack
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 11aaa239-3054-49d0-9bdd-c426b0c6a203
+		summarizeBy: average
+		sourceColumn: Q56F_DescribesDiplomaTrack
+
+		annotation SummarizationSetBy = User
+
+	column Q56H_TransitionNeedsNoneoftheAbove
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 3e6fb49e-5855-4346-a33b-5f4696d4cf7d
+		summarizeBy: average
+		sourceColumn: Q56H_TransitionNeedsNoneoftheAbove
+
+		annotation SummarizationSetBy = User
+
+	column Q59_MeasurableAnnualGoalsRelatedToTransition
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 51d749a3-4b15-49ac-bbbe-590602ddf96d
+		summarizeBy: average
+		sourceColumn: Q59_MeasurableAnnualGoalsRelatedToTransition
+
+		annotation SummarizationSetBy = User
+
+	column Q05_KindergartenStudentAutism
+		dataType: int64
+		formatString: 0
+		lineageTag: 15f21674-b074-4a93-b007-861bdc855a85
+		summarizeBy: sum
+		sourceColumn: Q05_KindergartenStudentAutism
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_LDSpeechLiteracy
+		dataType: int64
+		formatString: 0
+		lineageTag: 7230d83a-61c2-45bb-9e78-b6fdaa7edb2f
+		summarizeBy: sum
+		sourceColumn: Q05_LDSpeechLiteracy
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_RestrictiveReeval
+		dataType: int64
+		formatString: 0
+		lineageTag: 48ae8071-9f23-435a-8e7f-fb73c9d5b34b
+		summarizeBy: sum
+		sourceColumn: Q05_RestrictiveReeval
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_KindergartenStudentAutismYN
+		dataType: string
+		lineageTag: 40905bde-de4c-42c0-a02f-e90e9e1cedc4
+		summarizeBy: none
+		sourceColumn: Q05_KindergartenStudentAutismYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_LDSpeechLiteracyYN
+		dataType: string
+		lineageTag: d8702a4a-6214-4910-942c-6b90a23192ea
+		summarizeBy: none
+		sourceColumn: Q05_LDSpeechLiteracyYN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q05_RestrictiveReevalYN
+		dataType: string
+		lineageTag: bbde50cc-ee39-4d15-b122-2ab2420db4d3
+		summarizeBy: none
+		sourceColumn: Q05_RestrictiveReevalYN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'IEP Review Data-993ea06f-ec4c-4b61-b077-0e7a8d621a89' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT  rev.*#(lf)      ,case when lk.SchoolDBN IS NULL Then SESIS_DBN Else [SchoolDBN_Security] End as SchoolDBNFix#(lf)  FROM [SEO_REPORTING].bi.[vw_IEPReviewDashboard] rev#(lf)  LEFT OUTER JOIN [SEO_REPORTING].bi.[vw_IEPReview_Locations] lk#(lf)  on rev.[SchoolDBN_Security]  = lk.[SCHOOLDBN]"]),
+				    #"Added Custom" = Table.AddColumn(Source, "Key", each Text.From([ResponseID])&"-"&Text.From([SubmitDate])),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Q11_SchoolStaff", type number}, {"Q11_FSCStaff", type number}, {"Q11_SupeOfPsych", type number}, {"Q11_Partner", type number}, {"Q11_RSSupe", type number}, {"Q11_CSEStaff", type number}, {"Q11_SEOStaff", type number}, {"Q11_RSETASC", type number}, {"Q11_BehaviorSpecial", type number}, {"Q11_TransitionSpecial", type number}, {"Q13A_Current", type number}, {"Q13B_Objective", type number}, {"Q13C_Observable", type number}, {"Q13D_JargonFree", type number}, {"Q13E_Specific", type number}, {"Q13F_NoneOfTheAbove", type number}, {"Q14A_StudentVoiceYes", type number}, {"Q14B_StudentVoiceYesPriorExp", type number}, {"Q14C_StudentVoiceYesVisionofSuccess", type number}, {"Q14D_StudentVoiceYesPriorities", type number}, {"Q14E_StudentVoiceNo", type number}, {"Q15A_ParentVoiceYes", type number}, {"Q15B_ParentVoiceYesPriorExp", type number}, {"Q15C_ParentVoiceYesVisionofSuccess", type number}, {"Q15D_ParentVoiceYesPriorities", type number}, {"Q15E_ParentVoiceNo", type number}, {"Q16A_AttendParent", type number}, {"Q16B_AttendStudent", type number}, {"Q16C_AttendSPEDTeacher", type number}, {"Q16D_AttendGenEDTeacher", type number}, {"Q16E_AttendRSProvider", type number}, {"Q16F_AttendDistrictRep", type number}, {"Q16G_AgencyRepresentative", type number}, {"Q16G_AttendOther", type number}, {"Q17_StudentInvite", type number}, {"Q18_LanguageOtherThanEnglish", type number}, {"Q19A_LanguageSpecific", type number}, {"Q19B_LanguageBLInput", type number}, {"Q19C_LanguageNone", type number}, {"Q21A_BasedOnAgeAppropriateStandards", type number}, {"Q21B_ClassroomStateLocalSupplemental", type number}, {"Q21C_EvidenceOfComparativeAnalysis", type number}, {"Q21D_PLOPinReading", type number}, {"Q21E_PLOPinMath", type number}, {"Q21F_PLOPinSocial", type number}, {"Q21G_ProgressOnPriorGoals", type number}, {"Q21H_PriorGoalsInformCurrentGoals", type number}, {"Q21I_NoneOfTheAbove", type number}, {"Q22A_StudentStrengthsYes", type number}, {"Q22B_StudentStrengthsYesSpecific", type number}, {"Q22C_StudentStrengthsYesCultural", type number}, {"Q22D_StudentStrengthsYesInformIEP", type number}, {"Q22E_StudentStrengthsNo", type number}, {"Q23_IEPIdentifiesSpeciallyDesignedInstruction", type text}, {"Q25_HealthNeeds", type number}, {"Q26_HealthEvidence", type number}, {"Q27A_ObjectiveMeasurableDescriptionOfHealthConcerns", type number}, {"Q27B_DescriptionOfHowConcernsPreventAccess", type number}, {"Q27C_AnnualGoalsAboutHealthConcerns", type number}, {"Q27D_AnnualGoalsHealthPara", type number}, {"Q27E_NoInformation", type number}, {"Q28_HealthPara", type number}, {"Q29A_AnnualGoalsSpecific", type text}, {"Q29B_AnnualGoalsObservableSkills", type text}, {"Q31A_AccomodationsConnectToNeed", type number}, {"Q31B_AccomodationsEvidenceBased", type number}, {"Q31C_HowWhenHowOften", type number}, {"Q31D_AccomodationsNotBasedOnNeed", type number}, {"Q32_AssistiveTechnologyConsidered", type number}, {"Q33_AssistiveTechnologyRecommended", type number}, {"Q34_RSRecommendations", type number}, {"Q36A_GoalsRequireProfessional", type number}, {"Q36B_PullOutNecessary", type number}, {"Q36C_PullOutLimitedImpact", type number}, {"Q36D_NoneOfTheAbove", type number}, {"Q37_GenEdConsideredFirst", type number}, {"Q38_ParticipateGenEd", type number}, {"Q39_IEPComprehensivePlan", type number}, {"Q40_RecommendsTraining", type number}, {"Q41A_SocialDevelopmentStrengths", type number}, {"Q41B_SocialDevelopmentNeeds", type number}, {"Q41C_SocialDevelopmentNo", type number}, {"Q42_BehaviorConcerns", type number}, {"Q43A_ObjectiveMeasurableDescriptionOfBehaviorConcerns", type number}, {"Q43B_ObjectiveMeasurableDescriptionOfHowConcernsInterfere", type number}, {"Q43C_IEPHighlightsConnection", type number}, {"Q43D_AnnualGoalsForBehaviorConcerns", type number}, {"Q43E_NoneOfTheAbove", type number}, {"Q44_ConsiderationsFormCompleted", type number}, {"Q45_FBANecessary", type number}, {"Q46_FBAConducted", type number}, {"Q47_BIPNecessary", type number}, {"Q48_BIPCreated", type number}, {"Q49_BehaviorPara", type number}, {"Q50A_AnnualGoalsReducePara", type number}, {"Q50B_AnnualGoalsRequirePara", type number}, {"Q50C_AnnualGoalsIDBIP", type number}, {"Q50D_IEPDescribesParaTraining", type number}, {"Q50E_NoneOfTheAbove", type number}, {"Q51_Age12orOver", type number}, {"Q54_Age15orOver", type number}, {"Q58_CTAAgentsAligned", type number}, {"Q59_CTAInvalidAgent", type number}, {"Q05_KindergartenStudentSpecialClass", type number}, {"Q05_KindergartenPara", type number}, {"Q05_KindergartenReeval", type number}, {"Q05_Turning5", type number}, {"Q05_NYSAA", type number}, {"Q05_ModProm", type number}, {"Q05_Suspended", type number}, {"Q05_BehaviorConcern", type number}, {"Q05_Other", type number}, {"Q30_NeedsAndGoalsProvideRationaleForServices", type number}, {"Q48_BIPPMSpecified", type number}, {"Q48_BIPPMUploaded", type number}, {"Q48_BIPNo", type number}, {"Q57ANY_CTAAlignedToStudentNeed", type number}, {"Q57A_Instruction", type number}, {"Q57B_RelatedServices", type number}, {"Q57C_CommunityExperiences", type number}, {"Q57D_Employment", type number}, {"Q57E_DailyLivingSkills", type number}, {"Q57F_VocAssessment", type number}, {"Q57G_NoCTA", type number}, {"Q57H_NoNotEnableMeetGoals", type number}, {"Q56C_TransitionNeedsAlignWithPLOP", type number}, {"Q56D_TransitionNeedsMultiYearDescription", type number}, {"Q56E_CourseofStudyHelpAchieveGoals", type number}, {"Q56F_DescribesDiplomaTrack", type number}, {"Q56G_TransitionNeedsCDOSorSACC", type number}, {"Q56H_TransitionNeedsNoneoftheAbove", type number}, {"Q56A_TransitionServicesEnableMeetGoals", type number}, {"Q56B_TransitionNeedsListsSkills", type number}, {"Q59_MeasurableAnnualGoalsRelatedToTransition", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":138,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/IEP Review Data/Source.{ResponseID,0}","Section1/IEP Review Data/Changed Type.{StartDate,1}","Section1/IEP Review Data/Changed Type.{SubmitDate,2}","Section1/IEP Review Data/Source.{Status,3}","Section1/IEP Review Data/Source.{Q13_ReviewerEmail,4}","Section1/IEP Review Data/Source.{ReviewerName,5}","Section1/IEP Review Data/Source.{Q01_SchoolDBN,6}","Section1/IEP Review Data/Source.{Q04_CSE,7}","Section1/IEP Review Data/Source.{Q05_StudentID,8}","Section1/IEP Review Data/Source.{Q06_FirstName,9}","Section1/IEP Review Data/Source.{Q07_LastName,10}","Section1/IEP Review Data/Source.{Q08_Birthdate,11}","Section1/IEP Review Data/Source.{Q09_FinalizationDate,12}","Section1/IEP Review Data/Source.{Q10_Reviewers,13}","Section1/IEP Review Data/Source.{Q11_SchoolStaff,14}","Section1/IEP Review Data/Source.{Q11_FSCStaff,15}","Section1/IEP Review Data/Source.{Q11_SupeOfPsych,16}","Section1/IEP Review Data/Source.{Q11_Partner,17}","Section1/IEP Review Data/Source.{Q11_RSSupe,18}","Section1/IEP Review Data/Source.{Q11_CSEStaff,19}","Section1/IEP Review Data/Source.{Q11_SEOStaff,20}","Section1/IEP Review Data/Source.{Q11_RSETASC,21}","Section1/IEP Review Data/Source.{Q11_BehaviorSpecial,22}","Section1/IEP Review Data/Source.{Q11_TransitionSpecial,23}","Section1/IEP Review Data/Source.{Q12_NumReviewers,24}","Section1/IEP Review Data/Source.{Q14_ELL,25}","Section1/IEP Review Data/Source.{Q15A_Current,26}","Section1/IEP Review Data/Source.{Q15B_Objective,27}","Section1/IEP Review Data/Source.{Q15C_Observable,28}","Section1/IEP Review Data/Source.{Q15D_JargonFree,29}","Section1/IEP Review Data/Source.{Q15E_Specific,30}","Section1/IEP Review Data/Source.{Q15F_NoneOfTheAbove,31}","Section1/IEP Review Data/Source.{Q16A_AlignedToStudentNeeds,32}","Section1/IEP Review Data/Source.{Q16B_RelevantToGradLevelCurriculum,33}","Section1/IEP Review Data/Source.{Q16C_NoneOfTheAbove,34}","Section1/IEP Review Data/Source.{Q17_StudentVoice,35}","Section1/IEP Review Data/Source.{Q18_ParentVoice,36}","Section1/IEP Review Data/Source.{Q19A_AttendParent,37}","Section1/IEP Review Data/Source.{Q19B_AttendStudent,38}","Section1/IEP Review Data/Source.{Q19C_AttendSPEDTeacher,39}","Section1/IEP Review Data/Source.{Q19D_AttendGenEDTeacher,40}","Section1/IEP Review Data/Source.{Q19E_AttendRSProvider,41}","Section1/IEP Review Data/Source.{Q19F_AttendDistrictRep,42}","Section1/IEP Review Data/Source.{Q19G_AgencyRepresentative,43}","Section1/IEP Review Data/Source.{Q19G_AttendOther,44}","Section1/IEP Review Data/Source.{Q19G_AttendOtherWriteIn,45}","Section1/IEP Review Data/Source.{Q20_StudentInvite,46}","Section1/IEP Review Data/Source.{Q21A_BasedOnAgeAppropriateStandards,47}","Section1/IEP Review Data/Source.{Q21B_ClassroomStateLocalSupplemental,48}","Section1/IEP Review Data/Source.{Q21C_EvidenceOfComparativeAnalysis,49}","Section1/IEP Review Data/Source.{Q21D_PLOPinReading,50}","Section1/IEP Review Data/Source.{Q21E_PLOPinMath,51}","Section1/IEP Review Data/Source.{Q21F_NoneOfTheAbove,52}","Section1/IEP Review Data/Source.{Q22_IEPContainsInfoAboutStudentsStrengths,53}","Section1/IEP Review Data/Source.{Q23_IEPIdentifiesSpeciallyDesignedInstruction,54}","Section1/IEP Review Data/Source.{Q24_EffectOfDisabilityProvidesRationaleForIEP,55}","Section1/IEP Review Data/Source.{Q25_HealthNeeds,56}","Section1/IEP Review Data/Source.{Q26_HealthEvidence,57}","Section1/IEP Review Data/Source.{Q27_HealthPara,58}","Section1/IEP Review Data/Source.{Q28A_ObjectiveMeasurableDescriptionOfHealthConcerns,59}","Section1/IEP Review Data/Source.{Q28B_DescriptionOfHowConcernsPreventAccess,60}","Section1/IEP Review Data/Source.{Q28C_AnnualGoalsAboutHealthConcerns,61}","Section1/IEP Review Data/Source.{Q28D_AnnualGoalsHealthPara,62}","Section1/IEP Review Data/Source.{Q28E_NoInformation,63}","Section1/IEP Review Data/Source.{Q29_AnnualGoalsSpecific,64}","Section1/IEP Review Data/Source.{Q30A_AnnualGoalsObservableSkills,65}","Section1/IEP Review Data/Source.{Q30B_AnnualGoalsMeasurableObservableCriteria,66}","Section1/IEP Review Data/Source.{Q30C_AnnualGaolsDescribeAssessment,67}","Section1/IEP Review Data/Source.{Q30D_AnnualGoalsProgressMonitoringTimelines,68}","Section1/IEP Review Data/Source.{Q29E_None,69}","Section1/IEP Review Data/Source.{Q31_NeedsAndGoalsProvideRationaleForServices,70}","Section1/IEP Review Data/Source.{Q32A_AccomodationsConnectToNeed,71}","Section1/IEP Review Data/Source.{Q32B_AccomodationsEvidenceBased,72}","Section1/IEP Review Data/Source.{Q32C_HowWhenHowOften,73}","Section1/IEP Review Data/Source.{Q32D_AccomodationsNotBasedOnNeed,74}","Section1/IEP Review Data/Source.{Q32E_Other,75}","Section1/IEP Review Data/Source.{Q32E_OtherWriteIn,76}","Section1/IEP Review Data/Source.{Q33_AssistiveTechnologyConsidered,77}","Section1/IEP Review Data/Source.{Q34_AssistiveTechnologyRecommended,78}","Section1/IEP Review Data/Source.{Q35_RSRecommendations,79}","Section1/IEP Review Data/Source.{Q36_RSConnectToStudentNeed,80}","Section1/IEP Review Data/Source.{Q37A_GoalsRequireProfessional,81}","Section1/IEP Review Data/Source.{Q37B_PullOutNecessary,82}","Section1/IEP Review Data/Source.{Q37C_PullOutLimitedImpact,83}","Section1/IEP Review Data/Source.{Q37D_NoneOfTheAbove,84}","Section1/IEP Review Data/Source.{Q38_GenEdConsideredFirst,85}","Section1/IEP Review Data/Source.{Q39,86}","Section1/IEP Review Data/Source.{Q40,87}","Section1/IEP Review Data/Source.{Q41_BehaviorConcerns,88}","Section1/IEP Review Data/Source.{Q42A_ObjectiveMeasurableDescriptionOfBehaviorConcerns,89}","Section1/IEP Review Data/Source.{Q42B_ObjectiveMeasurableDescriptionOfHowConcernsInterfere,90}","Section1/IEP Review Data/Source.{Q42C_IEPHighlightsConnection,91}","Section1/IEP Review Data/Source.{Q42D_AnnualGoalsForBehaviorConcerns,92}","Section1/IEP Review Data/Source.{Q42E_NoneOfTheAbove,93}","Section1/IEP Review Data/Source.{Q43_BehaviorPara,94}","Section1/IEP Review Data/Source.{Q44A_AnnualGoalsReducePara,95}","Section1/IEP Review Data/Source.{Q44B_AnnualGoalsRequirePara,96}","Section1/IEP Review Data/Source.{Q44C_AnnualGoalsIDBIP,97}","Section1/IEP Review Data/Source.{Q44D_IEPDescribesParaTraining,98}","Section1/IEP Review Data/Source.{Q44E_NoneOfTheAbove,99}","Section1/IEP Review Data/Source.{Q45_ConsiderationsFormCompleted,100}","Section1/IEP Review Data/Source.{Q46_FBANecessary,101}","Section1/IEP Review Data/Source.{Q47_FBAConducted,102}","Section1/IEP Review Data/Source.{Q48_BIPNecessary,103}","Section1/IEP Review Data/Source.{Q49_BIPCreated,104}","Section1/IEP Review Data/Source.{Q50_Age12orOver,105}","Section1/IEP Review Data/Source.{Q51A_TeacherVocAssessment,106}","Section1/IEP Review Data/Source.{Q51B_StudentVocAssessment,107}","Section1/IEP Review Data/Source.{Q51C_ParentVocAssessment,108}","Section1/IEP Review Data/Source.{Q51D_NoVocAssessments,109}","Section1/IEP Review Data/Source.{Q52_VocAssessmentsPLOP,110}","Section1/IEP Review Data/Source.{Q53_Age15orOver,111}","Section1/IEP Review Data/Source.{Q54_MPGAlignedToStudentNeed,112}","Section1/IEP Review Data/Source.{Q55_TransitionNeedsReflectStudentNeed,113}","Section1/IEP Review Data/Source.{Q56_CTAAlignedToStudentNeed,114}","Section1/IEP Review Data/Source.{Q57_CTAAgentsAligned,115}","Section1/IEP Review Data/Source.{Q58_CTAInvalidAgent,116}","Section1/IEP Review Data/Source.{Q59_AlignmentAnnualsGoalsPLOP,117}","Section1/IEP Review Data/Source.{Q60_AlignmentServicesPLOP,118}","Section1/IEP Review Data/Source.{Q60_AlignmentMLL,119}","Section1/IEP Review Data/Source.{Q61_AlignmentAmongPLOPAnnualGoalsServices,120}","Section1/IEP Review Data/Source.{Q62_PAD,121}","Section1/IEP Review Data/Source.{Q63A_PADParentVoice,122}","Section1/IEP Review Data/Source.{Q63B_PADServices,123}","Section1/IEP Review Data/Source.{Q63C_PADPara,124}","Section1/IEP Review Data/Source.{Q63D_PADBIP,125}","Section1/IEP Review Data/Source.{Q63E_PADAT,126}","Section1/IEP Review Data/Source.{SchoolYear,127}","Section1/IEP Review Data/Source.{SESIS_DBN,128}","Section1/IEP Review Data/Source.{ETHNICITY,129}","Section1/IEP Review Data/Source.{GENDER,130}","Section1/IEP Review Data/Source.{CLASSIFICATION,131}","Section1/IEP Review Data/Source.{GRADE,132}","Section1/IEP Review Data/Source.{PullDate,133}","Section1/IEP Review Data/Source.{SchoolDBNFix,134}","Section1/IEP Review Data/Q52 Sort Column.{Q52_Sort,135}","Section1/IEP Review Data/Q54 Sort Column.{Q54_Sort,136}","Section1/IEP Review Data/Q56 Sort Column.{Q56_Sort,137}"],"ColumnCount":138,"KeyColumnNames":[],"ColumnIdentities":["Section1/IEP Review Data/Source.{ResponseID,0}","Section1/IEP Review Data/Changed Type.{StartDate,1}","Section1/IEP Review Data/Changed Type.{SubmitDate,2}","Section1/IEP Review Data/Source.{Status,3}","Section1/IEP Review Data/Source.{Q13_ReviewerEmail,4}","Section1/IEP Review Data/Source.{ReviewerName,5}","Section1/IEP Review Data/Source.{Q01_SchoolDBN,6}","Section1/IEP Review Data/Source.{Q04_CSE,7}","Section1/IEP Review Data/Source.{Q05_StudentID,8}","Section1/IEP Review Data/Source.{Q06_FirstName,9}","Section1/IEP Review Data/Source.{Q07_LastName,10}","Section1/IEP Review Data/Source.{Q08_Birthdate,11}","Section1/IEP Review Data/Source.{Q09_FinalizationDate,12}","Section1/IEP Review Data/Source.{Q10_Reviewers,13}","Section1/IEP Review Data/Source.{Q11_SchoolStaff,14}","Section1/IEP Review Data/Source.{Q11_FSCStaff,15}","Section1/IEP Review Data/Source.{Q11_SupeOfPsych,16}","Section1/IEP Review Data/Source.{Q11_Partner,17}","Section1/IEP Review Data/Source.{Q11_RSSupe,18}","Section1/IEP Review Data/Source.{Q11_CSEStaff,19}","Section1/IEP Review Data/Source.{Q11_SEOStaff,20}","Section1/IEP Review Data/Source.{Q11_RSETASC,21}","Section1/IEP Review Data/Source.{Q11_BehaviorSpecial,22}","Section1/IEP Review Data/Source.{Q11_TransitionSpecial,23}","Section1/IEP Review Data/Source.{Q12_NumReviewers,24}","Section1/IEP Review Data/Source.{Q14_ELL,25}","Section1/IEP Review Data/Source.{Q15A_Current,26}","Section1/IEP Review Data/Source.{Q15B_Objective,27}","Section1/IEP Review Data/Source.{Q15C_Observable,28}","Section1/IEP Review Data/Source.{Q15D_JargonFree,29}","Section1/IEP Review Data/Source.{Q15E_Specific,30}","Section1/IEP Review Data/Source.{Q15F_NoneOfTheAbove,31}","Section1/IEP Review Data/Source.{Q16A_AlignedToStudentNeeds,32}","Section1/IEP Review Data/Source.{Q16B_RelevantToGradLevelCurriculum,33}","Section1/IEP Review Data/Source.{Q16C_NoneOfTheAbove,34}","Section1/IEP Review Data/Source.{Q17_StudentVoice,35}","Section1/IEP Review Data/Source.{Q18_ParentVoice,36}","Section1/IEP Review Data/Source.{Q19A_AttendParent,37}","Section1/IEP Review Data/Source.{Q19B_AttendStudent,38}","Section1/IEP Review Data/Source.{Q19C_AttendSPEDTeacher,39}","Section1/IEP Review Data/Source.{Q19D_AttendGenEDTeacher,40}","Section1/IEP Review Data/Source.{Q19E_AttendRSProvider,41}","Section1/IEP Review Data/Source.{Q19F_AttendDistrictRep,42}","Section1/IEP Review Data/Source.{Q19G_AgencyRepresentative,43}","Section1/IEP Review Data/Source.{Q19G_AttendOther,44}","Section1/IEP Review Data/Source.{Q19G_AttendOtherWriteIn,45}","Section1/IEP Review Data/Source.{Q20_StudentInvite,46}","Section1/IEP Review Data/Source.{Q21A_BasedOnAgeAppropriateStandards,47}","Section1/IEP Review Data/Source.{Q21B_ClassroomStateLocalSupplemental,48}","Section1/IEP Review Data/Source.{Q21C_EvidenceOfComparativeAnalysis,49}","Section1/IEP Review Data/Source.{Q21D_PLOPinReading,50}","Section1/IEP Review Data/Source.{Q21E_PLOPinMath,51}","Section1/IEP Review Data/Source.{Q21F_NoneOfTheAbove,52}","Section1/IEP Review Data/Source.{Q22_IEPContainsInfoAboutStudentsStrengths,53}","Section1/IEP Review Data/Source.{Q23_IEPIdentifiesSpeciallyDesignedInstruction,54}","Section1/IEP Review Data/Source.{Q24_EffectOfDisabilityProvidesRationaleForIEP,55}","Section1/IEP Review Data/Source.{Q25_HealthNeeds,56}","Section1/IEP Review Data/Source.{Q26_HealthEvidence,57}","Section1/IEP Review Data/Source.{Q27_HealthPara,58}","Section1/IEP Review Data/Source.{Q28A_ObjectiveMeasurableDescriptionOfHealthConcerns,59}","Section1/IEP Review Data/Source.{Q28B_DescriptionOfHowConcernsPreventAccess,60}","Section1/IEP Review Data/Source.{Q28C_AnnualGoalsAboutHealthConcerns,61}","Section1/IEP Review Data/Source.{Q28D_AnnualGoalsHealthPara,62}","Section1/IEP Review Data/Source.{Q28E_NoInformation,63}","Section1/IEP Review Data/Source.{Q29_AnnualGoalsSpecific,64}","Section1/IEP Review Data/Source.{Q30A_AnnualGoalsObservableSkills,65}","Section1/IEP Review Data/Source.{Q30B_AnnualGoalsMeasurableObservableCriteria,66}","Section1/IEP Review Data/Source.{Q30C_AnnualGaolsDescribeAssessment,67}","Section1/IEP Review Data/Source.{Q30D_AnnualGoalsProgressMonitoringTimelines,68}","Section1/IEP Review Data/Source.{Q29E_None,69}","Section1/IEP Review Data/Source.{Q31_NeedsAndGoalsProvideRationaleForServices,70}","Section1/IEP Review Data/Source.{Q32A_AccomodationsConnectToNeed,71}","Section1/IEP Review Data/Source.{Q32B_AccomodationsEvidenceBased,72}","Section1/IEP Review Data/Source.{Q32C_HowWhenHowOften,73}","Section1/IEP Review Data/Source.{Q32D_AccomodationsNotBasedOnNeed,74}","Section1/IEP Review Data/Source.{Q32E_Other,75}","Section1/IEP Review Data/Source.{Q32E_OtherWriteIn,76}","Section1/IEP Review Data/Source.{Q33_AssistiveTechnologyConsidered,77}","Section1/IEP Review Data/Source.{Q34_AssistiveTechnologyRecommended,78}","Section1/IEP Review Data/Source.{Q35_RSRecommendations,79}","Section1/IEP Review Data/Source.{Q36_RSConnectToStudentNeed,80}","Section1/IEP Review Data/Source.{Q37A_GoalsRequireProfessional,81}","Section1/IEP Review Data/Source.{Q37B_PullOutNecessary,82}","Section1/IEP Review Data/Source.{Q37C_PullOutLimitedImpact,83}","Section1/IEP Review Data/Source.{Q37D_NoneOfTheAbove,84}","Section1/IEP Review Data/Source.{Q38_GenEdConsideredFirst,85}","Section1/IEP Review Data/Source.{Q39,86}","Section1/IEP Review Data/Source.{Q40,87}","Section1/IEP Review Data/Source.{Q41_BehaviorConcerns,88}","Section1/IEP Review Data/Source.{Q42A_ObjectiveMeasurableDescriptionOfBehaviorConcerns,89}","Section1/IEP Review Data/Source.{Q42B_ObjectiveMeasurableDescriptionOfHowConcernsInterfere,90}","Section1/IEP Review Data/Source.{Q42C_IEPHighlightsConnection,91}","Section1/IEP Review Data/Source.{Q42D_AnnualGoalsForBehaviorConcerns,92}","Section1/IEP Review Data/Source.{Q42E_NoneOfTheAbove,93}","Section1/IEP Review Data/Source.{Q43_BehaviorPara,94}","Section1/IEP Review Data/Source.{Q44A_AnnualGoalsReducePara,95}","Section1/IEP Review Data/Source.{Q44B_AnnualGoalsRequirePara,96}","Section1/IEP Review Data/Source.{Q44C_AnnualGoalsIDBIP,97}","Section1/IEP Review Data/Source.{Q44D_IEPDescribesParaTraining,98}","Section1/IEP Review Data/Source.{Q44E_NoneOfTheAbove,99}","Section1/IEP Review Data/Source.{Q45_ConsiderationsFormCompleted,100}","Section1/IEP Review Data/Source.{Q46_FBANecessary,101}","Section1/IEP Review Data/Source.{Q47_FBAConducted,102}","Section1/IEP Review Data/Source.{Q48_BIPNecessary,103}","Section1/IEP Review Data/Source.{Q49_BIPCreated,104}","Section1/IEP Review Data/Source.{Q50_Age12orOver,105}","Section1/IEP Review Data/Source.{Q51A_TeacherVocAssessment,106}","Section1/IEP Review Data/Source.{Q51B_StudentVocAssessment,107}","Section1/IEP Review Data/Source.{Q51C_ParentVocAssessment,108}","Section1/IEP Review Data/Source.{Q51D_NoVocAssessments,109}","Section1/IEP Review Data/Source.{Q52_VocAssessmentsPLOP,110}","Section1/IEP Review Data/Source.{Q53_Age15orOver,111}","Section1/IEP Review Data/Source.{Q54_MPGAlignedToStudentNeed,112}","Section1/IEP Review Data/Source.{Q55_TransitionNeedsReflectStudentNeed,113}","Section1/IEP Review Data/Source.{Q56_CTAAlignedToStudentNeed,114}","Section1/IEP Review Data/Source.{Q57_CTAAgentsAligned,115}","Section1/IEP Review Data/Source.{Q58_CTAInvalidAgent,116}","Section1/IEP Review Data/Source.{Q59_AlignmentAnnualsGoalsPLOP,117}","Section1/IEP Review Data/Source.{Q60_AlignmentServicesPLOP,118}","Section1/IEP Review Data/Source.{Q60_AlignmentMLL,119}","Section1/IEP Review Data/Source.{Q61_AlignmentAmongPLOPAnnualGoalsServices,120}","Section1/IEP Review Data/Source.{Q62_PAD,121}","Section1/IEP Review Data/Source.{Q63A_PADParentVoice,122}","Section1/IEP Review Data/Source.{Q63B_PADServices,123}","Section1/IEP Review Data/Source.{Q63C_PADPara,124}","Section1/IEP Review Data/Source.{Q63D_PADBIP,125}","Section1/IEP Review Data/Source.{Q63E_PADAT,126}","Section1/IEP Review Data/Source.{SchoolYear,127}","Section1/IEP Review Data/Source.{SESIS_DBN,128}","Section1/IEP Review Data/Source.{ETHNICITY,129}","Section1/IEP Review Data/Source.{GENDER,130}","Section1/IEP Review Data/Source.{CLASSIFICATION,131}","Section1/IEP Review Data/Source.{GRADE,132}","Section1/IEP Review Data/Source.{PullDate,133}","Section1/IEP Review Data/Source.{SchoolDBNFix,134}","Section1/IEP Review Data/Q52 Sort Column.{Q52_Sort,135}","Section1/IEP Review Data/Q54 Sort Column.{Q54_Sort,136}","Section1/IEP Review Data/Q56 Sort Column.{Q56_Sort,137}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

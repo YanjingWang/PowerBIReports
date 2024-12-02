@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["School Data","CSE Table","IEP Review Data","Exception Schools","Users","Round Deadlines","District Table","Reviews"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_62c7587b-f236-43b4-bd9e-2021fc45199b
+ref table 'School Data'
+ref table 'CSE Table'
+ref table 'IEP Review Data'
+ref table LocalDateTable_b1f8da37-b095-4e27-9494-5c052f8f474b
+ref table 'Exception Schools'
+ref table LocalDateTable_97d832af-7631-4d6e-aa11-977b9846e410
+ref table Users
+ref table 'Round Deadlines'
+ref table LocalDateTable_1efa75df-57d6-4052-b717-a56f7c71dc9d
+ref table LocalDateTable_8e11b435-cfba-4148-9ccf-963b79466ffe
+ref table LocalDateTable_c35e7d28-3049-4a60-8042-c9a86edc0e42
+ref table Q29Table
+ref table 'District Table'
+ref table LocalDateTable_3ece1888-c9eb-4953-a7de-2a3a67654e27
+ref table Reviews
+ref table LocalDateTable_8cce04c6-b67a-4328-bbc6-40d94d49dae2
+ref table LocalDateTable_4004f14e-5a0d-4023-aaa1-d28250de2646
+ref table LocalDateTable_e86ca24c-7bf9-4d09-89dd-a4fee0e65669
+

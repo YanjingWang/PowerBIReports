@@ -1,0 +1,80 @@
+table 'CSE Table'
+	isHidden
+	lineageTag: f165c6ea-56ed-4485-87b4-252329daaed3
+
+	measure 'Reviews by CSE' =
+			
+			var sy = [ThisSY]
+			return
+			 CALCULATE(SUM('IEP Review Data'[Q11_CSEStaff]),'IEP Review Data'[SchoolYear]=sy)+0
+		formatString: 0
+		isHidden
+		lineageTag: 64a750ed-848f-4a95-b981-37b0b5af48a8
+
+	measure 'Required by CSE' = sum([Required by CSE Column])
+		formatString: 0
+		isHidden
+		lineageTag: 6af1d99d-5c26-4669-a7c1-6e6ed24bbdd0
+
+	measure 'Outstanding by CSE' = SUM('CSE Table'[Outstanding by CSE Column])
+		formatString: 0
+		isHidden
+		lineageTag: 89d34140-4f38-4d2a-ba79-38f246c7786d
+
+	column 'CSE Name'
+		dataType: string
+		isHidden
+		lineageTag: cf406456-2510-42a4-8eb0-0fb0b4497704
+		summarizeBy: none
+		sourceColumn: CSE Name
+		sortByColumn: 'CSE ID'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSE ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2ff84560-50c1-46fc-9761-01b417a24fda
+		summarizeBy: none
+		sourceColumn: CSE ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Required by CSE Column' = [Round]*4
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1d0152b0-500e-4e09-9ae8-f3d339010aa4
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outstanding by CSE Column' = Max('CSE Table'[Required by CSE Column]-[Reviews by CSE],0)
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: 8dfadd2b-cd7d-4d71-8aa0-020b8bef673a
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CSE Table-b1b5ecb8-2010-4671-a7e5-74f4ab661623' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Pc25DcAgEATAVqyNCTh+YuQKCNH134bXQtpwojkHa7+PIcDg4SpRScpUlgpVpEpVqVFN6lSXBjWkSU3J4t9HuH8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"CSE Name" = _t, #"CSE ID" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CSE Name", type text}, {"CSE ID", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/CSE Table/Changed Type.{CSE Name,0}","Section1/CSE Table/Changed Type.{CSE ID,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/CSE Table/Changed Type.{CSE Name,0}","Section1/CSE Table/Changed Type.{CSE ID,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

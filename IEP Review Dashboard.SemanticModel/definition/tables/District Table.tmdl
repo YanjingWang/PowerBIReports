@@ -1,0 +1,87 @@
+table 'District Table'
+	lineageTag: f46758b9-7328-45b7-965c-4e45b8196c9c
+
+	measure 'Outstanding by BCO' = Sum('District Table'[Outstanding by BCO Column])
+		formatString: #,0
+		isHidden
+		lineageTag: 197ea819-bd0f-4fa4-a871-f3803794b44f
+
+	measure 'Required by BCO' = sum([Required by BCO Column])
+		formatString: 0
+		lineageTag: 2ba8678b-82e7-4b0e-9e37-d37f38e01b55
+
+	measure 'Reviews by BCO' =
+			
+			var sy = [ThisSY]
+			return
+			 CALCULATE(SUM('IEP Review Data'[Q11_FSCStaff]),'IEP Review Data'[SchoolYear]=sy)
+		formatString: 0
+		lineageTag: bd92988c-33c6-4cab-94f9-31675b6224cb
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '% Complete District' = 1 - ([Outstanding by BCO]/[Required by BCO])
+		formatString: 0%;-0%;0%
+		lineageTag: 322b4b6e-607f-47ea-a99d-6a6986506ff4
+
+	column 'Required by BCO Column' = 4*'District Table'[StaffCount]*[Round]
+		dataType: int64
+		formatString: 0
+		lineageTag: 754df753-4840-4f6c-b837-81de54da4e97
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outstanding by BCO Column' = Max('District Table'[Required by BCO Column]-[Reviews by BCO],0)
+		dataType: double
+		formatString: 0
+		lineageTag: 2108f3a1-702b-4838-99dd-5399919ad10a
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column Superintendent
+		dataType: string
+		lineageTag: 3b0272b4-bba7-4d4a-9ab6-84f5e224d978
+		summarizeBy: none
+		sourceColumn: Superintendent
+
+		annotation SummarizationSetBy = Automatic
+
+	column District
+		dataType: string
+		lineageTag: 1c885b39-ee8a-44e8-9ac5-bcd9e2a03933
+		summarizeBy: none
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column StaffCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 428133ed-f282-4bad-9b05-6da03c0417c0
+		summarizeBy: none
+		sourceColumn: StaffCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentLocationCode
+		dataType: string
+		lineageTag: e4b28c38-fe23-427e-9cc5-be52dbc97286
+		summarizeBy: none
+		sourceColumn: SuperintendentLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'District Table-7214d520-674b-4804-aa19-c489c2493ecb' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="Select * from SEO_REPORTING.bi.vw_IEPReview_District"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,52 @@
+table 'Exception Schools'
+	isHidden
+	lineageTag: d980afe3-8d48-48a4-987a-6d207880ac03
+
+	column 'School DBN'
+		dataType: string
+		isHidden
+		lineageTag: 0146585a-aab5-45bc-93b2-716605cdaa23
+		summarizeBy: none
+		sourceColumn: School DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'By School'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b33f1c04-98b7-4ae8-a258-67ccf82c568b
+		summarizeBy: sum
+		sourceColumn: By School
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'By FSC'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 45fcf72c-6acc-403e-a2d1-ba82195c2f62
+		summarizeBy: sum
+		sourceColumn: By FSC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exception Schools-ef3f9bbb-3306-418f-9c33-2efa90058758' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMrf0NTY2VNJRguBYHbCQpbkxkGsKFzIw8TU2NAByITg2FgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"School DBN" = _t, #"By School" = _t, #"By FSC" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"School DBN", type text}, {"By School", Int64.Type}, {"By FSC", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Exception Schools/Changed Type.{School DBN,0}","Section1/Exception Schools/Changed Type.{By School,1}","Section1/Exception Schools/Changed Type.{By FSC,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/Exception Schools/Changed Type.{School DBN,0}","Section1/Exception Schools/Changed Type.{By School,1}","Section1/Exception Schools/Changed Type.{By FSC,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

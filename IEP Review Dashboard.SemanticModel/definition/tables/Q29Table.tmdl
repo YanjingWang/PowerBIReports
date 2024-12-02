@@ -1,0 +1,111 @@
+table Q29Table
+	lineageTag: 18307b65-5660-4fb5-bc8b-2cb18dd91cd0
+
+	column Question
+		dataType: string
+		lineageTag: c30ff005-742b-47d1-bc90-164e8ab531ad
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Question]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: string
+		lineageTag: 5345d683-11e7-4d43-909a-41e2e96bbc0d
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Value]
+		sortByColumn: 'Value Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: 9e5283ad-c96e-46ae-b024-68309abb9195
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [SchoolDBN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: fad2f342-88b5-47ff-abf0-cf8b700d13ac
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [SchoolYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: 66f719dc-4d42-4493-a3d2-aa93abb4a1dd
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Value Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Q29Table-627a941b-778d-45a2-abe2-61dbdd7acde2 = calculated
+		mode: import
+		source = ```
+				UNION(
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29A. Are specific to the student's needs", "Value", [Q29A_AnnualGoalsSpecific],"Value Sort",
+				    IF('IEP Review Data'[Q29A_AnnualGoalsSpecific]="All",5,
+				    IF('IEP Review Data'[Q29A_AnnualGoalsSpecific]="Some",4,
+				    IF('IEP Review Data'[Q29A_AnnualGoalsSpecific]="None",3,
+				    IF('IEP Review Data'[Q29A_AnnualGoalsSpecific]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29B. Identify observable skills", "Value",[Q29B_AnnualGoalsObservableSkills],"Value Sort", 
+				    IF('IEP Review Data'[Q29B_AnnualGoalsObservableSkills]="All",5,
+				    IF('IEP Review Data'[Q29B_AnnualGoalsObservableSkills]="Some",4,
+				    IF('IEP Review Data'[Q29B_AnnualGoalsObservableSkills]="None",3,
+					IF('IEP Review Data'[Q29B_AnnualGoalsObservableSkills]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29C. Have measurable criteria to measure student learning", "Value", [Q29C_AnnualGoalsMeasurableCriteria],"Value Sort",
+				    IF('IEP Review Data'[Q29C_AnnualGoalsMeasurableCriteria]="All",5,
+				    IF('IEP Review Data'[Q29C_AnnualGoalsMeasurableCriteria]="Some",4,
+				    IF('IEP Review Data'[Q29C_AnnualGoalsMeasurableCriteria]="None",3,
+					IF('IEP Review Data'[Q29C_AnnualGoalsMeasurableCriteria]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29D. Describe how performance will be assessed", "Value",[Q29D_AnnualGoalsDescribeAssessment],"Value Sort",
+				    IF('IEP Review Data'[Q29D_AnnualGoalsDescribeAssessment]="All",5,
+				    IF('IEP Review Data'[Q29D_AnnualGoalsDescribeAssessment]="Some",4,
+				    IF('IEP Review Data'[Q29D_AnnualGoalsDescribeAssessment]="None",3,
+				    IF('IEP Review Data'[Q29D_AnnualGoalsDescribeAssessment]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29E. Have progress monitoring timelines", "Value", [Q29E_AnnualGoalsProgressMonitoringTimelines],"Value Sort",
+				    IF('IEP Review Data'[Q29E_AnnualGoalsProgressMonitoringTimelines]="All",5,
+				    IF('IEP Review Data'[Q29E_AnnualGoalsProgressMonitoringTimelines]="Some",4,
+				    IF('IEP Review Data'[Q29E_AnnualGoalsProgressMonitoringTimelines]="None",3,
+					IF('IEP Review Data'[Q29E_AnnualGoalsProgressMonitoringTimelines]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29F. Reflect student/family priorities", "Value",[Q29F_AnnualGoalsReflectStudentPriorities],"Value Sort",
+				    IF('IEP Review Data'[Q29F_AnnualGoalsReflectStudentPriorities]="All",5,
+				    IF('IEP Review Data'[Q29F_AnnualGoalsReflectStudentPriorities]="Some",4,
+				    IF('IEP Review Data'[Q29F_AnnualGoalsReflectStudentPriorities]="None",3,
+				    IF('IEP Review Data'[Q29F_AnnualGoalsReflectStudentPriorities]="Yes",2,1))))
+				),
+				
+				SELECTCOLUMNS('IEP Review Data',"SchoolDBN", [SchoolDBNFix], "SchoolYear",[SchoolYear], "Question", "29G. Have progress reporting in SESIS", "Value",[Q29G_AnnualGoalsProgressMonitored],"Value Sort",
+				    IF('IEP Review Data'[Q29G_AnnualGoalsProgressMonitored]="All",5,
+				    IF('IEP Review Data'[Q29G_AnnualGoalsProgressMonitored]="Some",4,
+				    IF('IEP Review Data'[Q29G_AnnualGoalsProgressMonitored]="None",3,
+				    IF('IEP Review Data'[Q29G_AnnualGoalsProgressMonitored]="Yes",2,1))))
+				))
+				```
+
+	annotation PBI_Id = efa95279016d43feb9dc234fa6c746b9
+

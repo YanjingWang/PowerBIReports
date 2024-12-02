@@ -1,0 +1,635 @@
+table Reviews
+	lineageTag: 363b2854-aad1-4d7d-8753-43cee9688dab
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: ec4eb128-c46e-46da-92fd-a5f1cc0ebc23
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start time'
+		dataType: string
+		lineageTag: 8fc6cd3c-0dd2-43ce-9519-b0af2b751777
+		summarizeBy: none
+		sourceColumn: Start time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Completion time'
+		dataType: string
+		lineageTag: a912b13f-1c0d-4af7-9f9b-4c7438eb965c
+		summarizeBy: none
+		sourceColumn: Completion time
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: c9e496e8-a74a-43e1-a1fb-8b690915d4fd
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 23bc5996-a74d-4ac7-addc-d01ba17a1e61
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IF APPLICABLE, select your CSE. Please note if you work in a school or Borough/Citywide Office, select "I do not work in a CSE".'
+		dataType: string
+		lineageTag: fc6835a9-6178-4e28-a55c-2701ea961802
+		summarizeBy: none
+		sourceColumn: IF APPLICABLE, select your CSE. Please note if you work in a school or Borough/Citywide Office, select "I do not work in a CSE".
+
+		annotation SummarizationSetBy = Automatic
+
+	column '9 digit Student ID Number'
+		dataType: string
+		lineageTag: 4d26dc33-7f83-431b-912a-c45101a0a5cc
+		summarizeBy: none
+		sourceColumn: 9 digit Student ID Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Student''s First Name'
+		dataType: string
+		lineageTag: 8aad136f-849f-4e92-af0f-d2885952c3ea
+		summarizeBy: none
+		sourceColumn: Student's First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Student''s Last Name'
+		dataType: string
+		lineageTag: 1908104a-a9ad-4c79-af43-0baebaa3f5ca
+		summarizeBy: none
+		sourceColumn: Student's Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Student''s Date of Birth'
+		dataType: string
+		lineageTag: b6dd87ae-7bd0-4dfb-b6a8-9b056700e3a1
+		summarizeBy: none
+		sourceColumn: Student's Date of Birth
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finalization Date of the IEP being reviewed'
+		dataType: string
+		lineageTag: 4448f1f9-28b3-436a-8678-08c9ae568e6d
+		summarizeBy: none
+		sourceColumn: Finalization Date of the IEP being reviewed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Enter the Names and Roles of All Reviewers'
+		dataType: string
+		lineageTag: 2a63c81e-fa64-483b-949d-826825ce0cc5
+		summarizeBy: none
+		sourceColumn: Enter the Names and Roles of All Reviewers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Are the reviewers: (Select all that apply)'
+		dataType: string
+		lineageTag: 37ddfcd4-4712-481d-8fbc-db0aa9a6ca68
+		summarizeBy: none
+		sourceColumn: Are the reviewers: (Select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How many reviewers participated?'
+		dataType: string
+		lineageTag: 76d4700f-4fc7-436a-85dd-a177d30b8461
+		summarizeBy: none
+		sourceColumn: How many reviewers participated?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is the language in the IEP (Select all that apply)'
+		dataType: string
+		lineageTag: f8b17f97-4dce-4368-a82d-b494183e7b5e
+		summarizeBy: none
+		sourceColumn: Is the language in the IEP (Select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP, in particular the PLOP, reflect student voice in any of the following ways? (select all that apply)'
+		dataType: string
+		lineageTag: 90ebb1a8-b10e-4d82-8d3d-fbf9dfd9a95c
+		summarizeBy: none
+		sourceColumn: Does the IEP, in particular the PLOP, reflect student voice in any of the following ways? (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP, in particular the PLOP, reflect parent/family voice in any of the following ways? (select all that apply)'
+		dataType: string
+		lineageTag: 2e269801-e020-4193-b265-8f560384ed78
+		summarizeBy: none
+		sourceColumn: Does the IEP, in particular the PLOP, reflect parent/family voice in any of the following ways? (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Which required stakeholders were at the IEP meeting? (select all that attended)'
+		dataType: string
+		lineageTag: fb2646a2-dc7d-4a60-8c2a-a14b00960686
+		summarizeBy: none
+		sourceColumn: Which required stakeholders were at the IEP meeting? (select all that attended)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is the student invitation uploaded to SESIS?'
+		dataType: string
+		lineageTag: 97ff290a-db86-4b65-bea5-1d71c4168954
+		summarizeBy: none
+		sourceColumn: Is the student invitation uploaded to SESIS?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the student''s SESIS profile identify a home language other than English?'
+		dataType: string
+		lineageTag: 1680520e-48ef-4389-b169-ae51a4dd12fc
+		summarizeBy: none
+		sourceColumn: Does the student's SESIS profile identify a home language other than English?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does this IEP identify the specially designed instruction required to address missing skills, concepts or strategies that will assist the student in accessing and progressing within the general ed...'
+		dataType: string
+		lineageTag: 45b570c6-f1c7-46e1-b842-1c5d27a7ccf9
+		summarizeBy: none
+		sourceColumn: Does this IEP identify the specially designed instruction required to address missing skills, concepts or strategies that will assist the student in accessing and progressing within the general ed...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is the effect of the student''s disability described in detail, substantiating the rationale for the IEP as well as the impact of the student''s disability on access to, participation in and progres...'
+		dataType: string
+		lineageTag: 599448da-7cdc-47b1-bbbf-fea072be4641
+		summarizeBy: none
+		sourceColumn: Is the effect of the student's disability described in detail, substantiating the rationale for the IEP as well as the impact of the student's disability on access to, participation in and progres...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does this student have medical or health needs?'
+		dataType: string
+		lineageTag: 36358f0a-3d70-46e7-bdfa-6eeda8cf0dd1
+		summarizeBy: none
+		sourceColumn: Does this student have medical or health needs?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'For students with medical or health needs, is there sufficient current medical information to identify the impact of the medical needs on access to, participation and progress in the general educa...'
+		dataType: string
+		lineageTag: b1200026-8176-43ec-af1b-2054afe2fceb
+		summarizeBy: none
+		sourceColumn: For students with medical or health needs, is there sufficient current medical information to identify the impact of the medical needs on access to, participation and progress in the general educa...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the student have an IEP assigned paraprofessional to address health related needs (“health para”)?'
+		dataType: string
+		lineageTag: 966ee6af-b096-49e8-8ef1-aabe8b159621
+		summarizeBy: none
+		sourceColumn: Does the student have an IEP assigned paraprofessional to address health related needs (“health para”)?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'For students who have medical or health related concerns: (select all that apply)'
+		dataType: string
+		lineageTag: a63957c6-3723-4e7a-b158-753a1b9eadba
+		summarizeBy: none
+		sourceColumn: For students who have medical or health related concerns: (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP provide strong evidence that the student needs and annual goals provide the rationale for Recommended Programs and Services?'
+		dataType: string
+		lineageTag: 1536e69a-7dac-44ed-82e2-083cb50d3fd2
+		summarizeBy: none
+		sourceColumn: Does the IEP provide strong evidence that the student needs and annual goals provide the rationale for Recommended Programs and Services?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Do the accommodations recommended support the student in accessing, participating and making progress within the general education curriculum?  (select all that apply)'
+		dataType: string
+		lineageTag: 08221540-31c7-4055-be05-18de9900ab13
+		summarizeBy: none
+		sourceColumn: Do the accommodations recommended support the student in accessing, participating and making progress within the general education curriculum?  (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was Assistive Technology considered?'
+		dataType: string
+		lineageTag: f6690736-d177-4cf8-92b5-548420ba151d
+		summarizeBy: none
+		sourceColumn: Was Assistive Technology considered?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was Assistive Technology recommended for the student?'
+		dataType: string
+		lineageTag: 69429445-fb25-4ea0-989f-58ae26d95cd3
+		summarizeBy: none
+		sourceColumn: Was Assistive Technology recommended for the student?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP include recommendations for related services?'
+		dataType: string
+		lineageTag: c4c6de8c-edee-496c-86e9-ee57a767e35c
+		summarizeBy: none
+		sourceColumn: Does the IEP include recommendations for related services?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Do the related service recommendations address student needs, as well as access to, participation in and progress within the general education curriculum?'
+		dataType: string
+		lineageTag: 22a98ea6-1bb2-477e-95ef-edcb93db2e53
+		summarizeBy: none
+		sourceColumn: Do the related service recommendations address student needs, as well as access to, participation in and progress within the general education curriculum?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'For students with related service recommendations, select all statements that apply given the goals and service recommendation:'
+		dataType: string
+		lineageTag: 8baffb32-baca-4fa9-b1d9-6d9c27c6ecaf
+		summarizeBy: none
+		sourceColumn: For students with related service recommendations, select all statements that apply given the goals and service recommendation:
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP provide strong evidence that the general education setting was considered first?'
+		dataType: string
+		lineageTag: e40b3a4f-d513-4e38-8066-241166c17535
+		summarizeBy: none
+		sourceColumn: Does the IEP provide strong evidence that the general education setting was considered first?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Do the Recommended Programs and Services provide strong evidence that the primary focus of the IEP is to provide supports for the student to demonstrate progress with and participate in the genera...'
+		dataType: string
+		lineageTag: eaf6c234-c653-42dd-ad3d-d5954ce28bd5
+		summarizeBy: none
+		sourceColumn: Do the Recommended Programs and Services provide strong evidence that the primary focus of the IEP is to provide supports for the student to demonstrate progress with and participate in the genera...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Do the Recommended Programs and Services reflect a collective responsibility for implementation of the IEP as a comprehensive plan?'
+		dataType: string
+		lineageTag: b511c658-2c31-4408-b051-03bebbda7c62
+		summarizeBy: none
+		sourceColumn: Do the Recommended Programs and Services reflect a collective responsibility for implementation of the IEP as a comprehensive plan?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is evidence of behavior concerns present in the IEP?'
+		dataType: string
+		lineageTag: dc199452-d939-4f32-8710-c94e61cd7538
+		summarizeBy: none
+		sourceColumn: Is evidence of behavior concerns present in the IEP?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Choose all statements that apply for a student for whom there are behavioral concerns.'
+		dataType: string
+		lineageTag: d28d7729-2276-41fc-bbac-da42f7d1d1a1
+		summarizeBy: none
+		sourceColumn: Choose all statements that apply for a student for whom there are behavioral concerns.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the student have an IEP assigned paraprofessional to address behavioral concerns (“crisis para” or “behavior support para”)?'
+		dataType: string
+		lineageTag: 96ae73be-ac7c-402e-b347-ab46d5c7ec9e
+		summarizeBy: none
+		sourceColumn: Does the student have an IEP assigned paraprofessional to address behavioral concerns (“crisis para” or “behavior support para”)?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'For a student with an IEP assigned paraprofessional to address behavioral concerns, select all statements that apply:'
+		dataType: string
+		lineageTag: 167cecf4-f10d-4616-9460-c1ffdccbb0ff
+		summarizeBy: none
+		sourceColumn: For a student with an IEP assigned paraprofessional to address behavioral concerns, select all statements that apply:
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was a Considerations Form completed for the student?'
+		dataType: string
+		lineageTag: df347c3b-dd70-4ef1-acb8-5da677a7352a
+		summarizeBy: none
+		sourceColumn: Was a Considerations Form completed for the student?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was it determined an FBA was needed for this student?'
+		dataType: string
+		lineageTag: ca674b83-9d85-4432-b45e-e20aff7a5305
+		summarizeBy: none
+		sourceColumn: Was it determined an FBA was needed for this student?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was an FBA conducted for this student?'
+		dataType: string
+		lineageTag: 3f0a486e-c94b-4e05-9fa7-7c5866d33d93
+		summarizeBy: none
+		sourceColumn: Was an FBA conducted for this student?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was it determined from the current FBA that a Behavior Intervention Plan (BIP) was needed for this student?'
+		dataType: string
+		lineageTag: 841b1cd5-b942-4a73-97e3-a31a4e8aaf0f
+		summarizeBy: none
+		sourceColumn: Was it determined from the current FBA that a Behavior Intervention Plan (BIP) was needed for this student?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'At the time of this review, is the student 12 years of age or older?'
+		dataType: string
+		lineageTag: 9ee3915f-67a3-4d70-a7db-e05ed604d1ff
+		summarizeBy: none
+		sourceColumn: At the time of this review, is the student 12 years of age or older?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'At the time of this review, is the student 15 years of age or older?'
+		dataType: string
+		lineageTag: 0f87493a-039a-455d-92c9-2b42858dfde8
+		summarizeBy: none
+		sourceColumn: At the time of this review, is the student 15 years of age or older?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In the Coordinated Set of Transition Activities, are responsible school staff and/or agency listed on the IEP and invited to the IEP meeting with parent consent (when required)?'
+		dataType: string
+		lineageTag: 48ba8c45-5f18-4760-8c5f-a9043f831fc3
+		summarizeBy: none
+		sourceColumn: In the Coordinated Set of Transition Activities, are responsible school staff and/or agency listed on the IEP and invited to the IEP meeting with parent consent (when required)?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In this IEP, how strongly aligned are the Annual Goals with the PLOP?'
+		dataType: string
+		lineageTag: 1322412d-11e0-435f-b611-0efc3d0580f9
+		summarizeBy: none
+		sourceColumn: In this IEP, how strongly aligned are the Annual Goals with the PLOP?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In this IEP, how strongly aligned are the Recommended Programs and Services with the PLOP?'
+		dataType: string
+		lineageTag: f54b9c76-7867-464b-b18d-109203ba7522
+		summarizeBy: none
+		sourceColumn: In this IEP, how strongly aligned are the Recommended Programs and Services with the PLOP?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Are the program and service recommendations for this student aligned with the information provided in the PLOP about the student’s home language and English acquisition and proficiency?'
+		dataType: string
+		lineageTag: 90d24c39-4b02-40b8-a962-10b4d0bd4385
+		summarizeBy: none
+		sourceColumn: Are the program and service recommendations for this student aligned with the information provided in the PLOP about the student’s home language and English acquisition and proficiency?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does this IEP reflect alignment across the PLOP, Annual Goals and Recommended Programs and Services?'
+		dataType: string
+		lineageTag: 4665a36f-407f-435f-898c-4864e1927ca1
+		summarizeBy: none
+		sourceColumn: Does this IEP reflect alignment across the PLOP, Annual Goals and Recommended Programs and Services?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How does this IEP identify the missing skills that impact the student''s ability to access, participate and progress within the general education curriculum? (select all that apply)'
+		dataType: string
+		lineageTag: 8043b9af-d29e-4773-a274-a59e4bca6af3
+		summarizeBy: none
+		sourceColumn: How does this IEP identify the missing skills that impact the student's ability to access, participate and progress within the general education curriculum? (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'If the student’s SESIS profile identifies a home language other than English, choose all that apply.'
+		dataType: string
+		lineageTag: 6dcb7dc2-39f9-46d4-bdfb-7be283c0c854
+		summarizeBy: none
+		sourceColumn: If the student’s SESIS profile identifies a home language other than English, choose all that apply.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does this IEP contain explicit information about the student''s strengths and learning style as they relate to the student''s access, participation and progress in the general education curriculum? ...'
+		dataType: string
+		lineageTag: 48befcde-334b-4eb4-a28f-77a77af7006c
+		summarizeBy: none
+		sourceColumn: Does this IEP contain explicit information about the student's strengths and learning style as they relate to the student's access, participation and progress in the general education curriculum? ...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'A. Are specific to individual needs of the student as identified in the PLOP'
+		dataType: string
+		lineageTag: 93bb3c88-b307-44c7-95b9-c9d8e2b8e09f
+		summarizeBy: none
+		sourceColumn: A. Are specific to individual needs of the student as identified in the PLOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B. Have observable skills the student will be expected to achieve'
+		dataType: string
+		lineageTag: 96ec978d-c2de-44b5-b8dd-bc823df57a4b
+		summarizeBy: none
+		sourceColumn: B. Have observable skills the student will be expected to achieve
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'C. Have measurable, observable criteria for measurement of student learning '
+		dataType: string
+		lineageTag: dd41025d-80cc-4cf4-8e76-c237dbbac90c
+		summarizeBy: none
+		sourceColumn: "C. Have measurable, observable criteria for measurement of student learning "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'D. Describe explicitly how the student’s performance or demonstration of skills will be assessed'
+		dataType: string
+		lineageTag: 92d06e2b-36fa-4e15-b323-e8fa368ae552
+		summarizeBy: none
+		sourceColumn: D. Describe explicitly how the student’s performance or demonstration of skills will be assessed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'E. Have frequent individualized timelines for progress monitoring that facilitate adjustments to instruction'
+		dataType: string
+		lineageTag: d0e2cd5d-4cd0-4c02-9dab-2f0610529f5e
+		summarizeBy: none
+		sourceColumn: E. Have frequent individualized timelines for progress monitoring that facilitate adjustments to instruction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F. Reflect priorities expressed by the student/family, in discussion with the IEP team as a whole'
+		dataType: string
+		lineageTag: 1d7e0aae-e944-448b-9867-52eb1e71ab29
+		summarizeBy: none
+		sourceColumn: F. Reflect priorities expressed by the student/family, in discussion with the IEP team as a whole
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'G. Have progress reported in SESIS'
+		dataType: string
+		lineageTag: 32b4e22d-ed58-495b-8664-aa391e4cf481
+		summarizeBy: none
+		sourceColumn: G. Have progress reported in SESIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP recommend supports for school personnel on behalf of the student (e.g., training)?'
+		dataType: string
+		lineageTag: 65fe2c73-aabe-4c0b-b1d9-e5b10d35c976
+		summarizeBy: none
+		sourceColumn: Does the IEP recommend supports for school personnel on behalf of the student (e.g., training)?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Choose all statements that apply about the degree and quality of the student''s social development in the PLOP (including adaptive behavior, relationships with peers/adults, feelings about self and...'
+		dataType: string
+		lineageTag: 45efd072-d992-4df8-b129-483ad0ddd5e5
+		summarizeBy: none
+		sourceColumn: Choose all statements that apply about the degree and quality of the student's social development in the PLOP (including adaptive behavior, relationships with peers/adults, feelings about self and...
+
+		annotation SummarizationSetBy = Automatic
+
+	column Key
+		dataType: string
+		lineageTag: da7b1106-5deb-4ef0-8e31-a27dc228d912
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was a BIP created for this student? (Select all that apply)'
+		dataType: string
+		lineageTag: c325dbad-a4a8-4645-a848-b2c9b85c136c
+		summarizeBy: none
+		sourceColumn: Was a BIP created for this student? (Select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Are current age-appropriate transition assessments (e.g., interviews, surveys, questionnaires) uploaded into SESIS for this student? (select all that apply)'
+		dataType: string
+		lineageTag: e9a2ecfb-aeb1-4781-ae24-35349184721e
+		summarizeBy: none
+		sourceColumn: Are current age-appropriate transition assessments (e.g., interviews, surveys, questionnaires) uploaded into SESIS for this student? (select all that apply)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Are explicit references made to the transition assessments and their content in the PLOP?'
+		dataType: string
+		lineageTag: 1f118b90-e299-45e7-abec-0c3d44f2ac2b
+		summarizeBy: none
+		sourceColumn: Are explicit references made to the transition assessments and their content in the PLOP?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'This year, the Special Education Office has provided guidance on selecting IEPs for review in alignment with citywide priorities and focus areas. Please indicate how this IEP was selected for revi...'
+		dataType: string
+		lineageTag: 36fab823-9a66-4538-aa17-d0f8b04693ed
+		summarizeBy: none
+		sourceColumn: This year, the Special Education Office has provided guidance on selecting IEPs for review in alignment with citywide priorities and focus areas. Please indicate how this IEP was selected for revi...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please select the BOROUGH CODE associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing'
+		dataType: string
+		lineageTag: a9f514e1-375f-44a1-86c5-d7840578478a
+		summarizeBy: none
+		sourceColumn: Please select the BOROUGH CODE associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please select the DISTRICT associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing'
+		dataType: string
+		lineageTag: c60bc7c2-4b99-449f-a000-764d0a154046
+		summarizeBy: none
+		sourceColumn: Please select the DISTRICT associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please enter the 3 digit SCHOOL CODE associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing (.e.g, "015")'
+		dataType: string
+		lineageTag: d770ce9c-b846-4a83-b0b1-86baae6f8203
+		summarizeBy: none
+		sourceColumn: Please enter the 3 digit SCHOOL CODE associated with your SCHOOL DBN or the SCHOOL DBN of the IEP you are reviewing (.e.g, "015")
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Does the IEP include appropriate measurable postsecondary goals based upon age-appropriate transition assessments relating to training, education, employment, and where appropriate, independent li...'
+		dataType: string
+		lineageTag: 832e4109-6e28-4037-93da-35f2d8a0c67a
+		summarizeBy: none
+		sourceColumn: Does the IEP include appropriate measurable postsecondary goals based upon age-appropriate transition assessments relating to training, education, employment, and where appropriate, independent li...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How does the statement of transition services focus on the student''s courses of study and reflect the student''s strengths and needs? Select all the apply(SPP Compliance Review Item 3, Citation §...'
+		dataType: string
+		lineageTag: 6cbfb27f-daca-48f2-b724-a7b3556237d7
+		summarizeBy: none
+		sourceColumn: How does the statement of transition services focus on the student's courses of study and reflect the student's strengths and needs? Select all the apply(SPP Compliance Review Item 3, Citation §...
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Do the student’s measurable annual goals, including academic and functional goals, relate to the student’s transition services needs?(SPP 13 Compliance Review Item 4, Citation §200.4(d)(2)(iii)(a))'
+		dataType: string
+		lineageTag: 653321a2-7222-4bce-969f-efca73d5e10e
+		summarizeBy: none
+		sourceColumn: Do the student’s measurable annual goals, including academic and functional goals, relate to the student’s transition services needs?(SPP 13 Compliance Review Item 4, Citation §200.4(d)(2)(iii)(a))
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In the Coordinated Set of Transition Activities, are the school districts/responsible agencies listed aligned to the activities listed?2'
+		dataType: string
+		lineageTag: d11b5a5a-41a4-4d0e-bcf9-69b01d985a7d
+		summarizeBy: none
+		sourceColumn: In the Coordinated Set of Transition Activities, are the school districts/responsible agencies listed aligned to the activities listed?2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last modified time'
+		dataType: string
+		lineageTag: f65965c8-a2d8-4007-b65b-ffc9ce9400e3
+		summarizeBy: none
+		sourceColumn: Last modified time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Which of these activities are included in the Coordinated Set of Transition Activities and facilitate the student''s movement from school to post-secondary activities? Select all that apply.(SPP ...'
+		dataType: string
+		lineageTag: e040be27-839b-4bae-946e-54e4e325551b
+		summarizeBy: none
+		sourceColumn: Which of these activities are included in the Coordinated Set of Transition Activities and facilitate the student's movement from school to post-secondary activities? Select all that apply.(SPP ...
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Reviews-1b5fb41d-cd45-454e-8f6c-55a1a8067b54 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\jdanker\OneDrive - NYCDOE\Documents - IEP Review\2023-2024 IEP Review.xlsx"), null, true),
+				    Form1_Sheet = Source{[Item="Form1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Form1_Sheet, [PromoteAllScalars=true]),
+				    #"Added Custom" = Table.AddColumn(#"Promoted Headers", "Key", each Text.From([ID])&"-"&Text.From([Completion time])),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each [Key] <> null and [Key] <> ""),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"ID", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

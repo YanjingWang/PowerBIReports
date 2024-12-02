@@ -1,0 +1,529 @@
+table 'School Data'
+	isHidden
+	lineageTag: d8031c6a-6250-4442-a45e-b2b080834cd3
+
+	measure 'Total Reviews' = COUNT('IEP Review Data'[ResponseID])
+		formatString: #,0
+		isHidden
+		lineageTag: 38f237c4-3d7a-46ba-8c1b-48399862ef0a
+
+	measure 'Required by School' = sum('School Data'[Required by School Column])
+		formatString: #,0
+		isHidden
+		lineageTag: 9343e86c-3883-4eea-99e3-1bc8f4fbd1a1
+
+	measure 'Outstanding by School' = Sum('School Data'[Outstanding by School Column])
+		formatString: #,0
+		isHidden
+		lineageTag: 92497822-0e93-427d-85ff-f45e636430cc
+
+	measure 'Total Required' = [Required by School]+[Required by BCO]+[Required by Supes]
+		formatString: #,0
+		isHidden
+		lineageTag: 26d45e24-1cb7-4824-89e0-893ccc8684c5
+
+	measure 'Total Outstanding' = [Outstanding by School]+[Outstanding by BCO]+[Outstanding by Supes]
+		formatString: #,0
+		isHidden
+		lineageTag: ded0b786-8b31-42ae-8e3d-31de9fb8dd55
+
+	measure 'Total Completed' = [Total Required]-[Total Outstanding]
+		formatString: #,0
+		isHidden
+		lineageTag: 0150ca61-12d5-4005-94d3-27e318da650c
+
+	measure 'Reviews by School' =
+			
+			var sy = [ThisSY]
+			return
+			CALCULATE(SUM('IEP Review Data'[Q11_SchoolOrCSEStaff]),'IEP Review Data'[SchoolYear]=sy)+0
+		formatString: 0
+		isHidden
+		lineageTag: 2c189820-7f8b-4004-a5fb-3693aed92ed8
+
+	measure '% CompletedTitle' = "% Completed | Round " & FORMAT([Round],"0")
+		isHidden
+		lineageTag: 449b5622-08f5-4987-a7dc-c4afa3966560
+
+	measure '% Completed' = 1-([Total Outstanding]/[Total Required])
+		formatString: 0%;-0%;0%
+		isHidden
+		lineageTag: 339d1bed-210d-40b4-8d62-f804eea6b6a9
+
+	measure 'IEP Review Results As Of' = "Updated on " & FORMAT([AsOfDate], "MMM dd, YYYY")
+		isHidden
+		lineageTag: 770bb1ad-eeb5-45ca-84e6-291ec8708e60
+
+	measure 'Reviews by Supes' =
+			
+			var sy = [ThisSY]
+			return
+			CALCULATE(SUM('IEP Review Data'[Q11_SupeOfPsych]),'IEP Review Data'[SchoolYear]=sy)+0
+		formatString: 0
+		isHidden
+		lineageTag: 517c27d3-5ccd-44b5-af38-7b1733236bc2
+
+	measure 'Required by Supes' = sum('School Data'[Required by Supes Column])
+		formatString: 0
+		isHidden
+		lineageTag: 9f4cf80b-16e3-4861-b0c7-35e7cf75fafa
+
+	measure 'Outstanding by Supes' = Sum('School Data'[Outstanding by Supes Column])
+		formatString: 0
+		isHidden
+		lineageTag: bced425c-77e5-4a40-8f0e-a805cf22b6bb
+
+	measure 'All Outstanding' = [Outstanding by School]+[Outstanding by BCO]+[Outstanding by Supes]
+		formatString: #,0
+		isHidden
+		lineageTag: 8821f79e-826e-4ecc-b71c-68facc315532
+
+	measure 'Total Outstanding with CSE' = [Outstanding by School]+[Outstanding by BCO]+[Outstanding by Supes]+[Outstanding by CSE]
+		formatString: #,0
+		isHidden
+		lineageTag: d1ead4ef-87c8-4464-b181-47c2198a6efe
+
+	measure 'Total Completed with CSE' = [Total Required with CSE]-[Total Outstanding with CSE]
+		formatString: 0
+		isHidden
+		lineageTag: 429ccbd6-e7d3-4ec3-930c-a2eeddd9dc7c
+
+	measure 'Total Required with CSE' = [Required by School]+[Required by BCO]+[Required by Supes]+ [Required by CSE]
+		formatString: 0
+		isHidden
+		lineageTag: e62b2f1f-d25c-436d-8d12-d200ff88b7c6
+
+	measure '% Completed with CSE' = 1-([Total Outstanding with CSE]/[Total Required with CSE])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 2008f758-96f0-4448-94bd-260160ebe23f
+
+	measure TableTitle = "Outstanding Reviews By School and Staff Type | Round " & FORMAT([Round],"0")
+		isHidden
+		lineageTag: cf0181e5-3427-4231-8baf-e3a62197c430
+
+	measure 'Total Reviews running total in ReviewMonth' =
+			
+			CALCULATE(
+				[Total Reviews],
+				FILTER(
+					CALCULATETABLE(
+						SUMMARIZE(
+							'IEP Review Data',
+							'IEP Review Data'[Review Month Number],
+							'IEP Review Data'[ReviewMonth]
+						),
+						ALLSELECTED('IEP Review Data')
+					),
+					ISONORAFTER(
+						'IEP Review Data'[Review Month Number], MAX('IEP Review Data'[Review Month Number]), DESC,
+						'IEP Review Data'[ReviewMonth], MAX('IEP Review Data'[ReviewMonth]), DESC
+					)
+				)
+			)
+		formatString: #,0
+		isHidden
+		lineageTag: 0163c517-0157-4b7f-a9e7-03824b5874d5
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "RunningTotal"
+				}
+
+	measure 'Total Reviews running total in SubmitDate' =
+			
+			CALCULATE(
+				[Total Reviews],
+				FILTER(
+					ALLSELECTED('IEP Review Data'[SubmitDate]),
+					ISONORAFTER('IEP Review Data'[SubmitDate], MAX('IEP Review Data'[SubmitDate]), DESC)
+				)
+			)
+		formatString: #,0
+		isHidden
+		lineageTag: 7ede66a3-540e-4ce8-9764-50a3efa317bc
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "RunningTotal"
+				}
+
+	measure 'Days Left in Round' = 1.* MAX((LOOKUPVALUE('Round Deadlines'[End Date],'Round Deadlines'[Round],[Round])-TODAY()),0)
+		formatString: 0
+		isHidden
+		lineageTag: afeaa383-1235-47ee-8fa6-3c9f064ad8a1
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Round = CALCULATE(VALUES('Round Deadlines'[Round]),FILTER(All('Round Deadlines'),'Round Deadlines'[True Start Date]<=TODAY() && 'Round Deadlines'[True End Date]>=TODAY()))
+		formatString: 0
+		isHidden
+		lineageTag: 53d0cc9f-24a3-4262-88de-84b22c673d54
+
+	measure ThisSY = "24-25"
+		isHidden
+		lineageTag: 87967e9e-d601-41b8-9383-bf8d5ba093b8
+
+	measure '% Complete School' = 1-([Outstanding by School]/[Required by School])
+		formatString: 0%;-0%;0%
+		lineageTag: e6c8ec48-a3ea-4baa-a691-34b20bfef9b5
+
+	measure '% Complete Supes' = 1-([Outstanding by Supes]/[Required by Supes])
+		formatString: 0%;-0%;0%
+		lineageTag: 1d249e14-dbb2-44d4-aed4-1289c6de037d
+
+	column 'Borough/Citywide Office'
+		dataType: string
+		isHidden
+		lineageTag: 3e83cd34-e04b-459c-80f9-af145067b7a5
+		summarizeBy: none
+		sourceColumn: Borough/Citywide Office
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Superintendent
+		dataType: string
+		isHidden
+		lineageTag: 1443e42a-79f6-4d4d-9706-4a2587431b45
+		summarizeBy: none
+		sourceColumn: Superintendent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Required by School Column' =
+			
+			IF(CONTAINS('Exception Schools','Exception Schools'[School DBN],'School Data'[School DBN]), LOOKUPVALUE('Exception Schools'[By School],'Exception Schools'[School DBN],'School Data'[School DBN])*[Round],IF('School Data'[CSEFlag] = "Y", [Round]*4,
+			[Round]*2))
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a382e437-0889-44a7-bec8-cf236ebf33de
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outstanding by School Column' = MAX('School Data'[Required by School Column]-[Reviews by School],0)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ba48f688-7029-4edd-ad49-1bbe1853e7b4
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Required by Supes Column' = IF('School Data'[SOPReviewsRequired] = "No",0,[Round]*'School Data'[SOPReviewsRequiredNumber])
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: e9771f83-cf9e-452a-be33-948f1c88b656
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outstanding by Supes Column' = Max('School Data'[Required by Supes Column]-[Reviews by Supes],0)
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: fe439d45-1961-4731-8138-bf282057e5e3
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClosedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 284912c8-1373-434f-83ae-f95cd6ce79b7
+		summarizeBy: none
+		sourceColumn: ClosedDate
+
+		variation Variation
+			isDefault
+			relationship: 2a9ce46e-806f-4f5a-83a5-f366df285924
+			defaultHierarchy: LocalDateTable_c35e7d28-3049-4a60-8042-c9a86edc0e42.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkLocationCode
+		dataType: string
+		isHidden
+		lineageTag: fa00287e-9731-4009-8c3c-2f66d0d53e67
+		summarizeBy: none
+		sourceColumn: HSNetworkLocationCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncludeIEPReview
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f75f45cc-91c5-4140-8ee4-ef6c287ed72a
+		summarizeBy: sum
+		sourceColumn: IncludeIEPReview
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School DBN'
+		dataType: string
+		isHidden
+		lineageTag: 2eb66ca4-3317-48ea-abe8-d32147d07153
+		summarizeBy: none
+		sourceColumn: School DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorPsychName
+		dataType: string
+		lineageTag: 961097ac-d561-45bd-94fe-d02c0e0db0d2
+		summarizeBy: none
+		sourceColumn: SupervisorPsychName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School District'
+		dataType: string
+		lineageTag: bb4f77e8-310c-4d82-8577-b3fee8f3ea4b
+		summarizeBy: none
+		sourceColumn: School District
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEDistrict
+		dataType: string
+		lineageTag: bf44375c-ab22-4df2-91e4-0ec7d7098bd0
+		summarizeBy: none
+		sourceColumn: CSEDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographicalDistrict
+		dataType: string
+		lineageTag: b453e9c3-bafe-4601-8098-0b0f9ddd29cf
+		summarizeBy: none
+		sourceColumn: GeographicalDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSESchoolDBN
+		dataType: string
+		lineageTag: e12e6062-cfdd-4837-85dd-14836b739a25
+		summarizeBy: none
+		sourceColumn: CSESchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolType
+		dataType: string
+		lineageTag: 96e56025-4346-4bc0-a5bf-f42159c95c73
+		summarizeBy: none
+		sourceColumn: SchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: b2ed94b6-73bd-4214-ad44-6c875d19d7a5
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FieldSupportCenterReportingName
+		dataType: string
+		lineageTag: 067dc48f-a207-4b70-8b0c-eac38a9b768f
+		summarizeBy: none
+		sourceColumn: FieldSupportCenterReportingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AffinityGroup
+		dataType: string
+		lineageTag: 088ee019-b5c0-48f0-a1d3-d80552dff707
+		summarizeBy: none
+		sourceColumn: AffinityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDescription
+		dataType: string
+		lineageTag: 742254cf-5e93-4ce6-b6e3-3b5cde65ed48
+		summarizeBy: none
+		sourceColumn: StatusDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpotlightSchoolCategory
+		dataType: string
+		lineageTag: f4765658-9b9b-49b3-b419-51ccece1d8be
+		summarizeBy: none
+		sourceColumn: SpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationCategoryDescription
+		dataType: string
+		lineageTag: 99d2810d-ba50-48e8-819c-f2d89133c666
+		summarizeBy: none
+		sourceColumn: LocationCategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Level'
+		dataType: string
+		lineageTag: 231fd4c7-79f2-425c-a0c0-da2c11069a79
+		summarizeBy: none
+		sourceColumn: School Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalName
+		dataType: string
+		lineageTag: 2dade2ab-9fd9-47ba-baf6-75fc9a80779f
+		summarizeBy: none
+		sourceColumn: PrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommunitySchoolSupName
+		dataType: string
+		lineageTag: 1bda34d9-a50e-4d2c-a53f-f5b2dcd28737
+		summarizeBy: none
+		sourceColumn: CommunitySchoolSupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkSuperintendentName
+		dataType: string
+		lineageTag: d51e6204-bb47-4651-aaa3-8f91425ce88b
+		summarizeBy: none
+		sourceColumn: HSNetworkSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEFlag
+		dataType: string
+		lineageTag: f3b3cfd1-bca0-4d73-8ffa-ebfdabb8cb62
+		summarizeBy: none
+		sourceColumn: CSEFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: string
+		lineageTag: acfe2170-6aef-4ea4-ac3f-aaa39b7d592a
+		summarizeBy: none
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPTeacherFlag
+		dataType: string
+		lineageTag: 7d290961-69f2-41b0-a3a3-e6f17b9884ce
+		summarizeBy: none
+		sourceColumn: IEPTeacherFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c50d616d-c868-4f33-8d27-b9d95abade3c
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: 732feb7e-89cb-48c7-8296-058d1e756ae6
+			defaultHierarchy: LocalDateTable_3ece1888-c9eb-4953-a7de-2a3a67654e27.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DBN
+		dataType: string
+		lineageTag: a3857e2e-7e71-4e0d-8fd5-e0fc9465f157
+		summarizeBy: none
+		sourceColumn: DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOPReviewsRequired
+		dataType: string
+		lineageTag: cd2d1562-ec5b-4de8-ac1d-fc171818aad2
+		summarizeBy: none
+		sourceColumn: SOPReviewsRequired
+
+		annotation SummarizationSetBy = Automatic
+
+	column B/CO
+		dataType: string
+		lineageTag: 698bc4d4-1662-4b0e-93d2-9e4eb4399f16
+		summarizeBy: none
+		sourceColumn: B/CO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentLastName
+		dataType: string
+		lineageTag: 171abdd3-3a3c-4f9c-83eb-08a2c034e337
+		summarizeBy: none
+		sourceColumn: SuperintendentLastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistrictSuperintendent
+		dataType: string
+		lineageTag: 955c84f8-21de-45f1-b6e1-9ca43334a8a5
+		summarizeBy: none
+		sourceColumn: DistrictSuperintendent
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentLocationCode
+		dataType: string
+		lineageTag: 48602679-77df-4db2-adb5-6b528ce5e227
+		summarizeBy: none
+		sourceColumn: SuperintendentLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOPReviewsRequiredNumber
+		dataType: double
+		lineageTag: ea0490ff-c3fc-4ac9-ab53-2234a9fec115
+		summarizeBy: sum
+		sourceColumn: SOPReviewsRequiredNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'School Data-315dbd22-fd0c-4c4c-ae8b-8faf92474d62' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_MART", [Query="SELECT [School District]#(lf)      ,[CSEDistrict]#(lf)      ,[GeographicalDistrict]#(lf)      ,[SchoolDBN] as [School DBN]#(lf)      ,[CSESchoolDBN]#(lf)      ,[SchoolType]#(lf)      ,[LocationName]#(lf)      ,[FieldSupportCenterReportingName]#(lf)      ,[AffinityGroup]#(lf)      ,[StatusDescription]#(lf)      ,[ClosedDate]#(lf)      ,[HSNetworkLocationCode]#(lf)      ,[SpotlightSchoolCategory]#(lf)      ,[LocationCategoryDescription]#(lf)      ,[School Level]#(lf)      ,[PrincipalName]#(lf)      ,[CommunitySchoolSupName]#(lf)      ,[HSNetworkSuperintendentName]#(lf)      ,[Superintendent]#(lf)      ,[SupervisorPsychName]#(lf)      ,[CSEFlag]#(lf)      ,[ActiveFlag]#(lf)      ,[IEPTeacherFlag]#(lf)      ,[ProcessedDate]#(lf)      ,[DBN]#(lf)      ,[SOPReviewsRequired]#(lf),[SOPReviewsRequiredNumber]#(lf)      ,[IncludeIEPReview]#(lf)      ,[B/CO]#(lf)      ,[SuperintendentLastName]#(lf)      ,[DistrictSuperintendent]#(lf),SuperintendentLocationCode#(lf),[Borough/Citywide Office] as FSC#(lf)  FROM [SEO_REPORTING].bi.vw_IEPReview_Locations#(lf)where ActiveFlag ='Y' and IncludeIEPReview = 1"]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"FSC", "Borough/Citywide Office"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":27,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/School Data/Source.{District,0}","Section1/School Data/Source.{School DBN,1}","Section1/School Data/Source.{FSC,2}","Section1/School Data/Source.{Community_School_Sup_Name,3}","Section1/School Data/Source.{HighSchool_Network_Superintendent,4}","Section1/School Data/Source.{ExecutiveSuperintendentEmail,5}","Section1/School Data/Source.{ExecutiveSuperintendentName,6}","Section1/School Data/Source.{Superintendent,7}","Section1/School Data/Source.{School_Level,8}","Section1/School Data/Source.{School_Name,9}","Section1/School Data/Source.{Principal_Name,10}","Section1/School Data/Source.{ClosedDate,11}","Section1/School Data/Source.{Status,12}","Section1/School Data/Source.{HSNetworkLocationCode,13}","Section1/School Data/Source.{As_Of_Date,14}","Section1/School Data/Source.{Spotlight,15}","Section1/School Data/Source.{Behavior Spotlight,16}","Section1/School Data/Source.{Transition Spotlight,17}","Section1/School Data/Source.{Affinity_Group,18}","Section1/School Data/Source.{IEP_Teacher,19}","Section1/School Data/Source.{Supe_Review,20}","Section1/School Data/Source.{AccountabilityStatus,21}","Section1/School Data/Source.{IncludeIEPReview,22}","Section1/School Data/Source.{Superintendent_Last_Name,23}","Section1/School Data/Source.{ExecSuperintendent_Last_Name,24}","Section1/School Data/Source.{District_Superintendent,25}","Section1/School Data/Source.{District_Superintendent_Alt,26}"],"ColumnCount":27,"KeyColumnNames":[],"ColumnIdentities":["Section1/School Data/Source.{District,0}","Section1/School Data/Source.{School DBN,1}","Section1/School Data/Source.{FSC,2}","Section1/School Data/Source.{Community_School_Sup_Name,3}","Section1/School Data/Source.{HighSchool_Network_Superintendent,4}","Section1/School Data/Source.{ExecutiveSuperintendentEmail,5}","Section1/School Data/Source.{ExecutiveSuperintendentName,6}","Section1/School Data/Source.{Superintendent,7}","Section1/School Data/Source.{School_Level,8}","Section1/School Data/Source.{School_Name,9}","Section1/School Data/Source.{Principal_Name,10}","Section1/School Data/Source.{ClosedDate,11}","Section1/School Data/Source.{Status,12}","Section1/School Data/Source.{HSNetworkLocationCode,13}","Section1/School Data/Source.{As_Of_Date,14}","Section1/School Data/Source.{Spotlight,15}","Section1/School Data/Source.{Behavior Spotlight,16}","Section1/School Data/Source.{Transition Spotlight,17}","Section1/School Data/Source.{Affinity_Group,18}","Section1/School Data/Source.{IEP_Teacher,19}","Section1/School Data/Source.{Supe_Review,20}","Section1/School Data/Source.{AccountabilityStatus,21}","Section1/School Data/Source.{IncludeIEPReview,22}","Section1/School Data/Source.{Superintendent_Last_Name,23}","Section1/School Data/Source.{ExecSuperintendent_Last_Name,24}","Section1/School Data/Source.{District_Superintendent,25}","Section1/School Data/Source.{District_Superintendent_Alt,26}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

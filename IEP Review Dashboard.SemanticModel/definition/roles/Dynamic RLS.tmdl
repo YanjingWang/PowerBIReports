@@ -1,0 +1,49 @@
+role 'Dynamic RLS'
+	modelPermission: read
+
+	tablePermission 'School Data' = ```
+			(
+			[B/CO] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "FSC"
+			)
+			||
+			 (
+			[Superintendent] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent"
+			)
+			||
+			(
+			[SupervisorPsychName] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Supervisor of Psychologists"
+			)
+			||
+			 (
+			[SuperintendentLocationCode] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent Support"
+			)
+			||
+			(
+			[CSESchoolDBN] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "CSE Chairperson"
+			)
+			||
+			(
+			[CSESchoolDBN] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "CSE SEEPO"
+			)
+			||
+			(
+			[CSESchoolDBN] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "CSE Supervisor of Psychologists"
+			)
+			||
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Central"
+			
+			```
+
+	annotation PBI_Id = 176c8a49b08a4989b75659581db4148f
+

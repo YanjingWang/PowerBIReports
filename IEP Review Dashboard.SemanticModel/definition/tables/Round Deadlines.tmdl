@@ -1,0 +1,105 @@
+table 'Round Deadlines'
+	isHidden
+	lineageTag: caa77dc7-5aee-4cb2-86b3-570c3ba6b041
+
+	column Round
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5c6c0f90-7252-4a8a-8ccd-feec3a02c22e
+		summarizeBy: sum
+		sourceColumn: Round
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: c0aeea10-1b30-4d19-a7ea-f2bb4bf0272f
+		summarizeBy: none
+		sourceColumn: Start Date
+
+		variation Variation
+			isDefault
+			relationship: 0f4ece3c-5ad8-4eba-b763-91e2c2339860
+			defaultHierarchy: LocalDateTable_1efa75df-57d6-4052-b717-a56f7c71dc9d.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End Date'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: b8f2d0f2-b7c1-4c2d-ad04-639da177cdd9
+		summarizeBy: none
+		sourceColumn: End Date
+
+		variation Variation
+			isDefault
+			relationship: f76ffb61-1a98-40af-887d-78a5371c35f1
+			defaultHierarchy: LocalDateTable_8e11b435-cfba-4148-9ccf-963b79466ffe.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'True End Date'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: a4bacb92-5aa9-410b-b5e4-6e80a538985d
+		summarizeBy: none
+		sourceColumn: True End Date
+
+		variation Variation
+			isDefault
+			relationship: 46c87845-4dd5-4c87-830d-6f97fa01c18c
+			defaultHierarchy: LocalDateTable_4004f14e-5a0d-4023-aaa1-d28250de2646.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'True Start Date'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 0a65a466-f1aa-48ae-91d8-6a1ab726560f
+		summarizeBy: none
+		sourceColumn: True Start Date
+
+		variation Variation
+			isDefault
+			relationship: 2d3c8368-3ff7-4db9-965e-4518624cdf67
+			defaultHierarchy: LocalDateTable_e86ca24c-7bf9-4d09-89dd-a4fee0e65669.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Round Deadlines-98ec9553-1520-47f8-a4ce-24bf3bf4c398' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("VY/JDQAhCAB74W3Cve7WYuy/jdWECP4YhnkwBjA0oA+JUUhsAQvqgdtg36PDbANkWw7rGwTlPbBMgiKVUmOVpaFSPc7Sr9JileVTS69ljy9WOX8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Round = _t, #"Start Date" = _t, #"End Date" = _t, #"True Start Date" = _t, #"True End Date" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Round", Int64.Type}, {"Start Date", type date}, {"End Date", type date}, {"True End Date", type date}, {"True Start Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":5,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Round Deadlines/Changed Type.{Round,0}","Section1/Round Deadlines/Changed Type.{Start Date,1}","Section1/Round Deadlines/Changed Type.{End Date,2}","Section1/Round Deadlines/Source.{True Start Date,3}","Section1/Round Deadlines/Source.{True End Date,4}"],"ColumnCount":5,"KeyColumnNames":[],"ColumnIdentities":["Section1/Round Deadlines/Changed Type.{Round,0}","Section1/Round Deadlines/Changed Type.{Start Date,1}","Section1/Round Deadlines/Changed Type.{End Date,2}","Section1/Round Deadlines/Source.{True Start Date,3}","Section1/Round Deadlines/Source.{True End Date,4}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

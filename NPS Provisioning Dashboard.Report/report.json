@@ -1,0 +1,851 @@
+{
+  "config": "{\"version\":\"5.50\",\"themeCollection\":{\"customTheme\":{\"name\":\"SEO_Analytics04431429848081936.json\",\"version\":\"5.6\",\"type\":1}},\"activeSectionIndex\":0,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"isPersistentUserStateDisabled\":false,\"hideVisualContainerHeader\":false,\"useStylableVisualContainerHeader\":true,\"useNewFilterPaneExperience\":true,\"useEnhancedTooltips\":true},\"objects\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "filters": "[]",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSection15c9eb2b502743725ade",
+      "config": "{\"acceptsFilterContext\":1}",
+      "name": "Pod"
+    },
+    {
+      "boundSection": "ReportSection3bb1101741e2225a65b9",
+      "config": "{\"acceptsFilterContext\":1}",
+      "name": "Pod2"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "NYCPS-Horizontal_Logo+CMAR_-_C7867149760196659.jpg",
+            "path": "NYCPS-Horizontal_Logo+CMAR_-_C7867149760196659.jpg",
+            "type": 100
+          },
+          {
+            "name": "SEO_Analytics04431429848081936.json",
+            "path": "SEO_Analytics04431429848081936.json",
+            "type": 201
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"visibility\":1}",
+      "displayName": "Drill Through of EA Status",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection15c9eb2b502743725ade",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"10b7c80384071f1adf01\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":328.6709677419355,\"z\":18000,\"width\":183.32903225806453,\"height\":75.97419354838709}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"NPSSchoolType\"},\"Name\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"NativeReferenceName\":\"NPS School Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.NPSSchoolType\":{\"displayName\":\"NPS School Type\"}},\"syncGroup\":{\"groupName\":\"NPSSchoolType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.97,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 328.67,
+          "z": 18000.00
+        },
+        {
+          "config": "{\"name\":\"155b1ecbd109e402e708\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.57142857142858,\"z\":11000,\"width\":345.7142857142857,\"height\":35.714285714285715}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.Date Measure\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date Measure\"},\"Name\":\"BI vw_Locations.Date Measure\",\"NativeReferenceName\":\"Date Measure\"}]},\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"card\":[{\"properties\":{\"barShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 35.71,
+          "width": 345.71,
+          "x": 0.00,
+          "y": 58.57,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"19b21da9ec8e25790b53\",\"layouts\":[{\"id\":0,\"position\":{\"x\":238.1042654028436,\"y\":171.37440758293837,\"z\":10000,\"width\":172.8909952606635,\"height\":39.431279620853076}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Number of Encounters\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"12pt\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 39.43,
+          "width": 172.89,
+          "x": 238.10,
+          "y": 171.37,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"2873301f0d8cba281625\",\"layouts\":[{\"id\":0,\"position\":{\"x\":497.5,\"y\":171.25,\"z\":8000,\"width\":142.5,\"height\":40}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Encounter Status\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"12pt\",\"color\":\"#ffffff\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 142.50,
+          "x": 497.50,
+          "y": 171.25,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"29aa3ce38d28b2b77407\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069.1001267427123,\"y\":0,\"z\":17000,\"width\":191.43219264892267,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PNIStatus\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PNIStatus\",\"NativeReferenceName\":\"PNI Status\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.PNIStatus\":{\"displayName\":\"PNI Status\"}},\"syncGroup\":{\"groupName\":\"PNIStatus2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Timely PNI - IESP'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 191.43,
+          "x": 1069.10,
+          "y": 0.00,
+          "z": 17000.00
+        },
+        {
+          "config": "{\"name\":\"36c8b6714403c2ba0cd0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":211.66666666666669,\"z\":14000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SchoolDBN\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SchoolDBN\"},\"Name\":\"BI vw_Locations.SchoolDBN\",\"NativeReferenceName\":\"SchoolDBN\"}]},\"syncGroup\":{\"groupName\":\"SchoolDBN1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 211.67,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"47189590807641e4d052\",\"layouts\":[{\"id\":0,\"position\":{\"x\":166.66666666666669,\"y\":93.33333333333334,\"z\":0,\"width\":56.66666666666667,\"height\":611.6666666666667}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"90L\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 611.67,
+          "width": 56.67,
+          "x": 166.67,
+          "y": 93.33,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"487e6e5e0e0229af25b6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":564.4444444444445,\"z\":21000,\"width\":183.33333333333334,\"height\":63.33333333333333}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.StudentCategory\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentCategory\"},\"Name\":\"BI vw_NPSProvisioningData.StudentCategory\",\"NativeReferenceName\":\"Student Category\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.StudentCategory\":{\"displayName\":\"Student Category\"}},\"syncGroup\":{\"groupName\":\"StudentCategory1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 564.44,
+          "z": 21000.00
+        },
+        {
+          "config": "{\"name\":\"4c2b222da6e0d70937a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":153.33333333333334,\"z\":13000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSE District\"}]},\"columnProperties\":{\"BI vw_Locations.CSEDistrict\":{\"displayName\":\"CSE District\"}},\"syncGroup\":{\"groupName\":\"CSEDistrict1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 153.33,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"5169fb62654a170800da\",\"layouts\":[{\"id\":0,\"position\":{\"x\":445,\"y\":160,\"z\":7000,\"width\":218.75,\"height\":53.75}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'pill'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 53.75,
+          "width": 218.75,
+          "x": 445.00,
+          "y": 160.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"6aae99cab11204a8c4a3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":5000,\"width\":431.6666666666667,\"height\":66.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Encounter Status\",\"textStyle\":{\"fontSize\":\"32px\",\"color\":\"#31536a\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 66.67,
+          "width": 431.67,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"90dc9b9504d72adcad33\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":627.7777777777777,\"z\":22000,\"width\":183.33333333333334,\"height\":62.22222222222222}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.GradeLevel\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"GradeLevel\"},\"Name\":\"BI vw_NPSProvisioningData.GradeLevel\",\"NativeReferenceName\":\"GradeLevel\"}]},\"syncGroup\":{\"groupName\":\"GradeLevel\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 62.22,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 627.78,
+          "z": 22000.00
+        },
+        {
+          "config": "{\"name\":\"93cf4f0bea33e076f1bb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":497.77777777777777,\"z\":20000,\"width\":183.33333333333334,\"height\":58.888888888888886}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"OutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"NativeReferenceName\":\"Outcome Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.OutcomeTypeDesc\":{\"displayName\":\"Outcome Type\"}},\"syncGroup\":{\"groupName\":\"OutcomeTypeDesc1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.89,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 497.78,
+          "z": 20000.00
+        },
+        {
+          "config": "{\"name\":\"a3ab1248386fa5e58dec\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":440,\"z\":19000,\"width\":183.33333333333334,\"height\":57.77777777777778}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Mandate Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Mandate Type\"}},\"syncGroup\":{\"groupName\":\"RecommendedMandateType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.78,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 440.00,
+          "z": 19000.00
+        },
+        {
+          "config": "{\"name\":\"ad2e8cef25237a9ce11e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":842.5,\"y\":250,\"z\":2000,\"width\":367.5,\"height\":442.5}}],\"singleVisual\":{\"visualType\":\"hundredPercentStackedBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}],\"Series\":[{\"queryRef\":\"BI vw_NPSProvisioningData.EncounterStatus\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0},{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSEDistrict\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"CSEDistrict2\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"EncounterStatus\"},\"Name\":\"BI vw_NPSProvisioningData.EncounterStatus\",\"NativeReferenceName\":\"EncounterStatus\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"}}}]},\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#456896'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#cccccc'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group A'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group B'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group C'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Fully Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partially Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Unassigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Full Encounter'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partial Encounter'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'No Encounter'\"}}}}}]}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'8'\"}}}}}],\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9M\"}}},\"preferredCategoryWidth\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"maxMarginFactor\":{\"expr\":{\"Literal\":{\"Value\":\"25L\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}},\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}},\"labelOverflow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableValueDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableDetailDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"detailContentType\":{\"expr\":{\"Literal\":{\"Value\":\"'Percent of total'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#000000'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Encounter Status by CSE'\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter7a40162f0a70cd5b7443\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 442.50,
+          "width": 367.50,
+          "x": 842.50,
+          "y": 250.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"ad4cd15742707c3044e5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":921.4702154626108,\"y\":0,\"z\":16000,\"width\":147.6299112801014,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"},\"Name\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"NativeReferenceName\":\"Active Mandate\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.ActiveMandateFlag\":{\"displayName\":\"Active Mandate\"}},\"syncGroup\":{\"groupName\":\"ActiveMandateFlag2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Y'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 147.63,
+          "x": 921.47,
+          "y": 0.00,
+          "z": 16000.00
+        },
+        {
+          "config": "{\"name\":\"adf09d25e091290053b8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":270,\"z\":15000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SupervisorPsychName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SupervisorPsychName\"},\"Name\":\"BI vw_Locations.SupervisorPsychName\",\"NativeReferenceName\":\"Supervisor Psych\"}]},\"columnProperties\":{\"BI vw_Locations.SupervisorPsychName\":{\"displayName\":\"Supervisor Psych\"}},\"syncGroup\":{\"groupName\":\"SupervisorPsychName\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 270.00,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"b730f072e54c47c5c703\",\"layouts\":[{\"id\":0,\"position\":{\"x\":820,\"y\":94.28571428571429,\"z\":6000,\"width\":460.00000000000006,\"height\":155.71428571428572}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"BI vw_NPSProvisioningData.% Full Encounter\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Full Encounter\"},\"Name\":\"BI vw_NPSProvisioningData.% Full Encounter\",\"NativeReferenceName\":\"% Full Encounter\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Full Encounter\"}}}]},\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}],\"labels\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"calloutValue\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 155.71,
+          "width": 460.00,
+          "x": 820.00,
+          "y": 94.29,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"c5ea91b2934b47dec5fc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":404.44444444444446,\"z\":23000,\"width\":135.55555555555554,\"height\":41.11111111111111}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Student Filters\",\"textStyle\":{\"fontWeight\":\"bold\",\"color\":\"#808080\"}}]}]}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 41.11,
+          "width": 135.56,
+          "x": 0.00,
+          "y": 404.44,
+          "z": 23000.00
+        },
+        {
+          "config": "{\"name\":\"cc878546a21b0c3ad31d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":204.2828282828283,\"y\":241.77777777777777,\"z\":1000,\"width\":605.0909090909091,\"height\":478.3838383838384}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"active\":true}],\"Columns\":[{\"queryRef\":\"BI vw_NPSProvisioningData.EncounterStatus\",\"active\":true}],\"Values\":[{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"},{\"queryRef\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Recommended Mandate \"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EncounterStatus\"},\"Name\":\"BI vw_NPSProvisioningData.EncounterStatus\",\"NativeReferenceName\":\"EncounterStatus\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"#\"},{\"Arithmetic\":{\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"}},\"Function\":5}},\"Right\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"}},\"Function\":5}},\"Scope\":[{\"RoleRef\":{\"Role\":\"Rows\"}}]}},\"Operator\":3},\"Name\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"}}}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Recommended Mandate \"},\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\":{\"displayName\":\"#\"},\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\":{\"displayName\":\"%\"}},\"objects\":{\"grid\":[{\"properties\":{\"outlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8fa4c0'\"}}}}}}}],\"columnHeaders\":[{\"properties\":{\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"titleAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Left'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}}}],\"values\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#FD625E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Subtotal Oustanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Subtotal Oustanding\"}},{\"properties\":{\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"fontColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"77D\"}}}},\"selector\":{\"metadata\":\"School Data.ATS_Code\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"117.44827586206897D\"}}}},\"selector\":{\"metadata\":\"Sum(Fake Data.Value)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"107.27586206896552D\"}}}},\"selector\":{\"metadata\":\"Fake Data.Variable\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"45.17171382838702D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Full Encounter'\"}}}}}],\"metadata\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"45.757570742580526D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Full Encounter'\"}}}}}],\"metadata\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"46.777786971935704D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partial Encounter'\"}}}}}],\"metadata\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"44.51514148516105D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partial Encounter'\"}}}}}],\"metadata\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"46.757570742580526D\"}}}},\"selector\":{\"data\":[{\"total\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}}]}],\"metadata\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"46.05049919967729D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'No Encounter'\"}}}}}],\"metadata\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}}],\"columnFormatting\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}},\"selector\":{\"metadata\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}},{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"styleHeader\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"styleTotal\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"metadata\":\"Divide(CountNonNull(BI vw_NPSProvisioningData.StudentID), ScopedEval(CountNonNull(BI vw_NPSProvisioningData.StudentID), [Role.Rows]))\"}}],\"subTotals\":[{\"properties\":{\"rowSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"columnSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Number of Encounters by Mandate Type'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 478.38,
+          "width": 605.09,
+          "x": 204.28,
+          "y": 241.78,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"cf63f3aa098cb8024903\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":84.92890995260663,\"z\":4000,\"width\":1280,\"height\":15.165876777251183}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#c8c8c8'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 15.17,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 84.93,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"d9cd2bf99b02bc9a1009\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":123.33333333333334,\"z\":3000,\"width\":110,\"height\":36.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"School Filters\",\"textStyle\":{\"color\":\"#666666\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 36.67,
+          "width": 110.00,
+          "x": 0.00,
+          "y": 123.33,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"ecf14a9557c3050576ce\",\"layouts\":[{\"id\":0,\"position\":{\"x\":215.76679340937895,\"y\":160.6083650190114,\"z\":12000,\"width\":215.76679340937895,\"height\":53.5361216730038}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSectionbf228814b6b882cda6e0'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 53.54,
+          "width": 215.77,
+          "x": 215.77,
+          "y": 160.61,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"f0322afb140d08b9a7d2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":212.5,\"y\":160,\"z\":9000,\"width\":218.75,\"height\":53.75}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'pill'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ffffff'\"}}}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 53.75,
+          "width": 218.75,
+          "x": 212.50,
+          "y": 160.00,
+          "z": 9000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Data Export",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection36167e8fa25a23c7e9a1",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"17c1f0a23dad7359098d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":69.60212201591511,\"z\":2000,\"width\":183.342175066313,\"height\":59.41644562334217}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSE District\"}]},\"columnProperties\":{\"BI vw_Locations.CSEDistrict\":{\"displayName\":\"CSE District\"}},\"syncGroup\":{\"groupName\":\"CSEDistrict1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.42,
+          "width": 183.34,
+          "x": 0.00,
+          "y": 69.60,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"1e2e1a5d7c3b5c5c2b3c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":732.5118483412322,\"y\":0,\"z\":10000,\"width\":181.9905213270142,\"height\":171.37440758293837}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAMandateStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"NativeReferenceName\":\"PAMandateStatus\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAMandateStatus\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Unassigned'\"}}],[{\"Literal\":{\"Value\":\"'Manually Assigned'\"}}]]}}}]}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 171.37,
+          "width": 181.99,
+          "x": 732.51,
+          "y": 0.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"36d2c62ac4610276d683\",\"layouts\":[{\"id\":0,\"position\":{\"x\":366.684350132626,\"y\":0,\"z\":5000,\"width\":183.342175066313,\"height\":59.41644562334217}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"OutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"NativeReferenceName\":\"Outcome Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.OutcomeTypeDesc\":{\"displayName\":\"Outcome Type\"}},\"syncGroup\":{\"groupName\":\"OutcomeTypeDesc1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.42,
+          "width": 183.34,
+          "x": 366.68,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"7df99c9ad9e109e8dc90\",\"layouts\":[{\"id\":0,\"position\":{\"x\":921.4702154626108,\"y\":0,\"z\":7000,\"width\":147.6299112801014,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"},\"Name\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"NativeReferenceName\":\"Active Mandate\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.ActiveMandateFlag\":{\"displayName\":\"Active Mandate\"}},\"syncGroup\":{\"groupName\":\"ActiveMandateFlag2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Y'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 147.63,
+          "x": 921.47,
+          "y": 0.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"8c25f753786c8d329be0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":183.342175066313,\"y\":0,\"z\":4000,\"width\":183.342175066313,\"height\":57.71883289124668}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Mandate Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Mandate Type\"}},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'SETSS'\"}}]]}}}]}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.72,
+          "width": 183.34,
+          "x": 183.34,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a79372df1204a419e7ea\",\"layouts\":[{\"id\":0,\"position\":{\"x\":366.6666666666667,\"y\":71.11111111111111,\"z\":9000,\"width\":183.33333333333334,\"height\":75.55555555555556}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"NPSSchoolType\"},\"Name\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"NativeReferenceName\":\"NPS School Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.NPSSchoolType\":{\"displayName\":\"NPS School Type\"}},\"syncGroup\":{\"groupName\":\"NPSSchoolType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.56,
+          "width": 183.33,
+          "x": 366.67,
+          "y": 71.11,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"aad0f0a623adae07c97a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069.7810218978102,\"y\":0,\"z\":8000,\"width\":189.9756690997567,\"height\":99.65936739659367}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PNIStatus\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PNIStatus\",\"NativeReferenceName\":\"PNI Status\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.PNIStatus\":{\"displayName\":\"PNI Status\"}},\"syncGroup\":{\"groupName\":\"PNIStatus2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Timely PNI - IESP'\"}}]]}}}]}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 99.66,
+          "width": 189.98,
+          "x": 1069.78,
+          "y": 0.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"d6e0a1eb5105288b609b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":183.3206590621039,\"height\":63.269961977186306}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.StudentID\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"},\"Name\":\"BI vw_NPSProvisioningData.StudentID\",\"NativeReferenceName\":\"StudentID\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.27,
+          "width": 183.32,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"d82e6c0bb97e12dad61d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":183.342175066313,\"y\":71.29973474801061,\"z\":3000,\"width\":183.342175066313,\"height\":57.71883289124668}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SchoolDBN\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SchoolDBN\"},\"Name\":\"BI vw_Locations.SchoolDBN\",\"NativeReferenceName\":\"SchoolDBN\"}]},\"syncGroup\":{\"groupName\":\"SchoolDBN1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.72,
+          "width": 183.34,
+          "x": 183.34,
+          "y": 71.30,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"e6a62278a0be32db7079\",\"layouts\":[{\"id\":0,\"position\":{\"x\":550.026525198939,\"y\":0,\"z\":6000,\"width\":183.342175066313,\"height\":62.81167108753315}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.StudentCategory\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentCategory\"},\"Name\":\"BI vw_NPSProvisioningData.StudentCategory\",\"NativeReferenceName\":\"Student Category\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.StudentCategory\":{\"displayName\":\"Student Category\"}},\"syncGroup\":{\"groupName\":\"StudentCategory1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 62.81,
+          "width": 183.34,
+          "x": 550.03,
+          "y": 0.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"f8043a5f096c02030804\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":157.7251184834123,\"z\":0,\"width\":1280,\"height\":562.654028436019}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PACurrentAssignmentStatus\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAMandateStatus\"},{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"},{\"queryRef\":\"BI vw_NPSProvisioningData.StudentCategory\"},{\"queryRef\":\"BI vw_NPSProvisioningData.CSE\"},{\"queryRef\":\"BI vw_NPSProvisioningData.AdminDistrict\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\"},{\"queryRef\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedStartDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedEndDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedDuration\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedGroupType\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedLanguage\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedLocation\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedFrequency\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendPlacementDesc\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAEarliestAssignmentDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAFirstAttendDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAFirstAttendDelayReason\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAProviderName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PAAgencyName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EAEarliestFullServiceDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EALatestFullServiceDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EAEarliestPartialServiceDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EALatestPartialServiceDate\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAFullEncoutnersCount)\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAPartialEncountersCount)\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAStudentAbsenceCount)\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EnrolledDBNAddress\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EnrolledDBN\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EnrolledDBNCity\"},{\"queryRef\":\"BI vw_NPSProvisioningData.EnrolledDBNZipcode\"},{\"queryRef\":\"BI vw_NPSProvisioningData.FirstName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.LastName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.BirthDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Classification\"},{\"queryRef\":\"BI vw_NPSProvisioningData.GradeLevel\"},{\"queryRef\":\"BI vw_NPSProvisioningData.HousingType\"},{\"queryRef\":\"BI vw_NPSProvisioningData.HomeDistrict\"},{\"queryRef\":\"BI vw_NPSProvisioningData.LatestOutcomeDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.LatestOutcomeFlag\"},{\"queryRef\":\"BI vw_NPSProvisioningData.LatestOutcomeTypeDesc\"},{\"queryRef\":\"BI vw_NPSProvisioningData.LocationName\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.OutcomeDocumentIDT)\"},{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeEffectiveDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNIArticSchoolDBN\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNIArticSchoolName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNISchoolName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNISchoolPrincipalPhone\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrincipalEmail\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrincipalPhoneNumber\"},{\"queryRef\":\"BI vw_NPSProvisioningData.ProcessStageDesc\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.ProfileIDT)\"},{\"queryRef\":\"BI vw_NPSProvisioningData.ETLProcessedDate\"},{\"queryRef\":\"BI vw_NPSProvisioningData.DateNotIntentRcvd\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNIArticSchoolPrincipalEmail\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNIArticSchoolPrincipalPhone\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNISchoolDBN\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PNISchoolPrincipalEmail\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrimaryContactName\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrimaryContactEmail\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrimaryContactPhone\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrimaryContactAddress\"},{\"queryRef\":\"BI vw_NPSProvisioningData.PrimaryContactLanguage\"},{\"queryRef\":\"BI vw_NPSProvisioningData.StudentAddress\"},{\"queryRef\":\"BI vw_NPSProvisioningData.RedAlertStudent\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Date email sent to school/Parent\"},{\"queryRef\":\"BI vw_NPSProvisioningData.ProviderNameFromCSE\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Offer Sent to School or Parent\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Was Provider Accepted Y/N\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Parent Response\"},{\"queryRef\":\"BI vw_NPSProvisioningData.School Response\"},{\"queryRef\":\"BI vw_NPSProvisioningData.ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Notes on responses\"},{\"queryRef\":\"BI vw_NPSProvisioningData.Full email address of the NYCPS staff member who sent the offer\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"},\"Name\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"NativeReferenceName\":\"ActiveMandateFlag\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"AdminDistrict\"},\"Name\":\"BI vw_NPSProvisioningData.AdminDistrict\",\"NativeReferenceName\":\"AdminDistrict\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Classification\"},\"Name\":\"BI vw_NPSProvisioningData.Classification\",\"NativeReferenceName\":\"Classification\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSE\"},\"Name\":\"BI vw_NPSProvisioningData.CSE\",\"NativeReferenceName\":\"CSE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAFullEncoutnersCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAFullEncoutnersCount)\",\"NativeReferenceName\":\"EAFullEncoutnersCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAPartialEncountersCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAPartialEncountersCount)\",\"NativeReferenceName\":\"EAPartialEncountersCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAStudentAbsenceCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAStudentAbsenceCount)\",\"NativeReferenceName\":\"EAStudentAbsenceCount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EnrolledDBNAddress\"},\"Name\":\"BI vw_NPSProvisioningData.EnrolledDBNAddress\",\"NativeReferenceName\":\"EnrolledDBNAddress\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EnrolledDBN\"},\"Name\":\"BI vw_NPSProvisioningData.EnrolledDBN\",\"NativeReferenceName\":\"EnrolledDBN\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EnrolledDBNCity\"},\"Name\":\"BI vw_NPSProvisioningData.EnrolledDBNCity\",\"NativeReferenceName\":\"EnrolledDBNCity\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EnrolledDBNZipcode\"},\"Name\":\"BI vw_NPSProvisioningData.EnrolledDBNZipcode\",\"NativeReferenceName\":\"EnrolledDBNZipcode\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"FirstName\"},\"Name\":\"BI vw_NPSProvisioningData.FirstName\",\"NativeReferenceName\":\"FirstName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"GradeLevel\"},\"Name\":\"BI vw_NPSProvisioningData.GradeLevel\",\"NativeReferenceName\":\"GradeLevel\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"HousingType\"},\"Name\":\"BI vw_NPSProvisioningData.HousingType\",\"NativeReferenceName\":\"HousingType\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"HomeDistrict\"},\"Name\":\"BI vw_NPSProvisioningData.HomeDistrict\",\"NativeReferenceName\":\"HomeDistrict\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"LastName\"},\"Name\":\"BI vw_NPSProvisioningData.LastName\",\"NativeReferenceName\":\"LastName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"LatestOutcomeFlag\"},\"Name\":\"BI vw_NPSProvisioningData.LatestOutcomeFlag\",\"NativeReferenceName\":\"LatestOutcomeFlag\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"LatestOutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.LatestOutcomeTypeDesc\",\"NativeReferenceName\":\"LatestOutcomeTypeDesc\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"LocationName\"},\"Name\":\"BI vw_NPSProvisioningData.LocationName\",\"NativeReferenceName\":\"LocationName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"OutcomeDocumentIDT\"},\"Name\":\"Sum(BI vw_NPSProvisioningData.OutcomeDocumentIDT)\",\"NativeReferenceName\":\"OutcomeDocumentIDT1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"OutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"NativeReferenceName\":\"OutcomeTypeDesc\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAAgencyName\"},\"Name\":\"BI vw_NPSProvisioningData.PAAgencyName\",\"NativeReferenceName\":\"PAAgencyName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAFirstAttendDelayReason\"},\"Name\":\"BI vw_NPSProvisioningData.PAFirstAttendDelayReason\",\"NativeReferenceName\":\"PAFirstAttendDelayReason\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAMandateStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"NativeReferenceName\":\"PAMandateStatus\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIArticSchoolDBN\"},\"Name\":\"BI vw_NPSProvisioningData.PNIArticSchoolDBN\",\"NativeReferenceName\":\"PNIArticSchoolDBN\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIArticSchoolName\"},\"Name\":\"BI vw_NPSProvisioningData.PNIArticSchoolName\",\"NativeReferenceName\":\"PNIArticSchoolName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNISchoolName\"},\"Name\":\"BI vw_NPSProvisioningData.PNISchoolName\",\"NativeReferenceName\":\"PNISchoolName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNISchoolPrincipalPhone\"},\"Name\":\"BI vw_NPSProvisioningData.PNISchoolPrincipalPhone\",\"NativeReferenceName\":\"PNISchoolPrincipalPhone\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrincipalEmail\"},\"Name\":\"BI vw_NPSProvisioningData.PrincipalEmail\",\"NativeReferenceName\":\"PrincipalEmail\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrincipalPhoneNumber\"},\"Name\":\"BI vw_NPSProvisioningData.PrincipalPhoneNumber\",\"NativeReferenceName\":\"PrincipalPhoneNumber\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ProcessStageDesc\"},\"Name\":\"BI vw_NPSProvisioningData.ProcessStageDesc\",\"NativeReferenceName\":\"ProcessStageDesc\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ProfileIDT\"},\"Name\":\"Sum(BI vw_NPSProvisioningData.ProfileIDT)\",\"NativeReferenceName\":\"ProfileIDT1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedDuration\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedDuration\",\"NativeReferenceName\":\"RecommendedDuration\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedFrequency\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedFrequency\",\"NativeReferenceName\":\"RecommendedFrequency\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedGroupType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedGroupType\",\"NativeReferenceName\":\"RecommendedGroupType\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedLanguage\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedLanguage\",\"NativeReferenceName\":\"RecommendedLanguage\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedLocation\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedLocation\",\"NativeReferenceName\":\"RecommendedLocation\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"RecommendedMandateType\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendPlacementDesc\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendPlacementDesc\",\"NativeReferenceName\":\"RecommendPlacementDesc\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentCategory\"},\"Name\":\"BI vw_NPSProvisioningData.StudentCategory\",\"NativeReferenceName\":\"StudentCategory\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"ActiveMandateFlag1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAEarliestFullServiceDate\"},\"Name\":\"BI vw_NPSProvisioningData.EAEarliestFullServiceDate\",\"NativeReferenceName\":\"EAEarliestFullServiceDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAEarliestPartialServiceDate\"},\"Name\":\"BI vw_NPSProvisioningData.EAEarliestPartialServiceDate\",\"NativeReferenceName\":\"EAEarliestPartialServiceDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EALatestFullServiceDate\"},\"Name\":\"BI vw_NPSProvisioningData.EALatestFullServiceDate\",\"NativeReferenceName\":\"EALatestFullServiceDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EALatestPartialServiceDate\"},\"Name\":\"BI vw_NPSProvisioningData.EALatestPartialServiceDate\",\"NativeReferenceName\":\"EALatestPartialServiceDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"LatestOutcomeDate\"},\"Name\":\"BI vw_NPSProvisioningData.LatestOutcomeDate\",\"NativeReferenceName\":\"LatestOutcomeDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"OutcomeDate\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeDate\",\"NativeReferenceName\":\"OutcomeDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"OutcomeEffectiveDate\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeEffectiveDate\",\"NativeReferenceName\":\"OutcomeEffectiveDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAEarliestAssignmentDate\"},\"Name\":\"BI vw_NPSProvisioningData.PAEarliestAssignmentDate\",\"NativeReferenceName\":\"PAEarliestAssignmentDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAFirstAttendDate\"},\"Name\":\"BI vw_NPSProvisioningData.PAFirstAttendDate\",\"NativeReferenceName\":\"PAFirstAttendDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedEndDate\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedEndDate\",\"NativeReferenceName\":\"RecommendedEndDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedStartDate\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedStartDate\",\"NativeReferenceName\":\"RecommendedStartDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ETLProcessedDate\"},\"Name\":\"BI vw_NPSProvisioningData.ETLProcessedDate\",\"NativeReferenceName\":\"ETLProcessedDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"BirthDate\"},\"Name\":\"BI vw_NPSProvisioningData.BirthDate\",\"NativeReferenceName\":\"BirthDate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"DateNotIntentRcvd\"},\"Name\":\"BI vw_NPSProvisioningData.DateNotIntentRcvd\",\"NativeReferenceName\":\"DateNotIntentRcvd\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAProviderName\"},\"Name\":\"BI vw_NPSProvisioningData.PAProviderName\",\"NativeReferenceName\":\"PAProviderName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIArticSchoolPrincipalEmail\"},\"Name\":\"BI vw_NPSProvisioningData.PNIArticSchoolPrincipalEmail\",\"NativeReferenceName\":\"PNIArticSchoolPrincipalEmail\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIArticSchoolPrincipalPhone\"},\"Name\":\"BI vw_NPSProvisioningData.PNIArticSchoolPrincipalPhone\",\"NativeReferenceName\":\"PNIArticSchoolPrincipalPhone\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNISchoolDBN\"},\"Name\":\"BI vw_NPSProvisioningData.PNISchoolDBN\",\"NativeReferenceName\":\"PNISchoolDBN\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNISchoolPrincipalEmail\"},\"Name\":\"BI vw_NPSProvisioningData.PNISchoolPrincipalEmail\",\"NativeReferenceName\":\"PNISchoolPrincipalEmail\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date email sent to school/Parent\"},\"Name\":\"BI vw_NPSProvisioningData.Date email sent to school/Parent\",\"NativeReferenceName\":\"Date email sent to school/Parent\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Offer Sent to School or Parent\"},\"Name\":\"BI vw_NPSProvisioningData.Offer Sent to School or Parent\",\"NativeReferenceName\":\"Offer Sent to School or Parent\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Was Provider Accepted Y/N\"},\"Name\":\"BI vw_NPSProvisioningData.Was Provider Accepted Y/N\",\"NativeReferenceName\":\"Was Provider Accepted Y/N\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Parent Response\"},\"Name\":\"BI vw_NPSProvisioningData.Parent Response\",\"NativeReferenceName\":\"Parent Response\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"School Response\"},\"Name\":\"BI vw_NPSProvisioningData.School Response\",\"NativeReferenceName\":\"School Response\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent\"},\"Name\":\"BI vw_NPSProvisioningData.ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent\",\"NativeReferenceName\":\"ONLY FOR SCHOOL OFFERS NOT ACCEPTED: Date follow up offer is made directly to parent\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Notes on responses\"},\"Name\":\"BI vw_NPSProvisioningData.Notes on responses\",\"NativeReferenceName\":\"Notes on responses\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Full email address of the NYCPS staff member who sent the offer\"},\"Name\":\"BI vw_NPSProvisioningData.Full email address of the NYCPS staff member who sent the offer\",\"NativeReferenceName\":\"Full email address of the NYCPS staff member who sent the offer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ProviderNameFromCSE\"},\"Name\":\"BI vw_NPSProvisioningData.ProviderNameFromCSE\",\"NativeReferenceName\":\"ProviderNameFromCSE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrimaryContactAddress\"},\"Name\":\"BI vw_NPSProvisioningData.PrimaryContactAddress\",\"NativeReferenceName\":\"PrimaryContactAddress\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrimaryContactEmail\"},\"Name\":\"BI vw_NPSProvisioningData.PrimaryContactEmail\",\"NativeReferenceName\":\"PrimaryContactEmail\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrimaryContactLanguage\"},\"Name\":\"BI vw_NPSProvisioningData.PrimaryContactLanguage\",\"NativeReferenceName\":\"PrimaryContactLanguage\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrimaryContactName\"},\"Name\":\"BI vw_NPSProvisioningData.PrimaryContactName\",\"NativeReferenceName\":\"PrimaryContactName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PrimaryContactPhone\"},\"Name\":\"BI vw_NPSProvisioningData.PrimaryContactPhone\",\"NativeReferenceName\":\"PrimaryContactPhone\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentAddress\"},\"Name\":\"BI vw_NPSProvisioningData.StudentAddress\",\"NativeReferenceName\":\"StudentAddress\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RedAlertStudent\"},\"Name\":\"BI vw_NPSProvisioningData.RedAlertStudent\",\"NativeReferenceName\":\"RedAlertStudent\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PACurrentAssignmentStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PACurrentAssignmentStatus\",\"NativeReferenceName\":\"PACurrentAssignmentStatus\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSE\"}}}]},\"objects\":{\"grid\":[{\"properties\":{\"outlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"rowPadding\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}}}}],\"values\":[{\"properties\":{\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}},\"fontColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}},\"backColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#e6e6e6'\"}}}}}}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#000000'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 562.65,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 157.73,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Information",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection3bb1101741e2225a65b9",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3bfe7a592c04fe24d12d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":7.757575757575758,\"y\":128,\"z\":0,\"width\":669.7373737373738,\"height\":592.1616161616162,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"The purpose of this dashboard is to track the provider assignment and service encounters for students attending non-public schools. \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"The following tabs are currently available:\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"           1. PA Status - Provider assignment status \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"          2. EA Status - Encounter attendance status and encounter counts \",\"textStyle\":{\"fontSize\":\"16px\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"          3. Data Export - Mandate/student level data \",\"textStyle\":{\"fontSize\":\"16px\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"You can use the filters to select data for specific subsets of schools or programs. \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"Please note that all graphs and tables in the dashboard are affected by your filter selections.  \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"Always be cognizant of what filters you have placed on the data!\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"Data sources - ATS, SESIS\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}}]},{\"textRuns\":[{\"value\":\"This dashboard is current accessible to SEO central staff \"}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"For technical issues contact\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#eb6865\"}},{\"value\":\" \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#333333\"}},{\"value\":\" \",\"textStyle\":{\"fontSize\":\"12pt\",\"textDecoration\":\"underline\",\"color\":\"#3480ff\"}},{\"value\":\"SWDDataTeam@schools.nyc.gov\",\"textStyle\":{\"fontSize\":\"12pt\",\"textDecoration\":\"underline\",\"color\":\"#1c5fff\"},\"url\":\"mailto:SWDDataTeam@schools.nyc.gov\"}]},{\"textRuns\":[{\"value\":\"Click\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#eb6865\"}},{\"value\":\" \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#5d60ff\"}},{\"value\":\"here\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#1c5fff\"},\"url\":\"https://docs.google.com/forms/d/e/1FAIpQLSer4FTH0Ib5mca8KUtT1AVkxQz2sroLSSg_XWQ7H6TjAm0OUw/viewform\"},{\"value\":\" \",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#5d60ff\"}},{\"value\":\"to leave questions or feedback\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#eb6865\"}}]},{\"textRuns\":[{\"value\":\"\"}]},{\"textRuns\":[{\"value\":\"Updated daily\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#000000\"}}]},{\"textRuns\":[{\"value\":\"\"}]}]}}]}}}",
+          "filters": "[]",
+          "height": 592.16,
+          "width": 669.74,
+          "x": 7.76,
+          "y": 128.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"4abff1760ca6a89ed1ac\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":110.4043126684636,\"z\":2000,\"width\":1280,\"height\":25.013477088948786,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#c8c8c8'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "height": 25.01,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 110.40,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"95b320a3e88173297a65\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1021.023890784983,\"y\":27.03071672354949,\"z\":5000,\"width\":253.72013651877134,\"height\":95.83617747440273,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"image\",\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"NYCPS-Horizontal_Logo+CMAR_-_C7867149760196659.jpg\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 95.84,
+          "width": 253.72,
+          "x": 1021.02,
+          "y": 27.03,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"d44f5415d68a746c6512\",\"layouts\":[{\"id\":0,\"position\":{\"x\":476.2085308056872,\"y\":74.3127962085308,\"z\":4000,\"width\":395.8293838862559,\"height\":48.53080568720379,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.Date Measure\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date Measure\"},\"Name\":\"BI vw_Locations.Date Measure\",\"NativeReferenceName\":\"Date Measure\"}]},\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 48.53,
+          "width": 395.83,
+          "x": 476.21,
+          "y": 74.31,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"eff841100c4108abdcad\",\"layouts\":[{\"id\":0,\"position\":{\"x\":872,\"y\":688,\"z\":1000,\"width\":408,\"height\":32,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"CONFIDENTIAL DATA | INTERNAL USE ONLY | DO NOT COPY OR DISTRIBUTE\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"9pt\",\"color\":\"#eb6865\"}}],\"horizontalTextAlignment\":\"right\"}]}}]}}}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 408.00,
+          "x": 872.00,
+          "y": 688.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"fa59c63ee969c6c661ca\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":8,\"z\":3000,\"width\":432,\"height\":80,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Welcome to the\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"15pt\",\"color\":\"#456896\"}}]},{\"textRuns\":[{\"value\":\"NPS Provisioning Dashboard\",\"textStyle\":{\"fontSize\":\"24pt\",\"color\":\"#000000\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#99e3dd'\"}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 80.00,
+          "width": 432.00,
+          "x": 16.00,
+          "y": 8.00,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "EA Status",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionbf228814b6b882cda6e0",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0e1aa51002921554ec8a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":211.66666666666669,\"z\":14000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SchoolDBN\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SchoolDBN\"},\"Name\":\"BI vw_Locations.SchoolDBN\",\"NativeReferenceName\":\"SchoolDBN\"}]},\"syncGroup\":{\"groupName\":\"SchoolDBN1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 211.67,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"52bdf88a9a3314ab4080\",\"layouts\":[{\"id\":0,\"position\":{\"x\":444.5120405576679,\"y\":154.1191381495564,\"z\":12000,\"width\":219.01140684410646,\"height\":58.40304182509505}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection15c9eb2b502743725ade'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.40,
+          "width": 219.01,
+          "x": 444.51,
+          "y": 154.12,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"5cd22f918e8d59cb4309\",\"layouts\":[{\"id\":0,\"position\":{\"x\":819.2648922686944,\"y\":94.09378960709759,\"z\":6000,\"width\":460.7351077313054,\"height\":155.74144486692015}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"BI vw_NPSProvisioningData.% Full Encounter\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Full Encounter\"},\"Name\":\"BI vw_NPSProvisioningData.% Full Encounter\",\"NativeReferenceName\":\"% Full Encounter\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Full Encounter\"}}}]},\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}],\"labels\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"calloutValue\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 155.74,
+          "width": 460.74,
+          "x": 819.26,
+          "y": 94.09,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"70420e165cc036d27336\",\"layouts\":[{\"id\":0,\"position\":{\"x\":445,\"y\":160,\"z\":7000,\"width\":218.75,\"height\":53.75}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'pill'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 53.75,
+          "width": 218.75,
+          "x": 445.00,
+          "y": 160.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"721a8adf37e53e453d1a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":404.44444444444446,\"z\":23000,\"width\":135.55555555555554,\"height\":41.11111111111111}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Student Filters\",\"textStyle\":{\"fontWeight\":\"bold\",\"color\":\"#808080\"}}]}]}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 41.11,
+          "width": 135.56,
+          "x": 0.00,
+          "y": 404.44,
+          "z": 23000.00
+        },
+        {
+          "config": "{\"name\":\"792111d27c7c67763450\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":153.33333333333334,\"z\":13000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSE District\"}]},\"columnProperties\":{\"BI vw_Locations.CSEDistrict\":{\"displayName\":\"CSE District\"}},\"syncGroup\":{\"groupName\":\"CSEDistrict1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 153.33,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"7bdea1b0eae8d7923049\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069.1001267427123,\"y\":0,\"z\":17000,\"width\":191.43219264892267,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PNIStatus\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PNIStatus\",\"NativeReferenceName\":\"PNI Status\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.PNIStatus\":{\"displayName\":\"PNI Status\"}},\"syncGroup\":{\"groupName\":\"PNIStatus2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Timely PNI - IESP'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 191.43,
+          "x": 1069.10,
+          "y": 0.00,
+          "z": 17000.00
+        },
+        {
+          "config": "{\"name\":\"87d60791ab5b1c00b21d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":270,\"z\":15000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SupervisorPsychName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SupervisorPsychName\"},\"Name\":\"BI vw_Locations.SupervisorPsychName\",\"NativeReferenceName\":\"Supervisor Psych\"}]},\"columnProperties\":{\"BI vw_Locations.SupervisorPsychName\":{\"displayName\":\"Supervisor Psych\"}},\"syncGroup\":{\"groupName\":\"SupervisorPsychName\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 270.00,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"932db61070567c09531c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":237.5,\"y\":171.25,\"z\":10000,\"width\":170,\"height\":40}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Number of Encounters\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"12pt\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 170.00,
+          "x": 237.50,
+          "y": 171.25,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"a01dc07d75494d35bead\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":564.4444444444445,\"z\":21000,\"width\":183.33333333333334,\"height\":63.33333333333333}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.StudentCategory\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentCategory\"},\"Name\":\"BI vw_NPSProvisioningData.StudentCategory\",\"NativeReferenceName\":\"Student Category\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.StudentCategory\":{\"displayName\":\"Student Category\"}},\"syncGroup\":{\"groupName\":\"StudentCategory1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 564.44,
+          "z": 21000.00
+        },
+        {
+          "config": "{\"name\":\"a0c7436547c21d7e1d32\",\"layouts\":[{\"id\":0,\"position\":{\"x\":166.66666666666669,\"y\":93.33333333333334,\"z\":0,\"width\":56.66666666666667,\"height\":611.6666666666667}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"90L\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 611.67,
+          "width": 56.67,
+          "x": 166.67,
+          "y": 93.33,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a4b096100d350c6a5946\",\"layouts\":[{\"id\":0,\"position\":{\"x\":921.4702154626108,\"y\":0,\"z\":16000,\"width\":147.6299112801014,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"},\"Name\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"NativeReferenceName\":\"Active Mandate\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.ActiveMandateFlag\":{\"displayName\":\"Active Mandate\"}},\"syncGroup\":{\"groupName\":\"ActiveMandateFlag2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Y'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 147.63,
+          "x": 921.47,
+          "y": 0.00,
+          "z": 16000.00
+        },
+        {
+          "config": "{\"name\":\"a529547bb5ed2b99c987\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.57142857142858,\"z\":11000,\"width\":345.7142857142857,\"height\":35.714285714285715}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.Date Measure\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date Measure\"},\"Name\":\"BI vw_Locations.Date Measure\",\"NativeReferenceName\":\"Date Measure\"}]},\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"card\":[{\"properties\":{\"barShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 35.71,
+          "width": 345.71,
+          "x": 0.00,
+          "y": 58.57,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"a9ddc7a0fd660393da64\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":497.77777777777777,\"z\":20000,\"width\":183.33333333333334,\"height\":58.888888888888886}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"OutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"NativeReferenceName\":\"Outcome Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.OutcomeTypeDesc\":{\"displayName\":\"Outcome Type\"}},\"syncGroup\":{\"groupName\":\"OutcomeTypeDesc1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.89,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 497.78,
+          "z": 20000.00
+        },
+        {
+          "config": "{\"name\":\"ac048ecf9ddb2291aede\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":627.7777777777777,\"z\":22000,\"width\":183.33333333333334,\"height\":62.22222222222222}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.GradeLevel\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"GradeLevel\"},\"Name\":\"BI vw_NPSProvisioningData.GradeLevel\",\"NativeReferenceName\":\"GradeLevel\"}]},\"syncGroup\":{\"groupName\":\"GradeLevel\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 62.22,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 627.78,
+          "z": 22000.00
+        },
+        {
+          "config": "{\"name\":\"b235a759b3bdea4750a4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":84.92890995260663,\"z\":4000,\"width\":1280,\"height\":15.165876777251183}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#c8c8c8'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 15.17,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 84.93,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"b4b3b4c12b25b0754900\",\"layouts\":[{\"id\":0,\"position\":{\"x\":842.5,\"y\":250,\"z\":2000,\"width\":367.5,\"height\":442.5}}],\"singleVisual\":{\"visualType\":\"hundredPercentStackedBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}],\"Series\":[{\"queryRef\":\"BI vw_NPSProvisioningData.EncounterStatus\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0},{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSEDistrict\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"StudentID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"EncounterStatus\"},\"Name\":\"BI vw_NPSProvisioningData.EncounterStatus\",\"NativeReferenceName\":\"EncounterStatus\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"}}}]},\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#456896'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#cccccc'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group A'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group B'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group C'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Fully Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partially Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Unassigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Full Encounter'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partial Encounter'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"EncounterStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'No Encounter'\"}}}}}]}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'8'\"}}}}}],\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9M\"}}},\"preferredCategoryWidth\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"maxMarginFactor\":{\"expr\":{\"Literal\":{\"Value\":\"25L\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}},\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}},\"labelOverflow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableValueDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableDetailDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"detailContentType\":{\"expr\":{\"Literal\":{\"Value\":\"'Percent of total'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#000000'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Encounter Status by CSE'\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter7a40162f0a70cd5b7443\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 442.50,
+          "width": 367.50,
+          "x": 842.50,
+          "y": 250.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"bbeedcdb2754ab3e29db\",\"layouts\":[{\"id\":0,\"position\":{\"x\":497.5,\"y\":171.25,\"z\":8000,\"width\":142.5,\"height\":40}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Encounter Status\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"12pt\"}}]}]}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 142.50,
+          "x": 497.50,
+          "y": 171.25,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"db4991d2f1d7afcb76fc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":328.6709677419355,\"z\":18000,\"width\":183.32903225806453,\"height\":75.97419354838709}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"NPSSchoolType\"},\"Name\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"NativeReferenceName\":\"NPS School Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.NPSSchoolType\":{\"displayName\":\"NPS School Type\"}},\"syncGroup\":{\"groupName\":\"NPSSchoolType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.97,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 328.67,
+          "z": 18000.00
+        },
+        {
+          "config": "{\"name\":\"dec4129cdbeb753b8572\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":5000,\"width\":431.6666666666667,\"height\":66.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Encounter Status\",\"textStyle\":{\"fontSize\":\"32px\",\"color\":\"#31536a\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 66.67,
+          "width": 431.67,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"e188ce795e6e5964b45a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":212.5,\"y\":160,\"z\":9000,\"width\":218.75,\"height\":53.75}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'pill'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 53.75,
+          "width": 218.75,
+          "x": 212.50,
+          "y": 160.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"e65bf23509377703ee05\",\"layouts\":[{\"id\":0,\"position\":{\"x\":203.75,\"y\":241.25,\"z\":1000,\"width\":638.75,\"height\":475}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\"},{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAPartialEncountersCount)\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAFullEncoutnersCount)\"},{\"queryRef\":\"Sum(BI vw_NPSProvisioningData.EAStudentAbsenceCount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Recommended Mandate \"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAFullEncoutnersCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAFullEncoutnersCount)\",\"NativeReferenceName\":\"EA Full Encounter #\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAPartialEncountersCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAPartialEncountersCount)\",\"NativeReferenceName\":\"EA Partial Encounter #\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"EAStudentAbsenceCount\"}},\"Function\":0},\"Name\":\"Sum(BI vw_NPSProvisioningData.EAStudentAbsenceCount)\",\"NativeReferenceName\":\"EA Student Absence #\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"Mandate #\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Recommended Mandate \"},\"Sum(BI vw_NPSProvisioningData.EAPartialEncountersCount)\":{\"displayName\":\"EA Partial Encounter #\"},\"Sum(BI vw_NPSProvisioningData.EAFullEncoutnersCount)\":{\"displayName\":\"EA Full Encounter #\"},\"Sum(BI vw_NPSProvisioningData.EAStudentAbsenceCount)\":{\"displayName\":\"EA Student Absence #\"},\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\":{\"displayName\":\"Mandate #\"}},\"objects\":{\"grid\":[{\"properties\":{\"outlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8fa4c0'\"}}}}}}}],\"columnHeaders\":[{\"properties\":{\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"values\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#FD625E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Subtotal Oustanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Subtotal Oustanding\"}},{\"properties\":{\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"fontColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"77D\"}}}},\"selector\":{\"metadata\":\"School Data.ATS_Code\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"117.44827586206897D\"}}}},\"selector\":{\"metadata\":\"Sum(Fake Data.Value)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"107.27586206896552D\"}}}},\"selector\":{\"metadata\":\"Fake Data.Variable\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Number of Encounters by Mandate Type'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 475.00,
+          "width": 638.75,
+          "x": 203.75,
+          "y": 241.25,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"f26ec453de5500101367\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":123.33333333333334,\"z\":3000,\"width\":110,\"height\":36.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"School Filters\",\"textStyle\":{\"color\":\"#666666\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 36.67,
+          "width": 110.00,
+          "x": 0.00,
+          "y": 123.33,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"f271ae9025626f624611\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":440,\"z\":19000,\"width\":183.33333333333334,\"height\":57.77777777777778}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Mandate Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Mandate Type\"}},\"syncGroup\":{\"groupName\":\"RecommendedMandateType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.78,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 440.00,
+          "z": 19000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "PA Status",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectiond7391734ce8e7707ce46",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"17b74d66dad301ee5b86\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":7000,\"width\":431.6666666666667,\"height\":66.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Provider Assignment Status\",\"textStyle\":{\"fontSize\":\"32px\",\"color\":\"#31536a\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 66.67,
+          "width": 431.67,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"216c9dacc5ab12e09019\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":328.6709677419355,\"z\":18000,\"width\":183.32903225806453,\"height\":75.97419354838709}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"NPSSchoolType\"},\"Name\":\"BI vw_NPSProvisioningData.NPSSchoolType\",\"NativeReferenceName\":\"NPS School Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.NPSSchoolType\":{\"displayName\":\"NPS School Type\"}},\"syncGroup\":{\"groupName\":\"NPSSchoolType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.97,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 328.67,
+          "z": 18000.00
+        },
+        {
+          "config": "{\"name\":\"2aa2414e678849b97876\",\"layouts\":[{\"id\":0,\"position\":{\"x\":166.66666666666669,\"y\":105,\"z\":0,\"width\":56.66666666666667,\"height\":600}}],\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}},\"selector\":{\"id\":\"default\"}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"90L\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 600.00,
+          "width": 56.67,
+          "x": 166.67,
+          "y": 105.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"31c552f2a87dc68109db\",\"layouts\":[{\"id\":0,\"position\":{\"x\":867.4881516587677,\"y\":274.50236966824644,\"z\":2000,\"width\":392.79620853080564,\"height\":445.8767772511848}}],\"singleVisual\":{\"visualType\":\"hundredPercentStackedBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}],\"Series\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PAMandateStatus\"}],\"Y\":[{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0},{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSEDistrict\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"PAMandateStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"NativeReferenceName\":\"PAMandateStatus\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"StudentID\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"}}}]},\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#456896'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"21. IEP Contains Info About Student's Strengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#cccccc'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, General & Vague'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F79f4e'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'No'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#62A5D4'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IEP Review Data\"}},\"Property\":\"Q22_IEPContainsInfoAboutStudentsStrengths\"}},\"Right\":{\"Literal\":{\"Value\":\"'Yes, Specific & Observable'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group A'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group B'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Dummy Data\"}},\"Property\":\"Variable\"}},\"Right\":{\"Literal\":{\"Value\":\"'Group C'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Fully Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partially Assigned'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Unassigned'\"}}}}}]}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'8'\"}}}}}],\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9M\"}}},\"preferredCategoryWidth\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"maxMarginFactor\":{\"expr\":{\"Literal\":{\"Value\":\"25L\"}}},\"innerPadding\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}},\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}},\"labelOverflow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableValueDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableDetailDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"detailContentType\":{\"expr\":{\"Literal\":{\"Value\":\"'Percent of total'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#000000'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'PA Assignment by CSE'\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter7a40162f0a70cd5b7443\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 445.88,
+          "width": 392.80,
+          "x": 867.49,
+          "y": 274.50,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"32d6d795e0a764b74bd7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":211.66666666666669,\"z\":10000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SchoolDBN\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SchoolDBN\"},\"Name\":\"BI vw_Locations.SchoolDBN\",\"NativeReferenceName\":\"SchoolDBN\"}]},\"syncGroup\":{\"groupName\":\"SchoolDBN1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 211.67,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"39c7dada2c07dcdc123d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":153.33333333333334,\"z\":9000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.CSEDistrict\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"CSEDistrict\"},\"Name\":\"BI vw_Locations.CSEDistrict\",\"NativeReferenceName\":\"CSE District\"}]},\"columnProperties\":{\"BI vw_Locations.CSEDistrict\":{\"displayName\":\"CSE District\"}},\"syncGroup\":{\"groupName\":\"CSEDistrict1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 153.33,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"45309e0886b0eab69dc6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":93.33333333333334,\"z\":6000,\"width\":1280,\"height\":15}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#c8c8c8'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 15.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 93.33,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"7804ef2339825b8e9790\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":404.44444444444446,\"z\":3000,\"width\":135.55555555555554,\"height\":41.11111111111111}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Student Filters\",\"textStyle\":{\"fontWeight\":\"bold\",\"color\":\"#808080\"}}]}]}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 41.11,
+          "width": 135.56,
+          "x": 0.00,
+          "y": 404.44,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"7952be6201e6c0ca97cb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":921.4702154626108,\"y\":0,\"z\":4000,\"width\":147.6299112801014,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"},\"Name\":\"BI vw_NPSProvisioningData.ActiveMandateFlag\",\"NativeReferenceName\":\"Active Mandate\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.ActiveMandateFlag\":{\"displayName\":\"Active Mandate\"}},\"syncGroup\":{\"groupName\":\"ActiveMandateFlag2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"ActiveMandateFlag\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Y'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 147.63,
+          "x": 921.47,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"829188e8ed8a55a8736b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":627.7777777777777,\"z\":16000,\"width\":183.33333333333334,\"height\":62.22222222222222}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.GradeLevel\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"GradeLevel\"},\"Name\":\"BI vw_NPSProvisioningData.GradeLevel\",\"NativeReferenceName\":\"GradeLevel\"}]},\"syncGroup\":{\"groupName\":\"GradeLevel\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 62.22,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 627.78,
+          "z": 16000.00
+        },
+        {
+          "config": "{\"name\":\"a79f63e906a30e72b360\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069.1001267427123,\"y\":0,\"z\":15000,\"width\":191.43219264892267,\"height\":100.58301647655259}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PNIStatus\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PNIStatus\",\"NativeReferenceName\":\"PNI Status\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.PNIStatus\":{\"displayName\":\"PNI Status\"}},\"syncGroup\":{\"groupName\":\"PNIStatus2\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PNIStatus\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Timely PNI - IESP'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 100.58,
+          "width": 191.43,
+          "x": 1069.10,
+          "y": 0.00,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"aa78f78970c9ac5485b2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":270,\"z\":11000,\"width\":183.33333333333334,\"height\":58.333333333333336}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.SupervisorPsychName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"SupervisorPsychName\"},\"Name\":\"BI vw_Locations.SupervisorPsychName\",\"NativeReferenceName\":\"Supervisor Psych\"}]},\"columnProperties\":{\"BI vw_Locations.SupervisorPsychName\":{\"displayName\":\"Supervisor Psych\"}},\"syncGroup\":{\"groupName\":\"SupervisorPsychName\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 270.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"aacda896086844895b29\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.57142857142858,\"z\":17000,\"width\":345.7142857142857,\"height\":35.714285714285715}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_Locations.Date Measure\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_Locations\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Date Measure\"},\"Name\":\"BI vw_Locations.Date Measure\",\"NativeReferenceName\":\"Date Measure\"}]},\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"card\":[{\"properties\":{\"barShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 35.71,
+          "width": 345.71,
+          "x": 0.00,
+          "y": 58.57,
+          "z": 17000.00
+        },
+        {
+          "config": "{\"name\":\"b4770faf2382003d39db\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":440,\"z\":12000,\"width\":183.33333333333334,\"height\":57.77777777777778}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"RecommendedMandateType\"},\"Name\":\"BI vw_NPSProvisioningData.RecommendedMandateType\",\"NativeReferenceName\":\"Mandate Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.RecommendedMandateType\":{\"displayName\":\"Mandate Type\"}},\"syncGroup\":{\"groupName\":\"RecommendedMandateType\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.78,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 440.00,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"b61f10962e35051dc427\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":497.77777777777777,\"z\":13000,\"width\":183.33333333333334,\"height\":58.888888888888886}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b1\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b1\"}},\"Property\":\"OutcomeTypeDesc\"},\"Name\":\"BI vw_NPSProvisioningData.OutcomeTypeDesc\",\"NativeReferenceName\":\"Outcome Type\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.OutcomeTypeDesc\":{\"displayName\":\"Outcome Type\"}},\"syncGroup\":{\"groupName\":\"OutcomeTypeDesc1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 58.89,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 497.78,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"bec80f6c98e5a91515eb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":204.2857142857143,\"y\":152.85714285714286,\"z\":1000,\"width\":662.8571428571429,\"height\":567.1428571428572}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Columns\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"active\":true}],\"Rows\":[{\"queryRef\":\"BI vw_NPSProvisioningData.PACurrentAssignmentStatus\",\"active\":true},{\"queryRef\":\"BI vw_NPSProvisioningData.PAMandateStatus\"}],\"Values\":[{\"queryRef\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PAMandateStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PAMandateStatus\",\"NativeReferenceName\":\"PAMandateStatus\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PACurrentAssignmentStatus\"},\"Name\":\"BI vw_NPSProvisioningData.PACurrentAssignmentStatus\",\"NativeReferenceName\":\"PA Assignment Status\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentID\"}},\"Function\":5},\"Name\":\"CountNonNull(BI vw_NPSProvisioningData.StudentID)\",\"NativeReferenceName\":\"PAMandateStatus2\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"PACurrentAssignmentStatus\"}}}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.PACurrentAssignmentStatus\":{\"displayName\":\"PA Assignment Status\"}},\"objects\":{\"grid\":[{\"properties\":{\"outlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":0}}}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8fa4c0'\"}}}}}}}],\"columnHeaders\":[{\"properties\":{\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"urlIcon\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"rowHeaders\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}}}}],\"values\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#FD625E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"lk_LCGMS_COMPLETE.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Total Outstanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}},\"value\":{\"Literal\":{\"Value\":\"0L\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Total Outstanding\"}},{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"SelectRef\":{\"ExpressionName\":\"School Data.Subtotal Oustanding\"}},\"FillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#F79F4E'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"School Data.Subtotal Oustanding\"}},{\"properties\":{\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"fontColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}},\"backColorSecondary\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"subTotals\":[{\"properties\":{\"applyToHeaders\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"Column\"}},{\"properties\":{\"applyToHeaders\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"Row\"}}],\"rowTotal\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}}}}],\"columnTotal\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E55'\"}}}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"77D\"}}}},\"selector\":{\"metadata\":\"School Data.ATS_Code\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"117.44827586206897D\"}}}},\"selector\":{\"metadata\":\"Sum(Fake Data.Value)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"107.27586206896552D\"}}}},\"selector\":{\"metadata\":\"Fake Data.Variable\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"56.392298615832956D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Fully Assigned'\"}}}}}]}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"70.18971426613982D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Manually Assigned'\"}}}}}]}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"63.16077976416375D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Partially Assigned'\"}}}}}]}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"70.96142237197891D\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"Right\":{\"Literal\":{\"Value\":\"'Previously Assigned or Encountered'\"}}}}}]}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter99cb4a8265d9123175ea\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"BI vw_NPSProvisioningData\"}},\"Property\":\"PAMandateStatus\"}},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 567.14,
+          "width": 662.86,
+          "x": 204.29,
+          "y": 152.86,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"e2b45acf40cee449d39c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":564.4444444444445,\"z\":14000,\"width\":183.33333333333334,\"height\":63.33333333333333}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"BI vw_NPSProvisioningData.StudentCategory\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"StudentCategory\"},\"Name\":\"BI vw_NPSProvisioningData.StudentCategory\",\"NativeReferenceName\":\"Student Category\"}]},\"columnProperties\":{\"BI vw_NPSProvisioningData.StudentCategory\":{\"displayName\":\"Student Category\"}},\"syncGroup\":{\"groupName\":\"StudentCategory1\",\"fieldChanges\":true,\"filterChanges\":true},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.33,
+          "width": 183.33,
+          "x": 0.00,
+          "y": 564.44,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"f3d31da7add72703be27\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":123.33333333333334,\"z\":5000,\"width\":110,\"height\":36.66666666666667}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"School Filters\",\"textStyle\":{\"fontWeight\":\"bold\",\"color\":\"#808080\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 36.67,
+          "width": 110.00,
+          "x": 0.00,
+          "y": 123.33,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"f9a5962b832ae09e0ed4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":866.6666666666667,\"y\":105,\"z\":8000,\"width\":413.33333333333337,\"height\":170}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"BI vw_NPSProvisioningData.% Fully Assigned\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"BI vw_NPSProvisioningData\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Fully Assigned\"},\"Name\":\"BI vw_NPSProvisioningData.% Fully Assigned\",\"NativeReferenceName\":\"% Fully Assigned\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"% Fully Assigned\"}}}]},\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":-0.25}}}}}}}],\"labels\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"calloutValue\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'% Fully, Partially, Manually, or Previously Assigned'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.5}}}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 170.00,
+          "width": 413.33,
+          "x": 866.67,
+          "y": 105.00,
+          "z": 8000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "SEO_Analytics04431429848081936.json"
+}

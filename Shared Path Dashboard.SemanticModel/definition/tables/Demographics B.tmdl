@@ -1,0 +1,93 @@
+table 'Demographics B'
+	isHidden
+	lineageTag: 17cf379e-bb15-4810-9aad-40e356b7f5a5
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 96cf5933-d195-49ec-982e-7ccea881e143
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: d7b52b06-ddfc-45c9-9354-80ed514866d6
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 6e71d516-b317-4cca-8ac8-4b179d9c5b5a
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: d8fdf666-b0dd-4f82-a995-d4df310f2af6
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		isHidden
+		lineageTag: 2fa47feb-4f38-4fdb-a987-3326d52dedf5
+		summarizeBy: none
+		sourceColumn: SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspSchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 5c1cb750-e404-487d-af8c-8c7561a576db
+		summarizeBy: none
+		sourceColumn: SuspSchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspKey
+		dataType: string
+		isHidden
+		lineageTag: 1814f966-742f-493a-a4c8-3adc708e71a3
+		summarizeBy: none
+		sourceColumn: SuspKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Demographics B-40f041ca-c0dd-47bd-bef0-beb9e66ca164' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="#(lf)SELECT distinct [SCHOOL_DBN]#(lf)      ,[SchoolYear]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)#(tab)  ,CONCAT(SCHOOL_DBN,SCHOOLYEAR,GENDER,ETHNICITY) as SuspSchoolKey#(lf)#(tab)  ,CONCAT(SCHOOLYEAR,GENDER,ETHNICITY) as SuspKey#(lf)      ,[SY]#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Demographics]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":7,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demographics B/Source.{SCHOOL_DBN,0}","Section1/Demographics B/Source.{SchoolYear,1}","Section1/Demographics B/Source.{GENDER,2}","Section1/Demographics B/Source.{ETHNICITY,3}","Section1/Demographics B/Source.{SuspSchoolKey,4}","Section1/Demographics B/Source.{SuspKey,5}","Section1/Demographics B/Source.{SY,6}"],"ColumnCount":7,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demographics B/Source.{SCHOOL_DBN,0}","Section1/Demographics B/Source.{SchoolYear,1}","Section1/Demographics B/Source.{GENDER,2}","Section1/Demographics B/Source.{ETHNICITY,3}","Section1/Demographics B/Source.{SuspSchoolKey,4}","Section1/Demographics B/Source.{SuspKey,5}","Section1/Demographics B/Source.{SY,6}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

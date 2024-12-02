@@ -1,0 +1,192 @@
+table 'Access Citywide B'
+	isHidden
+	lineageTag: c2319130-231d-4941-a6cf-a3a813a006e6
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 6a98801e-9fc1-424c-8988-732dd11748b6
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: dd106a75-8baf-4393-bb7e-729599eeed26
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 33139f99-8cbb-4c2c-8dcf-adff0480a259
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Para'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a80caec0-3e1c-4df7-bbe0-10ace37bbd49
+		summarizeBy: sum
+		sourceColumn: # Para
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Special'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3c7dba18-4808-4ff2-8dbb-323d6cb01984
+		summarizeBy: sum
+		sourceColumn: # Special
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# ICT'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fc296526-36cb-4fcb-8e8b-5393ce65bbe1
+		summarizeBy: sum
+		sourceColumn: # ICT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SETTS'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6f6cf5ab-8b30-4290-9742-bab4dcc4aa69
+		summarizeBy: sum
+		sourceColumn: # SETTS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# NYSAA'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 06e21104-3f14-4a92-8b66-1f0e99d4eea9
+		summarizeBy: sum
+		sourceColumn: # NYSAA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 442b8b29-ebbe-4177-9a5f-e330dfdaa2c9
+		summarizeBy: sum
+		sourceColumn: # SWDs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7092bebd-692f-4c39-81b6-bc21ae4c8fd2
+		summarizeBy: sum
+		sourceColumn: # Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5808a75d-5851-49d7-9213-4a863d535240
+		summarizeBy: sum
+		sourceColumn: # Referrals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 106c755a-0102-4d0a-96c4-fdca96c2a980
+		summarizeBy: sum
+		sourceColumn: # Referrals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9aac824a-0c45-4c11-b456-01e3299bbf27
+		summarizeBy: sum
+		sourceColumn: # Reevals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d4e82f76-868f-4412-b952-ab63f621ce42
+		summarizeBy: sum
+		sourceColumn: # Reevals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspKey
+		dataType: string
+		isHidden
+		lineageTag: 3b01f27d-e5f4-4341-8f9d-d056cbd97a6e
+		summarizeBy: none
+		sourceColumn: SuspKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Access Citywide B-72752716-fa43-41c4-8aed-8ec4b7c7e380' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="#(lf)  --ACCESS CITYWIDE B#(lf)  SELECT ac.SchoolYear#(lf)#(tab)  ,GENDER#(lf)#(tab)  ,ETHNICITY#(lf)     ,SUM(ac.[# Para]) as [# Para]#(lf)#(tab) ,SUM(ac.[# Special]) as [# Special]#(lf)#(tab),SUM(ac.[# ICT]) as [# ICT]#(lf)#(tab),SUM(ac.[# SETSS]) as [# SETTS]#(lf)#(tab),SUM(ac.[# NYSAA]) as [# NYSAA]#(lf)     ,SUM(ac.[# SWDs]) as [# SWDs]#(lf)#(tab) ,SUM(ac.[# Students]) as [# Students]#(lf)#(tab) ,SUM(ac.[# Referrals]) as [# Referrals]#(lf)#(tab) ,SUM(ac.[# Referrals YTD]) as [# Referrals YTD]#(lf)#(tab),SUM(ac.[# Reevals]) as [# Reevals]#(lf)#(tab) ,SUM(ac.[# Reevals YTD]) as [# Reevals YTD]#(lf)#(tab) ,CONCAT(SchoolYear,GENDER,ETHNICITY) as SuspKey#(lf)  From SEO_REPORTING.bi.vw_SPF_AccessData ac#(lf)  INNER JOIN SEO_REPORTING.bi.vw_SPFDashboard_Locations lcgms#(lf)  on ac.SCHOOL_DBN = lcgms.SchoolDBN#(lf)  GROUP by SchoolYear,GENDER,ETHNICITY#(lf)  ORDER by SchoolYear,GENDER,ETHNICITY"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":15,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Access Citywide B/Source.{SchoolYear,0}","Section1/Access Citywide B/Source.{GENDER,1}","Section1/Access Citywide B/Source.{ETHNICITY,2}","Section1/Access Citywide B/Source.{# Para,3}","Section1/Access Citywide B/Source.{# Special,4}","Section1/Access Citywide B/Source.{# ICT,5}","Section1/Access Citywide B/Source.{# SETTS,6}","Section1/Access Citywide B/Source.{# NYSAA,7}","Section1/Access Citywide B/Source.{# SWDs,8}","Section1/Access Citywide B/Source.{# Students,9}","Section1/Access Citywide B/Source.{# Referrals,10}","Section1/Access Citywide B/Source.{# Referrals YTD,11}","Section1/Access Citywide B/Source.{# Reevals,12}","Section1/Access Citywide B/Source.{# Reevals YTD,13}","Section1/Access Citywide B/Source.{SuspKey,14}"],"ColumnCount":15,"KeyColumnNames":[],"ColumnIdentities":["Section1/Access Citywide B/Source.{SchoolYear,0}","Section1/Access Citywide B/Source.{GENDER,1}","Section1/Access Citywide B/Source.{ETHNICITY,2}","Section1/Access Citywide B/Source.{# Para,3}","Section1/Access Citywide B/Source.{# Special,4}","Section1/Access Citywide B/Source.{# ICT,5}","Section1/Access Citywide B/Source.{# SETTS,6}","Section1/Access Citywide B/Source.{# NYSAA,7}","Section1/Access Citywide B/Source.{# SWDs,8}","Section1/Access Citywide B/Source.{# Students,9}","Section1/Access Citywide B/Source.{# Referrals,10}","Section1/Access Citywide B/Source.{# Referrals YTD,11}","Section1/Access Citywide B/Source.{# Reevals,12}","Section1/Access Citywide B/Source.{# Reevals YTD,13}","Section1/Access Citywide B/Source.{SuspKey,14}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

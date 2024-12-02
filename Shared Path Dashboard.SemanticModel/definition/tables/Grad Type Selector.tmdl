@@ -1,0 +1,21 @@
+table 'Grad Type Selector'
+	lineageTag: b6040edf-7788-43b9-9b7b-415ac58510c1
+
+	column type
+		dataType: string
+		lineageTag: d7e07b16-2c89-4328-9bc2-9bade594acb8
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Grad Type Selector-cb06c331-5c84-4412-ba8d-12782cf49a0b' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT distinct type#(lf)  FROM [SEO_REPORTING].[BI].[vw_SPFDashboard_Grad]#(lf)  order by type"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

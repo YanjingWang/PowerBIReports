@@ -1,0 +1,204 @@
+table 'Exam Citywide'
+	isHidden
+	lineageTag: 2309f513-08e6-43a0-bde2-72949cfa5e01
+
+	measure '# Scoring at Level Citywide' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Exam Level Selector'[Proficiency Level], "1")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[IEP], "IEP")
+			VAR MySelectionExam =
+			SELECTEDVALUE ('Exam Type Selector'[Exam], "ELA")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "1", CALCULATE(sum('Exam Citywide'[1]),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam),
+			MySelection = "2", CALCULATE(sum('Exam Citywide'[2]),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam),
+			MySelection = "3", CALCULATE(sum('Exam Citywide'[3]),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam),
+			MySelection = "4", CALCULATE(sum('Exam Citywide'[4]),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam),
+			MySelection = "Proficient (3 & 4)", CALCULATE((sum('Exam Citywide'[3])+sum('Exam Citywide'[4])),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam),
+			CALCULATE(sum('Exam Citywide'[1]),'Exam Citywide'[IEP]="IEP",'Exam Citywide'[Exam]="ELA"))
+		formatString: #,0
+		isHidden
+		lineageTag: 01d3178b-89d1-4560-a2ba-4c7f03dff026
+
+	measure '# Tested Citywide' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Exam Level Selector'[Proficiency Level], "1")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[IEP], "IEP")
+			VAR MySelectionExam =
+			SELECTEDVALUE ('Exam Type Selector'[Exam], "ELA")
+			RETURN
+			CALCULATE(sum('Exam Citywide'[NumTested]),'Exam Citywide'[IEP]=MySelectionIEP,'Exam Citywide'[Exam]=MySelectionExam)
+		formatString: 0
+		isHidden
+		lineageTag: 79865ea5-0929-41b2-b1ec-a3a66e1f3a0f
+
+	measure '% Scoring at Level Citywide' = [# Scoring at Level Citywide]/[# Tested Citywide]
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 39d76132-8314-44e4-9488-ca29ec95ef65
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: b61e043f-6b27-4069-ad36-fbe7f9862082
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 46eac70c-3f51-4fb0-a233-cb908e49c14f
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: e21c659a-16f7-4eb0-9f48-2c7f16d001ad
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: f2b9ce7b-4b39-49d3-a247-4562a4b8fb1c
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: 09914f57-df98-4279-b5aa-07caf5584bb0
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exam
+		dataType: string
+		isHidden
+		lineageTag: 93532a27-d731-4ee1-b2ca-77696584eaad
+		summarizeBy: none
+		sourceColumn: Exam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: cf23679e-e39c-4d71-9d13-8ec8faa39bd1
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0b3ed672-0537-441d-98fc-8da7350f4f45
+		summarizeBy: sum
+		sourceColumn: 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b3c19286-42a3-4777-a352-60202b6c571d
+		summarizeBy: sum
+		sourceColumn: 2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1f428a93-4953-4d8f-b5c3-238a467b6321
+		summarizeBy: sum
+		sourceColumn: 3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 4
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1fee7be3-1167-4245-a7bc-30f115e6a436
+		summarizeBy: sum
+		sourceColumn: 4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumTested
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 103643bf-372d-4a22-bd6e-35c78bd70ac9
+		summarizeBy: sum
+		sourceColumn: NumTested
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: 3997b543-48b7-4759-a957-f63ae7e0ee2e
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exam Citywide-2ad0a04f-8528-48ae-94d9-1be8959d049d' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT test.[GENDER]#(lf)      ,test.[ETHNICITY]#(lf)      ,test.[GRADE]#(lf)      ,test.[ELL_STATUS]#(lf)      ,test.[IEP]#(lf)      ,test.Exam#(lf)      ,test.[SchoolYear]#(lf)      ,sum([1]) as [1]#(lf)      ,sum([2]) as [2]#(lf)      ,sum([3]) as [3]#(lf)      ,sum([4]) as [4]#(lf)      ,Sum([NumTested]) as NumTested#(lf)      ,CONCAT(SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY) as TableKey#(lf)      --,CONCAT(SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY,Exam,IEP) as ExamKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_ELAMathCitywide] test#(lf)  GROUP by GENDER, ETHNICITY,GRADE,ELL_STATUS,IEP,Exam,SchoolYear"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":13,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Exam Citywide/Source.{GENDER,0}","Section1/Exam Citywide/Source.{ETHNICITY,1}","Section1/Exam Citywide/Source.{GRADE,2}","Section1/Exam Citywide/Source.{ELL_STATUS,3}","Section1/Exam Citywide/Source.{IEP,4}","Section1/Exam Citywide/Source.{Exam,5}","Section1/Exam Citywide/Source.{SchoolYear,6}","Section1/Exam Citywide/Source.{1,7}","Section1/Exam Citywide/Source.{2,8}","Section1/Exam Citywide/Source.{3,9}","Section1/Exam Citywide/Source.{4,10}","Section1/Exam Citywide/Source.{NumTested,11}","Section1/Exam Citywide/Source.{TableKey,12}"],"ColumnCount":13,"KeyColumnNames":[],"ColumnIdentities":["Section1/Exam Citywide/Source.{GENDER,0}","Section1/Exam Citywide/Source.{ETHNICITY,1}","Section1/Exam Citywide/Source.{GRADE,2}","Section1/Exam Citywide/Source.{ELL_STATUS,3}","Section1/Exam Citywide/Source.{IEP,4}","Section1/Exam Citywide/Source.{Exam,5}","Section1/Exam Citywide/Source.{SchoolYear,6}","Section1/Exam Citywide/Source.{1,7}","Section1/Exam Citywide/Source.{2,8}","Section1/Exam Citywide/Source.{3,9}","Section1/Exam Citywide/Source.{4,10}","Section1/Exam Citywide/Source.{NumTested,11}","Section1/Exam Citywide/Source.{TableKey,12}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

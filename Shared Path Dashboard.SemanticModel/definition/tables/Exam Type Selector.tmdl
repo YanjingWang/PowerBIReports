@@ -1,0 +1,40 @@
+table 'Exam Type Selector'
+	isHidden
+	lineageTag: 54d3d2fa-3a51-49cd-b829-8181eaea94df
+
+	column Exam
+		dataType: string
+		isHidden
+		lineageTag: 0836a9d3-6729-40d5-914b-211fcb62c284
+		summarizeBy: none
+		sourceColumn: Exam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8f73de14-80cb-4aeb-824b-aef15cc12abe
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exam Type Selector-5c417591-94b5-465d-b094-357080939f0f' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcvVxVNJRMlSK1YlW8k0syQByjJRiYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Exam = _t, Order = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Exam", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Exam Type Selector/Changed Type.{Exam,0}","Section1/Exam Type Selector/Changed Type.{Order,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Exam Type Selector/Changed Type.{Exam,0}","Section1/Exam Type Selector/Changed Type.{Order,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

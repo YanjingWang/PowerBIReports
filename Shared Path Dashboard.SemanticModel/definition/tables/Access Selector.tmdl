@@ -1,0 +1,49 @@
+table 'Access Selector'
+	isHidden
+	lineageTag: 387abd27-8ba8-4080-a5f4-07899f1c9d50
+
+	column 'Data Set'
+		dataType: string
+		isHidden
+		lineageTag: 11935c7e-cabe-4737-b365-ab287f078cfd
+		summarizeBy: none
+		sourceColumn: Data Set
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9aaa8843-2acc-4bbf-9ca1-139354c17ec5
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Short
+		dataType: string
+		lineageTag: ee977e7a-8e7b-4ff5-aefe-04f285cb8309
+		summarizeBy: none
+		sourceColumn: Short
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Access Selector-7f06fd32-304f-4025-89a1-6de17aad86a0' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("fZBPC8IwDMW/SigICrv4X4+iHryIrAORsUN1GRa6dbRVv75p50AH8xBIk99LHy9N2QB0Adw9cqychZd0d9hJK65SSSfRsoiNqQbAzzvLsihlMRZojFAQC4e0mlCF1i8bDmK86bLEKsccnAa+TzgnbNpcCq9++rBNiJsF1vd/7tZ4k+Rkq4T1TufN/Z9pj7rQBo4XvtmQZBFk4QVDnwbBo1bYJtMnXnbFH8Ho++cQ60kYURtdoLVSV0J5x6ug9puOU3wK9aBUcwLWAWpmLMve", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Data Set" = _t, Order = _t, Short = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Data Set", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Access Selector/Changed Type.{Data Set,0}","Section1/Access Selector/Changed Type.{Order,1}","Section1/Access Selector/Source.{Short,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/Access Selector/Changed Type.{Data Set,0}","Section1/Access Selector/Changed Type.{Order,1}","Section1/Access Selector/Source.{Short,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

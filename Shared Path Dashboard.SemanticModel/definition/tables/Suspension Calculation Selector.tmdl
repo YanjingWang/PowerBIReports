@@ -1,0 +1,41 @@
+table 'Suspension Calculation Selector'
+	isHidden
+	lineageTag: dd828042-978b-47c5-a189-57f9be2d9403
+
+	column 'Suspension Aggregation'
+		dataType: string
+		isHidden
+		lineageTag: c557d3b4-d648-45c5-8080-8fad3b1bfd61
+		summarizeBy: none
+		sourceColumn: Suspension Aggregation
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dcedfd7e-d75e-4366-85cb-dc6259af8fa7
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension Calculation Selector-faf2901c-a05f-4091-98b3-3eeb4871e64d' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCi4pTUnNK1EILi0uSM0rzszPUwhKLElV0lEyVIrViVYKyS9JzMEiawSW9cnPS9cNSS3KRVehoBFTamBgnGpooOCSWFmsCdRhDNYRlFqQmojNOhOl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Suspension Aggregation" = _t, Order = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Suspension Aggregation", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Suspension Calculation Selector/Changed Type.{Suspension Aggregation,0}","Section1/Suspension Calculation Selector/Changed Type.{Order,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Suspension Calculation Selector/Changed Type.{Suspension Aggregation,0}","Section1/Suspension Calculation Selector/Changed Type.{Order,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

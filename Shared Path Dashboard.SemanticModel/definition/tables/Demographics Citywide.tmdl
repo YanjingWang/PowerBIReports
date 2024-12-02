@@ -1,0 +1,105 @@
+table 'Demographics Citywide'
+	isHidden
+	lineageTag: d668d01d-a462-4b62-af91-615dc6be8243
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 7caa7ff9-0c9a-48ae-9189-5cc22471dbae
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 11c6e586-6981-4e18-aadf-3b760627be66
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 3e4819e6-0ab3-49d7-958a-a9f41c838476
+		summarizeBy: none
+		sourceColumn: GRADE
+		sortByColumn: GRADE_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 1f8d5a3e-0b1d-4dc5-948d-3d97f989475b
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 5bc77480-057e-495c-a852-d7e2d2089bd6
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: f737f3b3-9510-4628-9788-1899e6257495
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		isHidden
+		lineageTag: 8f0dd883-5cf2-435b-b79f-517e73d99e6c
+		summarizeBy: none
+		sourceColumn: SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE_ORDER
+		dataType: string
+		isHidden
+		lineageTag: 1213d66d-57c8-494c-8a1e-d33195e9657f
+		summarizeBy: none
+		sourceColumn: GRADE_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Demographics Citywide-80e0e616-ff0e-4712-9de5-a9ccad46ee95' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT distinct [SchoolYear]#(lf)      ,[ELL_STATUS]#(lf)      ,[GRADE]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[GRADE_ORDER]#(lf)      ,[SY]#(lf)      ,[TableKey]#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Demographics]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":8,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demographics Citywide/Source.{SchoolYear,0}","Section1/Demographics Citywide/Source.{ELL_STATUS,1}","Section1/Demographics Citywide/Source.{GRADE,2}","Section1/Demographics Citywide/Source.{GENDER,3}","Section1/Demographics Citywide/Source.{ETHNICITY,4}","Section1/Demographics Citywide/Source.{GRADE_ORDER,5}","Section1/Demographics Citywide/Source.{SY,6}","Section1/Demographics Citywide/Source.{TableKey,7}"],"ColumnCount":8,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demographics Citywide/Source.{SchoolYear,0}","Section1/Demographics Citywide/Source.{ELL_STATUS,1}","Section1/Demographics Citywide/Source.{GRADE,2}","Section1/Demographics Citywide/Source.{GENDER,3}","Section1/Demographics Citywide/Source.{ETHNICITY,4}","Section1/Demographics Citywide/Source.{GRADE_ORDER,5}","Section1/Demographics Citywide/Source.{SY,6}","Section1/Demographics Citywide/Source.{TableKey,7}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

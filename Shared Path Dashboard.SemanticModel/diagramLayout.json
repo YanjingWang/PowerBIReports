@@ -1,0 +1,454 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1387.4562406598588,
+            "y": 1062.271177325191
+          },
+          "nodeIndex": "Access",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5615.83326434981,
+            "y": 0
+          },
+          "nodeIndex": "Access B",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 585.3870127586049,
+            "y": 668
+          },
+          "nodeIndex": "Access Citywide",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7266.745549990289,
+            "y": 0
+          },
+          "nodeIndex": "Access Citywide B",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1820.0589240511526,
+            "y": 386.81599105655687
+          },
+          "nodeIndex": "Access Selector",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1007.5505635341218,
+            "y": 393.25927777737144
+          },
+          "nodeIndex": "Demographics",
+          "size": {
+            "height": 289,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6001.2674827839292,
+            "y": 524
+          },
+          "nodeIndex": "Demographics B",
+          "size": {
+            "height": 289,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 596.80206840967253,
+            "y": 377
+          },
+          "nodeIndex": "Demographics Citywide",
+          "size": {
+            "height": 251,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7016.9005463222129,
+            "y": 537
+          },
+          "nodeIndex": "Demographics Citywide B",
+          "size": {
+            "height": 251,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 963.95127599910256,
+            "y": 3.397832136193756
+          },
+          "nodeIndex": "Exam",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 311.3870127586049,
+            "y": 525.13957949361441
+          },
+          "nodeIndex": "Exam Citywide",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2142.8609924608254,
+            "y": 386.81599105655687
+          },
+          "nodeIndex": "Exam Level Selector",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2465.6630608704977,
+            "y": 396.31599105655687
+          },
+          "nodeIndex": "Exam Type Selector",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1237.9512759991026,
+            "y": 16.259277777371437
+          },
+          "nodeIndex": "Grad",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 322.80206840967253,
+            "y": 67.333546963832646
+          },
+          "nodeIndex": "Grad Citywide",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2788.46512928017,
+            "y": 396.31599105655687
+          },
+          "nodeIndex": "Grad Outcome Selector",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 948.29378751338049,
+            "y": 722.25927777737138
+          },
+          "nodeIndex": "Locations",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7891.5905536583641,
+            "y": 0
+          },
+          "nodeIndex": "Minimum N Size",
+          "size": {
+            "height": 118,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5266.39904591569,
+            "y": 0
+          },
+          "nodeIndex": "Referral Rate Selector",
+          "size": {
+            "height": 118,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1497.2568556414801,
+            "y": 183.25196501475347
+          },
+          "nodeIndex": "Suspension",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6314.7017012180477,
+            "y": 0
+          },
+          "nodeIndex": "Suspension B",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4079.673402918861,
+            "y": 396.31599105655687
+          },
+          "nodeIndex": "Suspension Calculation Selector",
+          "size": {
+            "height": 137,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 55.701565304511746
+          },
+          "nodeIndex": "Suspension Citywide",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7621.0298005696222,
+            "y": 0
+          },
+          "nodeIndex": "Suspension Citywide B",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3111.2671976898428,
+            "y": 386.81599105655687
+          },
+          "nodeIndex": "Suspension IEP Selector",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6490.6673445810675,
+            "y": 692
+          },
+          "nodeIndex": "Suspension IEP Selector B",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4995.8382928269484,
+            "y": 0
+          },
+          "nodeIndex": "Suspension Rate Selector",
+          "size": {
+            "height": 118,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7821.2000000000007,
+            "y": 786
+          },
+          "nodeIndex": "Suspension School Year Aggregate",
+          "size": {
+            "height": 216,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1413.1837415428336,
+            "y": 598.46910891551852
+          },
+          "nodeIndex": "Transition",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4402.4754713285338,
+            "y": 386.81599105655687
+          },
+          "nodeIndex": "Transition Calculation Selector",
+          "size": {
+            "height": 156,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 596.80206840967253,
+            "y": 0
+          },
+          "nodeIndex": "Transition Citywide",
+          "size": {
+            "height": 337,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4725.2775397382065,
+            "y": 377.31599105655687
+          },
+          "nodeIndex": "Users",
+          "size": {
+            "height": 175,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8255.4,
+            "y": 0
+          },
+          "nodeIndex": "Current SY (Update at Rollover)",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8641.6,
+            "y": 0
+          },
+          "nodeIndex": "Demo Table",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8992.6,
+            "y": 0
+          },
+          "nodeIndex": "Grad Type Selector",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9425.3,
+            "y": 0
+          },
+          "nodeIndex": "Suspended Students",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,41 @@
+table 'Grad Outcome Selector'
+	isHidden
+	lineageTag: f3e11a71-e932-4f92-a034-d4e613523f2a
+
+	column Outcome
+		dataType: string
+		isHidden
+		lineageTag: 275c13cc-7454-475e-ab99-7b6fba6fe59c
+		summarizeBy: none
+		sourceColumn: Outcome
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0e87c808-c3a8-49f9-aac8-1501b788afd2
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Grad Outcome Selector-d869c27e-1c58-48af-826f-e79d2a60c418' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wci9KTClNLMnMz1PSUTJUitWJVvLJT07MUXDJLMjJz00EihqBRR1zchSCUtNT80qKgWLGYDEoH0mtCURtSlliXnJqCpIGU7CES1F+gYJ/aQlQwEwpNhYA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Outcome = _t, Order = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Grad Outcome Selector/Changed Type.{Outcome,0}","Section1/Grad Outcome Selector/Changed Type.{Order,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Grad Outcome Selector/Changed Type.{Outcome,0}","Section1/Grad Outcome Selector/Changed Type.{Order,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

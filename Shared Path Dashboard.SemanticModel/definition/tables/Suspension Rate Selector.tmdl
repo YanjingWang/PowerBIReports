@@ -1,0 +1,27 @@
+table 'Suspension Rate Selector'
+	isHidden
+	lineageTag: 05c13488-08b9-4ba7-87a9-a6b22c19fa8e
+
+	column 'Measure Name'
+		dataType: string
+		isHidden
+		lineageTag: cce95ba4-38b3-4123-bd13-9d33fe43fc0a
+		summarizeBy: none
+		sourceColumn: Measure Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension Rate Selector-7840e40b-f809-4ff5-837f-e3e9925af29c' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *#(lf)FROM #(lf)(#(lf)VALUES('End of School Year'),#(lf)(CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.bi.vw_SPFDashboard_Suspension), ' Days of School'))#(lf))#(lf)AS sub([Measure Name])"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Suspension Rate Selector/Source.{Measure Name,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Suspension Rate Selector/Source.{Measure Name,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,49 @@
+table 'Transition Calculation Selector'
+	isHidden
+	lineageTag: 3db84d5d-4092-4369-84ce-7b0fbdd94358
+
+	column 'Data Set'
+		dataType: string
+		isHidden
+		lineageTag: 442b3b9c-1d9b-424e-811e-8d439ae2a20b
+		summarizeBy: none
+		sourceColumn: Data Set
+		sortByColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7cf28148-4578-4fda-ae1c-5eeffa0c69b3
+		summarizeBy: sum
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Short
+		dataType: string
+		lineageTag: d02ddd98-4d45-4890-b0ca-c9b59034cc4f
+		summarizeBy: none
+		sourceColumn: Short
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Transition Calculation Selector-3b6987f9-225b-4518-9617-0a621dd9d678' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WUlXIT1PwdA0oVijPLMlQCClKzCvOLMnMz1Nwy0zNSSlWcM7PLchJLUlNUdJRMgRiVbiIUqwOhn7PvLLEnMwUBcf01LwShcw8BecQR6AmI7BGqKRSbCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Data Set" = _t, Order = _t, Short = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Data Set", type text}, {"Order", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Transition Calculation Selector/Changed Type.{Data Set,0}","Section1/Transition Calculation Selector/Changed Type.{Order,1}","Section1/Transition Calculation Selector/Source.{Short,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/Transition Calculation Selector/Changed Type.{Data Set,0}","Section1/Transition Calculation Selector/Changed Type.{Order,1}","Section1/Transition Calculation Selector/Source.{Short,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

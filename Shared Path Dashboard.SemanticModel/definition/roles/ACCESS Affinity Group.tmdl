@@ -1,0 +1,9 @@
+role 'ACCESS Affinity Group'
+	modelPermission: read
+
+	tablePermission Locations =
+			[Borough/Citywide Office] = "Access"
+			|| [Borough/Citywide Office] = "Affinity Group"
+
+	annotation PBI_Id = 8dead7c90fd748979ec23e95dc8f7aa2
+

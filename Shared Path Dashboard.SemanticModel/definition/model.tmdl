@@ -1,0 +1,73 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Locations","Access","Access Citywide","Transition","Transition Citywide","Suspension","Suspension IEP Selector","Suspension Calculation Selector","Suspension Citywide","Demographics","Exam","Exam Level Selector","Exam Citywide","Exam Type Selector","Grad","Grad Outcome Selector","Grad Citywide","Access Selector","Transition Calculation Selector","Demographics Citywide","Users","Suspension Rate Selector","Referral Rate Selector","Suspension B","Access B","Demographics B","Demographics Citywide B","Suspension IEP Selector B","Suspension School Year Aggregate","Suspension Citywide B","Access Citywide B","Minimum N Size","Current SY (Update at Rollover)","Demo Table","Grad Type Selector","Suspended Students"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_99954493-8b31-443b-b8cb-18a89b49f9cc
+ref table Locations
+ref table Access
+ref table 'Access Citywide'
+ref table Transition
+ref table LocalDateTable_67418193-eac4-4fc8-a128-78dee03bc5c5
+ref table 'Transition Citywide'
+ref table LocalDateTable_e944c42e-28d9-4fb5-b62f-364e94a87f2a
+ref table Suspension
+ref table 'Suspension IEP Selector'
+ref table 'Suspension Calculation Selector'
+ref table 'Suspension Citywide'
+ref table Demographics
+ref table Exam
+ref table 'Exam Level Selector'
+ref table 'Exam Citywide'
+ref table 'Exam Type Selector'
+ref table Grad
+ref table 'Grad Outcome Selector'
+ref table 'Grad Citywide'
+ref table 'Access Selector'
+ref table 'Transition Calculation Selector'
+ref table LocalDateTable_4b183e01-9a9e-433d-95bf-a6a25c8cf9da
+ref table 'Demographics Citywide'
+ref table Users
+ref table 'Suspension Rate Selector'
+ref table 'Referral Rate Selector'
+ref table LocalDateTable_b32dc6cd-cd7b-4751-834c-f6fe5aad69d3
+ref table 'Suspension B'
+ref table 'Access B'
+ref table 'Demographics B'
+ref table 'Demographics Citywide B'
+ref table 'Suspension IEP Selector B'
+ref table 'Suspension School Year Aggregate'
+ref table 'Suspension Citywide B'
+ref table 'Access Citywide B'
+ref table 'Minimum N Size'
+ref table LocalDateTable_6c2a30d6-34b5-4662-a142-0e081e108061
+ref table 'Current SY (Update at Rollover)'
+ref table LocalDateTable_3e098cfc-3599-4caf-bac6-b340a34811d3
+ref table LocalDateTable_ab4a8325-056c-4045-993c-52dd3bf4bc82
+ref table LocalDateTable_ffa8e8be-cb87-4f3c-b77c-66273f9761d6
+ref table LocalDateTable_b107ccdc-f6b5-4420-ab0d-71d7d57efdf5
+ref table 'Demo Table'
+ref table 'Grad Type Selector'
+ref table 'Suspended Students'
+ref table LocalDateTable_158999d2-5527-4d1e-841c-29dd06388064
+ref table LocalDateTable_bcf1a796-247c-4c9b-8d65-811c2254d871
+ref table LocalDateTable_342c8749-64a1-49a6-8285-0bb1017978ae
+ref table LocalDateTable_885a3b9c-8e0c-4c99-809e-347e69f8e642
+ref table LocalDateTable_23afcc3c-9f4a-431d-98eb-22bd3a1acd2e
+ref table LocalDateTable_074ef998-74ef-46bd-a6ae-bf6601490cab
+ref table LocalDateTable_35ae836a-e038-48ab-9ad0-65983a57a31a
+
+ref role 'Dynamic RLS'
+ref role 'ACCESS Affinity Group'
+

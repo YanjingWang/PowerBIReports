@@ -1,0 +1,71 @@
+table 'Demographics Citywide B'
+	isHidden
+	lineageTag: 28f0a099-c5b8-417f-aef2-d85a8df0c357
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 69e982b8-e366-476b-af40-a4375e24d6b3
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: cbc82288-8099-408b-a264-135f8e5b4528
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 74f08380-30f1-475e-9807-052f2a8c7e97
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		isHidden
+		lineageTag: 615ca4e8-f863-455e-9b88-29a46a64fc18
+		summarizeBy: none
+		sourceColumn: SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspKey
+		dataType: string
+		isHidden
+		lineageTag: 529b6359-68c5-42f5-85d3-5f28069e4777
+		summarizeBy: none
+		sourceColumn: SuspKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Demographics Citywide B-7c87032c-cb8b-4e4a-9e93-4f57c6e3f0c7' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT distinct [SchoolYear]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)#(tab)  ,CONCAT(SCHOOLYEAR,GENDER,ETHNICITY) as SuspKey#(lf)      ,[SY]#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Demographics]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":5,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demographics Citywide B/Source.{SchoolYear,0}","Section1/Demographics Citywide B/Source.{GENDER,1}","Section1/Demographics Citywide B/Source.{ETHNICITY,2}","Section1/Demographics Citywide B/Source.{SuspKey,3}","Section1/Demographics Citywide B/Source.{SY,4}"],"ColumnCount":5,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demographics Citywide B/Source.{SchoolYear,0}","Section1/Demographics Citywide B/Source.{GENDER,1}","Section1/Demographics Citywide B/Source.{ETHNICITY,2}","Section1/Demographics Citywide B/Source.{SuspKey,3}","Section1/Demographics Citywide B/Source.{SY,4}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,186 @@
+relationship 263528eb-1ed1-4804-b592-051885492d50
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Transition.AsOfDate
+	toColumn: LocalDateTable_67418193-eac4-4fc8-a128-78dee03bc5c5.Date
+
+relationship c496f678-1411-4902-9404-0aafdaae044c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Transition Citywide'.AsOfDate
+	toColumn: LocalDateTable_e944c42e-28d9-4fb5-b62f-364e94a87f2a.Date
+
+relationship 53f566f4-fcce-4ae3-abc7-73f6956bdbf3
+	crossFilteringBehavior: bothDirections
+	fromColumn: Demographics.SchoolKey
+	toColumn: Transition.SchoolKey
+
+relationship d0c55ef3-f4c6-4233-9ed0-9815ccd6d273
+	crossFilteringBehavior: bothDirections
+	fromColumn: Exam.SchoolKey
+	toColumn: Demographics.SchoolKey
+
+relationship 90d7971a-5cd6-484c-b7ca-7b1e20e8cb69
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ClosedDate
+	toColumn: LocalDateTable_4b183e01-9a9e-433d-95bf-a6a25c8cf9da.Date
+
+relationship 6ae7f0ab-8d46-4ad9-89ad-0958e144c4f0
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Exam Citywide'.TableKey
+	toColumn: 'Demographics Citywide'.TableKey
+
+relationship 5890db34-8132-4bcb-9c81-97e3f2f16fdd
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Demographics Citywide'.TableKey
+	toColumn: 'Transition Citywide'.TableKey
+
+relationship 0893dd98-3c0f-47e6-82f1-b40fd9f65efb
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Access Citywide'.TableKey
+	toColumn: 'Demographics Citywide'.TableKey
+
+relationship ef5dbadd-946f-4a66-bb37-ffd6247ae708
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Grad Citywide'.TableKey
+	toColumn: 'Demographics Citywide'.TableKey
+
+relationship 61b29e4f-50b5-447b-9ff8-aef17e63353a
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Suspension Citywide'.TableKey
+	toColumn: 'Demographics Citywide'.TableKey
+
+relationship b98c195e-09ce-4013-b7da-3362238dca06
+	crossFilteringBehavior: bothDirections
+	fromColumn: Suspension.SchoolKey
+	toColumn: Demographics.SchoolKey
+
+relationship cded380a-5e48-454a-bb85-b44057d9409b
+	crossFilteringBehavior: bothDirections
+	fromColumn: Access.SchoolKey
+	toColumn: Demographics.SchoolKey
+
+relationship 75c564b2-4ec8-4952-bfad-ce46edb5e41b
+	fromColumn: Demographics.TableKey
+	toColumn: 'Demographics Citywide'.TableKey
+
+relationship b95b3617-7a18-429b-b1aa-ddca66d03321
+	crossFilteringBehavior: bothDirections
+	fromColumn: Demographics.SCHOOL_DBN
+	toColumn: Locations.DBN
+
+relationship 14d7ec0b-008f-4644-9699-46aaa9c893ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Access.Last_Updated
+	toColumn: LocalDateTable_b32dc6cd-cd7b-4751-834c-f6fe5aad69d3.Date
+
+relationship 535b3aa4-ccd8-41ea-bcea-043d46a161a6
+	fromColumn: 'Demographics B'.SCHOOL_DBN
+	toColumn: Locations.DBN
+
+relationship cf793766-7298-4387-8965-882b428f4b86
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Demographics B'.SuspSchoolKey
+	toColumn: 'Access B'.SuspSchoolKey
+
+relationship 7000dd0a-7190-4b3c-ae5f-67fee46654f5
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Access Citywide B'.SuspKey
+	toColumn: 'Demographics Citywide B'.SuspKey
+
+relationship 4a18a081-33c6-47e9-a953-449061270ea5
+	fromColumn: 'Demographics B'.SuspKey
+	toColumn: 'Demographics Citywide B'.SuspKey
+
+relationship ef14afa4-3343-44ab-b3c7-17552ff75435
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Suspension B'.SuspSchoolKey
+	toColumn: 'Demographics B'.SuspSchoolKey
+
+relationship e81ffd5e-6043-40b4-b8be-299109e51d40
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Suspension Citywide B'.SuspKey
+	toColumn: 'Demographics Citywide B'.SuspKey
+
+relationship fea6f1c7-f0ce-4d8d-8087-cab182d8449d
+	fromColumn: 'Demographics Citywide B'.SchoolYear
+	toColumn: 'Suspension School Year Aggregate'.SchoolYear
+
+relationship 104b2ca6-caef-4c03-bab1-9865d0db0ae9
+	fromColumn: 'Demographics Citywide'.SchoolYear
+	toColumn: 'Suspension School Year Aggregate'.SchoolYear
+
+relationship d426f3e1-1a03-44b0-81ae-27da2b44beba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Locations.ProcessedDate
+	toColumn: LocalDateTable_6c2a30d6-34b5-4662-a142-0e081e108061.Date
+
+relationship 8c38af39-b64d-4ff0-a75e-eb8202bf2b21
+	crossFilteringBehavior: bothDirections
+	fromColumn: Grad.SchoolKey
+	toColumn: Demographics.SchoolKey
+
+relationship c54762af-f76d-4312-b5c7-e91f202543ad
+	toCardinality: many
+	fromColumn: Demographics.SchoolYear
+	toColumn: 'Current SY (Update at Rollover)'.SchoolYear
+
+relationship d7b9003d-bc40-4c3e-8017-a49b7dcf3291
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Suspension.AsOfDate
+	toColumn: LocalDateTable_3e098cfc-3599-4caf-bac6-b340a34811d3.Date
+
+relationship f096c37e-898d-4438-8f80-5e1ac13ecc58
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspension Citywide'.AsOfDate
+	toColumn: LocalDateTable_ab4a8325-056c-4045-993c-52dd3bf4bc82.Date
+
+relationship 93cd0175-f76f-40bc-921f-e18bc9f75de2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspension B'.AsOfDate
+	toColumn: LocalDateTable_ffa8e8be-cb87-4f3c-b77c-66273f9761d6.Date
+
+relationship e3e05365-21ca-44a7-b9cd-981d3036e77d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspension Citywide B'.AsOfDate
+	toColumn: LocalDateTable_b107ccdc-f6b5-4420-ab0d-71d7d57efdf5.Date
+
+relationship cbae8324-1921-47e5-86f5-58ba785646cd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.Start_Date
+	toColumn: LocalDateTable_158999d2-5527-4d1e-841c-29dd06388064.Date
+
+relationship 792f85cf-5ba7-468a-ab0c-85685c0f0a6b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.Susp_Effective_Date
+	toColumn: LocalDateTable_bcf1a796-247c-4c9b-8d65-811c2254d871.Date
+
+relationship bf7d0c97-ff29-484a-8cfe-534bbd25f659
+	fromColumn: 'Suspended Students'.SchoolKey
+	toColumn: Demographics.SchoolKey
+
+relationship f13390aa-8901-4a98-9a69-e557a9192da7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.PresumptiveMDRDueDate
+	toColumn: LocalDateTable_342c8749-64a1-49a6-8285-0bb1017978ae.Date
+
+relationship 76dd5e04-1673-41bf-994d-afde6b480c5d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.PresumptiveMDRCompletionDate
+	toColumn: LocalDateTable_885a3b9c-8e0c-4c99-809e-347e69f8e642.Date
+
+relationship b0ba3b80-0d30-437a-a1f0-01d2d69a9b4a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.NonpresumptiveMDRDueDate
+	toColumn: LocalDateTable_23afcc3c-9f4a-431d-98eb-22bd3a1acd2e.Date
+
+relationship 8326e00a-7f6a-4b2c-81d6-e73d7fcc82a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.NonpresumptiveMDRCompletionDate
+	toColumn: LocalDateTable_074ef998-74ef-46bd-a6ae-bf6601490cab.Date
+
+relationship 9c374985-fbc7-4664-9276-23fb41b096fe
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Suspended Students'.Return_Date
+	toColumn: LocalDateTable_35ae836a-e038-48ab-9ad0-65983a57a31a.Date
+

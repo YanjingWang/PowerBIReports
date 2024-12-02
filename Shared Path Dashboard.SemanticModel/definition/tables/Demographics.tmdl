@@ -1,0 +1,121 @@
+table Demographics
+	isHidden
+	lineageTag: c1dffdc3-9848-4dca-9224-c3fc25d8d534
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 588d0d25-9a27-492f-9c1c-a9df96cb9f72
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: e83c4f88-fbb3-417e-979a-a2f9a0391d22
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 26f36503-1c98-4c3a-9ee8-a2588267f5cb
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: 147af845-ec75-4f15-a173-4c870c43b6fd
+		summarizeBy: none
+		sourceColumn: GRADE
+		sortByColumn: GRADE_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 72a155e0-8ed6-466e-981c-a30653be5305
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: b76cb6c8-4262-4b95-99c0-c81fc1fff150
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE_ORDER
+		dataType: string
+		isHidden
+		lineageTag: 1d15de7e-58aa-4b5e-9fb0-3f38817fbfaa
+		summarizeBy: none
+		sourceColumn: GRADE_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SY
+		dataType: string
+		isHidden
+		lineageTag: de692a12-2072-432f-8a9e-05d9f1598dbc
+		summarizeBy: none
+		sourceColumn: SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		lineageTag: 83189846-4f2d-4043-ab81-ad5bc6e1cfb1
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		lineageTag: dafc3419-4b69-4685-8a03-c53c4c5d4d16
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Demographics-bc5db764-22b3-430d-8de6-18aca2098b2c = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="select * #(lf)FROM SEO_REPORTING.bi.vw_SPFDashboard_Demographics"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":10,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Demographics/Source.{SCHOOL_DBN,0}","Section1/Demographics/Source.{SchoolYear,1}","Section1/Demographics/Source.{ELL_STATUS,2}","Section1/Demographics/Source.{GRADE,3}","Section1/Demographics/Source.{GENDER,4}","Section1/Demographics/Source.{ETHNICITY,5}","Section1/Demographics/Source.{SchoolKey,6}","Section1/Demographics/Source.{GRADE_ORDER,7}","Section1/Demographics/Source.{SY,8}","Section1/Demographics/Source.{TableKey,9}"],"ColumnCount":10,"KeyColumnNames":[],"ColumnIdentities":["Section1/Demographics/Source.{SCHOOL_DBN,0}","Section1/Demographics/Source.{SchoolYear,1}","Section1/Demographics/Source.{ELL_STATUS,2}","Section1/Demographics/Source.{GRADE,3}","Section1/Demographics/Source.{GENDER,4}","Section1/Demographics/Source.{ETHNICITY,5}","Section1/Demographics/Source.{SchoolKey,6}","Section1/Demographics/Source.{GRADE_ORDER,7}","Section1/Demographics/Source.{SY,8}","Section1/Demographics/Source.{TableKey,9}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

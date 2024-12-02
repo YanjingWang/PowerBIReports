@@ -1,0 +1,215 @@
+table 'Access B'
+	isHidden
+	lineageTag: 4b5eae96-62f9-4477-a7e7-3e54997a3b9a
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 99370398-179c-4adf-8d7a-eb9aaf3d8ca4
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 436bfe83-97d9-4bd9-8ae1-7c39b3115d5d
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs with Paras'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e8269258-8500-41be-ba3e-7ba70dc178be
+		summarizeBy: none
+		sourceColumn: # SWDs with Paras
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs in Special Class'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a4b5f253-3c8f-426a-a56e-97078d152992
+		summarizeBy: none
+		sourceColumn: # SWDs in Special Class
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# ICT'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8876696c-018b-4d3f-8dc9-e84bbfd7024d
+		summarizeBy: none
+		sourceColumn: # ICT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# NYSAA'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 09308ed1-1999-4d1e-970c-0117491fe83f
+		summarizeBy: none
+		sourceColumn: # NYSAA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SWDs'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c015e771-4e8c-4fac-b747-133845c480e2
+		summarizeBy: none
+		sourceColumn: # SWDs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0bc20afa-0e3b-40e8-8662-cc7312bfaefc
+		summarizeBy: none
+		sourceColumn: # Students
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 22ab423f-42e6-4576-bd78-6419daac6b09
+		summarizeBy: none
+		sourceColumn: # Referrals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Referrals YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 03881c89-f716-477c-8a0f-6f87dedef542
+		summarizeBy: none
+		sourceColumn: # Referrals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4e7906d2-a9be-40ee-aef3-cb1c551d92ca
+		summarizeBy: none
+		sourceColumn: # Reevals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Reevals YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3c260ed1-419d-4c81-819a-5b993a2f85fb
+		summarizeBy: none
+		sourceColumn: # Reevals YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: ac3c33cd-52ee-4b89-89ff-6d09b12984e4
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 4f3770de-1a10-4b65-9c38-095a18eaee33
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# SETTS'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 40f7b806-c144-4138-aacf-efddcb64f711
+		summarizeBy: none
+		sourceColumn: # SETTS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspSchoolKey
+		dataType: string
+		isHidden
+		lineageTag: a12d27ba-2159-46f1-b732-425f3982b2d8
+		summarizeBy: none
+		sourceColumn: SuspSchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspKey
+		dataType: string
+		isHidden
+		lineageTag: 93d36f74-0f28-4517-8464-5e98c12f1731
+		summarizeBy: none
+		sourceColumn: SuspKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Access B-57f1145b-5233-4437-a8a7-a273649ace08' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="  SELECT ac.SCHOOL_DBN#(lf)      ,ac.SchoolYear#(lf)#(tab)  ,GENDER#(lf)#(tab)  ,ETHNICITY#(lf)     ,SUM(ac.[# Para]) as [# Para]#(lf)#(tab) ,SUM(ac.[# Special]) as [# Special]#(lf)#(tab),SUM(ac.[# ICT]) as [# ICT]#(lf)#(tab),SUM(ac.[# SETSS]) as [# SETTS]#(lf)#(tab),SUM(ac.[# NYSAA]) as [# NYSAA]#(lf)     ,SUM(ac.[# SWDs]) as [# SWDs]#(lf)#(tab) ,SUM(ac.[# Students]) as [# Students]#(lf)#(tab) ,SUM(ac.[# Referrals]) as [# Referrals]#(lf)#(tab) ,SUM(ac.[# Referrals YTD]) as [# Referrals YTD]#(lf)#(tab),SUM(ac.[# Reevals]) as [# Reevals]#(lf)#(tab) ,SUM(ac.[# Reevals YTD]) as [# Reevals YTD]#(lf)#(tab)  ,CONCAT(ac.SCHOOL_DBN,SchoolYear,GENDER,ETHNICITY) as SuspSchoolKey#(lf)#(tab) ,CONCAT(SchoolYear,GENDER,ETHNICITY) as SuspKey#(lf)  From SEO_REPORTING.bi.vw_SPF_AccessData ac#(lf)  LEFT OUTER JOIN SEO_REPORTING.dbo.vw_SchoolLookup_Current lcgms#(lf)  on ac.SCHOOL_DBN = lcgms.SCHOOL_DBN#(lf)  where lcgms.FSC is not null#(lf)  GROUP by ac.SCHOOL_DBN,SchoolYear,GENDER,ETHNICITY#(lf)  ORDER by SCHOOL_DBN,SchoolYear,GENDER,ETHNICITY"]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"# Special", "# SWDs in Special Class"}, {"# Para", "# SWDs with Paras"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":17,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Access B/Source.{SCHOOL_DBN,0}","Section1/Access B/Source.{SchoolYear,1}","Section1/Access B/Source.{GENDER,2}","Section1/Access B/Source.{ETHNICITY,3}","Section1/Access B/Source.{# Para,4}","Section1/Access B/Source.{# Special,5}","Section1/Access B/Source.{# ICT,6}","Section1/Access B/Source.{# SETTS,7}","Section1/Access B/Source.{# NYSAA,8}","Section1/Access B/Source.{# SWDs,9}","Section1/Access B/Source.{# Students,10}","Section1/Access B/Source.{# Referrals,11}","Section1/Access B/Source.{# Referrals YTD,12}","Section1/Access B/Source.{# Reevals,13}","Section1/Access B/Source.{# Reevals YTD,14}","Section1/Access B/Source.{SuspSchoolKey,15}","Section1/Access B/Source.{SuspKey,16}"],"ColumnCount":17,"KeyColumnNames":[],"ColumnIdentities":["Section1/Access B/Source.{SCHOOL_DBN,0}","Section1/Access B/Source.{SchoolYear,1}","Section1/Access B/Source.{GENDER,2}","Section1/Access B/Source.{ETHNICITY,3}","Section1/Access B/Source.{# Para,4}","Section1/Access B/Source.{# Special,5}","Section1/Access B/Source.{# ICT,6}","Section1/Access B/Source.{# SETTS,7}","Section1/Access B/Source.{# NYSAA,8}","Section1/Access B/Source.{# SWDs,9}","Section1/Access B/Source.{# Students,10}","Section1/Access B/Source.{# Referrals,11}","Section1/Access B/Source.{# Referrals YTD,12}","Section1/Access B/Source.{# Reevals,13}","Section1/Access B/Source.{# Reevals YTD,14}","Section1/Access B/Source.{SuspSchoolKey,15}","Section1/Access B/Source.{SuspKey,16}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

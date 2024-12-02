@@ -1,0 +1,50 @@
+table 'Exam Level Selector'
+	isHidden
+	lineageTag: e4e9dae3-f197-4606-8b98-82ea14ad3046
+
+	column 'Proficiency Level'
+		dataType: string
+		isHidden
+		lineageTag: 6ac0d859-058d-49b3-b20a-821785ca8a73
+		summarizeBy: none
+		sourceColumn: Proficiency Level
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Text
+		dataType: string
+		isHidden
+		lineageTag: 3483f213-cb48-4467-8907-152998e16ad4
+		summarizeBy: none
+		sourceColumn: Text
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Top 10'
+		dataType: string
+		isHidden
+		lineageTag: 14f50378-c396-4517-8d2c-37a4f1dd8f71
+		summarizeBy: none
+		sourceColumn: Top 10
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exam Level Selector-aa2dc393-46c5-4914-8456-1107c4166e44' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfJJLUvNUQCxPDLTM1KLS5RidaKVjOAyRmgyxnAZMCu/HCZhApcwQZUIKMpPy0zOTM0rUdAwVogpNTAwMlMw0QQqQsgg6YgFAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Proficiency Level" = _t, Text = _t, #"Top 10" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Proficiency Level", type text}, {"Text", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Exam Level Selector/Changed Type.{Proficiency Level,0}","Section1/Exam Level Selector/Changed Type.{Text,1}","Section1/Exam Level Selector/Source.{Top 10,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/Exam Level Selector/Changed Type.{Proficiency Level,0}","Section1/Exam Level Selector/Changed Type.{Text,1}","Section1/Exam Level Selector/Source.{Top 10,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

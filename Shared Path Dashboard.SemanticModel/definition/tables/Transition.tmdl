@@ -1,0 +1,335 @@
+table Transition
+	isHidden
+	lineageTag: 2d926ac2-a42b-4c02-a414-bec0e67caa93
+
+	measure '% Complete' = SUM('Transition'[#Complete])/SUM('Transition'[#IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 2a01563a-763b-4bc7-9940-66e15ed92821
+
+	measure AsOfMsg_Transition = "Latest school year data updated on " & FORMAT(MAX('Transition Citywide'[AsOfDate]), "MMM dd, YYYY")
+		isHidden
+		lineageTag: 025b3aa6-d04f-4554-b0b7-589278ba4eec
+
+	measure '% Invalid' = SUM('Transition'[#Invalid])/SUM('Transition'[#IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 3b048e61-ba73-4fdb-8318-6b0f1ab9b32f
+
+	measure 'Invalid measure' = SUM('Transition'[#Invalid])
+		formatString: 0
+		isHidden
+		lineageTag: a97c728b-e74f-4f79-b15f-b962ebdabb82
+
+	measure 'Measure IEPs' = IF(isblank(SUM('Transition'[#IEPs])),0,SUM('Transition'[#IEPs]))
+		formatString: 0
+		isHidden
+		lineageTag: c09a40bc-2591-4241-8f61-4a05c3e751a0
+
+	measure '% Complete Profile' = IF(isblank(SUM('Transition'[#Complete])/SUM('Transition'[#IEPs])),"N/A",SUM('Transition'[#Complete])/SUM('Transition'[#IEPs]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 2a6761fb-204d-4336-a35d-7936a5a22ae2
+
+	measure '% Invalid Profile' = if(isblank(SUM('Transition'[#Invalid])/SUM('Transition'[#IEPs])),"N/A",SUM('Transition'[#Invalid])/SUM('Transition'[#IEPs]))
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 8a7b338b-3f55-41f8-b006-3dcec60435e5
+
+	measure 'Incomplete measure' = SUM('Transition'[#Incomplete])
+		formatString: 0
+		isHidden
+		lineageTag: 9c617129-4cfc-4b52-90d3-9042a92e49bb
+
+	measure 'Transition title' = ```
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			MySelection
+			
+			```
+		isHidden
+		lineageTag: 35d65a02-022e-4019-8ff8-0a9dd8e64d50
+
+	measure 'Transition Measure' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "% of IEPs with Transition Fields Completed", 'Transition'[% Complete],
+			MySelection = "% of IEPs with Invalid Agent in CTA", [% Invalid],
+			'Transition'[% Complete])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: a6873a5a-1c9b-4313-b0e8-5b71b740f717
+
+	measure 'Transition Numerator' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "% of IEPs with Transition Fields Completed", SUM([#Complete]),
+			MySelection = "% of IEPs with Invalid Agent in CTA", SUM([#Invalid]),
+			SUM([#Complete]))
+		formatString: #,0
+		isHidden
+		lineageTag: 92cc28ae-e785-4553-a3e2-cbb31db2e5c4
+
+	measure 'Transition top 10 title' =
+			
+			VAR MySelectionTrans =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			IF(MySelectionTrans = "% of IEPs with Transition Fields Completed" , "Top 10 Highest # Incomplete IEPs | " & max(Transition[SchoolYear]), "Top 10 Highest # Invalid Agent | " & [CurrentSchoolYear] )
+		isHidden
+		lineageTag: 427b3ea5-570e-426f-ae7e-ca6cd4f51ae3
+
+	measure 'Transition Numerator Top 10' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "% of IEPs with Transition Fields Completed", SUM([#IEPs]) - SUM([#Complete]),
+			MySelection = "% of IEPs with Invalid Agent in CTA", SUM([#Invalid]),
+			SUM([#IEPs]) - SUM([#Complete]))
+		formatString: 0
+		isHidden
+		lineageTag: 08ebd957-dea4-480d-adf7-351bb7a83ca7
+
+	measure 'Transition Measure Top 10' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "% of IEPs with Transition Fields Completed", 1-'Transition'[% Complete],
+			MySelection = "% of IEPs with Invalid Agent in CTA", [% Invalid],
+			1-'Transition'[% Complete])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 44cdb6b2-c226-433e-bb90-6e09a15c55d1
+
+	measure 'Transition Table Title' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			"School Level Data | # and " & MySelection
+		isHidden
+		lineageTag: 7658975d-0188-4a2a-8662-3fe7f872b9f8
+
+	measure 'Transition Measure Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Transition Measure],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Transition Measure],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 54d24ffa-86d8-4f51-8b29-77220206e75d
+
+		changedProperty = FormatString
+
+	measure 'Transition Numerator Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Transition Numerator],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Transition Numerator],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: #,0
+		lineageTag: 2afb4a1c-a738-473a-8639-9c5afacce426
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Measure IEPs Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([Measure IEPs],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([Measure IEPs],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: #,0
+		lineageTag: f39600b2-c039-4a1f-82d2-9e0b3edda48e
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column #Invalid
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 2e0fb885-31d3-48aa-ac7a-c5645406497d
+		summarizeBy: sum
+		sourceColumn: #Invalid
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AsOfDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: c75c1947-9951-450e-b430-af1d4c777a24
+		summarizeBy: none
+		sourceColumn: AsOfDate
+
+		variation Variation
+			isDefault
+			relationship: 263528eb-1ed1-4804-b592-051885492d50
+			defaultHierarchy: LocalDateTable_67418193-eac4-4fc8-a128-78dee03bc5c5.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 69725b0c-e6d5-49d6-b755-5f2ac1f94b48
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 288d4adc-9bdd-4c35-92c0-bf369102cd41
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: b7cfb010-3c54-49d4-b72d-29bcff45948b
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: ef00d8b5-eaed-4487-9490-bc07e927e919
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 912a5f5b-4d63-4a3d-a99d-1732500b4a83
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #IEPs
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: b7095f09-71a0-44d6-a807-79aefb8a0d62
+		summarizeBy: sum
+		sourceColumn: #IEPs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Complete
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 642488a4-df1f-45cb-867c-e595d20f4eea
+		summarizeBy: sum
+		sourceColumn: #Complete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Incomplete = 'Transition'[#IEPs]-'Transition'[#Complete]
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 46e44664-bdb1-45e1-a836-f6862fade069
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 14f5dbb3-af4c-4c22-9361-e0b595fd30d9
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: a48824a9-fbc8-4c61-befd-dd4e3d14262d
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Transition-3fc1dbd0-ad40-4fc1-8646-27e3fc79526b = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SCHOOL_DBN]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[ELL_STATUS]#(lf)      ,[GRADE]#(lf)      ,[#IEPs]#(lf)      ,[#Complete]#(lf)      ,[#Invalid]#(lf)      ,[AsOfDate]#(lf)      ,[SchoolYear]#(lf)      ,CONCAT(SCHOOL_DBN,SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY) as SchoolKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Transition]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":11,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Transition/Source.{SCHOOL_DBN,0}","Section1/Transition/Source.{GENDER,1}","Section1/Transition/Source.{ETHNICITY,2}","Section1/Transition/Source.{ELL_STATUS,3}","Section1/Transition/Source.{GRADE,4}","Section1/Transition/Source.{#IEPs,5}","Section1/Transition/Source.{#Complete,6}","Section1/Transition/Source.{#Invalid,7}","Section1/Transition/Source.{AsOfDate,8}","Section1/Transition/Source.{SchoolYear,9}","Section1/Transition/Source.{SchoolKey,10}"],"ColumnCount":11,"KeyColumnNames":[],"ColumnIdentities":["Section1/Transition/Source.{SCHOOL_DBN,0}","Section1/Transition/Source.{GENDER,1}","Section1/Transition/Source.{ETHNICITY,2}","Section1/Transition/Source.{ELL_STATUS,3}","Section1/Transition/Source.{GRADE,4}","Section1/Transition/Source.{#IEPs,5}","Section1/Transition/Source.{#Complete,6}","Section1/Transition/Source.{#Invalid,7}","Section1/Transition/Source.{AsOfDate,8}","Section1/Transition/Source.{SchoolYear,9}","Section1/Transition/Source.{SchoolKey,10}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

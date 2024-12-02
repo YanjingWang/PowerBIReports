@@ -1,0 +1,29 @@
+table 'Minimum N Size'
+	isHidden
+	lineageTag: b4a44a99-fc9e-499e-a765-13e04bc124fc
+
+	column 'Minimum N Size'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b4e3c6c8-ef9d-4126-a4eb-95164bf8ee34
+		summarizeBy: sum
+		sourceColumn: Minimum N Size
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Minimum N Size-d4259e94-958c-4a1a-836a-04a27d5e1cdf' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSK1YlWMgWTRgZKsbEA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Minimum N Size" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Minimum N Size", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Minimum N Size/Changed Type.{Minimum N Size,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Minimum N Size/Changed Type.{Minimum N Size,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

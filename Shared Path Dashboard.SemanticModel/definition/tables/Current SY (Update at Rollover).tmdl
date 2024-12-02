@@ -1,0 +1,30 @@
+table 'Current SY (Update at Rollover)'
+	lineageTag: 72346d19-0db9-43dc-884d-cc17a26486a9
+
+	column SchoolYearLabel
+		dataType: string
+		lineageTag: 38ff92d5-548c-45f5-ba85-2624e36f150f
+		summarizeBy: none
+		sourceColumn: SchoolYearLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: cb8958f5-103b-48f4-96c1-f5cab8adbebd
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Current SY (Update at Rollover)-9be20750-b319-4343-a203-8910fc3d8490' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wci4tKkrNK1HSUTIyMDLSBRLGSrE60UoBRallmfmlxRAJQ5CEEVjCJ7EktbhEwb0oMUXBJBIibQCSNsSQNoVIG1qCpA0wpM2g0ha6IDXI0q4VibmocrEA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [SchoolYearLabel = _t, SchoolYear = _t]),
+				    #"Changed Type" = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SchoolYearLabel],[SchoolYear] FROM [SEO_REPORTING].[BI].[vw_SPFDashboard_SY]"])
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

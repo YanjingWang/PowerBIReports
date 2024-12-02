@@ -1,0 +1,51 @@
+table 'Suspension School Year Aggregate'
+	isHidden
+	lineageTag: 40ead595-181f-4ace-9c89-29ed7bebc8e6
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: ba175beb-0d5a-4b86-b6b7-4467c0a04ea2
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		isHidden
+		lineageTag: 2263ec80-f331-4559-bec4-cc6098088c13
+		summarizeBy: none
+		sourceColumn: Group
+		sortByColumn: GroupSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupSort
+		dataType: string
+		isHidden
+		lineageTag: f27acd71-e418-4f4c-b609-bff2f912b346
+		summarizeBy: none
+		sourceColumn: GroupSort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension School Year Aggregate-1377c829-241e-4d37-90b4-6777a45b8ff5' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjIwtNAFEpZKOkr+OSmpRUDaUClWByxjCZQxMgCKBBSllmXmlxYrmChEpiYWFSMpMjIAKTIkoMgQpMiIgCIjkCJjAoqMQYpMgCIobKXYWAA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [SchoolYear = _t, Group = _t, GroupSort = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SchoolYear", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/SchoolYear/Changed Type.{SchoolYear,0}","Section1/SchoolYear/Source.{Group,1}","Section1/SchoolYear/Source.{GroupSort,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/SchoolYear/Changed Type.{SchoolYear,0}","Section1/SchoolYear/Source.{Group,1}","Section1/SchoolYear/Source.{GroupSort,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,51 @@
+table 'Suspension IEP Selector'
+	isHidden
+	lineageTag: 835f1112-c34e-4a54-8dc3-5d6c3a1d77cb
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: e3b4e3cf-e9ba-4720-a5ca-711b7f2f55d8
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c08744f2-8242-4a45-aaf1-c9d17c6da9ef
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWDs
+		dataType: string
+		isHidden
+		lineageTag: d3259323-43e8-4e7e-83e6-b3cc36b52986
+		summarizeBy: none
+		sourceColumn: SWDs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension IEP Selector-13785b5c-b868-46a2-a974-6d525f282d09' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nQNUNJRMgTi4HAXpVidaCW/fAWIoBEQ++Xn6YIlYgE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [IEP = _t, Column1 = _t, SWDs = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"IEP", type text}, {"Column1", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":3,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Suspension IEP Selector/Changed Type.{IEP,0}","Section1/Suspension IEP Selector/Changed Type.{Column1,1}","Section1/Suspension IEP Selector/Source.{SWDs,2}"],"ColumnCount":3,"KeyColumnNames":[],"ColumnIdentities":["Section1/Suspension IEP Selector/Changed Type.{IEP,0}","Section1/Suspension IEP Selector/Changed Type.{Column1,1}","Section1/Suspension IEP Selector/Source.{SWDs,2}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

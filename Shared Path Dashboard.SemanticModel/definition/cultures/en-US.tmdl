@@ -1,0 +1,2174 @@
+culture en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "demographics.ell_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics",
+			          "ConceptualProperty": "ELL_STATUS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ELL Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.spotlight_sy1718": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Spotlight_SY1718"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Spotlight School": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rank__scoring": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Rank % Scoring at Level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rank_outcome": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Rank Grad Outcome"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rank_access_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Rank Special Ed Practice Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rank_suspension_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Rank Suspension Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rank_transition_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Rank Transition Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_rate_selector.measure_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension Rate Selector",
+			          "ConceptualProperty": "Measure Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Thru": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "DATA THRU": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.swds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "% SWDs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Students with IEPs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "% SWDs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.swds_with_paras": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "% SWDs with Paras"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% SWDs with Paras": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "SWDs with Paras": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.swds_in_special_class": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "% SWDs in Special Class"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% SWDs in Special Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Special Class": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.ref_toggle": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "# Ref Toggle"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# Referrals": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.access_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Your data": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.access_numerator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Numerator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.access_denominator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Denominator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.complete_profile": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "% Complete Profile"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Complete IEPs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.transition_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Transition Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Your data": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.transition_numerator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Transition Numerator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.transition_numerator_top_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Transition Numerator Top 10"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.transition_measure_top_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Transition Measure Top 10"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_numerator_swd": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Numerator SWD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SWDs Suspended": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "SWDs Suspended Twice": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_numerator_non": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Numerator Non SWD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Non-SWDs Suspended": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Non-SWDs Suspended Twice": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_measure_swd": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Measure SWD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SWD Suspension Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "SWD Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_measure_non": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Measure Non SWD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Non-SWD Suspension Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Non-SWD Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Your data": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Group A Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_numerator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Numerator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Group A # Suspended": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_denominator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Denominator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam_level_selector.proficiency_level": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam Level Selector",
+			          "ConceptualProperty": "Proficiency Level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exam Proficiency Level": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam.scoring_at_level": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam",
+			          "ConceptualProperty": "# Scoring at Level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# Scoring at Level": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam.scoring_at_level1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam",
+			          "ConceptualProperty": "% Scoring at Level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Your data": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam.tested": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam",
+			          "ConceptualProperty": "# Tested"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tested": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.cohort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# in Cohort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cohort": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.iep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "IEP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IEP Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "Type"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "grad.outcome_rate_na": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "Outcome Rate NA"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "grad.cohortyear": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "CohortYear"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "grad.outcome_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "Outcome Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Your data": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.outcome": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# Outcome"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad_outcome_selector.outcome": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad Outcome Selector",
+			          "ConceptualProperty": "Outcome"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Outcome": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Graduation Outcome": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_iep_selector.iep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension IEP Selector",
+			          "ConceptualProperty": "IEP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IEP STATUS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam_type_selector.exam": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam Type Selector",
+			          "ConceptualProperty": "Exam"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exam": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access_selector.data_set": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access Selector",
+			          "ConceptualProperty": "Data Set"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SELECT DATA SET": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_calculation_selector.suspension_aggregation": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension Calculation Selector",
+			          "ConceptualProperty": "Suspension Aggregation"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SELECT DATA SET": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_b.suspension_measure_b": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension B",
+			          "ConceptualProperty": "Suspension Measure B"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Group B Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_b.relative_risk_ab": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension B",
+			          "ConceptualProperty": "Relative Risk AB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Risk Ratio (A_Rate/B_Rate)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Relative Risk (A/B)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_b.suspension_numerator_b": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension B",
+			          "ConceptualProperty": "Suspension Numerator B"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Group B # Suspended": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_b.significant_disproportionality": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension B",
+			          "ConceptualProperty": "Significant Disproportionality"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Significant Disproportionality?": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_iep_selector_b.iep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension IEP Selector B",
+			          "ConceptualProperty": "IEP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IEP STATUS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition_calculation_selector.data_set": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition Calculation Selector",
+			          "ConceptualProperty": "Data Set"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SELECT DATA SET": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics_citywide.ell_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics Citywide",
+			          "ConceptualProperty": "ELL_STATUS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ELL Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.dbn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "DBN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "School DBN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics_citywide.grade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics Citywide",
+			          "ConceptualProperty": "GRADE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Grade": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics_citywide.gender": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics Citywide",
+			          "ConceptualProperty": "GENDER"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gender": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "demographics_citywide.ethnicity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Demographics Citywide",
+			          "ConceptualProperty": "ETHNICITY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ethnicity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.superintendent": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Superintendent"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SUPERINTENDENT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.iepteacherflag": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "IEPTeacherFlag"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "locations.districtsuperintendent": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "DistrictSuperintendent"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Superintendent": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.outcome_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "Outcome SY"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "grad.outcome_rate_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "Outcome Rate Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.in_cohort_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# in Cohort Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cohort": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.outcome_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# Outcome Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.measure_ieps": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Measure IEPs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# IEPs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam_citywide.scoring_at_level_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam Citywide",
+			          "ConceptualProperty": "% Scoring at Level Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam.tested_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam",
+			          "ConceptualProperty": "# Tested Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# Tested": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "exam.scoring_at_level_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Exam",
+			          "ConceptualProperty": "# Scoring at Level Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# Scoring at Level": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.borough_citywide_office": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "Borough/Citywide Office"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "locations.executivesuperintendentname": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "ExecutiveSuperintendentName"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "locations.accountabilitystatus": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "AccountabilityStatus"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "grad_citywide.outcome_rate_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad Citywide",
+			          "ConceptualProperty": "Outcome Rate Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.outcome_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# Outcome Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# Outcome": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad.in_cohort_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad",
+			          "ConceptualProperty": "# in Cohort Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# in Cohort": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access_citywide.special_ed_practice_measure_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access Citywide",
+			          "ConceptualProperty": "Special Ed Practice Measure Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_numerator_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Numerator Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_denominator_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Denominator Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_citywide.suspension_measure_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension Citywide",
+			          "ConceptualProperty": "Suspension Measure Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_numerator_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Numerator Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_denominator_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Denominator Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension_citywide_b.relative_risk_ab_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension Citywide B",
+			          "ConceptualProperty": "Relative Risk AB Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition_citywide.transition_measure_citywide": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition Citywide",
+			          "ConceptualProperty": "Transition Measure Citywide"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Citywide": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.measure_ieps_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Measure IEPs Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# IEPs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "transition.transition_numerator_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Transition",
+			          "ConceptualProperty": "Transition Numerator Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.rpcsupport": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "RPCSupport"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RPC Support": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsgacademicperformance": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGAcademicPerformance"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Academic TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsgtransition": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGTransition"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Transition TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsgdiscipline": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGDiscipline"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Discipline TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsgpbis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGPBIS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PBIS TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsglre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGLRE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LRE TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "locations.tsgnysaa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Locations",
+			          "ConceptualProperty": "TSGNYSAA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "NYSAA TSG": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "grad_type_selector.type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Grad Type Selector",
+			          "ConceptualProperty": "type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cohort": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_group_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Group SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_numerator_top_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Numerator Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_denominator_top_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Denominator Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_measure_top_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Measure Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_measure_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Measure Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_numerator_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Numerator Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_denominator_latest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Denominator Latest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Of": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_latest_sy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Latest SY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "suspension.suspension_measure_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Suspension",
+			          "ConceptualProperty": "Suspension Measure Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "access.special_ed_practice_measure_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Access",
+			          "ConceptualProperty": "Special Ed Practice Measure Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

@@ -1,0 +1,38 @@
+table 'Referral Rate Selector'
+	isHidden
+	lineageTag: 0311e2a9-c777-49ea-88b1-f8d4046abc76
+
+	column 'Referral Data Thru'
+		dataType: string
+		isHidden
+		lineageTag: f7ef8b16-5e6b-4ff2-89bb-d73fcc0cf053
+		summarizeBy: none
+		sourceColumn: Referral Data Thru
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referral Data Thru Short'
+		dataType: string
+		isHidden
+		lineageTag: bc6a581c-aee4-482a-9405-42ce0b587b08
+		summarizeBy: none
+		sourceColumn: Referral Data Thru Short
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Referral Rate Selector-17c243c2-c2a9-420b-a7af-57cbb9c67b37' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT *#(lf),Case when [Referral Data Thru] like '%End%' Then 'End of SY' Else CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.dbo.SPF_AccessData where SchoolDays is not null), ' Days of SY') End as [Referral Data Thru Short]#(lf)FROM (VALUES('End of School Year'),(CONCAT('First ', (SELECT TOP 1 SchoolDays from SEO_REPORTING.dbo.SPF_AccessData where SchoolDays is not null), ' Days of School'))) #(lf)AS sub([Referral Data Thru])"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":2,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Referral Rate Selector/Source.{Referral Data Thru,0}","Section1/Referral Rate Selector/Source.{Referral Data Thru Short,1}"],"ColumnCount":2,"KeyColumnNames":[],"ColumnIdentities":["Section1/Referral Rate Selector/Source.{Referral Data Thru,0}","Section1/Referral Rate Selector/Source.{Referral Data Thru Short,1}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

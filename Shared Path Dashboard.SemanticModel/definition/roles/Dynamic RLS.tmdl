@@ -1,0 +1,34 @@
+role 'Dynamic RLS'
+	modelPermission: read
+
+	tablePermission Locations = ```
+			(
+			[B/CO] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "FSC"
+			)
+			||
+			 (
+			[Superintendent] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent"
+			)
+			||
+			(
+			[SupervisorPsychName] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Supervisor of Psychologists"
+			)
+			||
+			 (
+			[SuperintendentLocationCode] = LOOKUPVALUE('Users'[LocationKey],'Users'[UserEmail],USERNAME())
+			&&
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Superintendent Support"
+			)
+			||
+			LOOKUPVALUE('Users'[BIRole],'Users'[UserEmail],USERNAME())= "Central"
+			
+			```
+
+	annotation PBI_Id = a5182118fa47444b9a42d210d2ac5148
+

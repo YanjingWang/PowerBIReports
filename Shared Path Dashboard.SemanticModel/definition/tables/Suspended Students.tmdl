@@ -1,0 +1,497 @@
+table 'Suspended Students'
+	isHidden
+	lineageTag: 34afc976-0cf8-4d48-aedd-57a5b5fd532f
+
+	column SchoolDBN
+		dataType: string
+		isHidden
+		lineageTag: cb103a48-1405-4dd0-b510-e2293785fe7e
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentID
+		dataType: double
+		isHidden
+		lineageTag: d150d856-a2dd-41cd-a3a3-ba02e9d4a295
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FirstName
+		dataType: string
+		isHidden
+		lineageTag: 5bf9e013-6207-43ce-ad75-ce2ebb8ce236
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		isHidden
+		lineageTag: 908753ce-34e4-4e64-b66d-eeef547f1635
+		summarizeBy: none
+		sourceColumn: LastName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOHO_Case
+		dataType: string
+		isHidden
+		lineageTag: 2f8300cd-886b-44a3-9752-4935e79d94b1
+		summarizeBy: none
+		sourceColumn: SOHO_Case
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATypeCode
+		dataType: string
+		isHidden
+		lineageTag: 34292ebd-2979-4bee-8c9a-701d6cbe18a7
+		summarizeBy: none
+		sourceColumn: DATypeCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATSStatus
+		dataType: string
+		isHidden
+		lineageTag: 2ca6dbde-035a-4773-9b19-dfad41e22f66
+		summarizeBy: none
+		sourceColumn: ATSStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISStatus
+		dataType: string
+		isHidden
+		lineageTag: 0d1a2289-e865-4533-a59a-2874987f499e
+		summarizeBy: none
+		sourceColumn: SESISStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EthnicityGroupCC
+		dataType: string
+		isHidden
+		lineageTag: c5a81bb3-b7a3-4b2c-95fc-2af4a6be7141
+		summarizeBy: none
+		sourceColumn: EthnicityGroupCC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		isHidden
+		lineageTag: e2beb4cc-5f05-4720-88e9-e604948a2a3e
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: 5a9459a2-5fd3-4cf9-a67e-ee079993a14f
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeLevel
+		dataType: string
+		isHidden
+		lineageTag: 45fab8e8-8a61-48c9-80f4-37e8c06ca1f4
+		summarizeBy: none
+		sourceColumn: GradeLevel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELLStatus
+		dataType: string
+		isHidden
+		lineageTag: 42991a25-a611-4bb6-800b-c59a331bf92e
+		summarizeBy: none
+		sourceColumn: ELLStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		isHidden
+		lineageTag: d3313b21-65b1-4885-9448-aea05b8321c7
+		summarizeBy: none
+		sourceColumn: Classification
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryProgramType
+		dataType: string
+		isHidden
+		lineageTag: 13f5a5af-9b2a-4898-940a-ee9249b9746b
+		summarizeBy: none
+		sourceColumn: PrimaryProgramType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InfractionCode_String
+		dataType: string
+		isHidden
+		lineageTag: 6f8d7aa7-85ed-4761-907c-531cc3fea9f6
+		summarizeBy: none
+		sourceColumn: InfractionCode_String
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suspend_Days
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: d5819265-e82e-4967-a360-26038e4baa7c
+		summarizeBy: sum
+		sourceColumn: Suspend_Days
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Start_Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: f061f169-9358-4de6-ba7b-dd6980845ba2
+		summarizeBy: none
+		sourceColumn: Start_Date
+
+		variation Variation
+			isDefault
+			relationship: cbae8324-1921-47e5-86f5-58ba785646cd
+			defaultHierarchy: LocalDateTable_158999d2-5527-4d1e-841c-29dd06388064.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Return_Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 6bf7e6d5-999d-4e2c-8dfa-cc240b11e873
+		summarizeBy: none
+		sourceColumn: Return_Date
+
+		variation Variation
+			isDefault
+			relationship: 9c374985-fbc7-4664-9276-23fb41b096fe
+			defaultHierarchy: LocalDateTable_35ae836a-e038-48ab-9ad0-65983a57a31a.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Susp_Effective_Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: a4335d2e-12ef-4889-864f-12864c8caf5e
+		summarizeBy: none
+		sourceColumn: Susp_Effective_Date
+
+		variation Variation
+			isDefault
+			relationship: 792f85cf-5ba7-468a-ab0c-85685c0f0a6b
+			defaultHierarchy: LocalDateTable_bcf1a796-247c-4c9b-8d65-811c2254d871.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Auth_Date
+		dataType: string
+		isHidden
+		lineageTag: 3d8e7e24-f22e-418b-8f37-62a827d2099b
+		summarizeBy: none
+		sourceColumn: Auth_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		isHidden
+		lineageTag: 6284c2d7-2676-49ee-a9bc-3ad65ac60bd9
+		summarizeBy: none
+		sourceColumn: Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortDescription
+		dataType: string
+		isHidden
+		lineageTag: 33b05f70-a674-4289-8647-15ff4d77c192
+		summarizeBy: none
+		sourceColumn: ShortDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 6bd44924-16f8-4a6b-8bb7-232fb9927845
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 9b72469f-ca82-4f75-8cc1-f9069c9f1bda
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: fa576960-f952-495a-86b6-bd3f552ded08
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentNeedsBIP
+		dataType: string
+		lineageTag: ada20786-e1a2-4c49-af62-b271a87a5748
+		summarizeBy: none
+		sourceColumn: StudentNeedsBIP
+
+		annotation SummarizationSetBy = Automatic
+
+	column StudentNeedsStrategiesForBehavior
+		dataType: string
+		lineageTag: ed44fef6-1383-479a-826d-2449ec187bf6
+		summarizeBy: none
+		sourceColumn: StudentNeedsStrategiesForBehavior
+
+		annotation SummarizationSetBy = Automatic
+
+	column BehaviorSimilarToPriorIncident
+		dataType: string
+		lineageTag: a08d1a9d-0085-45f3-9d24-20fb7c0ebf7d
+		summarizeBy: none
+		sourceColumn: BehaviorSimilarToPriorIncident
+
+		annotation SummarizationSetBy = Automatic
+
+	column PatternOfRemovals
+		dataType: string
+		lineageTag: b71f4344-438e-471d-a608-18038c21b632
+		summarizeBy: none
+		sourceColumn: PatternOfRemovals
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspendDBN
+		dataType: string
+		lineageTag: a0879c41-74f7-4523-b4a0-30819157bcf1
+		summarizeBy: none
+		sourceColumn: SuspendDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnrolledDBN
+		dataType: string
+		lineageTag: 7b7c249f-1abe-4d95-9e88-ff1a1dd85703
+		summarizeBy: none
+		sourceColumn: EnrolledDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PresumptiveMDRRecord
+		dataType: string
+		lineageTag: 9d1ccc96-0702-4d97-9608-90e9d1e231b2
+		summarizeBy: none
+		sourceColumn: PresumptiveMDRRecord
+
+		annotation SummarizationSetBy = Automatic
+
+	column PresumptiveMDRStatus
+		dataType: string
+		lineageTag: d699f814-e2af-41ac-b4a4-306256aa08a7
+		summarizeBy: none
+		sourceColumn: PresumptiveMDRStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column PresumptiveMDRDueDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b028a33e-eebf-4e93-8b43-b28b2c0d9d3b
+		summarizeBy: none
+		sourceColumn: PresumptiveMDRDueDate
+
+		variation Variation
+			isDefault
+			relationship: f13390aa-8901-4a98-9a69-e557a9192da7
+			defaultHierarchy: LocalDateTable_342c8749-64a1-49a6-8285-0bb1017978ae.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PresumptiveMDRCompletionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d91a46bc-1a26-4b91-8fb8-de0bf9c3225d
+		summarizeBy: none
+		sourceColumn: PresumptiveMDRCompletionDate
+
+		variation Variation
+			isDefault
+			relationship: 76dd5e04-1673-41bf-994d-afde6b480c5d
+			defaultHierarchy: LocalDateTable_885a3b9c-8e0c-4c99-809e-347e69f8e642.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PresumptiveMDRIsOverDueFlag
+		dataType: double
+		lineageTag: 874c601a-9eb8-479d-a9d1-92899a9ded41
+		summarizeBy: sum
+		sourceColumn: PresumptiveMDRIsOverDueFlag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PresumptiveMDRControlNo
+		dataType: string
+		lineageTag: 86089c0a-00c0-469d-b629-b543312f1482
+		summarizeBy: none
+		sourceColumn: PresumptiveMDRControlNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column NonpresumptiveMDRRecord
+		dataType: string
+		lineageTag: a6872ddc-5b0e-439f-9cde-541d0c0fa8ab
+		summarizeBy: none
+		sourceColumn: NonpresumptiveMDRRecord
+
+		annotation SummarizationSetBy = Automatic
+
+	column NonpresumptiveMDRRecordMDRStatus
+		dataType: string
+		lineageTag: d7b0f2df-d74c-4318-82c0-8cb8d31f5223
+		summarizeBy: none
+		sourceColumn: NonpresumptiveMDRRecordMDRStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column NonpresumptiveMDRDueDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fea6faf2-5da0-4c7a-84db-1ba563425b4f
+		summarizeBy: none
+		sourceColumn: NonpresumptiveMDRDueDate
+
+		variation Variation
+			isDefault
+			relationship: b0ba3b80-0d30-437a-a1f0-01d2d69a9b4a
+			defaultHierarchy: LocalDateTable_23afcc3c-9f4a-431d-98eb-22bd3a1acd2e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NonpresumptiveMDRCompletionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0adb7169-2fa6-4d0a-964c-cfbecfb866cb
+		summarizeBy: none
+		sourceColumn: NonpresumptiveMDRCompletionDate
+
+		variation Variation
+			isDefault
+			relationship: 8326e00a-7f6a-4b2c-81d6-e73d7fcc82a4
+			defaultHierarchy: LocalDateTable_074ef998-74ef-46bd-a6ae-bf6601490cab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NonpresumptiveMDRIsOverDueFlag
+		dataType: double
+		lineageTag: 9ea776d9-0648-4f77-a41b-fa3b67c5c3e6
+		summarizeBy: sum
+		sourceColumn: NonpresumptiveMDRIsOverDueFlag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NonpresumptiveMDRControlNo
+		dataType: string
+		lineageTag: 006d3bf5-2389-4d2f-aee3-1718be88d2a7
+		summarizeBy: none
+		sourceColumn: NonpresumptiveMDRControlNo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspended Students-6bb44ab4-a695-4c7f-be5d-23eef52744a0' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="select * from SEO_REPORTING.bi.vw_SPFDashboard_SuspendedStudents"])
+				in
+				    Source
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

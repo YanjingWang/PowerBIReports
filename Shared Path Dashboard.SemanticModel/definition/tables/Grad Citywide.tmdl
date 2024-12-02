@@ -1,0 +1,256 @@
+table 'Grad Citywide'
+	isHidden
+	lineageTag: 4a1ff5ff-5a93-43be-a25e-59f605f5b4c4
+
+	measure 'Outcome Rate Citywide' = ```
+			[# Outcome Citywide]/[# in Cohort Citywide]
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: cf213b45-8d85-4515-b452-1eac78212ef1
+
+	measure '# Outcome Citywide' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Grad Outcome Selector'[Outcome], "Graduated")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Grad'[IEP], "IEP")
+			VAR MySelectionType =
+			SELECTEDVALUE ('Grad Type Selector'[type], "4 Year August")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "Graduated", CALCULATE(sum('Grad Citywide'[Graduated]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			MySelection = "Local Diploma", CALCULATE(sum('Grad Citywide'[Local Diploma]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			MySelection = "All Regents", CALCULATE(sum('Grad Citywide'[All Regents]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			MySelection = "Regents Diploma", CALCULATE(sum('Grad Citywide'[Regents Diploma]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			MySelection = "Advanced Regents", CALCULATE(sum('Grad Citywide'[Advanced Regents]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			MySelection = "Drop Out", CALCULATE(sum('Grad Citywide'[Drop Out]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType),
+			CALCULATE(sum('Grad Citywide'[Graduated]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType))
+		formatString: #,0
+		isHidden
+		lineageTag: 5fdcc90b-ba16-457d-81d8-34f4643e57d4
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '# in Cohort Citywide' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Grad Outcome Selector'[Outcome], "Graduated")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Grad'[IEP], "IEP")
+			VAR MySelectionType =
+			SELECTEDVALUE ('Grad Type Selector'[type], "4 Year August")
+			RETURN
+			CALCULATE(sum('Grad Citywide'[Cohort]),'Grad Citywide'[IEP]=MySelectionIEP,'Grad Citywide'[Type]=MySelectionType)
+		formatString: #,0
+		isHidden
+		lineageTag: 794d5513-26aa-4caa-ad14-17e8d98191f1
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 401d4b74-3daa-4877-9c29-41fc958bb952
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 09d33b75-86b9-4b89-bbd8-c135f15d3fe3
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 4251cf0f-313b-4d4a-9669-f9269258b22c
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: e0526077-1018-42ea-8774-d39a2c5dcc3f
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		isHidden
+		lineageTag: 81952f5c-1c1c-48a5-9f1b-e96175f6b253
+		summarizeBy: none
+		sourceColumn: Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Diploma'
+		dataType: double
+		isHidden
+		lineageTag: 9654ed79-fd3d-4378-8c18-fb16b008f62f
+		summarizeBy: sum
+		sourceColumn: Local Diploma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Regents Diploma'
+		dataType: double
+		isHidden
+		lineageTag: 8662b25a-33a6-4368-beef-1349b1f2926e
+		summarizeBy: sum
+		sourceColumn: Regents Diploma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Advanced Regents'
+		dataType: double
+		isHidden
+		lineageTag: 62657553-92c1-4aac-b152-999d37b61f9c
+		summarizeBy: sum
+		sourceColumn: Advanced Regents
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'All Regents'
+		dataType: double
+		isHidden
+		lineageTag: 038f4d4c-fbdf-4f71-aa5b-d328b7323872
+		summarizeBy: sum
+		sourceColumn: All Regents
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Drop Out'
+		dataType: double
+		isHidden
+		lineageTag: 48d231fc-9d03-4ac4-9013-58612227b3de
+		summarizeBy: sum
+		sourceColumn: Drop Out
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cohort
+		dataType: int64
+		isHidden
+		lineageTag: b198445d-c1b8-4878-9d98-617bf217e0e8
+		summarizeBy: sum
+		sourceColumn: Cohort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: dd327623-cb4e-45f8-acb5-8b1a71381798
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Graduated
+		dataType: double
+		isHidden
+		lineageTag: 0726e734-0384-4599-bd4c-8498ff7ac2ec
+		summarizeBy: sum
+		sourceColumn: Graduated
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ClassOf
+		dataType: int64
+		isHidden
+		lineageTag: 8d3a5a78-1ca9-4be0-8f52-67d3a8bd6c98
+		summarizeBy: sum
+		sourceColumn: ClassOf
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CohortYear
+		dataType: string
+		isHidden
+		lineageTag: 6da66d3f-af60-45ef-bafe-42c2d26e19ed
+		summarizeBy: none
+		sourceColumn: CohortYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CohortYear_SY
+		dataType: string
+		isHidden
+		lineageTag: b4829b7a-bf00-4f44-9fbd-844fed47f71c
+		summarizeBy: none
+		sourceColumn: CohortYear_SY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Grad Citywide-da3b122b-6595-4335-8803-c6f18a54d5d0' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[ELL_STATUS]#(lf)      ,[IEP]#(lf)      ,[ClassOf]#(lf)      ,[CohortYear]#(lf)      ,[CohortYear_SY]#(lf)      ,[Type]#(lf)      ,sum([Local Diploma]) as [Local Diploma]#(lf)      ,sum([Regents Diploma]) as [Regents Diploma]#(lf)      ,sum([Advanced Regents]) as [Advanced Regents]#(lf)      ,sum([All Regents]) as [All Regents]#(lf)      ,sum([Drop Out]) as [Drop Out]#(lf)#(tab)  ,sum([Graduated]) as [Graduated]#(lf)      ,sum([Cohort]) as [Cohort]#(lf)      ,CONCAT(CohortYear_SY,ELL_STATUS,12,GENDER,ETHNICITY) as TableKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Grad] grad#(lf)where left(SCHOOL_DBN,2)<>'84'#(lf)  GROUP by GENDER, ETHNICITY,ELL_STATUS,IEP,ClassOf,CohortYear,CohortYear_SY,grad.Type"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":16,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Grad Citywide/Source.{GENDER,0}","Section1/Grad Citywide/Source.{ETHNICITY,1}","Section1/Grad Citywide/Source.{ELL_STATUS,2}","Section1/Grad Citywide/Source.{IEP,3}","Section1/Grad Citywide/Source.{ClassOf,4}","Section1/Grad Citywide/Source.{CohortYear,5}","Section1/Grad Citywide/Source.{CohortYear_SY,6}","Section1/Grad Citywide/Source.{Type,7}","Section1/Grad Citywide/Source.{Local Diploma,8}","Section1/Grad Citywide/Source.{Regents Diploma,9}","Section1/Grad Citywide/Source.{Advanced Regents,10}","Section1/Grad Citywide/Source.{All Regents,11}","Section1/Grad Citywide/Source.{Drop Out,12}","Section1/Grad Citywide/Source.{Graduated,13}","Section1/Grad Citywide/Source.{Cohort,14}","Section1/Grad Citywide/Source.{TableKey,15}"],"ColumnCount":16,"KeyColumnNames":[],"ColumnIdentities":["Section1/Grad Citywide/Source.{GENDER,0}","Section1/Grad Citywide/Source.{ETHNICITY,1}","Section1/Grad Citywide/Source.{ELL_STATUS,2}","Section1/Grad Citywide/Source.{IEP,3}","Section1/Grad Citywide/Source.{ClassOf,4}","Section1/Grad Citywide/Source.{CohortYear,5}","Section1/Grad Citywide/Source.{CohortYear_SY,6}","Section1/Grad Citywide/Source.{Type,7}","Section1/Grad Citywide/Source.{Local Diploma,8}","Section1/Grad Citywide/Source.{Regents Diploma,9}","Section1/Grad Citywide/Source.{Advanced Regents,10}","Section1/Grad Citywide/Source.{All Regents,11}","Section1/Grad Citywide/Source.{Drop Out,12}","Section1/Grad Citywide/Source.{Graduated,13}","Section1/Grad Citywide/Source.{Cohort,14}","Section1/Grad Citywide/Source.{TableKey,15}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,263 @@
+table 'Suspension Citywide B'
+	isHidden
+	lineageTag: e71c6099-15d2-42d6-a34f-8b2f0e77c9d4
+
+	measure 'Relative Risk AB Citywide' = IF(ISERROR([Suspension Measure Citywide]/[Suspension Measure Citywide B]),BLANK(), [Suspension Measure Citywide]/[Suspension Measure Citywide B])
+		formatString: 0.00
+		isHidden
+		lineageTag: 29d482d0-1c23-4337-9737-df3f60399e8f
+
+		changedProperty = FormatString
+
+	measure 'Suspension Measure Citywide B' = ```
+			
+			VAR MySelectionThru =
+			SELECTEDVALUE ('Suspension Rate Selector'[Measure Name], "All")
+			RETURN
+			SWITCH (
+			TRUE (), 
+			MySelectionThru="End of School Year" && min(Demographics[SchoolYear]) >"2018-2019",blank(),
+			Left(MySelectionThru,5)="First" && min(Demographics[SchoolYear]) ="2020-2021",blank(),
+			MySelectionThru="SY 2020-2021 Only" && min(Demographics[SchoolYear]) <>"2020-2021",blank(),
+			[Suspension Numerator Citywide B]/[Suspension Denominator Citywide B])
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 0e8146b4-44c4-45ea-bf08-2cf75afedeb8
+
+	measure 'Suspension Numerator Citywide B' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Suspension IEP Selector B'[IEP], "IEP")
+			VAR MySelectionCalc =
+			SELECTEDVALUE ('Suspension Calculation Selector'[Suspension Aggregation], "Student Suspension Rate")
+			VAR MySelectionThru =
+			SELECTEDVALUE ('Suspension Rate Selector'[Measure Name], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "IEP" && MySelectionCalc="Student Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Unique Susp]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Student Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Unique Susp]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Long-Term Suspension Rate (>10 Days)" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Susp >10 Days]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Long-Term Suspension Rate (>10 Days)" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Susp >10 Days]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Total Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Susp]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Total Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Susp]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Repeat Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Students Suspended 2+]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Repeat Suspension Rate" && MySelectionThru = "End Of School Year", CALCULATE(SUM([# Students Suspended 2+]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Student Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Unique Susp YTD]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Student Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Unique Susp YTD]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Long-Term Suspension Rate (>10 Days)" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Susp >10 Days YTD]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Long-Term Suspension Rate (>10 Days)" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Susp >10 Days YTD]),'Suspension Citywide B'[IEP] = "N"),
+			
+			MySelection = "IEP" && MySelectionCalc="Total Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Susp YTD]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Total Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Susp YTD]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc="Repeat Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Students Suspended 2+ YTD]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP" && MySelectionCalc="Repeat Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Students Suspended 2+ YTD]),'Suspension Citywide B'[IEP] = "N"),
+			CALCULATE(SUM([# Unique Susp]),'Suspension Citywide B'[IEP] = "Y"))
+		formatString: 0
+		isHidden
+		lineageTag: 34d8d194-c8eb-4fbf-84b9-707faf4f5614
+
+	measure 'Suspension Denominator Citywide B' = ```
+			
+			VAR MySelection = 
+			SELECTEDVALUE ('Suspension IEP Selector B'[IEP], "IEP")
+			VAR MySelectionCalc =
+			SELECTEDVALUE ('Suspension Calculation Selector'[Suspension Aggregation], "Student Suspension Rate")
+			VAR MySelectionThru =
+			SELECTEDVALUE ('Suspension Rate Selector'[Measure Name], "End of School Year")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "IEP" && MySelectionCalc = "Repeat Suspension Rate" && MySelectionThru = "End of School Year",CALCULATE(SUM([# Unique Susp]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP"  && MySelectionCalc = "Repeat Suspension Rate" && MySelectionThru = "End of School Year", CALCULATE(SUM([# Unique Susp]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc = "Repeat Suspension Rate" && LEFT(MySelectionThru,5) = "First",CALCULATE(SUM([# Unique Susp YTD]),'Suspension Citywide B'[IEP] = "Y"),
+			MySelection = "No IEP"  && MySelectionCalc = "Repeat Suspension Rate" && LEFT(MySelectionThru,5) = "First", CALCULATE(SUM([# Unique Susp YTD]),'Suspension Citywide B'[IEP] = "N"),
+			MySelection = "IEP" && MySelectionCalc <> "Repeat Suspension Rate" , SUM('Access Citywide B'[# SWDs]),
+			MySelection = "No IEP"  && MySelectionCalc <> "Repeat Suspension Rate", (SUM('Access Citywide B'[# Students])-SUM('Access Citywide B'[# SWDs])),
+			SUM('Access Citywide B'[# SWDs]))
+			```
+		formatString: 0
+		isHidden
+		lineageTag: 2a2776f9-7e26-4e40-97f7-8e53e070f175
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: 975429f7-fef7-4c15-880c-4da69f50ea1e
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: d7ff4b59-8003-449f-a472-e7e03eaa8bfd
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 1345c7a5-39ec-42b5-bc6c-ebe5e0a78bdf
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Unique Susp'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9fe8992a-4f11-431a-a7bf-2585975039c4
+		summarizeBy: sum
+		sourceColumn: # Unique Susp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Unique Susp YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4f41f343-eac3-4a1c-9573-f21bbd685408
+		summarizeBy: sum
+		sourceColumn: # Unique Susp YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Susp'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1ff63545-d01a-42ff-a43d-be911c01a6e2
+		summarizeBy: sum
+		sourceColumn: # Susp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Susp YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c0f44ccc-fad0-4b44-bec4-8de0a3ed9686
+		summarizeBy: sum
+		sourceColumn: # Susp YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students Suspended 2+'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 733f2df6-1aea-44ac-bcce-853b6daba87e
+		summarizeBy: sum
+		sourceColumn: # Students Suspended 2+
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Students Suspended 2+ YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a31e851b-8585-44d2-ab5b-06568dd0cdb0
+		summarizeBy: sum
+		sourceColumn: # Students Suspended 2+ YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AsOfDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: b8faab09-9a81-4cba-94e8-db2562a422f8
+		summarizeBy: none
+		sourceColumn: AsOfDate
+
+		variation Variation
+			isDefault
+			relationship: e3e05365-21ca-44a7-b9cd-981d3036e77d
+			defaultHierarchy: LocalDateTable_b107ccdc-f6b5-4420-ab0d-71d7d57efdf5.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 928bc959-c9d7-4a0f-b99d-088dea296991
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuspKey
+		dataType: string
+		isHidden
+		lineageTag: b388327b-66df-42b1-8ca3-508c2ad49b38
+		summarizeBy: none
+		sourceColumn: SuspKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Susp >10 Days'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2059bc3a-1907-44f8-b88e-8014c93f342a
+		summarizeBy: sum
+		sourceColumn: # Susp >10 Days
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# Susp >10 Days YTD'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0c639e48-5eae-4d32-b5b6-f7bad2c77723
+		summarizeBy: sum
+		sourceColumn: # Susp >10 Days YTD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Suspension Citywide B-8288f9c3-6ce5-4ee4-8a06-81fa6652448c' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="      SELECT s.IEP#(lf)      ,s.GENDER#(lf)      ,s.ETHNICITY#(lf)      ,SUM(s.[# Unique Susp]) as [# Unique Susp]#(lf)      ,SUM(s.[# Unique Susp YTD]) as [# Unique Susp YTD]#(lf)      ,SUM(s.[# Susp]) as [# Susp]#(lf)      ,SUM(s.[# Susp YTD]) as [# Susp YTD]#(lf)      ,SUM(s.[# Susp >10 Days]) as [# Susp >10 Days]#(lf)      ,SUM(s.[# Susp >10 Days YTD]) as [# Susp >10 Days YTD]#(lf)      ,SUM(s.[# Students Suspended 2+]) as [# Students Suspended 2+]#(lf)      ,SUM(s.[# Students Suspended 2+ YTD]) as [# Students Suspended 2+ YTD]#(lf)      ,s.[AsOfDate]#(lf)      ,s.[SchoolYear]#(lf)      ,CONCAT(SchoolYear,GENDER,ETHNICITY) as SuspKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Suspension] s#(lf)LEFT OUTER JOIN SEO_REPORTING.bi.vw_SPFDashboard_Locations lcgms#(lf)  on s.SCHOOL_DBN = lcgms.SCHOOLDBN#(lf)  where lcgms.FieldSupportCenterReportingName is not null#(lf)  GROUP by SchoolYear,IEP,GENDER,ETHNICITY,AsOfDate#(lf)  ORDER by SchoolYear,IEP,GENDER,ETHNICITY,AsOfDate"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":14,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Suspension Citywide B/Source.{IEP,0}","Section1/Suspension Citywide B/Source.{GENDER,1}","Section1/Suspension Citywide B/Source.{ETHNICITY,2}","Section1/Suspension Citywide B/Source.{# Unique Susp,3}","Section1/Suspension Citywide B/Source.{# Unique Susp YTD,4}","Section1/Suspension Citywide B/Source.{# Susp,5}","Section1/Suspension Citywide B/Source.{# Susp YTD,6}","Section1/Suspension Citywide B/Source.{# Susp >10 Days,7}","Section1/Suspension Citywide B/Source.{# Susp >10 Days YTD,8}","Section1/Suspension Citywide B/Source.{# Students Suspended 2+,9}","Section1/Suspension Citywide B/Source.{# Students Suspended 2+ YTD,10}","Section1/Suspension Citywide B/Source.{AsOfDate,11}","Section1/Suspension Citywide B/Source.{SchoolYear,12}","Section1/Suspension Citywide B/Source.{SuspKey,13}"],"ColumnCount":14,"KeyColumnNames":[],"ColumnIdentities":["Section1/Suspension Citywide B/Source.{IEP,0}","Section1/Suspension Citywide B/Source.{GENDER,1}","Section1/Suspension Citywide B/Source.{ETHNICITY,2}","Section1/Suspension Citywide B/Source.{# Unique Susp,3}","Section1/Suspension Citywide B/Source.{# Unique Susp YTD,4}","Section1/Suspension Citywide B/Source.{# Susp,5}","Section1/Suspension Citywide B/Source.{# Susp YTD,6}","Section1/Suspension Citywide B/Source.{# Susp >10 Days,7}","Section1/Suspension Citywide B/Source.{# Susp >10 Days YTD,8}","Section1/Suspension Citywide B/Source.{# Students Suspended 2+,9}","Section1/Suspension Citywide B/Source.{# Students Suspended 2+ YTD,10}","Section1/Suspension Citywide B/Source.{AsOfDate,11}","Section1/Suspension Citywide B/Source.{SchoolYear,12}","Section1/Suspension Citywide B/Source.{SuspKey,13}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Exception
+

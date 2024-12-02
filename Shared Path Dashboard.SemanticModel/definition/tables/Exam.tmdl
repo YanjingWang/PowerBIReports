@@ -1,0 +1,329 @@
+table Exam
+	isHidden
+	lineageTag: 332abf21-4fc9-4973-a37f-71de89f45944
+
+	measure '% Scoring at Level' = [# Scoring at Level]/[# Tested]
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 08635ae3-c583-4d94-bb36-6c877efe4838
+
+	measure '# Scoring at Level' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Exam Level Selector'[Proficiency Level], "1")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[IEP],SELECTEDVALUE('Exam'[IEP], "IEP"))
+			VAR MySelectionExam =
+			SELECTEDVALUE ('Exam Type Selector'[Exam],SELECTEDVALUE('Exam'[Exam],"ELA"))
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "1", CALCULATE(SUM([1]),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam),
+			MySelection = "2", CALCULATE(SUM([2]),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam),
+			MySelection = "3", CALCULATE(SUM([3]),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam),
+			MySelection = "4", CALCULATE(SUM([4]),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam),
+			MySelection = "Proficient (3 & 4)", CALCULATE((SUM([3])+SUM([4])),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam),
+			CALCULATE(SUM([1]),'Exam'[IEP]="IEP",'Exam'[Exam]="ELA"))
+		formatString: #,0
+		isHidden
+		lineageTag: d9852ab5-a337-434a-b086-70933c4ebaf0
+
+	measure '# Tested' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Exam Level Selector'[Proficiency Level], "1")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[IEP],SELECTEDVALUE('Exam'[IEP], "IEP"))
+			VAR MySelectionExam =
+			SELECTEDVALUE ('Exam Type Selector'[Exam],SELECTEDVALUE('Exam'[Exam],"ELA"))
+			RETURN
+			CALCULATE(SUM('Exam'[NumTested]),'Exam'[IEP]=MySelectionIEP,'Exam'[Exam]=MySelectionExam)
+		formatString: #,0
+		isHidden
+		lineageTag: 1ca6701f-93cd-42d6-8ebe-a0d06ff21367
+
+	measure 'ELAMath title' =
+			
+			VAR MySelectionLvl =
+			SELECTEDVALUE ('Exam Level Selector'[Text], "Level 1")
+			VAR MySelectionExam =
+			SELECTEDVALUE ('Exam Type Selector'[Exam],"ELA")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[SWDs],"SWD")
+			RETURN
+			"NY State " & MySelectionExam & " Exam | % " & MySelectionIEP & "s Scoring at " & MySelectionLvl
+		isHidden
+		lineageTag: 928b90f9-c909-4585-922f-a6d9d2fb3dc0
+
+	measure 'ELAMath top 10 title' =
+			
+			VAR MySelectionLvl =
+			SELECTEDVALUE ('Exam Level Selector'[Text],"Level 1")
+			RETURN
+			IF(MySelectionLvl IN {"Level 1","Level 2"} , "Top 10 Highest % " & MySelectionLvl &  "s | " & LOOKUPVALUE('Current SY (Update at Rollover)'[SchoolYear],'Current SY (Update at Rollover)'[SchoolYearLabel],"Latest Exam"),  "Top 10 Lowest % " & MySelectionLvl &  "s | " & LOOKUPVALUE('Current SY (Update at Rollover)'[SchoolYear],'Current SY (Update at Rollover)'[SchoolYearLabel],"Latest Exam"))
+		isHidden
+		lineageTag: 6ccbe851-8cc4-433f-ac6b-86de16ca6088
+
+	measure 'ELAMath Table Title' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Exam Type Selector'[Exam],"ELA")
+			VAR MySelectionLvl =
+			SELECTEDVALUE ('Exam Level Selector'[Text],"Level 1")
+			VAR MySelectionIEP =
+			SELECTEDVALUE ('Suspension IEP Selector'[SWDs],"SWD")
+			RETURN
+			"Superintendent & School Level Data | " & MySelection &  " Exam | # and % " & MySelectionIEP & "s Scoring at " & MySelectionLvl
+		isHidden
+		lineageTag: 93af0678-8273-45b6-8f21-fe80ac522ee6
+
+	measure '% Scoring at Level NA' = IF(ISBLANK('Exam'[% Scoring at Level]),"N/A",'Exam'[% Scoring at Level])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 68df2d9d-32e2-4258-832a-f998112ccc78
+
+	measure 'ELAMath Demo Title' =
+			
+			VAR MySelectionLvl =
+			SELECTEDVALUE ('Exam Level Selector'[Text], "Level 1")
+			RETURN
+			"Demographic Trend | % " & MySelectionLvl &  "s | " & LOOKUPVALUE('Current SY (Update at Rollover)'[SchoolYear],'Current SY (Update at Rollover)'[SchoolYearLabel],"Latest Exam")
+		lineageTag: 0d146fd1-bcee-4145-92e3-1c89586195c2
+
+	measure '% Scoring at Level Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([% Scoring at Level],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([% Scoring at Level],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 99407e79-c176-45b5-bc87-94a281cd172d
+
+		changedProperty = FormatString
+
+	measure '# Scoring at Level Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([# Scoring at Level],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([# Scoring at Level],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: #,0
+		lineageTag: feafa13a-6e13-40ed-b772-b61bbce31c65
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '# Tested Group' =
+			
+			VAR MyGroup =
+			SELECTEDVALUE ('Demo Table'[Group], "")
+			VAR MySubgroup =
+			SELECTEDVALUE ('Demo Table'[Subgroup], "")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MyGroup = "Ethnicity", CALCULATE([# Tested],Demographics[ETHNICITY]=MySubgroup),
+			MyGroup = "ELL Status", CALCULATE([# Tested],Demographics[ELL_STATUS]=MySubgroup),
+			"")
+		formatString: #,0
+		lineageTag: 44e58da9-cb63-4b32-bd12-aec49601cc48
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column SCHOOL_DBN
+		dataType: string
+		isHidden
+		lineageTag: 4e9dee5c-4414-4fa8-94bc-e531edbd5e8d
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: 15b75db4-960d-4a3b-b323-e0882078458b
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: d49d8a6b-55ad-49fa-992d-2e6801f64dbb
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: b634d78c-d0af-472a-b33c-76bddfd79be3
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 92028485-0a19-4d47-8dbd-1fd16cf0212d
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: 273f4374-a5ec-4067-9e07-e6368be0043f
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 24561b62-5424-414e-8359-ca78fe9461e2
+		summarizeBy: sum
+		sourceColumn: 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4f30d965-6e02-460d-8b78-21a562136a18
+		summarizeBy: sum
+		sourceColumn: 2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b18db0ca-69ff-4240-a384-bd421b39c454
+		summarizeBy: sum
+		sourceColumn: 3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 4
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c22d9cd7-fedf-4cc0-ab9e-ded8e4863209
+		summarizeBy: sum
+		sourceColumn: 4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumTested
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0ed9e769-ca57-46e4-9f65-361053e9627b
+		summarizeBy: sum
+		sourceColumn: NumTested
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolKey
+		dataType: string
+		isHidden
+		lineageTag: 5fd9edaa-d722-4dba-848a-3c1a70da975b
+		summarizeBy: none
+		sourceColumn: SchoolKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: d8223658-9677-4a06-bc5e-2c73bfac5b66
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEP
+		dataType: string
+		isHidden
+		lineageTag: 67cae656-564d-4e96-bc12-a0e99c89c188
+		summarizeBy: none
+		sourceColumn: IEP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exam
+		dataType: string
+		isHidden
+		lineageTag: b698cca7-d0a6-4390-bfdc-236ccb5fe6b4
+		summarizeBy: none
+		sourceColumn: Exam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Exam-69b9b3d2-435b-4110-80af-353041657131 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT [SCHOOL_DBN]#(lf)      ,[GENDER]#(lf)      ,[ETHNICITY]#(lf)      ,[GRADE]#(lf)      ,[ELL_STATUS]#(lf)      ,[IEP]#(lf)      ,[Exam]#(lf)      ,[SchoolYear]#(lf)      ,[1]#(lf)      ,[2]#(lf)      ,[3]#(lf)      ,[4]#(lf)      ,[NumTested]#(lf)#(tab)  ,CONCAT(SCHOOL_DBN,SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY) as SchoolKey#(lf)      --,CONCAT(SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY,Exam,IEP) as ExamKey#(lf)      ,CONCAT(SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY) as TableKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_ELAMath]"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":15,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Exam/Source.{SCHOOL_DBN,0}","Section1/Exam/Source.{GENDER,1}","Section1/Exam/Source.{ETHNICITY,2}","Section1/Exam/Source.{GRADE,3}","Section1/Exam/Source.{ELL_STATUS,4}","Section1/Exam/Source.{IEP,5}","Section1/Exam/Source.{Exam,6}","Section1/Exam/Source.{SchoolYear,7}","Section1/Exam/Source.{1,8}","Section1/Exam/Source.{2,9}","Section1/Exam/Source.{3,10}","Section1/Exam/Source.{4,11}","Section1/Exam/Source.{NumTested,12}","Section1/Exam/Source.{SchoolKey,13}","Section1/Exam/Source.{TableKey,14}"],"ColumnCount":15,"KeyColumnNames":[],"ColumnIdentities":["Section1/Exam/Source.{SCHOOL_DBN,0}","Section1/Exam/Source.{GENDER,1}","Section1/Exam/Source.{ETHNICITY,2}","Section1/Exam/Source.{GRADE,3}","Section1/Exam/Source.{ELL_STATUS,4}","Section1/Exam/Source.{IEP,5}","Section1/Exam/Source.{Exam,6}","Section1/Exam/Source.{SchoolYear,7}","Section1/Exam/Source.{1,8}","Section1/Exam/Source.{2,9}","Section1/Exam/Source.{3,10}","Section1/Exam/Source.{4,11}","Section1/Exam/Source.{NumTested,12}","Section1/Exam/Source.{SchoolKey,13}","Section1/Exam/Source.{TableKey,14}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,159 @@
+table 'Transition Citywide'
+	isHidden
+	lineageTag: 6a1f0146-b5c0-4a07-917b-456c03a3ebd8
+
+	measure '% Complete Citywide' = SUM('Transition Citywide'[#Complete])/SUM('Transition Citywide'[#IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: b3761058-911f-4ad8-888f-b420cc2d0e61
+
+	measure '% Invalid Citywide' = SUM('Transition Citywide'[#Invalid])/SUM('Transition Citywide'[#IEPs])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: dcd2733f-3262-4f4c-8ade-1389a9cb7281
+
+	measure 'Transition Measure Citywide' =
+			
+			VAR MySelection =
+			SELECTEDVALUE ('Transition Calculation Selector'[Data Set],"% of IEPs with Transition Fields Completed")
+			RETURN
+			SWITCH (
+			TRUE (),
+			MySelection = "% of IEPs with Transition Fields Completed", [% Complete Citywide],
+			MySelection = "% of IEPs with Invalid Agent in CTA", [% Invalid Citywide],
+			[% Complete Citywide])
+		formatString: 0.0%;-0.0%;0.0%
+		isHidden
+		lineageTag: 72692d17-fd1c-459e-9100-9e519ea68cbf
+
+	column GENDER
+		dataType: string
+		isHidden
+		lineageTag: cab7eacf-a34f-4162-a3ed-6b7351db62ac
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETHNICITY
+		dataType: string
+		isHidden
+		lineageTag: 55c4d979-6d17-4595-a410-0f21db1759b5
+		summarizeBy: none
+		sourceColumn: ETHNICITY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE
+		dataType: string
+		isHidden
+		lineageTag: d2944d6b-0cee-4ed2-a39b-9aeb4a49aec9
+		summarizeBy: none
+		sourceColumn: GRADE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Invalid
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7204106a-87c1-4777-bb25-e77156b60a5e
+		summarizeBy: sum
+		sourceColumn: #Invalid
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AsOfDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: cdae1ea8-d034-4543-bde0-ac276843debb
+		summarizeBy: none
+		sourceColumn: AsOfDate
+
+		variation Variation
+			isDefault
+			relationship: c496f678-1411-4902-9404-0aafdaae044c
+			defaultHierarchy: LocalDateTable_e944c42e-28d9-4fb5-b62f-364e94a87f2a.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		isHidden
+		lineageTag: a06b4e35-ef3d-4448-93e3-f30ebc7fd307
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #IEPs
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 77a59a70-609c-498c-8293-c53d4235d8b5
+		summarizeBy: sum
+		sourceColumn: #IEPs
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column #Complete
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 493ee413-cb23-45d0-b5d6-c156ba40d0b5
+		summarizeBy: sum
+		sourceColumn: #Complete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ELL_STATUS
+		dataType: string
+		isHidden
+		lineageTag: 55d82772-24e6-4f26-8ccc-0ba9a92e6685
+		summarizeBy: none
+		sourceColumn: ELL_STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableKey
+		dataType: string
+		isHidden
+		lineageTag: 731cf8c7-7549-4acf-ad8c-82e6d6e0e295
+		summarizeBy: none
+		sourceColumn: TableKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Transition Citywide-4141b44f-66e2-41ed-a837-862b97a59ad0' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00vPADOSQL180,51433", "SEO_REPORTING", [Query="    SELECT tr.GENDER#(lf)      ,tr.ETHNICITY#(lf)#(tab)  ,tr.ELL_STATUS#(lf)      ,tr.GRADE#(lf)      ,SUM(tr.[#IEPs]) as [#IEPs]#(lf)      ,SUM(tr.[#Complete]) as [#Complete]#(lf)      ,SUM(tr.[#Invalid]) as [#Invalid]#(lf)      ,tr.[AsOfDate]#(lf)      ,tr.[SchoolYear]#(lf)      ,CONCAT(SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY) as TableKey#(lf)  FROM [SEO_REPORTING].bi.[vw_SPFDashboard_Transition] tr#(lf)  LEFT OUTER JOIN SEO_REPORTING.bi.vw_SPFDashboard_Locations lcgms#(lf)  on tr.SCHOOL_DBN = lcgms.SCHOOLDBN#(lf)  where lcgms.FieldSupportCenterReportingName is not null#(lf)  GROUP by SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY,AsOfDate#(lf)  ORDER by SchoolYear,ELL_STATUS,GRADE,GENDER,ETHNICITY,AsOfDate"])
+				in
+				    Source
+
+	annotation PBI_QueryRelationships = {"columnCount":10,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Transition Citywide/Source.{GENDER,0}","Section1/Transition Citywide/Source.{ETHNICITY,1}","Section1/Transition Citywide/Source.{ELL_STATUS,2}","Section1/Transition Citywide/Source.{GRADE,3}","Section1/Transition Citywide/Source.{#IEPs,4}","Section1/Transition Citywide/Source.{#Complete,5}","Section1/Transition Citywide/Source.{#Invalid,6}","Section1/Transition Citywide/Source.{AsOfDate,7}","Section1/Transition Citywide/Source.{SchoolYear,8}","Section1/Transition Citywide/Source.{TableKey,9}"],"ColumnCount":10,"KeyColumnNames":[],"ColumnIdentities":["Section1/Transition Citywide/Source.{GENDER,0}","Section1/Transition Citywide/Source.{ETHNICITY,1}","Section1/Transition Citywide/Source.{ELL_STATUS,2}","Section1/Transition Citywide/Source.{GRADE,3}","Section1/Transition Citywide/Source.{#IEPs,4}","Section1/Transition Citywide/Source.{#Complete,5}","Section1/Transition Citywide/Source.{#Invalid,6}","Section1/Transition Citywide/Source.{AsOfDate,7}","Section1/Transition Citywide/Source.{SchoolYear,8}","Section1/Transition Citywide/Source.{TableKey,9}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

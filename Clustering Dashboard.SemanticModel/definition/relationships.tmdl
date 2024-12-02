@@ -1,0 +1,33 @@
+relationship 3cd746b8-8cd5-4fff-a273-98fbd3862ce0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.'Data As Of'
+	toColumn: LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64.Date
+
+relationship f64c1628-4c22-4b0c-8a95-06b1c5daad21
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ClosedDate
+	toColumn: LocalDateTable_c3a63efd-eaf2-49f6-b165-5d08e153a7aa.Date
+
+relationship fb6d75b2-c47d-4bea-93ff-adf72d960fdd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDate
+	toColumn: LocalDateTable_6b928cd2-abd0-4297-9f77-a91564032ddb.Date
+
+relationship 354406c7-eeb4-44b7-90e1-314893952616
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_Locations'.ProcessedDateTime
+	toColumn: LocalDateTable_dfa5a5a0-e3e6-454f-9e8d-56dae56e9f19.Date
+
+relationship 4042c879-9808-4539-aa9b-5d5588fae93b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'BI vw_ClusteringDashboard_Cluster'.ReferralDate
+	toColumn: LocalDateTable_d5d9d444-c5d5-4b77-861a-73fc5030cf17.Date
+
+relationship 72f29ede-3ac6-425b-ab60-2479fafb601e
+	fromColumn: 'BI vw_ClusteringDashboard_Cluster'.SchoolDBN
+	toColumn: 'BI vw_Locations'.SchoolDBN
+
+relationship ce279832-24c1-4041-9cae-bbbb03e9527f
+	fromColumn: 'BI vw_ClusteringDashboard_Cluster'.SchoolCluster
+	toColumn: 'BI vw_lkSOPAllocation'.SchoolClusterFinal
+

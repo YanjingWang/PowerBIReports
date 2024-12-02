@@ -1,0 +1,765 @@
+table 'BI vw_ClusteringDashboard_Cluster'
+	lineageTag: 24e65a2b-b27f-4ae6-8a49-fa10fb68398d
+
+	measure 'Clustering Banner' =
+			
+			CONCATENATE (
+			    "Clustering | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_ClusteringDashboard_Cluster'[ReferralType] ),
+			        DISTINCT ( 'BI vw_ClusteringDashboard_Cluster'[ReferralType] ),
+			        "All Referral Types"
+			    )
+			)
+		lineageTag: d6b98164-3e9b-4f63-9428-8fabbfd2ffec
+
+	measure 'Average Workload Banner' =
+			
+			CONCATENATE (
+			    "Average Workload | ",
+			    IF (
+			        HASONEVALUE ( 'BI vw_ClusteringDashboard_Cluster'[ReferralType] ),
+			        DISTINCT ( 'BI vw_ClusteringDashboard_Cluster'[ReferralType] ),
+			        "All Referral Types"
+			    )
+			)
+		lineageTag: df31a390-1ffb-47c9-80f9-b8070165a39b
+
+	measure 'Total referrals 2022-2023' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 101809ae-7b30-4032-be11-d6499eef08aa
+
+	measure '3 Year Average Referrals 19-23' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			    )
+			) / 3
+		formatString: #,0
+		lineageTag: 55f5169f-ce8e-45f2-bd24-3ee4d9285f9b
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '# Average Psychologist Allocation' =
+			
+			'BI vw_ClusteringDashboard_Cluster'[3 Year Average Referrals 20-24] / [Psychologist Count]
+		formatString: #,0
+		lineageTag: 67887173-a684-4353-9168-9312afb60bd8
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '# Average Social Worker Allocation' =
+			
+			'BI vw_lkSOPAllocation'[3 Year Average T5 INI] / [Social Worker Count]
+		formatString: #,0
+		lineageTag: fbd8fdd6-64c8-4b54-a672-17d74e4457a3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Total referrals 2021-2022' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			    )
+			)
+		formatString: #,0
+		lineageTag: d79fb0a9-c3cf-4c78-9f6e-7b5185463205
+
+	measure 'Total referrals 2020-2021' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 95304bad-b698-48a9-a1ae-26bec43389ce
+
+	measure 'Total referrals 2019-2020' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 948dea34-326e-4241-8577-5df4ef5a0b3e
+
+	measure 'Total referrals 19-23' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			    )
+			)
+		formatString: #,0
+		lineageTag: ec91c7a2-7091-40cd-beea-d81830921b45
+
+	measure '3 Year Average Referrals all' =
+			
+			[3 Year Average Referrals INITIAL] + [3 Year Average Referrals REEVAL] + [3 Year Average Referrals T5] + [3 Year Average Referrals TRIENNIAL]
+			/*CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] IN {"2020-2021","2021-2022","2022-2023"}
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN {"T5","TRIENNIAL","INITIAL","REEVAL"}
+			    )
+			) / 3*/
+		formatString: #,0
+		lineageTag: 9e8cc9f3-ed1e-42ce-afd5-af56542c08a0
+
+	measure 'ReferralType Count' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: 0
+		lineageTag: 14e26a3a-c0cf-450c-a420-61bb3e9f971f
+
+	measure AvgPsych =
+			
+			[ReferralType Count] / [Psychologist Count]
+		formatString: #,0
+		lineageTag: b1a65dfd-a18d-47a8-b705-366b36f922b6
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Total =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 0d95a661-222e-4b3c-8417-eab274d930f6
+
+	measure 19-20_INI =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "INITIAL" }
+			    )
+			)
+		formatString: 0
+		lineageTag: bd591cbb-e920-449e-8392-7c8c0d3197fb
+
+	measure 20-21_INI =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "INITIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: d352fc72-eb04-430e-9c9b-b9306a0d281b
+
+	measure 21-22_INI =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "INITIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: f4e284e8-7c2a-49e0-9096-1d2507c01778
+
+	measure 22-23_INI =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "INITIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: feb0d585-d244-49b7-ac0f-ed75e2a40648
+
+	measure 20-21_REV =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: c5cd8f6e-8460-41a4-b908-206c74f9466f
+
+	measure 19-20_REV =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			)
+		formatString: 0
+		lineageTag: 72303d83-22a0-4ff3-adec-3263d9529ba3
+
+	measure 21-22_REV =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: d410cca9-197d-4610-8488-f7f6dde078fc
+
+	measure 22-23_REV =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: cf5beeb0-7624-4b24-9650-a845bdd5b509
+
+	measure 19-20_T5 =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			)
+		formatString: 0
+		lineageTag: 8f04f4ae-4055-45cd-bf31-95c5a65e9be6
+
+	measure 22-23_T5 =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: d7f507b7-dc38-4059-bb37-5b0f842bdd26
+
+	measure 20-21_T5 =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 0c09574b-25b0-4af9-a98c-ff4ff7490222
+
+	measure 21-22_T5 =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: beb17786-8843-460e-ab8a-0857c66e7857
+
+	measure 19-20_TRIENNIAL =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			)
+		formatString: 0
+		lineageTag: da7728f7-4f23-4ae7-afbe-bcf1ed761047
+
+	measure 20-21_TRIENNIAL =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 83f94c8f-51c8-4c09-aec6-49583ae0ade9
+
+	measure 21-22_TRIENNIAL =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 2072d410-45a2-460c-b630-586ae0670188
+
+	measure 22-23_TRIENNIAL =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: fa187efe-ea1d-487d-bcc2-8777edfd1e23
+
+	measure 19-20_ALL_REF =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2019-2020"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: 0
+		lineageTag: 16c7f6f1-3aa2-4c7d-adc4-f1e8a3c05dda
+
+	measure 20-21_ALL_REF =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 3bff2a61-bcd8-4796-8226-5591a09556b8
+
+	measure 21-22_ALL_REF =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 86ba3fbe-37e5-43d0-8559-da84fea27b0b
+
+	measure 22-23_ALL_REF =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: a5f8018e-fec4-4c97-b01b-58f96ecce742
+
+	measure '3 Year Average Referrals INITIAL' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear]
+			            IN { "2020-2021", "2021-2022", "2022-2023" }
+			                && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] = "INITIAL"
+			    )
+			) / 3
+		formatString: 0
+		lineageTag: 4fd136e2-f5fa-46bc-99c3-90789d50b562
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '3 Year Average Referrals REEVAL' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear]
+			            IN { "2020-2021", "2021-2022", "2022-2023" }
+			                && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			) / 3
+		formatString: 0
+		lineageTag: 96ec3ac4-c440-4cde-a199-a906d2ebdbdd
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '3 Year Average Referrals T5' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear]
+			            IN { "2020-2021", "2021-2022", "2022-2023" }
+			                && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			) / 3
+		formatString: #,0
+		lineageTag: b98392aa-258c-408c-bbe4-43844eb0263f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '3 Year Average Referrals TRIENNIAL' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear]
+			            IN { "2020-2021", "2021-2022", "2022-2023" }
+			                && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			) / 3
+		formatString: #,0
+		lineageTag: 519f7622-75a9-4464-b50f-14fbe0fdc73e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Total referrals all' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 7b653923-97d7-4a03-9c35-8022b3d168e7
+
+	measure Avg_Psych_GT =
+			
+			'BI vw_ClusteringDashboard_Cluster'[Total referrals all] / [Psychologist Count]
+		formatString: #,0
+		lineageTag: d0659e1a-79c4-4f43-a899-07452c8ba345
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure GrandTotal_Psych =
+			
+			[3 Year Average Referrals INITIAL] + [3 Year Average Referrals REEVAL] + [3 Year Average Referrals T5] + [3 Year Average Referrals TRIENNIAL]
+		formatString: #,0
+		lineageTag: 9e0b87ba-05db-444c-a067-9e2e060a66d3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure GrandTotal_SW =
+			
+			[3 Year Average Referrals INITIAL] + [3 Year Average Referrals T5]
+		formatString: #,0
+		lineageTag: ee1d5f1f-7ef5-49a2-860e-f15bd9991057
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Average_Psychologist_Allocation =
+			
+			'BI vw_ClusteringDashboard_Cluster'[Total referrals 20-24] / [GrandTotal_Psych]
+		formatString: #,0
+		lineageTag: f6719ba3-0acb-4eea-b8ec-7f3326cb6006
+
+	measure 'Total referrals 2023-2024' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 80ee968e-8cd6-4481-bc0c-942ab74a1b3e
+
+	measure 'Total referrals 20-24' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        //'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			    )
+			)
+		formatString: #,0
+		lineageTag: 65910a38-7233-4de3-acd4-c2e73bf7a7c7
+
+	measure '3 Year Average Referrals 20-24' =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2021-2022"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2020-2021"
+			            || 'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2022-2023"
+			    )
+			) / 3
+		formatString: #,0
+		lineageTag: d700a444-3c90-490c-a576-1b9c43d802f2
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 23-24_ALL_REF =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType]
+			            IN { "T5", "TRIENNIAL", "INITIAL", "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 23fcab7e-08ef-4512-9a0f-204e2a947e77
+
+	measure 23-24_INI =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "INITIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: ebd5b200-85e2-44d2-ae00-be8d9588ca96
+
+	measure 23-24_REV =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "REEVAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: ef854d4b-7dd2-49d1-a4c9-cfefa9bf6816
+
+	measure 23-24_TRIENNIAL =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "TRIENNIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: efd2b5f7-b69f-4958-989a-7b484773b2e9
+
+	measure 23-24_T5 =
+			
+			CALCULATE (
+			    COUNT ( 'BI vw_ClusteringDashboard_Cluster'[StudentID] ),
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[SchoolYear] = "2023-2024"
+			            && 'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: aa65f08e-a444-4e3f-b603-66610470c166
+
+	column StudentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7cafe218-2e87-45aa-91be-ec2d49dfef2f
+		summarizeBy: count
+		sourceColumn: StudentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutcomeTypeDesc
+		dataType: string
+		lineageTag: 62d83e81-4c1f-47fb-99e1-206eb8edfa58
+		summarizeBy: none
+		sourceColumn: OutcomeTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDocumentIDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 10e983ac-cf8b-4888-a96f-867957faa10c
+		summarizeBy: sum
+		sourceColumn: ReferralDocumentIDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralType
+		dataType: string
+		lineageTag: 3f320f67-7aaf-4a79-abc6-39dd7ce58bb6
+		summarizeBy: none
+		sourceColumn: ReferralType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferralDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 621d1d01-b906-494e-a9f3-e0aaf1f06815
+		summarizeBy: none
+		sourceColumn: ReferralDate
+
+		variation Variation
+			isDefault
+			relationship: 4042c879-9808-4539-aa9b-5d5588fae93b
+			defaultHierarchy: LocalDateTable_d5d9d444-c5d5-4b77-861a-73fc5030cf17.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: d28259a4-1f32-4228-9cd7-440fdca142ba
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column EvaluationLanguage
+		dataType: string
+		lineageTag: ca4a956e-897a-4ae2-aaff-63da1bd3f7d2
+		summarizeBy: none
+		sourceColumn: EvaluationLanguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 56d4567d-149c-432a-ac26-191248fd548e
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssignedSchoolDBN
+		dataType: string
+		lineageTag: 35d6aea3-3bab-4ed3-9627-0c8cd25147b4
+		summarizeBy: none
+		sourceColumn: AssignedSchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolCluster
+		dataType: string
+		lineageTag: 1227fe33-4849-466d-ad20-ef56e5d6046e
+		summarizeBy: none
+		sourceColumn: SchoolCluster
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolType
+		dataType: string
+		lineageTag: ca1b8c1e-0163-4fc7-9104-bb0b05442054
+		summarizeBy: none
+		sourceColumn: SchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BilingualFlag
+		dataType: string
+		lineageTag: 72a84a28-985f-44fe-82fb-b83325b0b288
+		summarizeBy: none
+		sourceColumn: BilingualFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_ClusteringDashboard_Cluster-b2e288c0-f72a-4f30-87a1-066c2976bc47' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_REPORTING", [Query="SELECT * FROM [SEO_REPORTING].[BI].[vw_ClusteringDashboard_Cluster]"])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

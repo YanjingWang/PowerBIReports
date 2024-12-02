@@ -1,0 +1,24 @@
+table 'Outcome Toggle'
+	lineageTag: 2371fca8-d92d-4424-bdf9-85a911dd9487
+
+	column Outcome
+		dataType: string
+		lineageTag: ca118b5d-4703-4a77-887f-2373f4fcbd6a
+		summarizeBy: none
+		sourceColumn: Outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Outcome Toggle-cfe20ae4-00fd-46ad-ac54-d4d56b3dbf20' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nQNUIrVAdHBEIZLanJOYnExmO2cWAzk5RenQpTkpeZkpmcm5QC5sQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Outcome = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":1,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Outcome Toggle/Changed Type.{Outcome,0}"],"ColumnCount":1,"KeyColumnNames":[],"ColumnIdentities":["Section1/Outcome Toggle/Changed Type.{Outcome,0}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

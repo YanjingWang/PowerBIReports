@@ -1,0 +1,100 @@
+table vw_UserSecurity
+	lineageTag: d767d26e-30b0-4b4d-b0fd-8c27e4db8dec
+
+	column BIRole
+		dataType: string
+		lineageTag: addfa042-ee5f-4296-91d1-f02d11b97961
+		summarizeBy: none
+		sourceColumn: BIRole
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationKey
+		dataType: string
+		lineageTag: a509ea28-a373-49f2-963c-6fff2728d0a3
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		lineageTag: 972f17a0-f5c9-46f4-8e7c-5876919ce3dc
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserEmail
+		dataType: string
+		lineageTag: 495ad15a-1531-42c8-81ce-bcfc1cbcda05
+		summarizeBy: none
+		sourceColumn: UserEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceDatasetName
+		dataType: string
+		lineageTag: 0a7391b7-6651-4ef0-8024-13ae343ba86e
+		summarizeBy: none
+		sourceColumn: SourceDatasetName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrefOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: acd1f154-acce-4379-adaa-ff9be6a40dec
+		summarizeBy: sum
+		sourceColumn: PrefOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserRecordRank
+		dataType: int64
+		formatString: 0
+		lineageTag: d989793b-00a1-48a4-a98b-3ed0a986feb4
+		summarizeBy: sum
+		sourceColumn: UserRecordRank
+
+		annotation SummarizationSetBy = Automatic
+
+	column SameEmailCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 59d511e2-c407-46e3-91e7-ab47cef36164
+		summarizeBy: sum
+		sourceColumn: SameEmailCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDupEmail
+		dataType: int64
+		formatString: 0
+		lineageTag: 80ed2da7-166f-40df-8664-7c376cd37428
+		summarizeBy: sum
+		sourceColumn: IsDupEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_UserSecurity-84392a7a-2084-4f43-ac0f-291b1c4207f2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180", "SEO_REPORTING"),
+				    BI_vw_UserSecurity = Source{[Schema="BI",Item="vw_UserSecurity"]}[Data]
+				in
+				    BI_vw_UserSecurity
+				/*
+				    Source = Sql.Databases("ES00VPADOSQL180,51433"),
+				    SEO_MART = Source{[Name="SEO_MART"]}[Data],
+				    dbo_vw_UserSecurity = SEO_MART{[Schema="dbo",Item="vw_UserSecurity"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_UserSecurity, each ([Role] <> "Executive Superintendent"))
+				in
+				    #"Filtered Rows"
+				    */
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{Role,0}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{LCGMS Key,1}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{User Name,2}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{User Email,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{Role,0}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{LCGMS Key,1}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{User Name,2}","Server.Database\\/2/SQL/es11vsessql06,31433;SEO_MART/dbo/vw_UserSecurity.{User Email,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

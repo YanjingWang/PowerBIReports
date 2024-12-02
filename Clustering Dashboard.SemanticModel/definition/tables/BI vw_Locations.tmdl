@@ -1,0 +1,452 @@
+table 'BI vw_Locations'
+	lineageTag: 2e30dd5c-595f-442e-b699-2bb8461ebe57
+
+	column AdminDistrict
+		dataType: string
+		lineageTag: e3ddf128-0f92-46b3-82aa-6237d8db5617
+		summarizeBy: none
+		sourceColumn: AdminDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEDistrict
+		dataType: string
+		lineageTag: dacf5907-e1af-4747-93c3-680b8932f07f
+		summarizeBy: none
+		sourceColumn: CSEDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographicalDistrict
+		dataType: string
+		lineageTag: 3892bea6-ce28-4ffd-8606-8f9b26943dd6
+		summarizeBy: none
+		sourceColumn: GeographicalDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolDBN
+		dataType: string
+		lineageTag: d46574ea-b75c-4b44-92ea-2f591abdf0be
+		summarizeBy: none
+		sourceColumn: SchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSESchoolDBN
+		dataType: string
+		lineageTag: ccda90de-dfb2-4ba8-82bc-f27a22e471a1
+		summarizeBy: none
+		sourceColumn: CSESchoolDBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolType
+		dataType: string
+		lineageTag: 75176953-9012-425e-a60e-f45ad41ef8d4
+		summarizeBy: none
+		sourceColumn: SchoolType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoroughCode
+		dataType: string
+		lineageTag: 493d8381-8853-4d05-a90b-648bc8063e6e
+		summarizeBy: none
+		sourceColumn: BoroughCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 910ba50d-1303-4c69-800e-32613939ea38
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 7a897785-9b4b-4c99-a511-33fc57c7f388
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FieldSupportCenterReportingName
+		dataType: string
+		lineageTag: 5fbfef7e-8937-4394-b98d-531ad9e8b251
+		summarizeBy: none
+		sourceColumn: FieldSupportCenterReportingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FieldSupportCenterName
+		dataType: string
+		lineageTag: c2b78ce5-35cb-4c05-9e6d-13e41fcf8340
+		summarizeBy: none
+		sourceColumn: FieldSupportCenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AffinityGroup
+		dataType: string
+		lineageTag: 0a5c01d5-3547-44ef-80c0-9a73eb531612
+		summarizeBy: none
+		sourceColumn: AffinityGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountabilityStatus
+		dataType: string
+		lineageTag: 566937b7-ec4a-4337-9081-300d3acda66d
+		summarizeBy: none
+		sourceColumn: AccountabilityStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDescription
+		dataType: string
+		lineageTag: 396b35de-879f-44fc-b746-550956e4267d
+		summarizeBy: none
+		sourceColumn: StatusDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClosedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 705e161d-efa9-4e42-9a26-8fbcd3075782
+		summarizeBy: none
+		sourceColumn: ClosedDate
+
+		variation Variation
+			isDefault
+			relationship: f64c1628-4c22-4b0c-8a95-06b1c5daad21
+			defaultHierarchy: LocalDateTable_c3a63efd-eaf2-49f6-b165-5d08e153a7aa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HSNetworkLocationCode
+		dataType: string
+		lineageTag: 46caf361-693f-48f1-93d6-67174b315df0
+		summarizeBy: none
+		sourceColumn: HSNetworkLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpotlightSchoolCategory
+		dataType: string
+		lineageTag: 78fd9cac-b2bb-4ae7-85ef-67a27ba0699c
+		summarizeBy: none
+		sourceColumn: SpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column BehaviorSpotlightSchoolCategory
+		dataType: string
+		lineageTag: 3d351400-b361-49e9-b43b-ead41307a542
+		summarizeBy: none
+		sourceColumn: BehaviorSpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransitionSpotlightSchoolCategory
+		dataType: string
+		lineageTag: 48498bd2-ab21-425d-8f79-25ced11d665e
+		summarizeBy: none
+		sourceColumn: TransitionSpotlightSchoolCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationName
+		dataType: string
+		lineageTag: 31af9b0c-3c0e-4f4b-a615-b1c0d943c9c7
+		summarizeBy: none
+		sourceColumn: Tier2SupportLocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier2SupportLocationCode
+		dataType: string
+		lineageTag: e2ec8ad4-f98c-4a60-b0d7-ebadc72048ca
+		summarizeBy: none
+		sourceColumn: Tier2SupportLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationTypeDescription
+		dataType: string
+		lineageTag: 24c20f47-4a65-4bf0-b79d-17f0bb976d95
+		summarizeBy: none
+		sourceColumn: LocationTypeDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationCategoryDescription
+		dataType: string
+		lineageTag: 22d7a893-474b-4cd8-a418-584c1b12ea44
+		summarizeBy: none
+		sourceColumn: LocationCategoryDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SchoolLocationProperties
+		dataType: string
+		lineageTag: c0198500-d42a-4691-a4b9-1d8beb3c21ca
+		summarizeBy: none
+		sourceColumn: SchoolLocationProperties
+
+		annotation SummarizationSetBy = Automatic
+
+	column SESISSchoolKindDescription
+		dataType: string
+		lineageTag: 0255adf0-04a6-4431-93af-93b52b286522
+		summarizeBy: none
+		sourceColumn: SESISSchoolKindDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrincipalName
+		dataType: string
+		lineageTag: 94745676-42b0-4a4d-8b14-a82672cfb619
+		summarizeBy: none
+		sourceColumn: PrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommunitySchoolSupName
+		dataType: string
+		lineageTag: b1d3ca4b-cb72-4bf1-8662-f708c0ad7cb0
+		summarizeBy: none
+		sourceColumn: CommunitySchoolSupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column HSNetworkSuperintendentName
+		dataType: string
+		lineageTag: 0d0f0442-ff44-498c-8315-9ed21db851cf
+		summarizeBy: none
+		sourceColumn: HSNetworkSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentName
+		dataType: string
+		lineageTag: 374d39e9-592d-4ddb-bb52-193461209942
+		summarizeBy: none
+		sourceColumn: SuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutiveSuperintendentName
+		dataType: string
+		lineageTag: 338a6ee6-5c45-4670-809c-ea96fa2f4aca
+		summarizeBy: none
+		sourceColumn: ExecutiveSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutiveSuperintendentEmail
+		dataType: string
+		lineageTag: d7dcdff9-a108-43c6-b75a-1d80b3b80110
+		summarizeBy: none
+		sourceColumn: ExecutiveSuperintendentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorPsychName
+		dataType: string
+		lineageTag: 3850b247-0ebd-483d-a3b2-f894a4f6f1ac
+		summarizeBy: none
+		sourceColumn: SupervisorPsychName
+
+		annotation SummarizationSetBy = Automatic
+
+	column OTSupervisor
+		dataType: string
+		lineageTag: 5c756c85-2a22-44fd-a07c-bbe0f7456149
+		summarizeBy: none
+		sourceColumn: OTSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column OTSupervisorEmail
+		dataType: string
+		lineageTag: 3bff837d-ca23-43fe-8939-d95f2d4d5aa7
+		summarizeBy: none
+		sourceColumn: OTSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column PTSupervisor
+		dataType: string
+		lineageTag: 37201eef-c7ca-45ef-9846-ad4af7865122
+		summarizeBy: none
+		sourceColumn: PTSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column PTSupervisorEmail
+		dataType: string
+		lineageTag: 4fabc7ec-3ad6-4d45-be0f-a4cf915be560
+		summarizeBy: none
+		sourceColumn: PTSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpeechSupervisor
+		dataType: string
+		lineageTag: b149f74f-97b2-42b5-98f0-10c9a933c1f4
+		summarizeBy: none
+		sourceColumn: SpeechSupervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpeechSupervisorEmail
+		dataType: string
+		lineageTag: 757d67bd-672a-4a6d-a293-b72b42cccd8d
+		summarizeBy: none
+		sourceColumn: SpeechSupervisorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSEFlag
+		dataType: string
+		lineageTag: e383e694-f113-4908-92d1-f1f72431c811
+		summarizeBy: none
+		sourceColumn: CSEFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: string
+		lineageTag: 2b86bf94-5f55-4d51-a14d-831066e00154
+		summarizeBy: none
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeleteFlag
+		dataType: string
+		lineageTag: 1972e756-2d1d-4918-9987-1abaaddae5f2
+		summarizeBy: none
+		sourceColumn: DeleteFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column IEPTeacherFlag
+		dataType: string
+		lineageTag: 6b43d610-ac80-46b9-98fd-c39a3793e849
+		summarizeBy: none
+		sourceColumn: IEPTeacherFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column XCoordinate
+		dataType: double
+		lineageTag: 9d542d2c-1678-454c-b9af-1c1a1b8658dd
+		summarizeBy: sum
+		sourceColumn: XCoordinate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YCoordinate
+		dataType: double
+		lineageTag: e0a6dbc9-ae8c-4bba-b56d-9bf493664274
+		summarizeBy: sum
+		sourceColumn: YCoordinate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProcessedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 457b1f84-5be1-47c3-8f16-7ee64fdb5f8f
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		variation Variation
+			isDefault
+			relationship: fb6d75b2-c47d-4bea-93ff-adf72d960fdd
+			defaultHierarchy: LocalDateTable_6b928cd2-abd0-4297-9f77-a91564032ddb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ProcessedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 27c27b52-147b-47b1-9655-7216ae0082ba
+		summarizeBy: none
+		sourceColumn: ProcessedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 354406c7-eeb4-44b7-90e1-314893952616
+			defaultHierarchy: LocalDateTable_dfa5a5a0-e3e6-454f-9e8d-56dae56e9f19.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentLocationCode
+		dataType: string
+		lineageTag: 092f574d-3aa5-4b75-90a3-f4a7645b41f6
+		summarizeBy: none
+		sourceColumn: SuperintendentLocationCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuperintendentDistrict
+		dataType: string
+		lineageTag: b57aa400-014e-4b54-9543-194e2bedbfa9
+		summarizeBy: none
+		sourceColumn: SuperintendentDistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: double
+		lineageTag: eaf54c96-59db-4e8d-8556-3f416dae3d4a
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Latitude
+		dataType: double
+		lineageTag: d026e524-31df-4ef6-956a-1d33f5c8a2e1
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrincipalEmail
+		dataType: string
+		lineageTag: 1ceaaa43-0c98-4ce7-a4cb-23c82af7879d
+		summarizeBy: none
+		sourceColumn: PrincipalEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_Locations-96d6c6df-c408-4cea-9d20-d23b4dcc1510' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180", "SEO_Reporting"),
+				    BI_vw_Locations = Source{[Schema="BI",Item="vw_Locations"]}[Data]
+				in
+				    BI_vw_Locations
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,120 @@
+table 'BI vw_lkSOPAllocation'
+	lineageTag: 056bdb13-aa5d-4163-97da-acd3d8b169ca
+
+	measure 'count of psych' =
+			
+			COUNT ( 'BI vw_lkSOPAllocation'[Psychologist] )
+		formatString: 0
+		lineageTag: 4efcb175-2c14-475e-9581-d02f12354834
+
+	measure 'Social Worker Count' =
+			
+			CALCULATE ( COUNT ( 'BI vw_lkSOPAllocation'[SocialWorker] ) )
+		formatString: 0
+		lineageTag: 7028bcd1-9167-4952-998b-16682f21522c
+
+	measure 'Psychologist Count' =
+			
+			CALCULATE ( COUNT ( 'BI vw_lkSOPAllocation'[Psychologist] ) )
+		lineageTag: c9bc594c-fce8-4c4d-9416-1aa245c889db
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '3 Year Average T5 INI' =
+			
+			CALCULATE (
+			    'BI vw_ClusteringDashboard_Cluster'[3 Year Average Referrals 20-24],
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5", "INITIAL" }
+			    )
+			)
+		formatString: #,0.00
+		lineageTag: 703707ee-d371-4f1f-9d04-c7bd32433c3d
+
+	measure '1 Year Average T5 INI' =
+			
+			CALCULATE (
+			    'BI vw_ClusteringDashboard_Cluster'[23-24_ALL_REF],
+			    FILTER (
+			        'BI vw_ClusteringDashboard_Cluster',
+			        'BI vw_ClusteringDashboard_Cluster'[ReferralType] IN { "T5", "INITIAL" }
+			    )
+			)
+		formatString: #,0
+		lineageTag: 62dec8c0-ff94-4afa-9d56-362a761e68ce
+
+	measure 'Average Psychologist Allocation' =
+			
+			'BI vw_ClusteringDashboard_Cluster'[3 Year Average Referrals 20-24] / [Psychologist Count]
+		formatString: #,0
+		lineageTag: c2910402-286b-42fc-95f9-bd41d29007d2
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Average Social Worker Allocation' =
+			
+			[3 Year Average T5 INI] / [Social Worker Count]
+		formatString: #,0
+		lineageTag: c74d5301-8148-4cf2-8f24-db2cae5b2627
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column SchoolClusterFinal
+		dataType: string
+		lineageTag: 27f6a858-f019-4a17-8db9-e128f2b30124
+		summarizeBy: none
+		sourceColumn: SchoolClusterFinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Psychologist
+		dataType: int64
+		lineageTag: fd1be902-b3d2-4982-9ad5-d1f6cb4f3d53
+		summarizeBy: none
+		sourceColumn: Psychologist
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SocialWorker
+		dataType: int64
+		lineageTag: 74249d87-0873-44d4-85fe-41783c682fa5
+		summarizeBy: none
+		sourceColumn: SocialWorker
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SchoolYear
+		dataType: string
+		lineageTag: 2ccf2a9c-299f-4e87-aec7-d33dcc79e7ed
+		summarizeBy: none
+		sourceColumn: SchoolYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProcessedDate
+		dataType: string
+		lineageTag: 2f49fce1-c0f2-49a3-916c-423561e1d008
+		summarizeBy: none
+		sourceColumn: ProcessedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BI vw_lkSOPAllocation-b9dc7606-38d6-4f12-8f58-e7e889a561d4' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ES00VPADOSQL180,51433", "SEO_Reporting"),
+				    BI_vw_ClusteringDashboard_lkSOPAllocation = Source{[Schema="BI",Item="vw_ClusteringDashboard_lkSOPAllocation"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(BI_vw_ClusteringDashboard_lkSOPAllocation,{{"Psychologist", Int64.Type}, {"SocialWorker", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_QueryRelationships = {"columnCount":5,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SchoolClusterFinal,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{Psychologist,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SocialWorker,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SchoolYear,3}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{ProcessedDate,4}"],"ColumnCount":5,"KeyColumnNames":[],"ColumnIdentities":["Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SchoolClusterFinal,0}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{Psychologist,1}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SocialWorker,2}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{SchoolYear,3}","Server.Database\\/2/SQL/es11vsessql06;SEO_Reporting/dbo/vw_lkSOPAllocation.{ProcessedDate,4}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,106 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 2080,
+        "y": 95
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1205.7,
+            "y": 734.9
+          },
+          "nodeIndex": "BI vw_lkSOPAllocation",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 401.9,
+            "y": 0
+          },
+          "nodeIndex": "BI vw_Locations",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1607.7,
+            "y": 494.2
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2009.6,
+            "y": 542.2
+          },
+          "nodeIndex": "Outcome Toggle",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2411.5,
+            "y": 542.2
+          },
+          "nodeIndex": "Outcome Toggle Old",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2813.4,
+            "y": 506.2
+          },
+          "nodeIndex": "vw_UserSecurity",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3246.1,
+            "y": 0
+          },
+          "nodeIndex": "BI vw_ClusteringDashboard_Cluster",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

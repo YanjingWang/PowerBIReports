@@ -1,0 +1,72 @@
+table Date
+	lineageTag: 0af03b27-716f-4fc9-842f-4da880eff07b
+
+	column 'Date '
+		dataType: int64
+		formatString: 0
+		lineageTag: ace0f120-bb9e-4cd1-bb48-c6409f569588
+		summarizeBy: sum
+		sourceColumn: "Date "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data As Of'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7967dd7b-3be6-46fd-8683-a39a3f5f0dd4
+		summarizeBy: none
+		sourceColumn: Data As Of
+
+		variation Variation
+			isDefault
+			relationship: 3cd746b8-8cd5-4fff-a273-98fbd3862ce0
+			defaultHierarchy: LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Custom.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 1df21516-397b-474e-80f9-8c3a338557ee
+		summarizeBy: none
+		sourceColumn: Custom.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Custom.3'
+		dataType: string
+		lineageTag: 5028faf8-16ba-409b-b4bb-4b4d3108f34a
+		summarizeBy: none
+		sourceColumn: Custom.3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Updated = "Data as of - " & FORMAT(max('BI vw_Locations'[ProcessedDate]), "MMMM DD, YYYY")
+		dataType: string
+		lineageTag: a3875fb5-5424-4c38-aed4-106f3a4c3c3e
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date-60b7666c-e185-4277-a8c8-e069fd2d8c5e = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [#"Date " = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date ", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Custom", each DateTime.LocalNow()),
+				    #"Split Column by Delimiter" = Table.SplitColumn(Table.TransformColumnTypes(#"Added Custom", {{"Custom", type text}}, "en-US"), "Custom", Splitter.SplitTextByDelimiter(" ", QuoteStyle.Csv), {"Custom.1", "Custom.2", "Custom.3"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Custom.1", type date}, {"Custom.2", type time}, {"Custom.3", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Custom.1", "Data As Of"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_QueryRelationships = {"columnCount":4,"keyColumnNames":[],"queryRelationships":[],"columnIdentities":["Section1/Date/Changed Type.{Date ,0}","Section1/Date/Changed Type1.{Custom.1,1}","Section1/Date/Changed Type1.{Custom.2,2}","Section1/Date/Changed Type1.{Custom.3,3}"],"ColumnCount":4,"KeyColumnNames":[],"ColumnIdentities":["Section1/Date/Changed Type.{Date ,0}","Section1/Date/Changed Type1.{Custom.1,1}","Section1/Date/Changed Type1.{Custom.2,2}","Section1/Date/Changed Type1.{Custom.3,3}"],"RelationshipInfo":[]}
+
+	annotation PBI_ResultType = Table
+

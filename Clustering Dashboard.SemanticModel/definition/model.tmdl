@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Date","vw_UserSecurity","Outcome Toggle Old","Outcome Toggle","BI vw_lkSOPAllocation","BI vw_Locations","BI vw_ClusteringDashboard_Cluster"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_00f41ac1-946b-4076-b956-f56fa0590e6d
+ref table Date
+ref table LocalDateTable_f1ef7b96-9017-427f-a802-700a42018c64
+ref table vw_UserSecurity
+ref table 'Outcome Toggle Old'
+ref table 'Outcome Toggle'
+ref table 'BI vw_lkSOPAllocation'
+ref table 'BI vw_Locations'
+ref table LocalDateTable_c3a63efd-eaf2-49f6-b165-5d08e153a7aa
+ref table LocalDateTable_6b928cd2-abd0-4297-9f77-a91564032ddb
+ref table LocalDateTable_dfa5a5a0-e3e6-454f-9e8d-56dae56e9f19
+ref table 'BI vw_ClusteringDashboard_Cluster'
+ref table LocalDateTable_d5d9d444-c5d5-4b77-861a-73fc5030cf17
+
+ref role DynamicRLS
+ref role 'Pamella Terry'
+

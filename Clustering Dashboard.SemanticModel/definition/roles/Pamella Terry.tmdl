@@ -1,0 +1,5 @@
+role 'Pamella Terry'
+	modelPermission: read
+
+	annotation PBI_Id = 90baba32e00f4ababbfbf6307383ad01
+

@@ -1,0 +1,82 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Table3",
+          "size": {
+            "height": 433,
+            "width": 254
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 978.061376282277,
+            "y": 673
+          },
+          "nodeIndex": "CC_Register_SY19",
+          "size": {
+            "height": 528,
+            "width": 254
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 294,
+            "y": 0
+          },
+          "nodeIndex": "PBI_ATSrollup_SY19",
+          "size": {
+            "height": 508,
+            "width": 254
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 629,
+            "y": 0
+          },
+          "nodeIndex": "FSC_LCGMS_SY19",
+          "size": {
+            "height": 633,
+            "width": 354
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1252.5607530887414,
+            "y": 0
+          },
+          "nodeIndex": "ELL Toggle",
+          "size": {
+            "height": 118,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

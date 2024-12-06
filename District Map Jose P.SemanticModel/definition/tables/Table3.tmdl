@@ -1,0 +1,88 @@
+table Table3
+	lineageTag: 852a5718-35ae-46d1-a9ba-b83eee07b34c
+
+	column District
+		dataType: int64
+		formatString: 0
+		lineageTag: 0676b45f-60ee-4690-922b-f17846976b1b
+		summarizeBy: sum
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IEP Compliance rate'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ab13748d-7e2a-4da4-9788-ecda625eb66f
+		summarizeBy: sum
+		sourceColumn: IEP Compliance rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% ELL'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 1d101829-9b89-4437-872a-b8f25c4cc67a
+		summarizeBy: sum
+		sourceColumn: % ELL
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% MALE'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3a857fee-161d-4c6d-a9d5-49da13e81865
+		summarizeBy: sum
+		sourceColumn: % MALE
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Black + Hispanic'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b3bf2288-2e0f-48ab-8eb8-9949ee53e4cb
+		summarizeBy: sum
+		sourceColumn: % Black + Hispanic
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% SPANISH'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7e8ca53f-fdea-4a2e-859c-5569719f6dce
+		summarizeBy: sum
+		sourceColumn: % SPANISH
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% KG'
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9adc619d-5272-4b20-9485-071b5dd66788
+		summarizeBy: sum
+		sourceColumn: % KG
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Ninth '
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 1736378d-399f-4ac3-800a-1cb5879d8733
+		summarizeBy: sum
+		sourceColumn: "% Ninth "
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table3-69dc7d30-9edc-4c79-bdeb-63479c1084bb = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("VVRZjugwCLtLpfc3qgIkJDnLaO5/jRdik7ZfKIvZbPj9vYpcP5fqPf4tO+8eps1bw3aHLXcNoyWP69ffz8Jq3I67xK3YLRvcbwtbG5wJjeF6HrCtkw3cityT4P3bDecCI/Vu2+ftBNc4dWS9XndezfF7Cn6zKBl43scNbgHevtarMmIlmKEEia2a99FOZI8TQVUZebJ/ynIMHUtrp+gePid9G1Au+DUdsZxOmKHF7QYPJLRBygRXx7JopAKziu4AG8Ez8mUkSzCJzsikTjyLVoClRERyY2y3K4if5GpQJYLrGscNDoVJo+uG1wVGzYX3ZMMhotNuUbQbrivAjaqZnWdKzGE18tngkFjlZ0cEpyo6EyK/wl/tBK5gChKah+f9exxqnEROtK8Q3NBkYdagtXBAHFlTQ5rfTtZbYTkINAV2qRMJUdKSriht6WiXstfOYRISxblAyWT76fVbXxMlZdKTvDGP5bqCZCF2QhnCdg2Cx1sh/lWI5lRoyMsaZ/xZAYUzNr/TjPWS2lQB9RA2Nek5DS1DyXtT9NSmKugzunaCYUfuu/GuSrJmDXlpY4M4FOXMsp7P71mmQnQvsMIS6SNZ7j0nyhkY9vSrIWtnyYP92ueWC+IssInImbWj1OxmMgVnbH7SnCpIbWr/0pyLYNfcNZXspLl+xKmhLyOt6zUjC9PXs3O27/ZZfjqvZ29J0mzIc+TiOsMsn5qtoDbl8lPSLEy7nlCPCjQ3p8n17GpJYY0zzBRFfVN1eLa9vygK85O2cagQku9rqshVdOzvPw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [District = _t, #"IEP Compliance rate" = _t, #"% ELL" = _t, #"% MALE" = _t, #"% Black + Hispanic" = _t, #"% SPANISH" = _t, #"% KG" = _t, #"% Ninth " = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"District", Int64.Type}, {"IEP Compliance rate", Percentage.Type}, {"% ELL", Percentage.Type}, {"% MALE", Percentage.Type}, {"% Black + Hispanic", Percentage.Type}, {"% SPANISH", Percentage.Type}, {"% KG", Percentage.Type}, {"% Ninth ", Percentage.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

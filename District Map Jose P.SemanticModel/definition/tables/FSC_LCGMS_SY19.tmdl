@@ -1,0 +1,147 @@
+table FSC_LCGMS_SY19
+	lineageTag: b93d483e-ab81-456f-8cc6-cfdbfcd537a2
+
+	column 'Administrative District'
+		dataType: int64
+		formatString: 0
+		lineageTag: 11d3e315-2d73-4ccb-af4f-8cb4f043aaa8
+		summarizeBy: sum
+		sourceColumn: Administrative District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School DBN'
+		dataType: string
+		lineageTag: 6b096b64-7c6b-44b7-a13c-074b2fda214d
+		summarizeBy: none
+		sourceColumn: School DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Field_Support_Center_Reporting_Name
+		dataType: string
+		lineageTag: ce63bbed-c897-423f-a5f6-a753b242da7e
+		summarizeBy: none
+		sourceColumn: Field_Support_Center_Reporting_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CoreTeam
+		dataType: string
+		lineageTag: 04087a65-b307-49c2-a968-875497405db7
+		summarizeBy: none
+		sourceColumn: CoreTeam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Burough
+		dataType: string
+		lineageTag: 7a4002cd-cb29-4a25-98e4-943091dbc03c
+		summarizeBy: none
+		sourceColumn: Burough
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoroughCode
+		dataType: string
+		lineageTag: 715449c3-f593-49a7-9529-cdf4f73e5a43
+		summarizeBy: none
+		sourceColumn: BoroughCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Field Support Center'
+		dataType: string
+		lineageTag: 5e465b17-e740-4b18-942b-4aea6cac4ec0
+		summarizeBy: none
+		sourceColumn: Field Support Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School Name'
+		dataType: string
+		lineageTag: b8327f0c-cb2a-4482-a8c1-8ec953429629
+		summarizeBy: none
+		sourceColumn: School Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Superintendent
+		dataType: string
+		lineageTag: 8050ebdd-fa9a-41aa-8c15-376d6510742a
+		summarizeBy: none
+		sourceColumn: Superintendent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutiveSuperintendentName
+		dataType: string
+		lineageTag: c521aa59-c567-4a73-a291-5a74979a9a4a
+		summarizeBy: none
+		sourceColumn: ExecutiveSuperintendentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorPsych
+		dataType: string
+		lineageTag: a82034fe-1bbc-430d-9ffb-9227e1382e66
+		summarizeBy: none
+		sourceColumn: SupervisorPsych
+
+		annotation SummarizationSetBy = Automatic
+
+	column X_Coordinate
+		dataType: string
+		lineageTag: 7847033f-24ee-4c1f-bff5-178c21868049
+		summarizeBy: none
+		sourceColumn: X_Coordinate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Y_Coordinate
+		dataType: string
+		lineageTag: de5f38f2-976f-4fc0-885d-de65ad2da58c
+		summarizeBy: none
+		sourceColumn: Y_Coordinate
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationCategoryDesc
+		dataType: string
+		lineageTag: 48ced270-9eef-4bc5-9687-47ceb2315bfc
+		summarizeBy: none
+		sourceColumn: LocationCategoryDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationTypeDesc
+		dataType: string
+		lineageTag: a6a1a779-8eb6-40f7-a4ff-35e9484bda99
+		summarizeBy: none
+		sourceColumn: LocationTypeDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusDesc
+		dataType: string
+		lineageTag: ba1bac6e-c7cc-4741-85d4-0c9a31bed7bc
+		summarizeBy: none
+		sourceColumn: StatusDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FSC_LCGMS_SY19-7ed02bfe-86c7-4296-894c-4d1d00c65aea = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("ES11VSESSQL06,31433"),
+				    SEO_REPORTING = Source{[Name="SEO_REPORTING"]}[Data],
+				    dbo_FSC_LCGMS_SY19 = SEO_REPORTING{[Schema="dbo",Item="FSC_LCGMS_SY19"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_FSC_LCGMS_SY19,{{"Administrative District", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

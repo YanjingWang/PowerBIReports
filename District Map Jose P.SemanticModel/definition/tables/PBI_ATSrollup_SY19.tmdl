@@ -1,0 +1,65 @@
+table PBI_ATSrollup_SY19
+	lineageTag: 82754fac-cc54-4585-9811-ffc01b77522b
+
+	/// Percentage of Students with Disabilities
+	measure %SWD = COUNT(CC_Register_SY19[Students])/SUM(PBI_ATSrollup_SY19[Students])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 92cec136-9ea3-4e4b-931d-15132810b1ee
+
+	column Students
+		dataType: int64
+		formatString: 0
+		lineageTag: 07e7416f-2d1e-4c73-bb5b-611f7c19caae
+		summarizeBy: sum
+		sourceColumn: Students
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRADE_LEVEL
+		dataType: string
+		lineageTag: ef6c292d-8613-4021-9e3c-8c6da0d7255b
+		summarizeBy: none
+		sourceColumn: GRADE_LEVEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEP_FLG
+		dataType: string
+		lineageTag: 9851ea56-7c8f-475a-a6cf-b157e2a2bce7
+		summarizeBy: none
+		sourceColumn: LEP_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHOOL_DBN
+		dataType: string
+		lineageTag: 332da1b6-d5a4-4d40-8033-0a747032b584
+		summarizeBy: none
+		sourceColumn: SCHOOL_DBN
+
+		annotation SummarizationSetBy = Automatic
+
+	column reportingdistrict
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ef8a7fb-2bc1-4751-a59e-51040cedf874
+		summarizeBy: sum
+		sourceColumn: reportingdistrict
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PBI_ATSrollup_SY19-12fd0a2f-a413-43e5-9607-bfb11b095228 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("ES11VSESSQL06,31433"),
+				    SEO_REPORTING = Source{[Name="SEO_REPORTING"]}[Data],
+				    dbo_PBI_ATSrollup_SY19 = SEO_REPORTING{[Schema="dbo",Item="PBI_ATSrollup_SY19"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_PBI_ATSrollup_SY19,{{"reportingdistrict", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

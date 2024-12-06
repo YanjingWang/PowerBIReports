@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.128.952.0 (24.04)
+
+annotation PBI_QueryOrder = ["Table3","CC_Register_SY19","PBI_ATSrollup_SY19","FSC_LCGMS_SY19","ELL Toggle"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_f16abd7c-458e-4ab3-94b9-e7862fcd574c
+ref table Table3
+ref table CC_Register_SY19
+ref table LocalDateTable_3fa8a3e2-b426-4346-865f-35f4a7a2f35c
+ref table LocalDateTable_20e772fa-574d-46da-a096-a27897fa0713
+ref table LocalDateTable_dc523a51-a503-4843-a66a-72d1bd3ce135
+ref table PBI_ATSrollup_SY19
+ref table FSC_LCGMS_SY19
+ref table 'ELL Toggle'
+

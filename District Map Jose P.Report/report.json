@@ -1,0 +1,89 @@
+{
+  "config": "{\"version\":\"5.37\",\"themeCollection\":{\"customTheme\":{\"name\":\"St_Patricks_Day5882974639100684.json\",\"version\":\"3.23\",\"type\":1},\"baseTheme\":{\"name\":\"CY17SU12\",\"version\":\"3.18\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY17SU12",
+            "path": "BaseThemes/CY17SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "St_Patricks_Day5882974639100684.json",
+            "path": "St_Patricks_Day5882974639100684.json",
+            "type": 201
+          },
+          {
+            "name": "geo_export_9f03d141-ed5b-4079-b64e-e3b80e305fce10322219790809606.json",
+            "path": "geo_export_9f03d141-ed5b-4079-b64e-e3b80e305fce10322219790809606.json",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection1c96659a5939fa023e94",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"337ffd929025f0a2ccae\",\"layouts\":[{\"id\":0,\"position\":{\"x\":193.34143377885786,\"y\":85.73511543134873,\"z\":0,\"width\":1086.561360874848,\"height\":634.2648845686513}}],\"singleVisual\":{\"visualType\":\"shapeMap\",\"projections\":{\"Category\":[{\"queryRef\":\"FSC_LCGMS_SY19.Administrative District\"}],\"Value\":[{\"queryRef\":\"PBI_ATSrollup_SY19.%SWD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FSC_LCGMS_SY19\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"PBI_ATSrollup_SY19\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Administrative District\"},\"Name\":\"FSC_LCGMS_SY19.Administrative District\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"%SWD\"},\"Name\":\"PBI_ATSrollup_SY19.%SWD\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'minColor'\"}}}},\"max\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'maxColor'\"}}}},\"nullColoringStrategy\":{\"strategy\":{\"expr\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}],\"shape\":[{\"properties\":{\"map\":{\"geoJson\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'packaged'\"}}},\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'geo_export_9f03d141-ed5b-4079-b64e-e3b80e305fce.json'\"}}},\"content\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"geo_export_9f03d141-ed5b-4079-b64e-e3b80e305fce10322219790809606.json\"}}}}},\"projectionEnum\":{\"expr\":{\"Literal\":{\"Value\":\"'mercator'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FSC_LCGMS_SY19\"}},\"Property\":\"Administrative District\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FSC_LCGMS_SY19\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Administrative District\"}},\"Right\":{\"Literal\":{\"Value\":\"75D\"}}}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":true}]",
+          "height": 634.26,
+          "width": 1086.56,
+          "x": 193.34,
+          "y": 85.74,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"701076d88e09ac9e5e63\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":55.9902794653706,\"z\":2000,\"width\":1279.902794653706,\"height\":20.121506682867558}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"line\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 20.12,
+          "width": 1279.90,
+          "x": 0.00,
+          "y": 55.99,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"86a9b5b44be58856d66d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":76,\"width\":186,\"height\":614,\"z\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 614.00,
+          "width": 186.00,
+          "x": 0.00,
+          "y": 76.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"ba7ec94a69b51c51d81d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":186.3426488456865,\"y\":55.9902794653706,\"z\":1000,\"width\":13.122721749696234,\"height\":634.2648845686513}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"line\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 634.26,
+          "width": 13.12,
+          "x": 186.34,
+          "y": 55.99,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "St_Patricks_Day5882974639100684.json"
+}
